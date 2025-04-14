@@ -20,7 +20,7 @@
 //    mkdir .demo
 //
 // 6. Download the snippet file to your working folder:
-//    Invoke-WebRequest -Uri 'https://gist.githubusercontent.com/TomProkop/607a9de00d811a5ae68327e90f6a81cf/raw' -OutFile '.vscode/demo.code-snippets'
+//    Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/TALXIS/docs-patterns-practices/refs/heads/master/inner-dev-loop/demo.code-snippets' -OutFile '.vscode/demo.code-snippets'
 //
 // 7. Create a PowerShell script file where you'll be executing the commands from this demo:
 //    New-Item -ItemType File -Name '.demo/DemoScriptPad.ps1'
