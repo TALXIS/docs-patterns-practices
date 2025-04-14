@@ -20,7 +20,7 @@
 //    mkdir .demo
 //
 // 6. Download the snippet file to your working folder:
-//    Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/TALXIS/docs-patterns-practices/refs/heads/master/inner-dev-loop/demo.code-snippets' -OutFile '.vscode/demo.code-snippets'
+//    Invoke-WebRequest -Uri 'https://gist.githubusercontent.com/TomProkop/607a9de00d811a5ae68327e90f6a81cf/raw' -OutFile '.vscode/CodeFirstPowerPlatformDemo.code-snippets'
 //
 // 7. Create a PowerShell script file where you'll be executing the commands from this demo:
 //    New-Item -ItemType File -Name '.demo/DemoScriptPad.ps1'
@@ -214,7 +214,7 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
             "#",
-            "# Create project from template",
+            "# Step 1: Create project from template",
             "#",
             "dotnet new pp-test-ui `",
 			"--output \"src/Tests.UI\" `",
@@ -226,11 +226,52 @@
 			"--allow-scripts yes",
             "#",
             "#",
-            "# Add .feature file to project",
+            "# Step 2: Add .feature file to project",
             "dotnet new pp-test-ui-feature `",
-            "--output \"src/Tests.UI\" "
+            "--output \"src\\Tests.UI\" ",
+
+			"dotnet sln add src/Tests.UI"
 		]
 	},
+	"Background: Login to app": {
+		"scope": "cucumber",
+      "prefix": "background-login",
+      "body": [
+        "Background:",
+        "  Given I am logged in to the 'Warehouse Management App' app as 'alex'"
+      ],
+      "description": "Reusable background for logging into the Warehouse App"
+    },
+  
+    "Create New Warehouse Item": {
+      "prefix": "create-warehouse-item",
+	  "scope": "cucumber",
+      "body": [
+        "Scenario: Create new warehouse item",
+        "  When I open the 'Warehouse Items' sub area of the 'New Group' group",
+        "  And I select the 'New' command",
+        "  And I enter 'Test Item ABC123' into the 'Name' field on the form",
+        "  And I save the record",
+      ],
+      "description": "Create a new warehouse item"
+    },
+  
+    "Fill All Fields via Table": {
+      "prefix": "fill-warehouse-item-table",
+	  "scope": "cucumber",
+      "body": [
+        "Scenario: Fill all fields of Warehouse Item via table input",
+        "  When I open the 'Warehouse Items' sub area of the 'New Group' group",
+        "  And I select the 'New' command",
+        "  And I enter the following into the form",
+        "    | Field           | Value           |",
+        "    | Name            | Item ABC-XYZ    |",
+        "    | Oprion Set Test | First           |",
+        "    | Date time       | 4/2/2025        |",
+        "  And I save the record",
+      ],
+      "description": "Fill form fields using table input"
+    },
 	"Create a Dataverse solution project for a database schema": {
 		"scope": "powershell",
 		"prefix": "CFA04-create-model-solution",
@@ -259,14 +300,16 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Install the TALXIS.DevKit.Templates.Dataverse NuGet package, which contains",
 			"#         templates for creating common Power Platform components.",
-			"dotnet new install TALXIS.DevKit.Templates.Dataverse",
+			" dotnet new install TALXIS.DevKit.Templates.Dataverse",
 			"",
 			"# Step 2: Create a solution project for the database schema using the installed template.",
 			"dotnet new pp-solution `",
 			"--output \"src/${1:Solutions.DataModel}\" `",
 			"--PublisherName \"${2:tomas}\" `",
 			"--PublisherPrefix \"${3:tom}\" `",
-			"--allow-scripts yes"
+			"--allow-scripts yes",
+
+			"dotnet sln add src/Solutions.DataModel"
 		]
 	},
 	"Create database tables in the model solution": {
@@ -300,19 +343,7 @@
 			"--DisplayNamePlural \"${8:Warehouse Items}\" `",
 			"--SolutionRootPath \"${9:Declarations}\" `",
 			"--allow-scripts yes",
-			"",
-			"# Step 2: Add Warehouse Transaction table to the solution",
-			"dotnet new pp-entity `",
-			"--output \"src/${1:Solutions.DataModel}\" `",
-			"--EntityType \"${2:Standard}\" `",
-			"--Behavior \"${3:New}\" `",
-			"--PublisherPrefix \"${4:tom}\" `",
-			"--LogicalName \"${10:warehousetransaction}\" `",
-			"--LogicalNamePlural \"${11:warehousetransactions}\" `",
-			"--DisplayName \"${12:Warehouse Transaction}\" `",
-			"--DisplayNamePlural \"${13:Warehouse Transactions}\" `",
-			"--SolutionRootPath \"${9:Declarations}\" `",
-			"--allow-scripts yes"
+			
 		]
 	},
 	"Add attributes to the tables in the model solution": {
@@ -340,31 +371,6 @@
 			"--DisplayName \"${7:Available Quantity}\" `",
 			"--SolutionRootPath \"${8:Declarations}\" `",
 			"--allow-scripts yes",
-			"",
-			"# Step 2: Add Quantity column to the Warehouse Transaction table",
-			"dotnet new pp-entity-attribute `",
-			"--output \"src/${1:Solutions.DataModel}\" `",
-			"--EntitySchemaName \"${9:tom_warehousetransaction}\" `",
-			"--AttributeType \"${10:WholeNumber}\" `",
-			"--RequiredLevel \"${11:required}\" `",
-			"--PublisherPrefix \"${5:tom}\" `",
-			"--LogicalName \"${12:quantity}\" `",
-			"--DisplayName \"${13:Quantity}\" `",
-			"--SolutionRootPath \"${8:Declarations}\" `",
-			"--allow-scripts yes",
-			"",
-			"# Step 3: Add Item lookup column to the Warehouse Transaction table",
-			"dotnet new pp-entity-attribute `",
-			"--output \"src/${1:Solutions.DataModel}\" `",
-			"--EntitySchemaName \"${14:tom_warehousetransaction}\" `",
-			"--AttributeType \"${15:Lookup}\" `",
-			"--RequiredLevel \"${16:required}\" `",
-			"--PublisherPrefix \"${5:tom}\" `",
-			"--LogicalName \"${17:itemid}\" `",
-			"--DisplayName \"${18:Item}\" `",
-			"--ReferencedEntityName \"${19:tom_warehouseitem}\" `",
-			"--SolutionRootPath \"${8:Declarations}\" `",
-			"--allow-scripts yes"
 		]
 	},
 	"Initialize a Dataverse solution project for a UI layer": {
@@ -411,15 +417,17 @@
 			"--DisplayName \"${5:Warehouse Item}\" `",
 			"--SolutionRootPath \"${6:Declarations}\" `",
 			"--allow-scripts yes",
-			"",
-			"dotnet new pp-entity `",
+
+			"# Step 3: Create model driven app for the UI solution.",
+			"dotnet new pp-model-driven-app `",
 			"--output \"${1:src/Solutions.UI}\" `",
-			"--Behavior \"Existing\" `",
 			"--PublisherPrefix \"${3:tom}\" `",
-			"--LogicalName \"${7:warehousetransaction}\" `",
-			"--DisplayName \"${8:Warehouse Transaction}\" `",
+			"--LogicalName \"ShiftPlanner\" `",
+			"--EntityLogicalName \"warehouseitem\"",
 			"--SolutionRootPath \"${6:Declarations}\" `",
-			"--allow-scripts yes"
+			"--allow-scripts yes",
+
+			"dotnet sln add src/Solutions.UI"
 		]
 	},
 	"Create a Dataverse package and add the solutions to it": {
@@ -500,13 +508,15 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"# Example 1: Build unmanaged solutions (default is Debug configuration).",
-			"dotnet build",
-			"",
-			"# Example 2: Build managed solutions (use Release configuration).",
+			"#",
+			"cd ./src/Solutions.DataModel",
 			"dotnet build --configuration Release",
+			"cd ../../",
 			"",
-			"# Example 3: Build the entire package with solutions included (works for unmanaged with Debug).",
+			"cd ./src/Solutions.UI",
+			"dotnet build --configuration Release",
+			"cd ../../",
+
 			"dotnet publish --configuration Release"
 		]
 	},
@@ -679,8 +689,9 @@
 			"pac auth create --environment \"${1:https://inventorymgmtdev.crm4.dynamics.com/}\"",
 			"",
 			"# Step 3: Optionally add someone else to the environment to collaborate (not a good practice!)",
+			"# In this case we will add user wich will be used for runing tests",
 			"pac admin assign-user `",
-			"--user \"${1:jan.hajek@REDACTED.com}\" `",
+			"--user \"${2:int0022-testing@demo.talxis.com}\" `",
 			"--role \"System Administrator\""
 		]
 	},
@@ -1027,6 +1038,79 @@
 			""
 		]
 	},
+	"Create test pipeline": {
+		"scope": "powershell",
+		"prefix": "TestPipline",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║                   CFE02: Create Azure DevOps UI test pipeline source YAML files        ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# We will create Azure DevOps pipeline file. This pipeline is used to run ui tests. These YAML definitions can be stored alongside your",
+			"# code in the repository, synced to the remote repository and then used to create pipelines",
+			"# using the Azure CLI.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Create a 'pipelines' directory to store pipeline YAML files",
+			"New-Item -ItemType Directory -Path \"pipelines\"",
+			"",
+			"# Step 2: Create files for the build and deployment pipelines",
+			"\"# type runuitests and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/pipelines/Test.yml\"",
+			"",
+			"# Step 3: Open the files in your editor to add the pipeline definitions ",
+			"#         Suggestions for conde snippets can be triggered by control + space",
+			"code \"pipelines/Test.yml\"",
+		]
+	},
+	"Run UI Tests Pipeline": {
+    "scope": "yaml",
+    "prefix": "runuitests",
+    "body": [
+      "# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+      "# ║        YAML pipeline for restoring, building, and running UI tests in .NET Core        ║",
+      "# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+      "name: Run UI Tests",
+      "",
+      "trigger: none",
+      "",
+      "pool:",
+      "  vmImage: 'windows-latest'",
+      "",
+      "steps:",
+      "",
+      "- task: UseDotNet@2",
+      "  inputs:",
+      "    packageType: 'sdk'",
+      "    version: '8.x'",
+      "  displayName: 'Install .NET 8 SDK'",
+      "",
+      "- task: PowerShell@2",
+      "  displayName: 'Update Chrome'",
+      "  inputs:",
+      "    targetType: 'inline'",
+      "    script: |",
+      "      $chromeInstaller = \"chrome_installer.exe\"",
+      "      Invoke-WebRequest -Uri \"https://dl.google.com/chrome/install/latest/chrome_installer.exe\" -OutFile $chromeInstaller",
+      "      Start-Process -FilePath $chromeInstaller -ArgumentList \"/silent\", \"/install\" -NoNewWindow -Wait",
+      "      Remove-Item -Path $chromeInstaller",
+      "",
+      "- task: PowerShell@2",
+      "  displayName: 'Run UI tests'",
+      "  inputs:",
+      "    targetType: 'inline'",
+      "    script: |",
+      "      $env:Users__0__Username = '$(UserName)'",
+      "      $env:Users__0__Password = '$(UserPassword)'",
+      "      $env:Users__0__Alias = '$(UserAlias)'",
+      "      $env:Users__0__OtpToken = '$(UserOtpToken)'",
+      "",
+      "      dotnet test"
+    ],
+    "description": "YAML pipeline snippet for running UI tests with .NET Core"
+  },
 	"Create a pull request to integrate pipelines into the main branch": {
 		"scope": "powershell",
 		"prefix": "CFE05-create-pipelines-pull-request",
@@ -1043,7 +1127,7 @@
 			"git commit -m \"${1:chore: created build and deployment pipeline YAML files}\"",
 			"",
 			"# Step 3: Push the changes to the remote repository",
-			"git push -u origin -all",
+			"git push -u origin --all",
 			"",
 			"# Step 4: Create a pull request in Azure DevOps using the Azure CLI and open it in a browser",
 			"az repos pr create `",
@@ -1063,6 +1147,7 @@
 			"git pull origin main"
 		]
 	},
+
 	"Create pipelines in Azure DevOps from the files": {
 		"scope": "powershell",
 		"prefix": "CFE06-create-pipelines-ado",
@@ -1103,6 +1188,16 @@
 			"--repository-type tfsgit `",
 			"--branch \"${5:main}\" `",
 			"--yaml-path \"pipelines/deploy.yml\" `",
+			"--skip-first-run",
+
+			"# Step 3: Create the ui test pipeline.",
+			"az pipelines create `",
+			"--name \"Run test Pipeline\" `",
+			"--project \"\\$projectName\" `",
+			"--repository \"\\$repositoryName\" `",
+			"--repository-type tfsgit `",
+			"--branch \"${5:main}\" `",
+			"--yaml-path \"pipelines/Test.yml\" `",
 			"--skip-first-run"
 		]
 	},
