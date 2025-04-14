@@ -15,7 +15,7 @@ Scripted setup of a Power Platform project repository using Visual Studio Code a
 This repository leverages the following tools developed and maintained by the TALXIS team:
 
 - [tools-devkit-build](https://github.com/TALXIS/tools-devkit-build)  
-  Helps Power Platform developers customize the MSBuild process (`dotnet build`) for Dataverse solution components. It includes build tasks that streamline and automate development workflows.
+  Helps Power Platform developers customize the MSBuild process (`dotnet build`) for Dataverse solution components. It includes build tasks that automate steps.
 
 - [tools-devkit-templates](https://github.com/TALXIS/tools-devkit-templates)  
   Supports scaffolding of Power Platform components using a code-first approach. This NuGet package enables consistent and structured project setup for developers.
