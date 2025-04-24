@@ -1,0 +1,98 @@
+{
+    "Create a project with UI tests": {
+		"scope": "powershell",
+		"prefix": "CFA03-create-ui-tests",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║                          CFA03: Create a project for UI tests                          ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# This script creates an application in which you can write tests in the Gherkin language. ",
+			"# When creating this application from template, you can automatically initialize user secrets,  ",
+			"# connect the FluentAssertions library,   ",
+			"# choose a framework to test your application (MStest, NUnit, XUnit )    ",
+			"# and generate appsetings.json to configure your tests    ",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#",
+			"# Step 1: Create project from template",
+			"#",
+			"dotnet new pp-test-ui `",
+			"--output \"src/Tests.UI\" `",
+			"--createAppsetingsFile true `",
+			"--enableUserSecrets true `",
+			"--testExecutionFramework \"mstest\" `",
+			"--includeFluentAssertions true `",
+			"--enableCucumberSupport true `",
+			"--allow-scripts yes",
+			"#",
+			"# Step 2: Add .feature file to project",
+			"dotnet new pp-test-ui-feature `",
+			"--output \"src\\Tests.UI\" ",
+			"#",
+			"dotnet sln add src/Tests.UI"
+		]
+	},
+	"Background: Login to app": {
+		"scope": "cucumber",
+		"prefix": "background-login",
+		"body": [
+			"Background:",
+			"  Given I am logged in to the 'Warehouse Management App' app as 'TestUser'"
+		],
+		"description": "Reusable background for logging into the Warehouse App"
+	},
+	"Create New Warehouse Item": {
+		"prefix": "create-warehouse-item",
+		"scope": "cucumber",
+		"body": [
+			"Scenario: Create new warehouse item",
+			"  When I open the 'Warehouse Items' sub area of the 'New Group' group",
+			"  And I select the 'New' command",
+			"  And I enter 'Test Item ABC123' into the 'Name' field on the form",
+			"  And I save the record",
+		],
+		"description": "Create a new warehouse item"
+	},
+	"Fill All Fields via Table": {
+		"prefix": "fill-warehouse-item-table",
+		"scope": "cucumber",
+		"body": [
+			"Scenario: Fill all fields of Warehouse Item via table input",
+			"  When I open the 'Warehouse Items' sub area of the 'New Group' group",
+			"  And I select the 'New' command",
+			"  And I enter the following into the form",
+			"    | Field           | Value           |",
+			"    | Name            | Item ABC-XYZ    |",
+			"    | Oprion Set Test | First           |",
+			"    | Date time       | 4/2/2025        |",
+			"  And I save the record",
+		],
+		"description": "Fill form fields using table input"
+	},
+	"Run ui test": {
+		"scope": "powershell",
+		"prefix": "Run-UI-tests",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║                                    Run ui test                                         ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# Once we have uploaded the solution and published our application we are ready to run tests",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Add url of your application to appsetings.json",
+			"",
+			"# Step 2: Add testing user data to nuget user secrets",
+			"",
+			"# Step 3: Run the tests locally",
+			"dotnet test"
+		]
+	}
+}
