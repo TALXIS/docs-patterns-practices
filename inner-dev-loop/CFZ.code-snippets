@@ -1,0 +1,29 @@
+{
+	"Delete the environment and repository": {
+		"scope": "powershell",
+		"prefix": "CFZ99-delete-environment",
+		"body": [
+			"pac admin delete --environment \"https://inventorymgmtdev.crm4.dynamics.com/\"",
+			"pac admin delete --environment \"https://inventorymgmttest.crm4.dynamics.com/\"",
+			"",
+			"az repos delete --id \\$repositoryId --yes --project \"\\$projectName\"",
+			"az devops project delete --yes --id \\$projectId",
+			"az ad app delete --id \\$appRegistrationId"
+		]
+	},
+	"Create a form, create a onload script": {
+		"scope": "powershell",
+		"prefix": "CFZ98-create-form-script",
+		"body": [
+			"# CFZ98",
+			"# Create a form, create a onload script",
+			"cd Solutions.UI/Declarations/Entities/tom_xyz/FormXml",
+			"dotnet new pp-form --EntityName \"\" --DisplayName \"Solutions.UI\" --PublisherName \"tomas\" --PublisherPrefix \"tom\" --allow-scripts yes",
+			"",
+			"dotnet new pp-script-library",
+			"",
+			"# Implement the onload function",
+			"# Register an event handler in the form"
+		]
+	}
+}
