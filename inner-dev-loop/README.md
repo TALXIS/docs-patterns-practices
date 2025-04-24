@@ -56,7 +56,7 @@ You can watch the related walkthrough videos on our YouTube channel:
    code .demo/DemoScriptPad.ps1
    ```
 
-   Start typing `CFA00` to insert the first snippet.
+   Start typing `CFDownloadSnippets` to insert the first snippet.
 
 7. **Optional: Bind F5 to clear the terminal and run the script**
 
