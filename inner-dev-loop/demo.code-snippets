@@ -18,7 +18,7 @@
             "#   - A '.vscode' folder in the root of your project. If it doesn't exist, create it before running the script.",
             "#   - Sufficient permissions to write files to the '.vscode' folder.",
             "#",
-            "(Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/inner-dev-loop?ref=master' | Where-Object { $_.type -eq 'file' }) | ForEach-Object { Invoke-WebRequest $_.download_url -OutFile \".vscode\\$($_.name)\" }"
+            "(Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/inner-dev-loop?ref=master' | Where-Object { \\$_.type -eq 'file' }) | ForEach-Object { Invoke-WebRequest \\$_.download_url -OutFile \".vscode\\$(\\$_.name)\" }"
         ]
     }
 }
