@@ -148,7 +148,7 @@
 	},
 	"Create test pipeline": {
 		"scope": "powershell",
-		"prefix": "TestPipline",
+		"prefix": "CFE05-test-pipline",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
@@ -175,11 +175,19 @@
 	},
 	"Run UI Tests Pipeline": {
 		"scope": "yaml",
-		"prefix": "runuitests",
+		"prefix": "CFE06-run-tests",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║        YAML pipeline for restoring, building, and running UI tests in .NET Core        ║",
+			"# ║    CFE06: YAML pipeline for restoring, building, and running UI tests in .NET Core     ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# This YAML pipeline automates the process of running UI tests for a .NET Core application.",
+			"# It is designed to be used in a CI/CD system like Azure DevOps or GitHub Actions.",
+			"# The pipeline performs the following key tasks:",
+			"#   1. Installs the .NET SDK to ensure the environment can build and test the application.",
+			"#   2. Updates Google Chrome to the latest version for UI testing  with Selenium.",
+			"#   3. Configures environment variables for test user credentials and runs the UI tests.",
+			"#",
 			"name: Run UI Tests",
 			"",
 			"trigger: none",
@@ -221,11 +229,11 @@
 	},
 	"Create a pull request to integrate pipelines into the main branch": {
 		"scope": "powershell",
-		"prefix": "CFE05-create-pipelines-pull-request",
+		"prefix": "CFE07-create-pipelines-pull-request",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║         CFE05: Create a pull request to integrate pipelines into the main branch       ║",
+			"# ║         CFE07: Create a pull request to integrate pipelines into the main branch       ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Step 1: Add all the changes to the staging area",
@@ -257,11 +265,11 @@
 	},
 	"Create pipelines in Azure DevOps from the files": {
 		"scope": "powershell",
-		"prefix": "CFE06-create-pipelines-ado",
+		"prefix": "CFE08-create-pipelines-ado",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                   CFE06: Create pipelines in Azure DevOps from the files               ║",
+			"# ║                   CFE08: Create pipelines in Azure DevOps from the files               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Once the pull request for the pipeline definitions has been merged into the main branch,",
@@ -309,11 +317,11 @@
 	},
 	"Update project and build pipeline ID in the deploy pipeline YAML": {
 		"scope": "powershell",
-		"prefix": "CFE07-update-project-build-id",
+		"prefix": "CFE09-update-project-build-id",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║              CFE07: Update project and build pipeline ID in deploy pipeline            ║",
+			"# ║              CFE09: Update project and build pipeline ID in deploy pipeline            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After the project and build pipeline were created, the pipeline YAML definitions should be",
@@ -359,11 +367,11 @@
 	},
 	"Create a test environment": {
 		"scope": "powershell",
-		"prefix": "CFE08-create-test-environment",
+		"prefix": "CFE10-create-test-environment",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                        CFE08: Create a test environment                               ║",
+			"# ║                        CFE10: Create a test environment                               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A test environment (UAT) is used for testing your solutions before they are deployed ",
@@ -387,11 +395,11 @@
 	},
 	"Create app registration and service connection in Azure DevOps": {
 		"scope": "powershell",
-		"prefix": "CFE09-create-service-connection",
+		"prefix": "CFE11-create-service-connection",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║           CFE09: Create app registration and service connection in Azure DevOps       ║",
+			"# ║           CFE11: Create app registration and service connection in Azure DevOps       ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Workload identity federation allows Azure DevOps to authenticate against Azure services",
@@ -476,11 +484,11 @@
 	},
 	"Run and open pipelines in the browser": {
 		"scope": "powershell",
-		"prefix": "CFE10-run-and-open-pipelines",
+		"prefix": "CFE12-run-and-open-pipelines",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFE10: Run and open pipelines in the browser                      ║",
+			"# ║                     CFE12: Run and open pipelines in the browser                      ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After creating your pipelines in Azure DevOps, you can run them using the Azure CLI",

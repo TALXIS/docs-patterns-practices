@@ -1,9 +1,9 @@
 {
     "Initialize a new PCF control project": {
 		"scope": "powershell",
-		"prefix": "CFF01-init-pcf-control-project",
+		"prefix": "CFG01-init-pcf-control-project",
 		"body": [
-			"# CFF01",
+			"# CFG01",
 			"# Initialize a new PCF control project",
 			"pac pcf init `",
 			"--namespace tom `",
@@ -23,9 +23,9 @@
 	},
 	"Initialize a new solution for PCF controls and add the control to it": {
 		"scope": "powershell",
-		"prefix": "CFF02-init-pcf-solution-project",
+		"prefix": "CFG02-init-pcf-solution-project",
 		"body": [
-			"# CFF02",
+			"# CFG02",
 			"# Initialize a new solution for PCF controls",
 			"pac solution init --publisher-name tomas --publisher-prefix tom --outputDirectory \"Solutions.Controls\"",
 			"cd \"Solutions.Controls\"",
@@ -51,9 +51,9 @@
 	},
 	"Upgrade React and install React Big Calendar": {
 		"scope": "powershell",
-		"prefix": "CFF03-upgrade-react-install-calendar",
+		"prefix": "CFG03-upgrade-react-install-calendar",
 		"body": [
-			"# CFF03",
+			"# CFG03",
 			"# Upgrade React and install React Big Calendar",
 			"cd \"src/Controls.Calendar\"",
 			"npm install react@17",
@@ -72,9 +72,9 @@
 	},
 	"Calendar React component": {
 		"scope": "typescript,typescriptreact",
-		"prefix": "CFF04-calendar-react-component",
+		"prefix": "CFG04-calendar-react-component",
 		"body": [
-			"// CFF04",
+			"// CFG04",
 			"import * as React from 'react';",
 			"import { Calendar, momentLocalizer, Views } from \"react-big-calendar\";",
 			"import \"react-big-calendar/lib/css/react-big-calendar.css\";",
@@ -126,9 +126,9 @@
 	},
 	"Import the Controls solution to your Dataverse dev environment": {
 		"scope": "powershell",
-		"prefix": "CFF06-import-solution-to-dev-env",
+		"prefix": "CFG06-import-solution-to-dev-env",
 		"body": [
-			"# CFF06",
+			"# CFG06",
 			"# Build the whole repository",
 			"dotnet build",
 			"",
@@ -140,9 +140,9 @@
 	},
 	"Bump the PCF version, push the control to the environment and publish it": {
 		"scope": "powershell",
-		"prefix": "CFF06-push-pcf",
+		"prefix": "CFG06-push-pcf",
 		"body": [
-			"# CFF06",
+			"# CFG06",
 			"# Bump the PCF version, push the control to the environment and publish it",
 			"pac pcf version --patchversion ${1:1}",
 			"pac pcf push --publisher-prefix ${2:tom}",

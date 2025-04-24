@@ -1,7 +1,7 @@
 {
     "Create a Dataverse solution project for a database schema": {
 		"scope": "powershell",
-		"prefix": "CFA04-create-model-solution",
+		"prefix": "CFA03-create-model-solution",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
@@ -40,7 +40,7 @@
 	},
 	"Create database tables in the model solution": {
 		"scope": "powershell",
-		"prefix": "CFA05-create-tables",
+		"prefix": "CFA04-create-tables",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
@@ -73,7 +73,7 @@
 	},
 	"Add attributes to the tables in the model solution": {
 		"scope": "powershell",
-		"prefix": "CFA06-add-attributes",
+		"prefix": "CFA05-add-attributes",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
@@ -113,7 +113,7 @@
 	},
 	"Initialize a Dataverse solution project for a UI layer": {
 		"scope": "powershell",
-		"prefix": "CFA07-create-ui-solution",
+		"prefix": "CFA06-create-ui-solution",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
@@ -187,7 +187,7 @@
 	},
     "Create a Dataverse package and add the solutions to it": {
 		"scope": "powershell",
-		"prefix": "CFA08-create-pdpackage",
+		"prefix": "CFA07-create-pdpackage",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
@@ -228,7 +228,7 @@
 	},
 	"Build solution.zip files which can be imported": {
 		"scope": "powershell",
-		"prefix": "CFA09-build-solutions",
+		"prefix": "CFA08-build-solutions",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
