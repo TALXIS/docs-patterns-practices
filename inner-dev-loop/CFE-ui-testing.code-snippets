@@ -37,49 +37,73 @@
 		]
 	},
 	"Background: Login to app": {
-		"scope": "cucumber",
-		"prefix": "background-login",
-		"body": [
-			"Background:",
-			"  Given I am logged in to the 'Warehouse Management App' app as 'TestUser'"
-		],
-		"description": "Reusable background for logging into the Warehouse App"
+    "scope": "cucumber",
+    "prefix": "CFE02-background-login",
+    "body": [
+        "#",
+        "# ╔════════════════════════════════════════════════════════════════════╗",
+        "# ║                   CFE02: Login to Warehouse Management App         ║",
+        "# ╚════════════════════════════════════════════════════════════════════╝",
+        "#",
+        "# This background is used to ensure the user is logged in before running scenarios.",
+        "# It sets up the initial state for testing by logging into the app as a test user.",
+        "#",
+        "Background:",
+        "  Given I am logged in to the 'Warehouse Management App' app as 'TestUser' "
+    ],
+    "description": "Reusable background for logging into the Warehouse App"
 	},
 	"Create New Warehouse Item": {
-		"prefix": "create-warehouse-item",
-		"scope": "cucumber",
-		"body": [
-			"Scenario: Create new warehouse item",
-			"  When I open the 'Warehouse Items' sub area of the 'New Group' group",
-			"  And I select the 'New' command",
-			"  And I enter 'Test Item ABC123' into the 'Name' field on the form",
-			"  And I save the record",
-		],
-		"description": "Create a new warehouse item"
+    "prefix": "CFE03-create-warehouse-item",
+    "scope": "cucumber",
+    "body": [
+        "#",
+        "# ╔════════════════════════════════════════════════════════════════════╗",
+        "# ║                 CFE03: Create a new warehouse item                 ║",
+        "# ╚════════════════════════════════════════════════════════════════════╝",
+        "#",
+        "# This scenario tests the creation of a new warehouse item in the app.",
+        "# It navigates to the appropriate section, fills in the required field, and saves the record.",
+        "#",
+        "Scenario: Create new warehouse item",
+        "  When I open the 'Warehouse Items' sub area of the 'New Group' group ",
+        "  And I select the 'New' command",
+        "  And I enter 'Test Item ABC123' into the 'Name' field on the form ",
+        "  And I save the record "
+    ],
+    "description": "Create a new warehouse item"
 	},
 	"Fill All Fields via Table": {
-		"prefix": "fill-warehouse-item-table",
-		"scope": "cucumber",
-		"body": [
-			"Scenario: Fill all fields of Warehouse Item via table input",
-			"  When I open the 'Warehouse Items' sub area of the 'New Group' group",
-			"  And I select the 'New' command",
-			"  And I enter the following into the form",
-			"    | Field           | Value           |",
-			"    | Name            | Item ABC-XYZ    |",
-			"    | Oprion Set Test | First           |",
-			"    | Date time       | 4/2/2025        |",
-			"  And I save the record",
-		],
-		"description": "Fill form fields using table input"
+    "prefix": "CFE04-fill-warehouse-item-table",
+    "scope": "cucumber",
+    "body": [
+        "#",
+        "# ╔════════════════════════════════════════════════════════════════════╗",
+        "# ║          CFE04: Fill warehouse item fields using table input       ║",
+        "# ╚════════════════════════════════════════════════════════════════════╝",
+        "#",
+        "# This scenario tests filling multiple fields of a warehouse item using a table.",
+        "# It navigates to the form, inputs data via a table, and saves the record.",
+        "#",
+        "Scenario: Fill all fields of Warehouse Item via table input",
+        "  When I open the 'Warehouse Items' sub area of the 'New Group' group ",
+        "  And I select the 'New' command ",
+        "  And I enter the following into the form ",
+        "    | Field           | Value           |",
+        "    | Name            | Item ABC-XYZ    |",
+        "    | Oprion Set Test | First           |",
+        "    | Date time       | 4/2/2025        |",
+        "  And I save the record "
+    ],
+    "description": "Fill form fields using table input"
 	},
 	"Run ui test": {
 		"scope": "powershell",
-		"prefix": "Run-UI-tests",
+		"prefix": "CFE05-Run-UI-tests",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                                    Run UI Test                                         ║",
+			"# ║                                   CFE05: Run UI Test                                   ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Once we have uploaded the solution and published our application, we are ready to run tests.",
@@ -115,7 +139,6 @@
 			"#   c) Ensure the test user exists in the application's database or authentication system.",
 			"",
 			"# Step 3: Run the tests locally",
-			"# Purpose: Execute the UI tests using the .NET test runner.",
 			"# Instructions:",
 			"#   c) Open a terminal in the test project folder and run:",
 			"#",
