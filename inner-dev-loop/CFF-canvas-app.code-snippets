@@ -1,9 +1,9 @@
 {
     "Create database schema and a new Canvas app": {
 		"scope": "powershell",
-		"prefix": "CFD01-create-schema-and-canvas-app",
+		"prefix": "CFF01-create-schema-and-canvas-app",
 		"body": [
-			"# CFD01",
+			"# CFF01",
 			"# 1. open the empty App solution you imported",
 			"# 2. create a new Canvas app called 'Shift Planner' Canvas App",
 			"",
@@ -37,11 +37,11 @@
 	},
 	"Create fields for model driven app": {
 		"scope": "powershell",
-		"prefix": "CFD01-create-schema-and-canvas-app",
+		"prefix": "CFF02-сreating-fields-in-dataverse",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║    Instruction: Creating Fields in Dataverse via make.powerapps.com                      ║",
+			"# ║           Instruction: Creating Fields in Dataverse via make.powerapps.com             ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# 1. Authentication and Environment Selection:",
@@ -82,11 +82,11 @@
 	},
 	"Synchronize the changes from live environment back to your repository": {
 		"scope": "powershell",
-		"prefix": "CFD02-sync-changes-to-repo",
+		"prefix": "CFF02-sync-changes-to-repo",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║      CFD02: Synchronize the changes from live environment back to your repository      ║",
+			"# ║      CFF02: Synchronize the changes from live environment back to your repository      ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After making changes directly in your Dataverse environment, you can sync those changes",
@@ -114,9 +114,9 @@
 	},
 	"Export data and add them to the package": {
 		"scope": "powershell",
-		"prefix": "CFD03-export-data-and-add-to-package",
+		"prefix": "CFF03-export-data-and-add-to-package",
 		"body": [
-			"# CFD03",
+			"# CFF03",
 			"# Export data from the live environment and add them to the package",
 			"mkdir \"src/Packages.Main/Data\"",
 			"cd \"src/Packages.Main\"",
@@ -152,11 +152,11 @@
 	},
 	"Commit the changes": {
 		"scope": "powershell",
-		"prefix": "CFD04-commit-changes",
+		"prefix": "CFF04-commit-changes",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                       CFD04: Commit the changes to your local repository              ║",
+			"# ║                       CFF04: Commit the changes to your local repository              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Step 1: Add all the changes to the staging area",
@@ -171,11 +171,11 @@
 	},
 	"Create a pull request to integrate changes into the main branch": {
 		"scope": "powershell",
-		"prefix": "CFD05-create-pull-request",
+		"prefix": "CFF05-create-pull-request",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║           CFD05: Create a pull request to integrate changes into the main branch       ║",
+			"# ║           CFF05: Create a pull request to integrate changes into the main branch       ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A pull request (PR) is a method for submitting contributions to a repository. Once you've",
