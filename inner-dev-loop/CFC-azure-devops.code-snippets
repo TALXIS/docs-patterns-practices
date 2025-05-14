@@ -1,5 +1,5 @@
 {
-    "Commit the current changes to your local feature branch": {
+	"Commit the current changes to your local feature branch": {
 		"scope": "powershell",
 		"prefix": "CFC01-commit-initial-changes",
 		"body": [

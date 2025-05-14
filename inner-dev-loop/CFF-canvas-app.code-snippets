@@ -1,5 +1,5 @@
 {
-    "Create database schema and a new Canvas app": {
+	"Create database schema and a new Canvas app": {
 		"scope": "powershell",
 		"prefix": "CFF01-create-schema-and-canvas-app",
 		"body": [
@@ -77,8 +77,8 @@
 			"# 4. Finally:",
 			"#    - Ensure all changes are saved.",
 			"#"
-		  ],
-		  "description": "Snippet providing detailed instructions for creating 'Available Quantity' and 'Item' fields via make.powerapps.com."
+		],
+		"description": "Snippet providing detailed instructions for creating 'Available Quantity' and 'Item' fields via make.powerapps.com."
 	},
 	"Synchronize the changes from live environment back to your repository": {
 		"scope": "powershell",

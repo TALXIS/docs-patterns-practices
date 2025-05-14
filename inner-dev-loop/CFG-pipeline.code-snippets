@@ -1,5 +1,5 @@
 {
-    "Sync main branch and create a new branch for pipeline files": {
+	"Sync main branch and create a new branch for pipeline files": {
 		"scope": "powershell",
 		"prefix": "CFG01-sync-main-create-pipeline-branch",
 		"body": [
