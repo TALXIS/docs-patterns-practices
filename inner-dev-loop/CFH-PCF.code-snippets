@@ -1,5 +1,5 @@
 {
-    "Initialize a new PCF control project": {
+	"Initialize a new PCF control project": {
 		"scope": "powershell",
 		"prefix": "CFH01-init-pcf-control-project",
 		"body": [

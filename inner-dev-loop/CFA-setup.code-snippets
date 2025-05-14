@@ -1,5 +1,5 @@
 {
-    "Power Platform Repository Demo Script Intro": {
+	"Power Platform Repository Demo Script Intro": {
 		"scope": "powershell",
 		"prefix": "CFA00-machine-setup",
 		"body": [
