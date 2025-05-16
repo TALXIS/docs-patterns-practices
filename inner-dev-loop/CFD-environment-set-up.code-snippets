@@ -56,8 +56,9 @@
 			"",
 			"# Step 3: Optionally add someone else to the environment to collaborate (not a good practice!)",
 			"# In this case we will add user wich will be used for runing tests",
+			"# Note that the value for the user parameter should be username, not email",
 			"pac admin assign-user `",
-			"--user \"${2:int0022-testing@demo.talxis.com}\" `",
+			"--user \"int0022-testing_demo.talxis.com#EXT#@thenetworg.onmicrosoft.com\" `",
 			"--role \"System Administrator\""
 		]
 	},
@@ -126,11 +127,11 @@
 	},
 	"Create Dataverse User from SPN with Auto Business Unit and Role": {
 		"scope": "powershell",
-		"prefix": "CFD11-create-spn-user-advanced",
+		"prefix": "CFD11-add-spn-user",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║   CFD11: Create Dataverse User from SPN with Business Unit and Role Lookup           ║",
+			"# ║     CFD11: Create Dataverse User from SPN with Business Unit and Role Lookup           ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script creates a Dataverse user for a Service Principal (SPN). It dynamically detects",
@@ -140,7 +141,7 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"#                                     Parameters",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"$$orgUrl = \"https://inventorymgmtdev.crm4.dynamics.com/\"",
+			"$$orgUrl = \"https://inventorymgmtdev.crm4.dynamics.com\"",
 			"$$clientId = $$ServicePrincipal.appId  # Azure AD Application (client) ID",
 			"",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
@@ -162,7 +163,7 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"#                  Step 2: Resolve 'System Administrator' Role ID",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"$$userUrl = \"$$orgUrl/api/data/v9.2/systemusers($$userId)?`$expand=systemuserroles_association(`$select=name,roleid)\"",
+			"$$userUrl = \"$$orgUrl/api/data/v9.2/systemusers($$userId)?`$$expand=systemuserroles_association(`$$select=name,roleid)\"",
 			"$$userResponse = Invoke-RestMethod -Uri $$userUrl -Method Get -Headers @{",
 			"    \"Authorization\"     = \"Bearer $$token\"",
 			"    \"Accept\"           = \"application/json\"",
@@ -198,12 +199,39 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"#                          Step 4: Assign Security Role to User",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"$$associationUri = \"$$orgUrl/api/data/v9.0/systemusers($$userId)/systemuserroles_association/`$ref\"",
+			"$$associationUri = \"$$orgUrl/api/data/v9.0/systemusers($$userId)/systemuserroles_association/`$$ref\"",
 			"$$body = @{",
 			"    \"@odata.id\" = \"$$orgUrl/api/data/v9.0/roles($$roleId)\"",
 			"} | ConvertTo-Json -Compress",
 			"",
 			"$$response = Invoke-RestMethod -Method Post -Uri $$associationUri -Headers $$headers -Body $$body"
+		]
+	},
+	"Publish Model-Driven App": {
+		"scope": "powershell",
+		"prefix": "CFD12-publish-app",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║                      CFD12: Publish Model-Driven App                                   ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# This script triggers a publish operation to apply pending customization changes",
+			"# (e.g. sitemap, forms, app modules) made to the model-driven app in your Dataverse environment.",
+			"# Use this after modifying app metadata or UI components to make them active.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Command",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Form the PublishAllXml endpoint URL",
+			"$$publishUrl = \"$$orgUrl/api/data/v9.2/PublishAllXml\"",
+			"",
+			"# Step 2: Perform the publish operation using POST request",
+			"$$response = Invoke-RestMethod `",
+			"    -Method Post `",
+			"    -Uri $$publishUrl `",
+			"    -Headers @{ Authorization = \"Bearer $$token\" } `",
+			"    -ContentType \"application/json\""
 		]
 	}
 }

@@ -1,10 +1,10 @@
 {
     "Create a form, create a onload script": {
         "scope": "powershell",
-        "prefix": "CFDownloadSnippets",
+        "prefix": "CF0-DownloadSnippets",
         "body": [
             "# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-            "# ║                             Download All Necessary Snippets                            ║",
+            "# ║                           CF0: Download All Necessary Snippets                         ║",
             "# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
             "#",
             "# Description:",
