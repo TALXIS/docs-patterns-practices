@@ -1,11 +1,11 @@
 {
 	"Sync main branch and create a new branch for pipeline files": {
 		"scope": "powershell",
-		"prefix": "CFG01-sync-main-create-pipeline-branch",
+		"prefix": "CFH01-sync-main-create-pipeline-branch",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║      CFG01: Sync main branch and create a new branch for introducing pipeline files    ║",
+			"# ║      CFH01: Sync main branch and create a new branch for introducing pipeline files    ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After the pull request is merged, you need to sync your local main branch with the remote",
@@ -24,11 +24,11 @@
 	},
 	"Create pipeline source files": {
 		"scope": "powershell",
-		"prefix": "CFG02-create-pipeline-files",
+		"prefix": "CFH02-create-pipeline-files",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                   CFG02: Create Azure DevOps pipeline source YAML files                ║",
+			"# ║                   CFH02: Create Azure DevOps pipeline source YAML files                ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# We will create two Azure DevOps pipeline files. One for building artifacts from the source,",
@@ -43,10 +43,10 @@
 			"New-Item -ItemType Directory -Path \"pipelines\"",
 			"",
 			"# Step 2: Create files for the build and deployment pipelines",
-			"\"# type CFG03 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"pipelines/build.yml\"",
-			"\"# type CFG04 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"pipelines/deploy.yml\"",
+			"\"# type CFH03 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"pipelines/build.yml\"",
+			"\"# type CFH04 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"pipelines/deploy.yml\"",
 			"",
-			"# Step 3: Open the files in your editor to add the pipeline definitions (CFG03 and CFG04)",
+			"# Step 3: Open the files in your editor to add the pipeline definitions (CFH03 and CFH04)",
 			"#         Suggestions for conde snippets can be triggered by control + space",
 			"code \"pipelines/build.yml\"",
 			"code \"pipelines/deploy.yml\""
@@ -54,10 +54,10 @@
 	},
 	"Build pipeline template": {
 		"scope": "yaml",
-		"prefix": "CFG03-build-pipeline-template",
+		"prefix": "CFH03-build-pipeline-template",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║    CFG03: Template of a build pipeline template for building artifacts from source     ║",
+			"# ║    CFH03: Template of a build pipeline template for building artifacts from source     ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"",
 			"# Versioning the pipeline output with date and revision number",
@@ -101,10 +101,10 @@
 	},
 	"Deployment pipeline template": {
 		"scope": "yaml",
-		"prefix": "CFG04-deployment-pipeline-template",
+		"prefix": "CFH04-deployment-pipeline-template",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║     CFG04: Template of a deployment pipeline for deploying packages to environment     ║",
+			"# ║     CFH04: Template of a deployment pipeline for deploying packages to environment     ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"",
 			"# Versioning the pipeline output with date and revision number",
@@ -148,11 +148,11 @@
 	},
 	"Create test pipeline": {
 		"scope": "powershell",
-		"prefix": "CFG05-test-pipline",
+		"prefix": "CFH05-test-pipline",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                CFG02: Create Azure DevOps UI test pipeline source YAML files           ║",
+			"# ║                CFH02: Create Azure DevOps UI test pipeline source YAML files           ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# We will create Azure DevOps pipeline file. This pipeline is used to run ui tests. These YAML definitions can be stored alongside your",
@@ -175,10 +175,10 @@
 	},
 	"Run UI Tests Pipeline": {
 		"scope": "yaml",
-		"prefix": "CFG06-run-tests",
+		"prefix": "CFH06-run-tests",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║    CFG06: YAML pipeline for restoring, building, and running UI tests in .NET Core     ║",
+			"# ║    CFH06: YAML pipeline for restoring, building, and running UI tests in .NET Core     ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This YAML pipeline automates the process of running UI tests for a .NET Core application.",
@@ -229,11 +229,11 @@
 	},
 	"Create a pull request to integrate pipelines into the main branch": {
 		"scope": "powershell",
-		"prefix": "CFG07-create-pipelines-pull-request",
+		"prefix": "CFH07-create-pipelines-pull-request",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║         CFG07: Create a pull request to integrate pipelines into the main branch       ║",
+			"# ║         CFH07: Create a pull request to integrate pipelines into the main branch       ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Step 1: Add all the changes to the staging area",
@@ -265,11 +265,11 @@
 	},
 	"Create pipelines in Azure DevOps from the files": {
 		"scope": "powershell",
-		"prefix": "CFG08-create-pipelines-ado",
+		"prefix": "CFH08-create-pipelines-ado",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                   CFG08: Create pipelines in Azure DevOps from the files               ║",
+			"# ║                   CFH08: Create pipelines in Azure DevOps from the files               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Once the pull request for the pipeline definitions has been merged into the main branch,",
@@ -317,11 +317,11 @@
 	},
 	"Update project and build pipeline ID in the deploy pipeline YAML": {
 		"scope": "powershell",
-		"prefix": "CFG09-update-project-build-id",
+		"prefix": "CFH09-update-project-build-id",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║              CFG09: Update project and build pipeline ID in deploy pipeline            ║",
+			"# ║              CFH09: Update project and build pipeline ID in deploy pipeline            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After the project and build pipeline were created, the pipeline YAML definitions should be",
@@ -367,11 +367,11 @@
 	},
 	"Create a test environment": {
 		"scope": "powershell",
-		"prefix": "CFG10-create-test-environment",
+		"prefix": "CFH10-create-test-environment",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                        CFG10: Create a test environment                               ║",
+			"# ║                        CFH10: Create a test environment                               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A test environment (UAT) is used for testing your solutions before they are deployed ",
@@ -395,11 +395,11 @@
 	},
 	"Create app registration and service connection in Azure DevOps": {
 		"scope": "powershell",
-		"prefix": "CFG11-create-service-connection",
+		"prefix": "CFH11-create-service-connection",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║           CFG11: Create app registration and service connection in Azure DevOps       ║",
+			"# ║           CFH11: Create app registration and service connection in Azure DevOps       ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Workload identity federation allows Azure DevOps to authenticate against Azure services",
@@ -484,11 +484,11 @@
 	},
 	"Run and open pipelines in the browser": {
 		"scope": "powershell",
-		"prefix": "CFG12-run-and-open-pipelines",
+		"prefix": "CFH12-run-and-open-pipelines",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFG12: Run and open pipelines in the browser                      ║",
+			"# ║                     CFH12: Run and open pipelines in the browser                      ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After creating your pipelines in Azure DevOps, you can run them using the Azure CLI",

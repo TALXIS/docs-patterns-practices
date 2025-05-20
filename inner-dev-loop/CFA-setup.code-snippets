@@ -52,6 +52,7 @@
 			"",
 			"# B) Install with .NET Tool (modern cross-platform CLI which doesn't support PD and CMT yet)",
 			"dotnet tool install --global \"Microsoft.PowerApps.CLI.Tool\"",
+			"dotnet tool install --global \"dotnet-script\"",
 			"",
 			"# C) Install with Windows MSI (Windows only)",
 			"# https://aka.ms/PowerAppsCLI"
