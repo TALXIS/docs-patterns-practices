@@ -97,6 +97,10 @@ You can watch the related walkthrough videos on our YouTube channel:
 
 ## Included Code Snippets
 
+**CF0-download-snippets.code-snippets** 
+
+This file contains a PowerShell snippet that automates the retrieval of development snippet files from a central GitHub repository. Specifically, it downloads all files from the inner-dev-loop directory of the TALXIS/docs-patterns-practices repository and stores them in the local .vscode folder. This snippet helps standardize and accelerate environment setup by ensuring developers always have the latest reusable scripts and templates. It supports consistent development practices across teams by synchronizing local snippet collections with a centralized, version-controlled source.
+
 **CFA-setup.code-snippets** 
 
    This file contains a set of PоwerShell snippets designed to guide you thrоugh the initial setup of a Pоwer Platfоrm project repository. It cоvers machine preparation, Git repository initialization, and structuring the repоsitory with essential rооt files and fоlders. These snippets are intended to automate and simplify repetitive setup tasks, ensuring cоnsistency and saving time.
@@ -120,10 +124,6 @@ You can watch the related walkthrough videos on our YouTube channel:
 **CFF-ui-testing.code-snippets**
 
    This file provides snippets for setting up and executing UI tests for Power Platform applications. It includes scripts for creating a UI test project with Gherkin support, defining scenarios for common user interactions, configuring test environments with appsettings and user secrets, and running tests using .NET tools. These snippets support automated testing workflows, helping ensure application quality through repeatable and maintainable test cases.
-
-**CFG-canvas-app.code-snippets**
-
-   This file includes snippets and instructions for creating Canvas apps and managing data in Dataverse. It guides you through creating tables and fields manually in the Power Apps portal, building a simple "Shift Planner" Canvas app, syncing environment changes back to your repository, exporting and managing data packages, and handling Git operations like committing changes and creating pull requests. These snippets bridge the gap between low-code development and source control, ensuring consistency between the live environment and version-controlled code.
 
 **CFH-pipeline.code-snippets**
 
