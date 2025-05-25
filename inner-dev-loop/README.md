@@ -32,8 +32,8 @@ You can watch the related walkthrough videos on our YouTube channel:
 3. **Create a working directory and required folders**
 
    ```bash
-   mkdir CodeFirstPowerPlatformDemo
-   code CodeFirstPowerPlatformDemo
+   mkdir inner-dev-loop
+   code -r inner-dev-loop
    mkdir .vscode
    mkdir .demo
    ```
