@@ -20,7 +20,7 @@ You can watch the related walkthrough videos on our YouTube channel:
 ## Setup Instructions
 
 1. **Open Terminal in VS Code**  
-   - Press `Cmd + J` (Mac) or `Ctrl + \`` (Windows)  
+   - Press `Cmd + J` (Mac) or ``Ctrl + ` `` (Windows)  
    - Or use the menu: `Terminal → New Terminal`
 
 2. **Start PowerShell in the terminal**
