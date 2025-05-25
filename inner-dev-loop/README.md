@@ -33,9 +33,9 @@ You can watch the related walkthrough videos on our YouTube channel:
 
    ```bash
    mkdir inner-dev-loop
+   mkdir inner-dev-loop/.vscode
+   mkdir inner-dev-loop/.demo
    code -r inner-dev-loop
-   mkdir .vscode
-   mkdir .demo
    ```
 
 4. **Download the code snippet file**
