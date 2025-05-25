@@ -41,7 +41,7 @@ You can watch the related walkthrough videos on our YouTube channel:
 4. **Download the code snippet file**
 
    ```powershell
-   Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/TALXIS/docs-patterns-practices/refs/heads/master/inner-dev-loop/demo.code-snippets' -OutFile '.vscode/demo.code-snippets'
+   Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/TALXIS/docs-patterns-practices/refs/heads/master/inner-dev-loop/CF0-demo.code-snippets' -OutFile '.vscode/CF0-demo.code-snippets'
    ```
 
 5. **Create a PowerShell script file to use during the demo**
