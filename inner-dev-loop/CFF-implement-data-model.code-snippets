@@ -222,7 +222,7 @@
 	},
 	"Create a pull request to integrate pipelines into the main branch": {
 		"scope": "powershell",
-		"prefix": "CFE06-create-pipelines-pull-request",
+		"prefix": "CFF06-create-pipelines-pull-request",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
@@ -239,7 +239,7 @@
 			"git push -u origin --all",
 			"",
 			"# Step 4: Create a pull request in Azure DevOps",
-			"az repos pr create `",
+			"$$pullRequest = az repos pr create `",
 			"--source-branch \"${3:users/tomas.prokop/add-data-model}\" `",
 			"--target-branch \"${4:main}\" `",
 			"--title \"${5:feat: Add warehouse item and transaction tables}\" `",
@@ -248,6 +248,7 @@
 			"--auto-complete true",
 			"--project $$projectName `",
 			"--repository $repositoryName `",
+			"| ConvertFrom-Json",
 			"",
 			"# Step 5: Approve the pull request if you have not done so already in the Azure DevOps web interface",
 			"az repos pr set-vote `",
