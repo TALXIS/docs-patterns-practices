@@ -19,17 +19,14 @@ You can watch the related walkthrough videos on our YouTube channel:
 
 ## Setup Instructions
 
-1. **Open Terminal in VS Code**  
-   - Press `Cmd + J` (Mac) or ``Ctrl + ` `` (Windows)  
-   - Or use the menu: `Terminal → New Terminal`
-
-2. **Start PowerShell in the terminal**
-
+3. **Open PowerShell terminal in a folder where we will start building a repo**
+   
+   On Mac you can start PowerShell from Terminal:
    ```bash
    pwsh
    ```
 
-3. **Create a working directory and required folders**
+4. **Create a working directory and required folders**
 
    ```bash
    mkdir inner-dev-loop
@@ -38,27 +35,35 @@ You can watch the related walkthrough videos on our YouTube channel:
    code -r inner-dev-loop
    ```
 
-4. **Download the code snippet files**
+5. **Open PowerShell in VS Code**
+   
+   - Press ``Ctrl + ` `` (Windows) or `Cmd + J` (Mac)
+   - Or use the menu: `Terminal → New Terminal`
+   - Run `pwsh` to enter PowerShell
+   
+
+6. **Download the code snippet files by running the following command**
 
    ```powershell
    (Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/inner-dev-loop?ref=master' | Where-Object { $_.type -eq 'file' -and $_.name -like '*.code-snippets' }) |   ForEach-Object { Invoke-WebRequest $_.download_url -OutFile ".vscode\$($_.name)" }
    ```
 
-5. **Create a PowerShell script file to use during the demo**
+7. **Create a PowerShell script file to use during the demo**
 
    ```powershell
    New-Item -ItemType File -Name '.demo/DemoScriptPad.ps1'
    ```
 
-6. **Open the script file and start typing snippets**
+8. **Open the script file and start typing**
 
    ```bash
    code .demo/DemoScriptPad.ps1
    ```
 
-   Start typing `CFA` to insert the first snippet.
 
-7. **Optional: Bind F5 to clear the terminal and run the whole script**
+   Start typing `CFA` to insert the first snippet. Select the right snippet with arrows and confirm with the enter key.
+
+9. **Optional: Bind F5 to clear the terminal and run the whole script**
 
    Paste the following into the terminal to create a custom keybinding:
 
@@ -84,15 +89,11 @@ You can watch the related walkthrough videos on our YouTube channel:
    Set-Content -Path $path -Value $keybinding
    ```
 
-8. **Running the script**
+10. **Running the script**
 
    - Press `F8` to run selected lines of code
    - Press `F5` to run the whole script (after setting up the keybinding in the previous step)
 
-9. **Toggle the terminal**
-
-   - Press `Cmd + J` (Mac) or ``Ctrl + ` `` (Windows)  
-   - Or use the menu: `Terminal → New Terminal`
 
 ---
 
