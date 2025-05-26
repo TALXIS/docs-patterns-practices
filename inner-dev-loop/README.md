@@ -55,18 +55,14 @@ You can watch the related walkthrough videos on our YouTube channel:
 > GitHub API might return an error 'No server is currently available to service your request'
 > In such case, wait few moments and execut the command again.
 
-8. **Create a PowerShell script file to use during the demo**
+8. **Create a PowerShell script file to use during the demo and open it**
 
    ```powershell
-   New-Item -ItemType File -Name '.demo/DemoScriptPad.ps1'
-   ```
-
-9. **Open the script file and start typing**
-
-   ```bash
+   New-Item -ItemType File -Name '.demo/DemoScriptPad.ps1'; `
    code .demo/DemoScriptPad.ps1
    ```
 
+9. **Start typing in the script file**
 
    Start typing `CFA` to insert the first snippet. Select the right snippet with arrows and confirm with the enter key.
 
