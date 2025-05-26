@@ -1,5 +1,42 @@
 {
-    //include CMT package as config data
+    "Export data and add them to the package": {
+		"scope": "powershell",
+		"prefix": "CFK01-export-data-and-add-to-package",
+		"body": [
+			"# CFK01",
+			"# Export data from the live environment and add them to the package",
+			"mkdir \"src/Packages.Main/Data\"",
+			"cd \"src/Packages.Main\"",
+			"",
+			"pac tool cmt",
+			"",
+			"pac data export --schemaFile \"Data\\schema.xml\" --dataFile \"Data\\data.zip\"",
+			"",
+			"# Unzip data.zip",
+			"Expand-Archive \"Data\\data.zip\" -DestinationPath Data",
+			"",
+			"# Remove extra files",
+			"Remove-Item \"Data\\``[Content_Types``].xml\", \"Data\\data.zip\", \"Data\\schema.xml\" -ErrorAction SilentlyContinue",
+			"",
+			"# Add data.zip to ImportConfig.xml",
+			"",
+			"# Change data and ZIP it again (can be replaced with a build task)",
+			"Compress-Archive -Path \"Data\\*.xml\" -Update -DestinationPath \"Data\\data.zip\"",
+			"",
+			"# Import the data back (you can use the folder name without need for the zip file)",
+			"pac data import --data \"Data\"",
+			"",
+			"cd ../..",
+			"",
+			"",
+			"",
+			"# Alternatively you can use the a MSBuild target to automate the process during package build",
+			"# <Target Name=\"ZipDataPackage\" AfterTargets=\"CopyManagedSolutionsFromBuildToPackageOutput\" Condition=\"Exists('$(DefaultDataPackageFolder)')\">",
+			"#     <MakeDir Directories=\"$(OutputPkgFolder)\" />",
+			"#     <ZipDirectory SourceDirectory=\"$(DefaultDataPackageFolder)\" DestinationFile=\"$(OutputPkgFolder)DefaultDataPackage.zip\" Overwrite=\"true\" />",
+			"# </Target>"
+		]
+	},
     "Import the package to your Dataverse environment": {
 		"scope": "powershell",
 		"prefix": "CFK02-import-package-to-dev-env",
@@ -27,4 +64,35 @@
 			"pac tool maker"
 		]
 	},
+	"Run and open pipelines in the browser": {
+		"scope": "powershell",
+		"prefix": "CFK03-run-and-open-pipelines",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║                     CFK03: Run and open pipelines in the browser                      ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# After creating your pipelines in Azure DevOps, you can run them using the Azure CLI",
+			"# and monitor their status by opening the pipeline pages in the browser.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Run the build pipeline",
+			"az pipelines run --name \"Build Pipeline\" --project \"\\$projectName\"",
+			"",
+			"# Step 2: Open the build pipeline in the browser",
+			"az pipelines show --name \"Build Pipeline\" --project \"\\$projectName\" --open",
+			"",
+			"# Step 3: Run the deployment pipeline (wait for the build pipeline to finish first!)",
+			"az pipelines run --project \"\\$projectName\" --name \"Deploy Pipeline\"",
+			"",
+			"# Step 4: Open the deployment pipeline in the browser",
+			"az pipelines show --project \"\\$projectName\" --name \"Deploy Pipeline\" --open",
+			"",
+			"# Step 5: Open the Power Apps Maker in the web browser and check if the solutions were deployed",
+			"pac tool maker"
+		]
+	}
 }

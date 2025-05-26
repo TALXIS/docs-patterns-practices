@@ -222,7 +222,7 @@
 			"",
 			"# Step 6: Checkout the main branch and pull the latest changes from the remote",
 			"git checkout main",
-			"git pull origin main",
+			"git pull origin main"
 		]
 	},
 	"Create pipelines in Azure DevOps from the files": {
@@ -330,7 +330,7 @@
 			"",
 			"# Step 6: Checkout the main branch and pull the latest changes from the remote",
 			"git checkout main",
-			"git pull origin main",
+			"git pull origin main"
 		]
 	},
 	"Create app registration and service connection in Azure DevOps": {
@@ -420,38 +420,9 @@
 			"az devops service-endpoint update --id \\$serviceEndpointId --enable-for-all --project \"\\$projectName\"",
 			"",
 			"# Step 7: Open the Azure DevOps project in the browser",
-			"az devops project show --project \"\\$projectName\" --open"
-		]
-	},
-	"Run and open pipelines in the browser": {
-		"scope": "powershell",
-		"prefix": "CFE10-run-and-open-pipelines",
-		"body": [
-			"#",
-			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFE10: Run and open pipelines in the browser                      ║",
-			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
-			"#",
-			"# After creating your pipelines in Azure DevOps, you can run them using the Azure CLI",
-			"# and monitor their status by opening the pipeline pages in the browser.",
-			"#",
-			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"#                                        Commands",
-			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"# Step 1: Run the build pipeline",
-			"az pipelines run --name \"Build Pipeline\" --project \"\\$projectName\"",
+			"az devops project show --project \"\\$projectName\" --open",
 			"",
-			"# Step 2: Open the build pipeline in the browser",
-			"az pipelines show --name \"Build Pipeline\" --project \"\\$projectName\" --open",
-			"",
-			"# Step 3: Run the deployment pipeline (wait for the build pipeline to finish first!)",
-			"az pipelines run --project \"\\$projectName\" --name \"Deploy Pipeline\"",
-			"",
-			"# Step 4: Open the deployment pipeline in the browser",
-			"az pipelines show --project \"\\$projectName\" --name \"Deploy Pipeline\" --open",
-			"",
-			"# Step 5: Open the Power Apps Maker in the web browser and check if the solutions were deployed",
-			"pac tool maker"
+			"# Continue with the next module by typing CFF..."
 		]
 	}
 }

@@ -157,7 +157,7 @@
 			"git commit -m \"${1:chore: Initialized repository and created a PD package}\"",
 			"",
 			"",
-			"# Continue to the next module by clearing this file and typing CFB"
+			"# Continue with the next module by typing CFC..."
 		]
 	},
 }
