@@ -21,7 +21,7 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Set variables",
-			"\\$organization = \"${2:thenetworg}\"",
+			"\\$adoOrgName = \"${2:thenetworg}\"",
 			"\\$projectName = \"${3:DemoInventoryManagement}\"",
 			"\\$repositoryName = \"${4:DemoInventoryManagement}\"",
 			"",
@@ -32,13 +32,13 @@
 			"az login --allow-no-subscriptions --tenant ${1:networg.com}",
 			"",
 			"# Step 3: Create a new Azure DevOps project with Git as the source control",
-			"az devops project create --name \\$projectName --source-control git --organization \"https://dev.azure.com/\\$organization\"",
+			"az devops project create --name \\$projectName --source-control git --organization \"https://dev.azure.com/\\$adoOrgName\"",
 			"",
 			"# Step 4: Set Azure DevOps CLI defaults",
-			"az devops configure --defaults \"organization=https://dev.azure.com/\\$organization project=\\$projectName\"",
+			"az devops configure --defaults \"organization=https://dev.azure.com/\\$adoOrgName project=\\$projectName\"",
 			"",
 			"# Step 5: Connect the local Git repository to the new remote repository",
-			"git remote add origin \"https://\\$organization@dev.azure.com/\\$organization/\\$projectName/_git/\\$repositoryName\"",
+			"git remote add origin \"https://\\$adoOrgName@dev.azure.com/\\$adoOrgName/\\$projectName/_git/\\$repositoryName\"",
 			"",
 			"# Step 6: Get the repository ID",
 			"\\$repositoryObject = az repos show --repository \\$repositoryName --project \"\\$projectName\" --output json",
@@ -82,7 +82,7 @@
 			"--project \"\\$projectName\"",
 			"",
 			"# Step 2: Review the branch policy settings in the Azure DevOps project settings",
-			"Start-Process \"https://dev.azure.com/\\$organization/\\$projectName/_settings/repositories?_a=policiesMid&repo=\\$repositoryId&refs=refs/heads/${1:main}\""
+			"Start-Process \"https://dev.azure.com/\\$adoOrgName/\\$projectName/_settings/repositories?_a=policiesMid&repo=\\$repositoryId&refs=refs/heads/${1:main}\""
 		]
 	},
 	"Create a pull request to merge changes into main branch": {
