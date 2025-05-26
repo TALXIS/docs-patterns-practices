@@ -57,7 +57,9 @@
 			"dotnet tool install --global \"Microsoft.PowerApps.CLI.Tool\"",
 			"#",
 			"# C) Install the Visual Studio Code extension (available in VS Code terminal)",
-			"# https://marketplace.visualstudio.com/items?itemName=microsoft-IsvExpTools.powerplatform-vscode"
+			"# https://marketplace.visualstudio.com/items?itemName=microsoft-IsvExpTools.powerplatform-vscode",
+			"",
+			"# 12. Clear this file with Ctrl+A & Delete. Then type CFA02 and select the snippet to continue."
 		]
 	},
 	"Initialize a new Git repository and create branches": {
