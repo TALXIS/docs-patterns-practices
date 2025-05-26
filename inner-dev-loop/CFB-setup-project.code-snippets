@@ -154,7 +154,7 @@
 			"git add --all",
 			"",
 			"# Step 2: Commit the staged changes with a descriptive message.",
-			"git commit -m \"${1:Initialized repository and created a PD package}\"",
+			"git commit -m \"${1:chore: Initialized repository and created a PD package}\"",
 			"",
 			"",
 			"# Continue to the next module by clearing this file and typing CFB"

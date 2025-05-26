@@ -1,3 +1,30 @@
 {
     //include CMT package as config data
+    "Import the package to your Dataverse environment": {
+		"scope": "powershell",
+		"prefix": "CFK02-import-package-to-dev-env",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║                 CFK02: Import the package to your Dataverse environment                ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# We are now ready to deploy the solutions to the Dataverse environment we created earlier.",
+			"# On Windows, you can use the package deployer to deploy solutions as a package.",
+			"# However, on macOS, the package deployer is not supported yet, so we need to manually import",
+			"# the solutions one by one.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Build the whole repository (as unmanaged solutions).",
+			"dotnet publish",
+			"",
+			"# Step 2: Import the locally built solutions into Dataverse for modification in Power Apps Maker.",
+			"pac package deploy --package \"./src/Packages.Main/bin/Debug/Packages.Main.1.0.0.pdpkg.zip\"",
+			"",
+			"# Step 3: Open the Power Apps Maker in the web browser.",
+			"pac tool maker"
+		]
+	},
 }
