@@ -1,11 +1,11 @@
 {
 	"Import solution to Dataverse (macOS)": {
 		"scope": "powershell",
-		"prefix": "CFD03-mac-import-solution",
+		"prefix": "CFZ03-mac-import-solution",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║             CFD03 (macOS): Import solution to your Dataverse environment               ║",
+			"# ║             CFZ03 (macOS): Import solution to your Dataverse environment               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Use this script on macOS to import individual solutions into Dataverse (package deployer not supported).",

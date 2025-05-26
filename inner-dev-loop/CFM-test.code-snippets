@@ -1,11 +1,11 @@
 {
 	"Create a project with UI tests": {
 		"scope": "powershell",
-		"prefix": "CFF01-create-ui-tests",
+		"prefix": "CFM01-create-ui-tests",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                          CFF01: Create a project for UI tests                          ║",
+			"# ║                          CFM01: Create a project for UI tests                          ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script creates an application in which you can write tests in the Gherkin language. ",
@@ -37,7 +37,7 @@
 	},
 	"Background: Login to app": {
 		"scope": "cucumber",
-		"prefix": "CFF02-background-login",
+		"prefix": "CFM02-background-login",
 		"body": [
 			"# ╔══════════════════════════════════════════════════════════════════════════════════════╗",
 			"# ║                      Feature: Add Stock to Available Quantity                        ║",
@@ -76,11 +76,11 @@
 	},
 	"Setup ui test": {
 		"scope": "powershell",
-		"prefix": "CFF03-Setup-UI-tests",
+		"prefix": "CFM03-Setup-UI-tests",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                                   CFF03: Setup UI Test                                   ║",
+			"# ║                                   CFM03: Setup UI Test                                   ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Once we have uploaded the solution and published our application, we are ready to run tests.",
@@ -133,11 +133,11 @@
 	},
 	"CreateWarehouseItemData": {
 		"scope": "powershell",
-		"prefix": "CFD10-create-warehouseitem-json",
+		"prefix": "CFM10-create-warehouseitem-json",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                CFD10: Create sample warehouse item JSON file for testing               ║",
+			"# ║                CFM10: Create sample warehouse item JSON file for testing               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script generates a sample JSON file that represents a warehouse item record in",
@@ -165,11 +165,11 @@
 	},
 	"Run dotnet test": {
 		"scope": "powershell",
-		"prefix": "CFF04-run-dotnet-test",
+		"prefix": "CFM04-run-dotnet-test",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                                CFF04: Run dotnet test                                  ║",
+			"# ║                                CFM04: Run dotnet test                                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This command runs automated UI or integration tests in your .NET test project.",
