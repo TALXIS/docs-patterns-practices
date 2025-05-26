@@ -38,10 +38,10 @@ You can watch the related walkthrough videos on our YouTube channel:
    code -r inner-dev-loop
    ```
 
-4. **Download the code snippet file**
+4. **Download the code snippet files**
 
    ```powershell
-   Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/TALXIS/docs-patterns-practices/refs/heads/master/inner-dev-loop/CF0-demo.code-snippets' -OutFile '.vscode/CF0-demo.code-snippets'
+   (Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/inner-dev-loop?ref=master' | Where-Object { $_.type -eq 'file' -and $_.name -like '*.code-snippets' }) |   ForEach-Object { Invoke-WebRequest $_.download_url -OutFile ".vscode\$($_.name)" }
    ```
 
 5. **Create a PowerShell script file to use during the demo**
@@ -56,9 +56,9 @@ You can watch the related walkthrough videos on our YouTube channel:
    code .demo/DemoScriptPad.ps1
    ```
 
-   Start typing `CF0-download-snippets` to insert the first snippet.
+   Start typing `CFA` to insert the first snippet.
 
-7. **Optional: Bind F5 to clear the terminal and run the script**
+7. **Optional: Bind F5 to clear the terminal and run the whole script**
 
    Paste the following into the terminal to create a custom keybinding:
 
@@ -87,19 +87,16 @@ You can watch the related walkthrough videos on our YouTube channel:
 8. **Running the script**
 
    - Press `F8` to run selected lines of code
-   - Press `F5` to run the whole script (after setting up the keybinding)
+   - Press `F5` to run the whole script (after setting up the keybinding in the previous step)
 
 9. **Toggle the terminal**
 
-   Use `Cmd + J` to open or close the terminal
+   - Press `Cmd + J` (Mac) or ``Ctrl + ` `` (Windows)  
+   - Or use the menu: `Terminal → New Terminal`
 
 ---
 
 ## Included Code Snippets
-
-**CF0-download-snippets.code-snippets** 
-
-This file contains a PowerShell snippet that automates the retrieval of development snippet files from a central GitHub repository. Specifically, it downloads all files from the inner-dev-loop directory of the TALXIS/docs-patterns-practices repository and stores them in the local .vscode folder. This snippet helps standardize and accelerate environment setup by ensuring developers always have the latest reusable scripts and templates. It supports consistent development practices across teams by synchronizing local snippet collections with a centralized, version-controlled source.
 
 **CFA-setup.code-snippets** 
 
