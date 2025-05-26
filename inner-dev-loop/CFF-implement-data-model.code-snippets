@@ -1,11 +1,11 @@
 {
 	"Create a Dataverse solution project for a database schema": {
 		"scope": "powershell",
-		"prefix": "CFC01-create-model-solution",
+		"prefix": "CFF01-create-model-solution",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                CFC01: Create a Dataverse solution project for a database schema        ║",
+			"# ║                CFF01: Create a Dataverse solution project for a database schema        ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# We will use the .NET templating engine (dotnet new) to create a Dataverse solution project.",
@@ -42,11 +42,11 @@
 	},
 	"Create database tables in the model solution": {
 		"scope": "powershell",
-		"prefix": "CFC02-create-tables",
+		"prefix": "CFF02-create-tables",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                  CFC02: Create new tables in Dataverse model solution                  ║",
+			"# ║                  CFF02: Create new tables in Dataverse model solution                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# We will create new tables in the Dataverse solution for tracking items and transactions.",
@@ -87,11 +87,11 @@
 	},
 	"Add attributes to the tables in the model solution": {
 		"scope": "powershell",
-		"prefix": "CFC03-add-attributes",
+		"prefix": "CFF03-add-attributes",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                   CFC03: Add columns to the previously created tables                  ║",
+			"# ║                   CFF03: Add columns to the previously created tables                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# In Dataverse, tables are made up of columns.",

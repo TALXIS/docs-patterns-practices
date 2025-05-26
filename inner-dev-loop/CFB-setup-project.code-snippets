@@ -86,9 +86,6 @@
 			"Add-Content .gitignore \".vscode/\"",
 			"",
 			"# Step 5: You can review the Source Control tab in VS Code to see changes you made",
-			"",
-			"",
-			"# Continue to the next module by clearing this file and typing CFB"
 		]
 	},
     "Create a Dataverse package and add the solutions to it": {
@@ -151,11 +148,16 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"# Step 1: Add all changes to the staging area.",
+			"# Step 1: Review your changes in the Source Control tab of VS Code.",
+			"",
+			"# Step 2: Add all changes to the staging area.",
 			"git add --all",
 			"",
 			"# Step 2: Commit the staged changes with a descriptive message.",
-			"git commit -m \"${1:Initialized repository and created a PD package}\""
+			"git commit -m \"${1:Initialized repository and created a PD package}\"",
+			"",
+			"",
+			"# Continue to the next module by clearing this file and typing CFB"
 		]
 	},
 }

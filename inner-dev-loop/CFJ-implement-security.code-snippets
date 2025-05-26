@@ -1,9 +1,9 @@
 {
 	"Dataverse Security Role Setup": {
-		"prefix": "CFC09-pp-security-role-full",
+		"prefix": "CFJ09-pp-security-role-full",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                 CFC09: Create full security role definition for Dataverse              ║",
+			"# ║                 CFJ09: Create full security role definition for Dataverse              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This snippet creates a full structure for defining security roles in Dataverse.",
