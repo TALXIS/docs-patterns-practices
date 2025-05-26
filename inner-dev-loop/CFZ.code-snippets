@@ -3,12 +3,13 @@
 		"scope": "powershell",
 		"prefix": "CFZ99-delete-environment",
 		"body": [
-			"pac admin delete --environment \"https://inventorymgmtdev01.crm4.dynamics.com/\"",
+			"pac admin delete --environment \"$$devEnvUrl\"",
 			"pac admin delete --environment \"https://inventorymgmtuat.crm4.dynamics.com/\"",
 			"",
 			"az repos delete --id \\$repositoryId --yes --project \"\\$projectName\"",
 			"az devops project delete --yes --id \\$projectId",
-			"az ad app delete --id \\$appRegistrationId"
+			"az ad app delete --id \\$appRegistrationId",
+			"az ad app delete --id $$testUserServicePrincipal.appId"
 		]
 	},
 	"Create a form, create a onload script": {
