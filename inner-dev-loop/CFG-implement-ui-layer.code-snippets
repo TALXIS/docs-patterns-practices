@@ -1,11 +1,11 @@
 {
     "Create UI Solution and Add Existing Tables": {
 		"scope": "powershell",
-		"prefix": "CFC04-ui-solution-entities",
+		"prefix": "CFG04-ui-solution-entities",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║         CFC04: Create UI Solution and Add Existing Tables from Data Model              ║",
+			"# ║         CFG04: Create UI Solution and Add Existing Tables from Data Model              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script initializes a new UI solution and links existing tables (entities) that",
@@ -47,11 +47,11 @@
 	},
 	"Create Model-Driven App and Add Entities to App": {
 		"scope": "powershell",
-		"prefix": "CFC05-ui-app-model",
+		"prefix": "CFG05-ui-app-model",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║        CFC05: Create Model-Driven App and Register Entity Components                   ║",
+			"# ║        CFG05: Create Model-Driven App and Register Entity Components                   ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script creates a model-driven application and registers each entity as a component",
@@ -89,11 +89,11 @@
 	},
 	"Add Sitemap Navigation to App": {
 		"scope": "powershell",
-		"prefix": "CFC06-ui-sitemap",
+		"prefix": "CFG06-ui-sitemap",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                  CFC06: Add Sitemap Structure (Area, Group, Subareas)                  ║",
+			"# ║                  CFG06: Add Sitemap Structure (Area, Group, Subareas)                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds a sitemap to the WarehouseApp with an area, a group, and two subareas. This controls",
@@ -138,11 +138,11 @@
 	},
 	"Create Main Forms for Entities": {
 		"scope": "powershell",
-		"prefix": "CFC07-ui-forms",
+		"prefix": "CFG07-ui-forms",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                        CFC07: Create Main Forms for Entities                          ║",
+			"# ║                        CFG07: Create Main Forms for Entities                          ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Forms define how users interact with each entity. This step creates new empty main forms",
@@ -175,15 +175,15 @@
 	},
 	"Add Rows (Fields) to Entity Forms": {
 		"scope": "powershell",
-		"prefix": "CFC08-ui-form-fields",
+		"prefix": "CFG08-ui-form-fields",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFC08: Add Controls to Main Forms                                  ║",
+			"# ║                     CFG08: Add Controls to Main Forms                                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds fields (rows) to the forms created earlier using the pre-generated GUIDs.",
-			"# Ensure CFC09 has been executed and form GUID variables are in scope.",
+			"# Ensure CFG09 has been executed and form GUID variables are in scope.",
 			"#",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"#                                        Commands",
