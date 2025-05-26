@@ -1,11 +1,11 @@
 {
-    "Commit the current changes to your local feature branch": {
+	"Commit the current changes to your local feature branch": {
 		"scope": "powershell",
-		"prefix": "CFB01-commit-initial-changes",
+		"prefix": "CFE01-commit-initial-changes",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║            CFB01: Commit the current changes to your local feature branch              ║",
+			"# ║            CFE01: Commit the current changes to your local feature branch              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# In Git, a commit is a snapshot of the changes you've made to the code. It is a way to save",
@@ -31,11 +31,11 @@
 	},
 	"Create an Azure DevOps remote repository and push changes": {
 		"scope": "powershell",
-		"prefix": "CFB02-create-remote-repo",
+		"prefix": "CFE02-create-remote-repo",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║            CFB02: Create an Azure DevOps remote repository and push changes            ║",
+			"# ║            CFE02: Create an Azure DevOps remote repository and push changes            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A remote repository is can be hosted on a platform like Azure DevOps or GitHub.",
@@ -80,11 +80,11 @@
 	},
 	"Set up branch policy to prevent direct pushes to main": {
 		"scope": "powershell",
-		"prefix": "CFB03-setup-branch-policy",
+		"prefix": "CFE03-setup-branch-policy",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║               CFB03: Set up branch policy to prevent direct pushes to ${1:main}             ║",
+			"# ║               CFE03: Set up branch policy to prevent direct pushes to ${1:main}             ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A branch policy is essential for maintaining code quality and stability in a collaborative",
