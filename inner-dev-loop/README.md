@@ -42,7 +42,7 @@ You can watch the related walkthrough videos on our YouTube channel:
    
    - Press ``Ctrl + ` `` (Windows) or `Cmd + J` (Mac)
    - Or use the menu: `Terminal → New Terminal`
-   - Run `pwsh` to enter PowerShell
+   - Mac: Run `pwsh` to enter PowerShell
    
 
 7. **Download the code snippet files by running the following command**
