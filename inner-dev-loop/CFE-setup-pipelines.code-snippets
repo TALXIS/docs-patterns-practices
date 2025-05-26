@@ -1,11 +1,11 @@
 {
 	"Sync main branch and create a new branch for pipeline files": {
 		"scope": "powershell",
-		"prefix": "CFH01-sync-main-create-pipeline-branch",
+		"prefix": "CFE01-sync-main-create-pipeline-branch",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║      CFH01: Sync main branch and create a new branch for introducing pipeline files    ║",
+			"# ║      CFE01: Sync main branch and create a new branch for introducing pipeline files    ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After the pull request is merged, you need to sync your local main branch with the remote",
@@ -24,11 +24,11 @@
 	},
 	"Create pipeline source files": {
 		"scope": "powershell",
-		"prefix": "CFH02-create-pipeline-files",
+		"prefix": "CFE02-create-pipeline-files",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                   CFH02: Create Azure DevOps pipeline source YAML files                ║",
+			"# ║                   CFE02: Create Azure DevOps pipeline source YAML files                ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# We will create two Azure DevOps pipeline files. One for building artifacts from the source,",
@@ -43,10 +43,10 @@
 			"New-Item -ItemType Directory -Path \"pipelines\"",
 			"",
 			"# Step 2: Create files for the build and deployment pipelines",
-			"\"# type CFH03 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"pipelines/build.yml\"",
-			"\"# type CFH04 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"pipelines/deploy.yml\"",
+			"\"# type CFE03 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"pipelines/build.yml\"",
+			"\"# type CFE04 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"pipelines/deploy.yml\"",
 			"",
-			"# Step 3: Open the files in your editor to add the pipeline definitions (CFH03 and CFH04)",
+			"# Step 3: Open the files in your editor to add the pipeline definitions (CFE03 and CFE04)",
 			"#         Suggestions for conde snippets can be triggered by control + space",
 			"code \"pipelines/build.yml\"",
 			"code \"pipelines/deploy.yml\""
@@ -54,10 +54,10 @@
 	},
 	"Build pipeline template": {
 		"scope": "yaml",
-		"prefix": "CFH03-build-pipeline-template",
+		"prefix": "CFE03-build-pipeline-template",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║    CFH03: Template of a build pipeline template for building artifacts from source     ║",
+			"# ║    CFE03: Template of a build pipeline template for building artifacts from source     ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"",
 			"# Versioning the pipeline output with date and revision number",
@@ -101,10 +101,10 @@
 	},
 	"Deployment pipeline template": {
 		"scope": "yaml",
-		"prefix": "CFH04-deployment-pipeline-template",
+		"prefix": "CFE04-deployment-pipeline-template",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║     CFH04: Template of a deployment pipeline for deploying packages to environment     ║",
+			"# ║     CFE04: Template of a deployment pipeline for deploying packages to environment     ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"",
 			"# Versioning the pipeline output with date and revision number",
@@ -141,18 +141,18 @@
 			"\tinputs:",
 			"\t\tauthenticationType: 'PowerPlatformSPN'",
 			"\t\tPowerPlatformSPN: 'InventoryManagementServiceConnection' # Update with your service principal name",
-			"\t\tEnvironment: 'https://inventorymgmttest.crm4.dynamics.com' # Update with your environment URL",
+			"\t\tEnvironment: 'https://inventorymgmtuat.crm4.dynamics.com' # Update with your environment URL",
 			"\t\tPackageFile: '\\$(Pipeline.Workspace)/drop/Packages/Packages.Main.1.0.0.pdpkg.zip'",
 			""
 		]
 	},
 	"Create test pipeline": {
 		"scope": "powershell",
-		"prefix": "CFH05-test-pipline",
+		"prefix": "CFE05-test-pipline",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                CFH02: Create Azure DevOps UI test pipeline source YAML files           ║",
+			"# ║                CFE02: Create Azure DevOps UI test pipeline source YAML files           ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# We will create Azure DevOps pipeline file. This pipeline is used to run ui tests. These YAML definitions can be stored alongside your",
@@ -175,10 +175,10 @@
 	},
 	"Run UI Tests Pipeline": {
 		"scope": "yaml",
-		"prefix": "CFH06-run-tests",
+		"prefix": "CFE06-run-tests",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║    CFH06: YAML pipeline for restoring, building, and running UI tests in .NET Core     ║",
+			"# ║    CFE06: YAML pipeline for restoring, building, and running UI tests in .NET Core     ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This YAML pipeline automates the process of running UI tests for a .NET Core application.",
@@ -229,11 +229,11 @@
 	},
 	"Create a pull request to integrate pipelines into the main branch": {
 		"scope": "powershell",
-		"prefix": "CFH07-create-pipelines-pull-request",
+		"prefix": "CFE07-create-pipelines-pull-request",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║         CFH07: Create a pull request to integrate pipelines into the main branch       ║",
+			"# ║         CFE07: Create a pull request to integrate pipelines into the main branch       ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Step 1: Add all the changes to the staging area",
@@ -265,11 +265,11 @@
 	},
 	"Create pipelines in Azure DevOps from the files": {
 		"scope": "powershell",
-		"prefix": "CFH08-create-pipelines-ado",
+		"prefix": "CFE08-create-pipelines-ado",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                   CFH08: Create pipelines in Azure DevOps from the files               ║",
+			"# ║                   CFE08: Create pipelines in Azure DevOps from the files               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Once the pull request for the pipeline definitions has been merged into the main branch,",
@@ -317,11 +317,11 @@
 	},
 	"Update project and build pipeline ID in the deploy pipeline YAML": {
 		"scope": "powershell",
-		"prefix": "CFH09-update-project-build-id",
+		"prefix": "CFE09-update-project-build-id",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║              CFH09: Update project and build pipeline ID in deploy pipeline            ║",
+			"# ║              CFE09: Update project and build pipeline ID in deploy pipeline            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After the project and build pipeline were created, the pipeline YAML definitions should be",
@@ -363,34 +363,6 @@
 			"git branch -d \"${1:users/tomas.prokop/update-deploy-pipeline}\"",
 			"git checkout main",
 			"git pull origin main"
-		]
-	},
-	"Create a test environment": {
-		"scope": "powershell",
-		"prefix": "CFH10-create-test-environment",
-		"body": [
-			"#",
-			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                        CFH10: Create a test environment                               ║",
-			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
-			"#",
-			"# A test environment (UAT) is used for testing your solutions before they are deployed ",
-			"# to production.",
-			"#",
-			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"#                                        Commands",
-			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"# Step 1: Create a new test environment.",
-			"pac admin create `",
-			"--name \"${1:Shift Planner Test Environment}\" `",
-			"--currency ${2:EUR} `",
-			"--region ${3:europe} `",
-			"--type ${4:Sandbox} `",
-			"--domain ${5:inventorymgmttest}",
-			"",
-			"# Step 2: Authenticate and connect to the test environment.",
-			"pac auth clear",
-			"pac auth create --environment \"https://inventorymgmttest.crm4.dynamics.com/\""
 		]
 	},
 	"Create app registration and service connection in Azure DevOps": {
@@ -457,7 +429,7 @@
 			"    \"name\": \"InventoryManagementServiceConnection\",",
 			"    \"owner\": \"library\",",
 			"    \"type\": \"powerplatform-spn\",",
-			"    \"url\": \"https://inventorymgmttest.crm4.dynamics.com\",",
+			"    \"url\": \"https://inventorymgmtuat.crm4.dynamics.com\",",
 			"    \"serviceEndpointProjectReferences\": [",
 			"        {",
 			"            \"name\": \"InventoryManagementServiceConnection\",",
