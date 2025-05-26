@@ -138,11 +138,11 @@
 	},
 	"Create UI Solution and Add Existing Tables": {
 		"scope": "powershell",
-		"prefix": "CFB06-ui-solution-entities",
+		"prefix": "CFB04-ui-solution-entities",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║     CFB06: Create UI Solution and Add Existing Tables from Data Model                 ║",
+			"# ║     CFB04: Create UI Solution and Add Existing Tables from Data Model                 ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script initializes a new UI solution and links existing tables (entities) that",
@@ -181,11 +181,11 @@
 	},
 	"Create Model-Driven App and Add Entities to App": {
 		"scope": "powershell",
-		"prefix": "CFB07-ui-app-model",
+		"prefix": "CFB05-ui-app-model",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║        CFB07: Create Model-Driven App and Register Entity Components                   ║",
+			"# ║        CFB05: Create Model-Driven App and Register Entity Components                   ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script creates a model-driven application and registers each entity as a component",
@@ -223,11 +223,11 @@
 	},
 	"Add Sitemap Navigation to App": {
 		"scope": "powershell",
-		"prefix": "CFB08-ui-sitemap",
+		"prefix": "CFB06-ui-sitemap",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                  CFB08: Add Sitemap Structure (Area, Group, Subareas)                  ║",
+			"# ║                  CFB06: Add Sitemap Structure (Area, Group, Subareas)                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds a sitemap to the WarehouseApp with an area, a group, and two subareas. This controls",
@@ -272,11 +272,11 @@
 	},
 	"Create Main Forms for Entities": {
 		"scope": "powershell",
-		"prefix": "CFB09-ui-forms",
+		"prefix": "CFB07-ui-forms",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                        CFB09: Create Main Forms for Entities                          ║",
+			"# ║                        CFB07: Create Main Forms for Entities                          ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Forms define how users interact with each entity. This step creates new empty main forms",
@@ -309,11 +309,11 @@
 	},
 	"Add Rows (Fields) to Entity Forms": {
 		"scope": "powershell",
-		"prefix": "CFB10-ui-form-fields",
+		"prefix": "CFB08-ui-form-fields",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                   CFB10: Add Field Rows to Main Forms                                 ║",
+			"# ║                   CFB08: Add Field Rows to Main Forms                                 ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds fields (rows) to the forms created earlier using the pre-generated GUIDs.",
@@ -384,10 +384,10 @@
 		]
 	},
 	"Dataverse Security Role Setup": {
-		"prefix": "CFB11-pp-security-role-full",
+		"prefix": "CFB09-pp-security-role-full",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                 CFB11: Create full security role definition for Dataverse              ║",
+			"# ║                 CFB09: Create full security role definition for Dataverse              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This snippet creates a full structure for defining security roles in Dataverse.",
@@ -458,11 +458,11 @@
 	},
 	"Create a Dataverse solution project for business logic": {
 		"scope": "powershell",
-		"prefix": "CFB02-create-logic-solution",
+		"prefix": "CFB10-create-logic-solution",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║               CFB02: Create a Dataverse solution project for business logic            ║",
+			"# ║               CFB10: Create a Dataverse solution project for business logic            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This solution will contain all custom business logic for the Dataverse environment.",
@@ -485,11 +485,11 @@
 	},
 	"Create a Dataverse package and add the solutions to it": {
 		"scope": "powershell",
-		"prefix": "CFB12-create-pdpackage",
+		"prefix": "CFB11-create-pdpackage",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                CFB12: Create a Dataverse Package and add solutions to it               ║",
+			"# ║                CFB11: Create a Dataverse Package and add solutions to it               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A Package Deployer Tool (PDT) package (PDPackage) in Dataverse is an artifact that allows ",
@@ -528,11 +528,11 @@
 	},
 	"Build solution.zip files which can be imported": {
 		"scope": "powershell",
-		"prefix": "CFB13-build-solutions",
+		"prefix": "CFB12-build-solutions",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                   CFB13: Build solution.zip files which can be imported                ║",
+			"# ║                   CFB12: Build solution.zip files which can be imported                ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Dataverse solutions come in two forms: unmanaged and managed.",
