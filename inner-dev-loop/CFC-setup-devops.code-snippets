@@ -1,41 +1,11 @@
 {
-	"Commit the current changes to your local feature branch": {
-		"scope": "powershell",
-		"prefix": "CFE01-commit-initial-changes",
-		"body": [
-			"#",
-			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║            CFE01: Commit the current changes to your local feature branch              ║",
-			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
-			"#",
-			"# In Git, a commit is a snapshot of the changes you've made to the code. It is a way to save",
-			"# your progress and document what changes were made. Commits are stored in your local branch",
-			"# and can be pushed to a remote repository for others to see.",
-			"#",
-			"# VS Code offers an easy way to see your Git changes. In the Source Control tab, you can view",
-			"# modified files, new files, and deleted files. The color indicators help you quickly identify",
-			"# which lines have been added, removed, or modified.",
-			"#",
-			"# After reviewing your changes, you need to 'stage' them (preparing them for a commit) using",
-			"# the 'git add' command. Once staged, you create a commit with a message describing the changes.",
-			"#",
-			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"#                                        Commands",
-			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"# Step 1: Add all changes to the staging area.",
-			"git add --all",
-			"",
-			"# Step 2: Commit the staged changes with a descriptive message.",
-			"git commit -m \"${1:Initialized repository, created UI and DataModel projects, created Main package}\""
-		]
-	},
 	"Create an Azure DevOps remote repository and push changes": {
 		"scope": "powershell",
-		"prefix": "CFE02-create-remote-repo",
+		"prefix": "CFC02-create-remote-repo",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║            CFE02: Create an Azure DevOps remote repository and push changes            ║",
+			"# ║            CFC02: Create an Azure DevOps remote repository and push changes            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A remote repository is can be hosted on a platform like Azure DevOps or GitHub.",
@@ -80,11 +50,11 @@
 	},
 	"Set up branch policy to prevent direct pushes to main": {
 		"scope": "powershell",
-		"prefix": "CFE03-setup-branch-policy",
+		"prefix": "CFC03-setup-branch-policy",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║               CFE03: Set up branch policy to prevent direct pushes to ${1:main}             ║",
+			"# ║               CFC03: Set up branch policy to prevent direct pushes to ${1:main}             ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A branch policy is essential for maintaining code quality and stability in a collaborative",
