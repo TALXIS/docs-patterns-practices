@@ -24,10 +24,8 @@ You can watch the related walkthrough videos on our YouTube channel:
    <img width="363" alt="image" src="https://github.com/user-attachments/assets/26d1b6a3-956b-4984-a3a0-59498030f4c5" />
 
    
-   On Mac you can start PowerShell from Terminal:
-   ```bash
-   pwsh
-   ```
+> [!TIP]
+> macOS: you can start PowerShell from Terminal by running `pwsh`
 
 5. **Create a working directory and required folders**
 
@@ -40,9 +38,11 @@ You can watch the related walkthrough videos on our YouTube channel:
 
 6. **Open PowerShell in VS Code**
    
-   - Press ``Ctrl + ` `` (Windows) or `Cmd + J` (Mac)
+   - Press ``Ctrl + ` ``
    - Or use the menu: `Terminal → New Terminal`
-   - Mac: Run `pwsh` to enter PowerShell
+  
+> [!TIP]
+> macOS: `Cmd + J` shortcut + Run `pwsh` to enter PowerShell
    
 
 7. **Download the code snippet files by running the following command**
@@ -50,6 +50,10 @@ You can watch the related walkthrough videos on our YouTube channel:
    ```powershell
    (Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/inner-dev-loop?ref=master' | Where-Object { $_.type -eq 'file' -and $_.name -like '*.code-snippets' }) |   ForEach-Object { Invoke-WebRequest $_.download_url -OutFile ".vscode\$($_.name)" }
    ```
+   
+> [!WARNING]  
+> GitHub API might return an error 'No server is currently available to service your request'
+> In such case, wait few moments and execut the command again.
 
 8. **Create a PowerShell script file to use during the demo**
 
