@@ -146,7 +146,12 @@
 			"# Step 4: For demonstration purposes, exclude the '.demo' and '.vscode' folders ",
 			"#         from version control by adding it to `.gitignore`.",
 			"Add-Content .gitignore \".demo/\"",
-			"Add-Content .gitignore \".vscode/\""
+			"Add-Content .gitignore \".vscode/\"",
+			"",
+			"# Step 5: You can review the Source Control tab in VS Code to see changes you made",
+			"",
+			"",
+			"# Continue to the next module by clearing this file and typing CFB"
 		]
 	}
 }
