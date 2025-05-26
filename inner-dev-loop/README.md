@@ -21,40 +21,43 @@ You can watch the related walkthrough videos on our YouTube channel:
 
 3. **Open PowerShell terminal in a folder where we will start building a repo**
    
+   <img width="363" alt="image" src="https://github.com/user-attachments/assets/26d1b6a3-956b-4984-a3a0-59498030f4c5" />
+
+   
    On Mac you can start PowerShell from Terminal:
    ```bash
    pwsh
    ```
 
-4. **Create a working directory and required folders**
+5. **Create a working directory and required folders**
 
-   ```bash
-   mkdir inner-dev-loop
-   mkdir inner-dev-loop/.vscode
-   mkdir inner-dev-loop/.demo
-   code -r inner-dev-loop
+   ```powershell
+   mkdir dev-loop-demo; `
+   mkdir dev-loop-demo/.vscode; `
+   mkdir dev-loop-demo/.demo; `
+   code -r dev-loop-demo
    ```
 
-5. **Open PowerShell in VS Code**
+6. **Open PowerShell in VS Code**
    
    - Press ``Ctrl + ` `` (Windows) or `Cmd + J` (Mac)
    - Or use the menu: `Terminal → New Terminal`
    - Run `pwsh` to enter PowerShell
    
 
-6. **Download the code snippet files by running the following command**
+7. **Download the code snippet files by running the following command**
 
    ```powershell
    (Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/inner-dev-loop?ref=master' | Where-Object { $_.type -eq 'file' -and $_.name -like '*.code-snippets' }) |   ForEach-Object { Invoke-WebRequest $_.download_url -OutFile ".vscode\$($_.name)" }
    ```
 
-7. **Create a PowerShell script file to use during the demo**
+8. **Create a PowerShell script file to use during the demo**
 
    ```powershell
    New-Item -ItemType File -Name '.demo/DemoScriptPad.ps1'
    ```
 
-8. **Open the script file and start typing**
+9. **Open the script file and start typing**
 
    ```bash
    code .demo/DemoScriptPad.ps1
@@ -63,7 +66,7 @@ You can watch the related walkthrough videos on our YouTube channel:
 
    Start typing `CFA` to insert the first snippet. Select the right snippet with arrows and confirm with the enter key.
 
-9. **Optional: Bind F5 to clear the terminal and run the whole script**
+10. **Optional: Bind F5 to clear the terminal and run the whole script**
 
    Paste the following into the terminal to create a custom keybinding:
 
@@ -89,7 +92,7 @@ You can watch the related walkthrough videos on our YouTube channel:
    Set-Content -Path $path -Value $keybinding
    ```
 
-10. **Running the script**
+11. **Running the script**
 
    - Press `F8` to run selected lines of code
    - Press `F5` to run the whole script (after setting up the keybinding in the previous step)
