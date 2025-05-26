@@ -1,11 +1,11 @@
 {
 	"Create an Azure DevOps remote repository and push changes": {
 		"scope": "powershell",
-		"prefix": "CFC02-create-remote-repo",
+		"prefix": "CFC01-create-remote-repo",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║            CFC02: Create an Azure DevOps remote repository and push changes            ║",
+			"# ║            CFC01: Create an Azure DevOps remote repository and push changes            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A remote repository is can be hosted on a platform like Azure DevOps or GitHub.",
@@ -50,11 +50,11 @@
 	},
 	"Set up branch policy to prevent direct pushes to main": {
 		"scope": "powershell",
-		"prefix": "CFC03-setup-branch-policy",
+		"prefix": "CFC02-setup-branch-policy",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║               CFC03: Set up branch policy to prevent direct pushes to ${1:main}             ║",
+			"# ║               CFC02: Set up branch policy to prevent direct pushes to ${1:main}             ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A branch policy is essential for maintaining code quality and stability in a collaborative",
@@ -80,6 +80,61 @@
 			"",
 			"# Step 2: Review the branch policy settings in the Azure DevOps project settings",
 			"Start-Process \"https://dev.azure.com/\\$organization/\\$projectName/_settings/repositories?_a=policiesMid&repo=\\$repositoryId&refs=refs/heads/${1:main}\""
+		]
+	},
+	"Create a pull request to merge changes into main branch": {
+		"scope": "powershell",
+		"prefix": "CFC03-create-pull-request",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║             CFC03: Create a pull request to merge changes into main branch             ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# A pull request (PR) is a request to merge changes from one branch into another, typically",
+			"# from a user branch into the main branch. It allows team members to review the changes,",
+			"# provide feedback and approve the changes before they are merged. This process helps maintain",
+			"# code quality and ensures that all changes are properly vetted before being integrated into",
+			"# the main codebase.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Create a pull request to merge changes from the current branch into the main branch",
+			"$$pullRequest = az repos pr create `",
+			"--source-branch \"${2:users/tomas.prokop/project-setup}\" `",
+			"--target-branch \"${1:main}\" `",
+			"--title \"Merge changes from ${2:users/tomas.prokop/project-setup} into ${1:main}\" `",
+			"--description \"This PR merges changes from the feature branch into the main branch.\" `",
+			"--repository-id \\$repositoryId `",
+			"--project \"\\$projectName\" `",
+			"--auto-complete true `"
+		]
+	},
+	"Approve the pull request": {
+		"scope": "powershell",
+		"prefix": "CFC04-approve-pull-request",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║            CFC04: Approve the pull request to merge changes into main branch           ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# The previously created pull request needs to be approved because we have set up a branch policy",
+			"# that requires at least one approver before merging changes into the main branch. This step",
+			"# ensures that the changes are reviewed and approved by a team member",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Approve the pull request",
+			"az repos pr set-vote `",
+			"--id \\$pullRequest.id `",
+			"--vote approve `",
+			"",
+			"# Step 2: Checkout the main branch and pull the latest changes from the remote",
+			"git checkout main",
+			"git pull origin main",
 		]
 	}
 }
