@@ -32,7 +32,7 @@
 			"",
 			"# Step 2: Create a solution project for the database schema using the installed template.",
 			"dotnet new pp-solution `",
-			"--output \"src\\${2:Solutions.DataModel}\" `",
+			"--output \"src\\\\${2:Solutions.DataModel}\" `",
 			"--PublisherName \"${3:tomas}\" `",
 			"--PublisherPrefix \"${4:tom}\" `",
 			"--allow-scripts yes",
