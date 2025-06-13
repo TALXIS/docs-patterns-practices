@@ -25,7 +25,9 @@
 			"--allow-scripts yes",
 			"",
 			"# Step 2: Add the solution project to the Package Deployer project as a .NET ProjectReference item.",
+			"cd src/Packages.Main",
 			"pac package add-reference --path ../Solutions.Logic/",
+			"cd ../..",
 		]
 	},
 	"Initialize Plugins.Warehouse plugin project with two handlers": {
