@@ -30,8 +30,6 @@
 			"--region ${3:europe} `",
 			"--type ${4:Developer} `",
 			"--domain $$devEnvDomain `",
-			"",
-			"$$devEnvUrl = \"https://$$devEnvDomain.crm4.dynamics.com/\"",
 		]
 	},
 	"Authenticate and connect to the development environment": {
@@ -80,8 +78,6 @@
 			"--region ${3:europe} `",
 			"--type ${4:Sandbox} `",
 			"--domain \\$uatEnvDomain",
-			"",
-			"$$uatEnvUrl = \"https://$$uatEnvDomain.crm4.dynamics.com/\"",
 			"",
 			"# Step 2: Authenticate and connect to the development environment",
 			"pac auth create --environment \\$uatEnvUrl --name \"\\$uatEnvAuthProfileName\"",
