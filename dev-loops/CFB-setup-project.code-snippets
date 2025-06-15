@@ -37,7 +37,7 @@
 			"",
 			"# Step 3: To fix a bug or implement a feature, a developer creates a short-lived",
 			"#         new branch off the main integration branch.",
-			"git checkout -b \"${2:users/tomas.prokop/project-setup}\""
+			"git checkout -b \"$$userBranchPrefix${2:project-setup}\""
 		]
 	},
 	"Create repository root files and folders": {
