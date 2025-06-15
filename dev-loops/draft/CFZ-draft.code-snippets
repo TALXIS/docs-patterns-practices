@@ -291,5 +291,12 @@
 			"pac pcf push --publisher-prefix ${2:tom}",
 			"pac solution publish"
 		]
-	}
+	},
+	"Catalog commands": {
+		"scope": "powershell",
+		"prefix": "CFZ07-catalog",
+		"body": [
+			"",
+		]
+	},
 }
