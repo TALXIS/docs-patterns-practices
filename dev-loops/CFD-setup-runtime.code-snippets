@@ -29,7 +29,7 @@
 			"--currency ${2:EUR} `",
 			"--region ${3:europe} `",
 			"--type ${4:Developer} `",
-			"--domain $$devEnvDomain `",
+			"--domain $$devEnvDomain",
 		]
 	},
 	"Authenticate and connect to the development environment": {
