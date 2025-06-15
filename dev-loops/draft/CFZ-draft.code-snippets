@@ -18,7 +18,7 @@
 		"body": [
 			"# CFZ98",
 			"# Create a form, create a onload script",
-			"cd Solutions.UI/Declarations/Entities/tom_xyz/FormXml",
+			"cd Solutions.UI/Declarations/Entities/${1:publisherPrefix}_xyz/FormXml",
 			"dotnet new pp-form --EntityName \"\" --DisplayName \"Solutions.UI\" --PublisherName \"tomas\" --PublisherPrefix \"tom\" --allow-scripts yes",
 			"",
 			"dotnet new pp-script-library",
@@ -27,7 +27,6 @@
 			"# Register an event handler in the form"
 		]
 	},
-
 	"Create a Dataverse App User from the service prondipal and assign a security role": {
 		"scope": "powershell",
 		"prefix": "CFZ06-add-spn-user",

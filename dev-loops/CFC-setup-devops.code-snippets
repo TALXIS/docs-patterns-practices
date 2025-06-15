@@ -92,7 +92,7 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Create a pull request to merge changes from the current branch into the main branch",
 			"$$pullRequest = az repos pr create `",
-			"--source-branch \"$$userBranchPrefix${2:project-setup}\" `",
+			"--source-branch \"$$userBranchPrefix${2:/project-setup}\" `",
 			"--target-branch \"${1:main}\" `",
 			"--title \"chore: Initial project setup\" `",
 			"--description \"This pull request sets up the initial project structure and configuration.\" `",

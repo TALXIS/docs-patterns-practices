@@ -21,7 +21,8 @@
 			"# https://dotnet.microsoft.com/en-us/download",
 			"",
 			"# 3. Install dotnet-script tool because it is used by some templates.",
-			"","dotnet tool install --global \"dotnet-script\"",
+			"",
+			"dotnet tool install --global \"dotnet-script\"",
 			"",
 			"# 4. Install PowerShell (macOS) since this demo and tools are using PowerShell scripts.",
 			"dotnet tool install --global \"PowerShell\"",
@@ -81,34 +82,41 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# User branch prefix",
-			"\\$userBranchPrefix = \"${1:users/tomas.prokop/}\"",
+			"\\$userBranchPrefix = \"${1:users/tomas.prokop}\"",
 			"",
 			"# Power Platform environments",
-			"\\$devEnvDomain = \"${5:inventorymgmtdev01}\"",
+			"# IMPORTANT: In case of an environment domain name clash, the platform generates a random one",
+			"# To avoid this, please replace the \"1234\" at the end of the domain with a random 4 digit number",
+			"\\$devEnvDomain = \"${5:inventorymgmtdev01}-1234\"",
 			"\\$devEnvAuthProfileName = \"${1:InventoryManagementDEV}\"",
 			"\\$devEnvUrl = \"https://\\$devEnvDomain.crm4.dynamics.com/\"",
 			"",
-			"\\$uatEnvDomain = \"${5:inventorymgmtuat}\"",
+			"# IMPORTANT: In case of an environment domain name clash, the platform generates a random one",
+			"# To avoid this, please replace the \"1234\" at the end of the domain with a random 4 digit number",
+			"\\$uatEnvDomain = \"${5:inventorymgmtuat}-1234\"",
 			"\\$uatEnvAuthProfileName = \"${2:InventoryManagementUAT}\"",
 			"\\$uatEnvUrl = \"https://\\$uatEnvDomain.crm4.dynamics.com/\"",
 			"",
 			"# Azure DevOps instance, project and identity",
-			"\\$tenantDomain = \"${2:networg.com}\"",
-			"\\$adoOrgName = \"${3:thenetworg}\"",
+			"\\$tenantDomain = \"${2:ngtraining1.onmicrosoft.com}\"",
+			"\\$adoOrgName = \"${3:ngtraining1.onmicrosoft}\"",
 			"\\$adoProjectName = \"${4:DemoInventoryManagement}\"",
 			"\\$adoRepositoryName = \"${5:DemoInventoryManagement}\"",
 			"\\$adoServiceConnectionName = \"${6:InventoryManagementServiceConnection}\"",
 			"\\$deploymentServicePrincipalRole = \"${2:System Administrator}\"",
 			"",
+			"# Power Platform components",
+			"\\$publisherPrefix = \"${8:udpp}\"",
+			"",
 			"# Test automation",
-			"\\$testUserName = \"${1:int0022-testing_demo.talxis.com#EXT#@thenetworg.onmicrosoft.com}\"",
+			"\\$testUserName = \"${1:int0022-testing_demo.talxis.com#EXT#@ngtraining1.onmicrosoft.com}\"",
 			"\\$testUserRole = \"${2:System Administrator}\"",
 			"\\$testServicePrincipalRole = \"${2:System Administrator}\"",
 			"",
 			"# Clear this file with Ctrl+A & Delete. Then type CFA03 and select the snippet to continue."
 		]
 	},
-		"Authenticate CLI tools": {
+	"Authenticate CLI tools": {
 		"scope": "powershell",
 		"prefix": "CFA03-authenticate-cli",
 		"body": [
@@ -174,10 +182,8 @@
 			"# Step 2: Check if Azure DevOps project already exists",
 			"\\$adoProjectExists = \\$false",
 			"try { az devops project show --project \"\\$adoProjectName\" --output none; \\$adoProjectExists = \\$true } catch {}",
-
 			"",
 			"# Clear this file with Ctrl+A & Delete. Then type CFB01 and select the snippet to continue."
 		]
 	}
 }
-
