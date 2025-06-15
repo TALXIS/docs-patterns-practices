@@ -139,7 +139,7 @@
 			"# Note: to skip subscriptions selection, you can set the following configuration",
 			"az config set core.login_experience_v2=off",
 			"",
-			"a $$tenantDomain",
+			"az login --allow-no-subscriptions --tenant $$tenantDomain",
 			"",
 			"# Step 4: Set Azure DevOps CLI defaults",
 			"az devops configure --defaults \"organization=https://dev.azure.com/\\$adoOrgName project=\\$adoProjectName\"",
