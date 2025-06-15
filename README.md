@@ -6,7 +6,7 @@ Each folder in this repository represents a separate topic or scenario that demo
 
 ## Demos
 
-### [dev-loops](./inner-dev-loops/README.md)
+### [dev-loops](./dev-loops/README.md)
 Scripted setup of a Power Platform project repository using Visual Studio Code and PowerShell, focusing on the inner and outer development loop.
 
 
