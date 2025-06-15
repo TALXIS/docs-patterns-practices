@@ -86,9 +86,11 @@
 			"# Power Platform environments",
 			"\\$devEnvDomain = \"${5:inventorymgmtdev01}\"",
 			"\\$devEnvAuthProfileName = \"${1:InventoryManagementDEV}\"",
+			"\\$devEnvUrl = \"https://\\$devEnvDomain.crm4.dynamics.com/\"",
 			"",
 			"\\$uatEnvDomain = \"${5:inventorymgmtuat}\"",
 			"\\$uatEnvAuthProfileName = \"${2:InventoryManagementUAT}\"",
+			"\\$uatEnvUrl = \"https://\\$uatEnvDomain.crm4.dynamics.com/\"",
 			"",
 			"# Azure DevOps instance, project and identity",
 			"\\$tenantDomain = \"${2:networg.com}\"",
@@ -137,12 +139,45 @@
 			"# Note: to skip subscriptions selection, you can set the following configuration",
 			"az config set core.login_experience_v2=off",
 			"",
-			"az login --allow-no-subscriptions --tenant $$tenantDomain",
+			"a $$tenantDomain",
 			"",
 			"# Step 4: Set Azure DevOps CLI defaults",
 			"az devops configure --defaults \"organization=https://dev.azure.com/\\$adoOrgName project=\\$adoProjectName\"",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFA04 and select the snippet to continue."
+		]
+	},
+	"Load existing resources if not starting from scratch": {
+		"scope": "powershell",
+		"prefix": "CFA04-load-existing-resources",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║               CFA04: Load existing resources if not starting from scratch              ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# ",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"",
+			"# If you have already set up the resources, skip this step by pressing Ctrl+A & Delete",
+			"# and then type CFA05 and select the snippet to continue.",
+			"",
+			"# Step 1: Check if Power Platform environments already exist (without admin privileges)",
+			"\\$devEnvExists = \\$false",
+			"\\$uatEnvExists = \\$false",
+			"try { [System.Net.Dns]::GetHostAddresses(\"(\\$devEnvUrl -replace '^https?://')\") | Out-Null; \\$envExists = \\$true } catch {}",
+			"try { [System.Net.Dns]::GetHostAddresses(\"(\\$uatEnvUrl -replace '^https?://')\") | Out-Null; \\$envExists = \\$true } catch {}",
+			"",
+			"# Step 2: Check if Azure DevOps project already exists",
+			"\\$adoProjectExists = \\$false",
+			"try { az devops project show --project \"\\$adoProjectName\" --output none; \\$adoProjectExists = \\$true } catch {}",
+
 			"",
 			"# Clear this file with Ctrl+A & Delete. Then type CFB01 and select the snippet to continue."
 		]
 	}
 }
+
