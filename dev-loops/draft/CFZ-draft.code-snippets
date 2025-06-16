@@ -3,10 +3,10 @@
 		"scope": "powershell",
 		"prefix": "CFZ99-delete-environment",
 		"body": [
-			"pac admin delete --environment \"$$devEnvUrl\"",
-			"pac admin delete --environment \"https://inventorymgmtuat.crm4.dynamics.com/\"",
+			"pac admin delete --environment \"\\$devEnvUrl\"",
+			"pac admin delete --environment \"\\$uatEnvUrl\"",
 			"",
-			"az repos delete --id \\$repositoryId --yes --project \"\\$projectName\"",
+			"az repos delete --id \\$repositoryId --yes --project \"\\$adoProjectName\"",
 			"az devops project delete --yes --id \\$projectId",
 			"az ad app delete --id \\$appRegistrationId",
 			"az ad app delete --id $$testUserServicePrincipal.appId"
@@ -18,7 +18,7 @@
 		"body": [
 			"# CFZ98",
 			"# Create a form, create a onload script",
-			"cd Solutions.UI/Declarations/Entities/tom_xyz/FormXml",
+			"cd Solutions.UI/Declarations/Entities/${1:publisherPrefix}_xyz/FormXml",
 			"dotnet new pp-form --EntityName \"\" --DisplayName \"Solutions.UI\" --PublisherName \"tomas\" --PublisherPrefix \"tom\" --allow-scripts yes",
 			"",
 			"dotnet new pp-script-library",
@@ -27,7 +27,6 @@
 			"# Register an event handler in the form"
 		]
 	},
-
 	"Create a Dataverse App User from the service prondipal and assign a security role": {
 		"scope": "powershell",
 		"prefix": "CFZ06-add-spn-user",
@@ -290,6 +289,63 @@
 			"pac pcf version --patchversion ${1:1}",
 			"pac pcf push --publisher-prefix ${2:tom}",
 			"pac solution publish"
+		]
+	},
+	"Catalog commands": {
+		"scope": "powershell",
+		"prefix": "CFZ07-catalog",
+		"body": [
+			"pac admin list `",
+			"--application 83a35943-cb41-4266-b7d2-81d60f383695",
+			"",
+			"pac application install `",
+			"--application-name mspcat_CatalogManager `",
+			"--environment \\$devEnvUrl",
+			"",
+			"",
+			"pac catalog submit `",
+			"--path \"\" `",
+			"--package-zip \"/Users/tomasprokop/Desktop/Experiments/CPPS25_DEMO/src/Packages.Main/bin/Release/Packages.Main.1.0.0.pdpkg.zip\" `",
+			"--environment \\$devEnvUrl `",
+			"--poll-status",
+			"",
+			"",
+			"pac catalog install `",
+			"--catalog-item-id \"\" `",
+			"--target-env \\$uatEnvUrl `",
+			"--environment \\$devEnvUrl `",
+			"--poll-status",
+		]
+	},
+	"Load existing resources if not starting from scratch": {
+		"scope": "powershell",
+		"prefix": "CFZ08-load-existing-resources",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║               CFA04: Load existing resources if not starting from scratch              ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# ",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"",
+			"# If you have already set up the resources, skip this step by pressing Ctrl+A & Delete",
+			"# and then type CFA05 and select the snippet to continue.",
+			"",
+			"# Step 1: Check if Power Platform environments already exist (without admin privileges)",
+			"\\$devEnvExists = \\$false",
+			"\\$uatEnvExists = \\$false",
+			"try { [System.Net.Dns]::GetHostAddresses(\"(\\$devEnvUrl -replace '^https?://')\") | Out-Null; \\$envExists = \\$true } catch {}",
+			"try { [System.Net.Dns]::GetHostAddresses(\"(\\$uatEnvUrl -replace '^https?://')\") | Out-Null; \\$envExists = \\$true } catch {}",
+			"",
+			"# Step 2: Check if Azure DevOps project already exists",
+			"\\$adoProjectExists = \\$false",
+			"try { az devops project show --project \"\\$adoProjectName\" --output none; \\$adoProjectExists = \\$true } catch {}",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFB01 and select the snippet to continue."
 		]
 	}
 }
