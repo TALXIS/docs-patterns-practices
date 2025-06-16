@@ -37,7 +37,9 @@
 			"",
 			"# Step 3: To fix a bug or implement a feature, a developer creates a short-lived",
 			"#         new branch off the main integration branch.",
-			"git checkout -b \"$$userBranchPrefix${2:/project-setup}\""
+			"git checkout -b \"$$userBranchPrefix${2:/project-setup}\"",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFB02 and select the snippet to continue."
 		]
 	},
 	"Create repository root files and folders": {
@@ -86,6 +88,8 @@
 			"Add-Content .gitignore \".vscode/\"",
 			"",
 			"# Step 5: You can review the Source Control tab in VS Code to see changes you made",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFB03 and select the snippet to continue."
 		]
 	},
 	"Create a Dataverse package and add the solutions to it": {
@@ -122,7 +126,9 @@
 			"dotnet sln ../../ add ${1:Packages.Main}.csproj",
 			"",
 			"# Return to the root directory.",
-			"cd ../.."
+			"cd ../..",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFB04 and select the snippet to continue."
 		]
 	},
 	"Commit the current changes to your local feature branch": {

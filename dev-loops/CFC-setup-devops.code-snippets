@@ -35,7 +35,9 @@
 			"git push -u origin --all",
 			"",
 			"# Step 5: Open the project in a browser",
-			"az devops project show --open --project \\$adoProjectName"
+			"az devops project show --open --project \\$adoProjectName",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFC02 and select the snippet to continue."
 		]
 	},
 	"Set up branch policy to prevent direct pushes to main": {
@@ -69,7 +71,9 @@
 			"--project \"\\$adoProjectName\"",
 			"",
 			"# Step 2: Review the branch policy settings in the Azure DevOps project settings",
-			"Start-Process \"https://dev.azure.com/\\$adoOrgName/\\$adoProjectName/_settings/repositories?_a=policiesMid&repo=\\$repositoryId&refs=refs/heads/${1:main}\""
+			"Start-Process \"https://dev.azure.com/\\$adoOrgName/\\$adoProjectName/_settings/repositories?_a=policiesMid&repo=\\$repositoryId&refs=refs/heads/${1:main}\"",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFC03 and select the snippet to continue."
 		]
 	},
 	"Create a pull request to merge changes into main branch": {
@@ -104,6 +108,8 @@
 			"",
 			"# Step 2: Open the pull request in a web browser for review and approval",
 			"az repos pr show --id $$pullRequest.pullRequestId --open",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFC04 and select the snippet to continue."
 		]
 	},
 	"Approve the pull request": {
@@ -127,9 +133,10 @@
 			"--id $$pullRequest.pullRequestId `",
 			"--vote approve",
 			"",
-			"Start-Sleep -Seconds 5",
+			"# Step 2: Wait for the pull request to be merged automatically by Azure DevOps",
+			"Start-Sleep -Seconds 10",
 			"",
-			"# Step 2: Checkout the main branch and pull the latest changes from the remote",
+			"# Step 3: Checkout the main branch and pull the latest changes from the remote",
 			"git checkout main",
 			"git pull origin main",
 			"",
