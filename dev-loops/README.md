@@ -2,6 +2,9 @@
 
 This repository provides a demo script for setting up a new repository structure for a Power Platform project using PowerShell and Visual Studio Code.
 
+> [!WARNING]  
+> The snippets are work in progress and they are not finished!
+
 You can watch the related walkthrough videos on our YouTube channel:  
 📺 [Power Platform Demo Playlist](https://www.youtube.com/playlist?list=PLFCzz03beGm5cthgn7LZh4bt-d9g1G6ip)
 

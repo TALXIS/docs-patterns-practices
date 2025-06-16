@@ -64,17 +64,19 @@
 			"pac tool maker"
 		]
 	},
-	"Run and open pipelines in the browser": {
+	"Run build pipeline": {
 		"scope": "powershell",
-		"prefix": "CFK03-run-and-open-pipelines",
+		"prefix": "CFK03-run-build-pipeline",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFK03: Run and open pipelines in the browser                      ║",
+			"# ║                              CFK03: Run build pipeline                                 ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After creating your pipelines in Azure DevOps, you can run them using the Azure CLI",
 			"# and monitor their status by opening the pipeline pages in the browser.",
+			"# This snippet demonstrates how to run the build pipeline. Once the build is complete, you can",
+			"# review the artifacts and ensure that the solutions are built correctly.",
 			"#",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"#                                        Commands",
@@ -85,13 +87,32 @@
 			"# Step 2: Open the build pipeline in the browser",
 			"az pipelines show --name \"Build Pipeline\" --project \"\\$adoProjectName\" --open",
 			"",
-			"# Step 3: Run the deployment pipeline (wait for the build pipeline to finish first!)",
+			"# Step 3: Wait for the build pipeline to finish",
+			"# (you can monitor the status and see the published artifacts in the Azure DevOps web interface)",
+		]
+	},
+	"Run deployment pipeline": {
+		"scope": "powershell",
+		"prefix": "CFK04-run-deploy-pipeline",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║                            CFK04: Run deployment pipeline                              ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# After creating your pipelines in Azure DevOps, you can run them using the Azure CLI",
+			"# and monitor their status by opening the pipeline pages in the browser.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Run the deployment pipeline (wait for the build pipeline to finish first!)",
 			"az pipelines run --project \"\\$adoProjectName\" --name \"Deploy Pipeline\"",
 			"",
-			"# Step 4: Open the deployment pipeline in the browser",
+			"# Step 2: Open the deployment pipeline in the browser",
 			"az pipelines show --project \"\\$adoProjectName\" --name \"Deploy Pipeline\" --open",
 			"",
-			"# Step 5: Open the Power Apps Maker for UAR in the web browser and check if the solutions were deployed",
+			"# Step 3: Open the Power Apps Maker for UAT in the web browser and check if the solutions were deployed",
 			"pac tool maker --environment $$uatEnvUrl",
 		]
 	}
