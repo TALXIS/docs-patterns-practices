@@ -30,6 +30,8 @@
 			"--region ${3:europe} `",
 			"--type ${4:Developer} `",
 			"--domain $$devEnvDomain",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFD02 and select the snippet to continue."
 		]
 	},
 	"Authenticate and connect to the development environment": {
@@ -52,7 +54,9 @@
 			"pac auth create --environment \\$devEnvUrl --name \"\\$devEnvAuthProfileName\"",
 			"",
 			"# Step 2: Select the authentication profile",
-			"pac auth select --name \"\\$devEnvAuthProfileName\""
+			"pac auth select --name \"\\$devEnvAuthProfileName\"",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFD03 and select the snippet to continue."
 		]
 	},
 	"Create a test environment": {
@@ -65,7 +69,8 @@
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A test environment (UAT) is used for testing your solutions before they are deployed ",
-			"# to production.",
+			"# to production. You should use Sandbox type of environment but here we will use Developer type",
+			"# to make the demo work for users without premium licenses and admin rights.",
 			"#",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"#                                        Commands",
@@ -76,7 +81,7 @@
 			"--name \"${1:Inventory Management Demo UAT}\" `",
 			"--currency ${2:EUR} `",
 			"--region ${3:europe} `",
-			"--type ${4:Sandbox} `",
+			"--type ${4:Developer} `",
 			"--domain \\$uatEnvDomain",
 			"",
 			"# Step 2: Authenticate and connect to the development environment",
@@ -85,6 +90,8 @@
 			"# Step 3: Select the DEV environment authentication profile (it got switched to UAT in the previous step)",
 			"pac auth list",
 			"pac auth select --name \"\\$devEnvAuthProfileName\"",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFD04 and select the snippet to continue."
 		]
 	},
 	"Add a test user to the test environment": {
@@ -117,6 +124,8 @@
 			"--user $$testUserName `",
 			"--role $$testUserRole `",
 			"--environment $$uatEnvUrl",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFD05 and select the snippet to continue."
 		]
 	},
 	"Create a Service Principal (no Azure roles)": {
