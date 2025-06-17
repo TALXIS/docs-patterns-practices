@@ -31,7 +31,8 @@
 			"--type ${4:Developer} `",
 			"--domain $$devEnvDomain",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFD02 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFD02 and select the snippet to continue",
+			"# with authenticating and connecting to the development environment.",
 		]
 	},
 	"Authenticate and connect to the development environment": {
@@ -91,7 +92,8 @@
 			"pac auth list",
 			"pac auth select --name \"\\$devEnvAuthProfileName\"",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFD04 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFD04 and select the snippet to continue",
+			"# with adding a test user to the test environment.",
 		]
 	},
 	"Add a test user to the test environment": {
@@ -125,16 +127,17 @@
 			"--role $$testUserRole `",
 			"--environment $$uatEnvUrl",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFD05 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFD05 and select the snippet to continue",
+			"# with creating a service principal for test and deployment automation.",
 		]
 	},
 	"Create a Service Principal (no Azure roles)": {
 		"scope": "powershell",
-		"prefix": "CFD05-create-test-service-principal",
+		"prefix": "CFD05-create-service-principals",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                  CFD05: Create a Service Principal for test automation                 ║",
+			"# ║           CFD05: Create service principals for test and deployment automati            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This command creates an Entra ID (AAD) Service Principal without assigning any roles.",
@@ -188,7 +191,8 @@
 			"Start-Process \"https://admin.powerplatform.microsoft.com/environments\"",
 			"",
 			"",
-			"# Continue with the next module by typing CFE..."
+			"# Clear this file with Ctrl+A & Delete. Then type CFE01 and select the snippet to continue",
+			"# with configuring pipelines.",
 		]
 	}
 }

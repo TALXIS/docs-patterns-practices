@@ -43,7 +43,8 @@
 			"# Step 5: Open the project in a browser",
 			"az devops project show --open --project \\$adoProjectName",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFC02 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFC02 and select the snippet to continue",
+			"# with setting up a branch policy to prevent direct pushes to the main branch.",
 		]
 	},
 	"Set up branch policy to prevent direct pushes to main": {
@@ -52,7 +53,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║               CFC02: Set up branch policy to prevent direct pushes to ${1:main}             ║",
+			"# ║             CFC02: Set up branch policy to prevent direct pushes to ${1:main}          ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# A branch policy is essential for maintaining code quality and stability in a collaborative",
@@ -79,7 +80,8 @@
 			"# Step 2: Review the branch policy settings in the Azure DevOps project settings",
 			"Start-Process \"https://dev.azure.com/\\$adoOrgName/\\$adoProjectName/_settings/repositories?_a=policiesMid&repo=\\$repositoryId&refs=refs/heads/${1:main}\"",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFC03 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFC03 and select the snippet to continue",
+			"# with creating a pull request to merge changes into the main branch.",
 		]
 	},
 	"Create a pull request to merge changes into main branch": {
@@ -146,7 +148,8 @@
 			"git checkout main",
 			"git pull origin main",
 			"",
-			"# Continue with the next module by typing CFD..."
+			"# Clear this file with Ctrl+A & Delete. Then type CFD01 and select the snippet to continue",
+			"# with setting up the development and test environments.",
 		]
 	}
 }

@@ -37,7 +37,7 @@
 			"code \"pipelines/test.yml\"",
 			"",
 			"",
-			"# Continue with snippet CFE05 after initializing pipeline files"
+			"# Continue with snippet CFE05 after initializing pipeline files to create a pull request.",
 		]
 	},
 	"Build pipeline template": {
@@ -233,7 +233,8 @@
 			"git checkout main",
 			"git pull origin main",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFE06 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFE06 and select the snippet to continue",
+			"# with creating the pipelines in Azure DevOps from the YAML files.",
 		]
 	},
 	"Create pipelines in Azure DevOps from the files": {
@@ -288,7 +289,8 @@
 			"--yaml-path \"pipelines/test.yml\" `",
 			"--skip-first-run",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFE07 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFE07 and select the snippet to continue",
+			"# with updating placeholders in the pipeline YAML file.",
 		]
 	},
 	"Update project and build pipeline ID in the deploy pipeline YAML": {
@@ -365,7 +367,8 @@
 			"git checkout main",
 			"git pull origin main",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFE08 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFE08 and select the snippet to continue",
+			"# with adding federated credential to the deployment service principal.",
 		]
 	},
 	"Add federated credential to the deployment service principal": {
@@ -413,7 +416,8 @@
 			"\\$appRegistrationUrl = \"https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Credentials/appId/\\$(\\$deploymentUserServicePrincipal.appId)/isMSAApp~/false\"",
 			"Start-Process \\$appRegistrationUrl",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFE09 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFE09 and select the snippet to continue",
+			
 		]
 	},
 	"Create a service connection in Azure DevOps": {

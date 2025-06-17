@@ -64,7 +64,8 @@
 			"# C) Install the Visual Studio Code extension (available in VS Code terminal)",
 			"# https://marketplace.visualstudio.com/items?itemName=microsoft-IsvExpTools.powerplatform-vscode",
 			"",
-			"# 12. Clear this file with Ctrl+A & Delete. Then type CFA02 and select the snippet to continue."
+			"# 12. Clear this file with Ctrl+A & Delete. Then type CFA02 and select the snippet to continue",
+			"#     with defining constant variables.",
 		]
 	},
 	"Define constant variables": {
@@ -116,7 +117,8 @@
 			"\\$testUserRole = \"${15:System Administrator}\"",
 			"\\$testServicePrincipalRole = \"${16:System Administrator}\"",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFA03 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFA03 and select the snippet to continue",
+			"# with authenticating the CLI tools.",
 		]
 	},
 	"Authenticate CLI tools": {
@@ -155,7 +157,8 @@
 			"# Step 4: Set Azure DevOps CLI defaults",
 			"az devops configure --defaults \"organization=https://dev.azure.com/\\$adoOrgName project=\\$adoProjectName\"",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFB01 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFB01 and select the snippet to continue",
+			"# with initializing your repository.",
 		]
 	}
 }
