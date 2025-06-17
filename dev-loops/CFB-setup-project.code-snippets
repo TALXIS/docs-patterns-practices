@@ -39,7 +39,8 @@
 			"#         new branch off the main integration branch.",
 			"git checkout -b \"$$userBranchPrefix${2:/project-setup}\"",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFB02 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFB02 and select the snippet to continue",
+			"# with creating the repository root files and folders.",
 		]
 	},
 	"Create repository root files and folders": {
@@ -89,7 +90,8 @@
 			"",
 			"# Step 5: You can review the Source Control tab in VS Code to see changes you made",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFB03 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFB03 and select the snippet to continue",
+			"# with creating a Dataverse package and adding the solutions to it.",
 		]
 	},
 	"Create a Dataverse package and add the solutions to it": {
@@ -128,7 +130,8 @@
 			"# Return to the root directory.",
 			"cd ../..",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFB04 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFB04 and select the snippet to continue",
+			"# with committing the initial changes to your local feature branch.",
 		]
 	},
 	"Commit the current changes to your local feature branch": {
@@ -163,7 +166,8 @@
 			"git commit -m \"${1:chore: Initialized repository and created a PD package}\"",
 			"",
 			"",
-			"# Continue with the next module by typing CFC..."
+			"# Clear this file with Ctrl+A & Delete. Then type CFC01 and select the snippet to continue",
+			"# with creating a remote repository in Azure DevOps and pushing the changes.",
 		]
 	},
 }
