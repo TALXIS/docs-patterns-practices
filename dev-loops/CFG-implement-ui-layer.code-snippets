@@ -260,4 +260,31 @@
 			"--allow-scripts yes"
 		]
 	},
+	"Add Ribbon Button to Form (Navigate)": {
+		"scope": "powershell",
+		"prefix": "CFI13-add-ribbon-button-navigate",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║            CFI13: Add ribbon button to 'tom_warehouseitem' form                        ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# This command adds a ribbon button that calls the Navigate.navigatetonewform function",
+			"# when clicked. The button is added to the main form of 'tom_warehouseitem' entity.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Command",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"dotnet new pp-ribbon-button `",
+			"--output \"src\\Solutions.UI\" `",
+			"--SolutionRootPath \"Declarations\" `",
+			"--PublisherPrefix \"tom\" `",
+			"--FunctionName \"Navigate.navigatetonewform\" `",
+			"--Library \"tom_Navigate\" `",
+			"--ButtonLable \"Add new item\" `",
+			"--EntityLogicalName \"tom_warehousetransaction\" `",
+			"--Location \"Form\" `",
+			"--allow-scripts yes"
+		]
+	}
 }
