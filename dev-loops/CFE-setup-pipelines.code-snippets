@@ -233,6 +233,8 @@
 			"git checkout main",
 			"git pull origin main",
 			"",
+			"Write-Output \"CFE06\" | Set-Clipboard",
+			"",
 			"# Clear this file with Ctrl+A & Delete. Then type CFE06 and select the snippet to continue",
 			"# with creating the pipelines in Azure DevOps from the YAML files.",
 		]
@@ -293,6 +295,8 @@
 			"--branch \"${4:main}\" `",
 			"--yaml-path \"pipelines/test.yml\" `",
 			"--skip-first-run",
+			"",
+			"Write-Output \"CFE07\" | Set-Clipboard",
 			"",
 			"# Clear this file with Ctrl+A & Delete. Then type CFE07 and select the snippet to continue",
 			"# with updating placeholders in the pipeline YAML file.",
@@ -382,6 +386,8 @@
 			"git checkout main",
 			"git pull origin main",
 			"",
+			"Write-Output \"CFE08\" | Set-Clipboard",
+			"",
 			"# Clear this file with Ctrl+A & Delete. Then type CFE08 and select the snippet to continue",
 			"# with adding federated credential to the deployment service principal.",
 		]
@@ -431,7 +437,10 @@
 			"\\$appRegistrationUrl = \"https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/Credentials/appId/\\$(\\$deploymentServicePrincipal.appId)/isMSAApp~/false\"",
 			"Start-Process \\$appRegistrationUrl",
 			"",
+			"Write-Output \"CFE09\" | Set-Clipboard",
+			"",
 			"# Clear this file with Ctrl+A & Delete. Then type CFE09 and select the snippet to continue",
+			"# with creating a service connection in Azure DevOps.",
 			
 		]
 	},
@@ -502,7 +511,10 @@
 			"# Save service endpoint ID for persistence across terminal sessions",
 			"Save-DemoVariables -Names \"serviceEndpointId\"",
 			"",
-			"# Continue with the next module by typing CFF..."
+			"Write-Output \"CFF01\" | Set-Clipboard",
+			"",
+			"# Clear this file with Ctrl+A & Delete. Then type CFF01 and select the snippet to continue",
+			"# with implementing the data model.",
 		]
 	}
 }
