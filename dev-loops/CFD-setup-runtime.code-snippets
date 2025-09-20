@@ -57,7 +57,8 @@
 			"# Step 2: Select the authentication profile",
 			"pac auth select --name \"\\$devEnvAuthProfileName\"",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFD03 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFD03 and select the snippet to continue",
+			"# with creating a test environment.",
 		]
 	},
 	"Create a test environment": {
@@ -137,7 +138,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║           CFD05: Create service principals for test and deployment automati            ║",
+			"# ║          CFD05: Create service principals for test and deployment automation           ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This command creates an Entra ID (AAD) Service Principal without assigning any roles.",
