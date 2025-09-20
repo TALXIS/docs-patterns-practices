@@ -49,7 +49,8 @@ You can watch the related walkthrough videos on our YouTube channel:
 7. **Download the code snippet files by running the following command**
 
    ```powershell
-   (Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/dev-loops?ref=master' | Where-Object { $_.type -eq 'file' -and $_.name -like '*.code-snippets' }) |   ForEach-Object { Invoke-WebRequest $_.download_url -OutFile ".vscode\$($_.name)" }
+   (Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/dev-loops?ref=master') | Where-Object { $_.type -eq 'file' -and $_.name -like '*.code-snippets' -and $_.download_url } | ForEach-Object { Invoke-WebRequest $_.download_url -OutFile ".vscode\$($_.name)" }
+
    ```
 
 > [!WARNING]  
