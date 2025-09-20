@@ -117,7 +117,8 @@
 			"# Step 2: Open the pull request in a web browser for review and approval",
 			"az repos pr show --id $$pullRequest.pullRequestId --open",
 			"",
-			"# Clear this file with Ctrl+A & Delete. Then type CFC04 and select the snippet to continue."
+			"# Clear this file with Ctrl+A & Delete. Then type CFC04 and select the snippet to continue",
+			"# with approving the pull request and pulling the updated main branch",
 		]
 	},
 	"Approve the pull request": {
@@ -126,7 +127,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║         CFC04: Approve the pull request to merge changes and pull updated main         ║",
+			"# ║     CFC04: Approve the pull request to merge changes and pull updated main branch      ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# The previously created pull request needs to be approved because we have set up a branch policy",
