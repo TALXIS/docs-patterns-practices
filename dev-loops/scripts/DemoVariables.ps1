@@ -1,10 +1,42 @@
 # Shared store
 $DemoVarsFile = ".demo/variables.json"
 
+# --- Compatibility: convert PSCustomObject -> Hashtable (works on PS 5.1 and 7+) ---
+function ConvertTo-Hashtable {
+    param([Parameter(Mandatory)][object] $InputObject)
+
+    if ($null -eq $InputObject) { return $null }
+
+    if ($InputObject -is [System.Collections.IDictionary]) { return $InputObject }
+
+    if ($InputObject -is [System.Collections.IEnumerable] -and -not ($InputObject -is [string])) {
+        $list = @()
+        foreach ($item in $InputObject) { $list += (ConvertTo-Hashtable -InputObject $item) }
+        return ,$list
+    }
+
+    if ($InputObject -is [pscustomobject]) {
+        $h = @{}
+        foreach ($p in $InputObject.PSObject.Properties) {
+            $h[$p.Name] = ConvertTo-Hashtable -InputObject $p.Value
+        }
+        return $h
+    }
+
+    return $InputObject
+}
+
 function Import-DemoVariables {
     if (Test-Path $DemoVarsFile) {
         try {
-            $data = Get-Content -Raw -Path $DemoVarsFile | ConvertFrom-Json -AsHashtable
+            $raw = Get-Content -Raw -Path $DemoVarsFile
+            $data = $null
+            # Use -AsHashtable if supported, else fall back
+            if ((Get-Command ConvertFrom-Json).Parameters.ContainsKey('AsHashtable')) {
+                $data = ConvertFrom-Json -InputObject $raw -AsHashtable
+            } else {
+                $data = ConvertTo-Hashtable (ConvertFrom-Json -InputObject $raw)
+            }
             foreach ($k in $data.Keys) { Set-Variable -Scope Global -Name $k -Value $data[$k] -Force }
         } catch { Write-Warning "Import failed: $($_.Exception.Message)" }
     }
@@ -13,18 +45,22 @@ function Import-DemoVariables {
 function Save-DemoVariables {
     [CmdletBinding()]
     param(
-        # Exact variable names to save, e.g. -Names randomIdentifier,devEnvDomain
-        [string[]] $Names,
-        # Wildcard patterns to include, e.g. -IncludeLike '*Env*','ado*'
-        [string[]] $IncludeLike,
-        # Wildcard patterns to exclude (applies after Names/IncludeLike/default filter)
-        [string[]] $ExcludeLike
+        [string[]] $Names,        # e.g. -Names randomIdentifier,devEnvDomain
+        [string[]] $IncludeLike,  # e.g. -IncludeLike '*Env*','ado*'
+        [string[]] $ExcludeLike   # e.g. -ExcludeLike '*Secret*'
     )
 
-    # Load existing to merge (keep keys from other scripts)
+    # Load existing store for merge
     $store = @{}
     if (Test-Path $DemoVarsFile) {
-        try { $store = Get-Content -Raw -Path $DemoVarsFile | ConvertFrom-Json -AsHashtable } catch { $store = @{} }
+        try {
+            $raw = Get-Content -Raw -Path $DemoVarsFile
+            if ((Get-Command ConvertFrom-Json).Parameters.ContainsKey('AsHashtable')) {
+                $store = ConvertFrom-Json -InputObject $raw -AsHashtable
+            } else {
+                $store = ConvertTo-Hashtable (ConvertFrom-Json -InputObject $raw)
+            }
+        } catch { $store = @{} }
     }
 
     # Default skip of PowerShell/system vars
@@ -35,26 +71,20 @@ function Save-DemoVariables {
 
     $vars = Get-Variable -Scope Global
 
-    # If -Names provided: exact match only
     if ($Names) {
         $vars = $vars | Where-Object { $Names -contains $_.Name }
-    }
-    # Else if -IncludeLike provided: match any wildcard
-    elseif ($IncludeLike) {
+    } elseif ($IncludeLike) {
         $vars = $vars | Where-Object {
             $n = $_.Name
             ($IncludeLike | Where-Object { $n -like $_ } | Select-Object -First 1)
         }
-    }
-    # Else: default = keep non-internal variables using skip list
-    else {
+    } else {
         $vars = $vars | Where-Object {
             $n = $_.Name
             -not ($skip | Where-Object { $n -like $_ } | Select-Object -First 1)
         }
     }
 
-    # Apply optional exclusions
     if ($ExcludeLike) {
         $vars = $vars | Where-Object {
             $n = $_.Name
@@ -62,7 +92,7 @@ function Save-DemoVariables {
         }
     }
 
-    # Skip read-only/constant items
+    # Skip read-only/constant
     $vars = $vars | Where-Object {
         -not ( $_.Options -band [System.Management.Automation.ScopedItemOptions]::ReadOnly ) -and
         -not ( $_.Options -band [System.Management.Automation.ScopedItemOptions]::Constant )
