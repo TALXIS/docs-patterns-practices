@@ -83,7 +83,7 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# # Step 1: Initialize variable store to persist variables for changing terminal sessions",
-			". .\\.demo\\DemoVars.ps1",		
+			". \".\\.demo\\DemoVariables.ps1\"",		
 			"",
 			"# # Step 2: Generate a random 4-digit number to reduce the risk of environment domain name clash",
 			"# with other people trying this demo.",
