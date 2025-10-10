@@ -1,11 +1,11 @@
 {
 	"Create a Dataverse solution project for business logic": {
 		"scope": "powershell",
-		"prefix": "CFI01-create-logic-solution",
+		"prefix": "CFG01-create-logic-solution",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║               CFI01: Create a Dataverse solution project for business logic            ║",
+			"# ║               CFG01: Create a Dataverse solution project for business logic            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This solution will contain all custom business logic for the Dataverse environment.",
@@ -32,11 +32,11 @@
 	},
 	"Initialize Plugins.Warehouse plugin project with two handlers": {
 		"scope": "powershell",
-		"prefix": "CFI02-init-plugins-warehouse",
+		"prefix": "CFG02-init-plugins-warehouse",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║       CFI02: Initialize Plugins.Warehouse plugin project with signing and handlers      ║",
+			"# ║       CFG02: Initialize Plugins.Warehouse plugin project with signing and handlers      ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script automates the setup of a new Dataverse plugin project for handling",
@@ -79,8 +79,8 @@
 			"New-Item -Path . -Name \"ValidateWarehouseTransactionPlugin.cs\" -ItemType \"File\" | Out-Null",
 			"New-Item -Path . -Name \"SubtractQuantityPlugin.cs\" -ItemType \"File\" | Out-Null",
 			"",
-			"\"// type CFI03 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"ValidateWarehouseTransactionPlugin.cs\"",
-			"\"// type CFI04 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"SubtractQuantityPlugin.cs\"",
+			"\"// type CFG03 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"ValidateWarehouseTransactionPlugin.cs\"",
+			"\"// type CFG04 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"SubtractQuantityPlugin.cs\"",
 			"",
 			"code \"ValidateWarehouseTransactionPlugin.cs\"",
 			"code \"SubtractQuantityPlugin.cs\"",
@@ -90,10 +90,10 @@
 	},
 	"Validate Warehouse Transaction Plugin": {
 		"scope": "csharp",
-		"prefix": "CFI03-validate-warehouse-plugin",
+		"prefix": "CFG03-validate-warehouse-plugin",
 		"body": [
 			"// ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"// ║            CFI03: Plugin - Validate Warehouse Transaction Quantity (PreValidation)     ║",
+			"// ║            CFG03: Plugin - Validate Warehouse Transaction Quantity (PreValidation)     ║",
 			"// ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"//",
 			"// This plugin checks if the requested quantity exceeds available quantity",
@@ -167,10 +167,10 @@
 	},
 	"Subtract Quantity Plugin": {
 		"scope": "csharp",
-		"prefix": "CFI04-subtract-quantity-plugin",
+		"prefix": "CFG04-subtract-quantity-plugin",
 		"body": [
 			"// ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"// ║         CFI04: Plugin - Subtract Quantity From Available (PostOperation)               ║",
+			"// ║         CFG04: Plugin - Subtract Quantity From Available (PostOperation)               ║",
 			"// ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"//",
 			"// This plugin subtracts the requested quantity from the available quantity of",
@@ -223,10 +223,10 @@
 	},
 	"Build and Register Plugin in PRT": {
 		"scope": "powershell",
-		"prefix": "CFI05-register-plugin",
+		"prefix": "CFG05-register-plugin",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                            CFI05: Register Plugin in PRT                           ║",
+			"# ║                            CFG05: Register Plugin in PRT                           ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Step 1: Build plugin",
@@ -249,10 +249,10 @@
 	},
 	"Add Plugin Assembly to Solution (maker portal)": {
 		"scope": "powershell",
-		"prefix": "CFI06-add-plugin-ui",
+		"prefix": "CFG06-add-plugin-ui",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║              CFI06: Add Existing Plugin Assembly to Solution (UI)                  ║",
+			"# ║              CFG06: Add Existing Plugin Assembly to Solution (UI)                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Step 1: Register PostOperation step - SubtractQuantityPlugin",
@@ -284,11 +284,11 @@
 	},
 	"Link plugin project to Dataverse solution for live development": {
 		"scope": "powershell",
-		"prefix": "CFI07-link-plugin-solution",
+		"prefix": "CFG07-link-plugin-solution",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║       CFI07: Link plugin project to Dataverse solution for live plugin development     ║",
+			"# ║       CFG07: Link plugin project to Dataverse solution for live plugin development     ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script links the Plugins.Warehouse plugin project to the Dataverse solution project",
@@ -310,5 +310,6 @@
 			"",
 			"cd ../..",
 		]
-	}
+	},
+	
 }
