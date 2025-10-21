@@ -1017,7 +1017,7 @@
 			"                    const id = itemVal[0].id.replace(/[{}]/g, \"\");",
 			"                    const logicalName = itemVal[0].entityType; // e.g. \"udpp_item\"",
 			"                    const meta = await Xrm.Utility.getEntityMetadata(logicalName, [\"EntitySetName\"]);",
-			"                    payload[\"udpp_itemid@odata.bind\"] = `/${meta.EntitySetName}($${id})`;",
+			"                    payload[\"udpp_itemid@odata.bind\"] = `/${meta.EntitySetName}(${${id}})`;",
 			"                }",
 			"",
 			"                // 4) Create udpp_warehousetransaction record",
