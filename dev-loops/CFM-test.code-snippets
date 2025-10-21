@@ -67,10 +67,12 @@
 			"      | Value   | Field    |",
 			"      | Inbound | Name     |",
 			"      | Printer | Item     |",
-			"      | 5       | Quantity |",
+			"      | 3       | Quantity |",
 			"    And I click on 'Save' button in dialog",
+			"    And I search for 'Inbound' in the grid",
+			"    And I open the record at position '0' in the grid",
 			"    And I select a related 'Item' lookup field",
-			"    Then I should be able to see a value of '0' in the 'Available Quantity' field"
+			"    Then I should be able to see a value of '2' in the 'Available Quantity' field"
 		],
 		"description": "Reusable background for logging into the Warehouse App"
 	},
@@ -93,7 +95,7 @@
 			"",
 			"  Background:",
 			"    Given I am logged in to the 'Inventory Management' app as 'a Warehouse Manager'",
-			"    And I have created 'a printer warehouse item of quantity 5'",
+			"    And I have created 'a pen warehouse item of quantity 5'",
 			"",
 			"  Scenario: Error Message for Insufficient Stock",
 			"",
@@ -103,7 +105,7 @@
 			"      | Value             | Field   |",
 			"      | Test Transaction | Name     |",
 			"      | 10               | Quantity |",
-			"      | Printer          | Item     |",
+			"      | Pen              | Item     |",
 			"    And I click on 'Save' button in dialog",
 			"    Then an error dialog should be displayed with the text 'Not enough product in stock. Available: 5, requested: 10.'"
 		],
@@ -196,6 +198,18 @@
 			"$$jsonContent = $$jsonObject | ConvertTo-Json -Depth 3",
 			"Set-Content -Path $$path -Value $$jsonContent -Encoding UTF8",
 			"",
+			"$$filename = \"a pen warehouse item of quantity 5.json\"",
+			"$$path = Join-Path -Path (Resolve-Path -Relative $$relativePath) -ChildPath $$filename",
+			"",
+			"$$jsonObject = @{",
+			"    \"@logicalName\" = \"${${publisherPrefix}}_warehouseitem\"",
+			"    \"@alias\"       = \"the pen warehouse item of quantity 5\"",
+			"    \"${${publisherPrefix}}_name\"     = \"Pen\"",
+			"    \"${${publisherPrefix}}_availablequantity\" = 5",
+			"}",
+			"",
+			"$$jsonContent = $$jsonObject | ConvertTo-Json -Depth 3",
+			"Set-Content -Path $$path -Value $$jsonContent -Encoding UTF8",
 		]
 	},
 	"Run dotnet test": {
