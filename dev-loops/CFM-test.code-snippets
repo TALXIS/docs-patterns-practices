@@ -68,6 +68,7 @@
 			"      | Inbound | Name     |",
 			"      | Printer | Item     |",
 			"      | 3       | Quantity |",
+			"      | Visa    | Payment Method |",
 			"    And I click on 'Save' button in dialog",
 			"    And I search for 'Inbound' in the grid",
 			"    And I open the record at position '0' in the grid",
@@ -106,6 +107,7 @@
 			"      | Test Transaction | Name     |",
 			"      | 10               | Quantity |",
 			"      | Pen              | Item     |",
+			"      | Cash             | Payment Method |",
 			"    And I click on 'Save' button in dialog",
 			"    Then an error dialog should be displayed with the text 'Not enough product in stock. Available: 5, requested: 10.'"
 		],
