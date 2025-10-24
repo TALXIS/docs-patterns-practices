@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyTitle>Packages.Main</AssemblyTitle>
+    <Product>Packages.Main</Product>
+    <Copyright>Copyright © 2025</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.PDPackage" Version="1.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.1.0.79" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.PackageDeployment" Version="9.1.0.74" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Solutions.DataModel\Solutions.DataModel.cdsproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\Solutions.Logic\Solutions.Logic.cdsproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\Solutions.UI\Solutions.UI.cdsproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\Solutions.Security\Solutions.Security.cdsproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

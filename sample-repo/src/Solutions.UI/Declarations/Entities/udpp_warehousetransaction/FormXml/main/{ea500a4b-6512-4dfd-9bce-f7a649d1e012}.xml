@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ea500a4b-6512-4dfd-9bce-f7a649d1e012}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="false" headerdensity="HighWithControls" showImage="false">
+      <tabs>
+        <tab verticallayout="true" id="{cd1ccff4-86c5-498d-96f3-009093fdb5dc}" IsUserDefined="1" name="general" labelid="{fd7e960c-5c0b-43e1-9004-945eb0841703}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{0e03026e-d73d-4fd4-b2ef-da56afa64555}" labelid="{3157b505-0f94-48a3-bffa-a525b3a2ee32}" name="general">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1A02FA59-C691-46D8-9081-6D6F02AA3BBE}" labelid="{CE951A84-695F-4907-80F5-B908702F0C09}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="udpp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udpp_name" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{BAF00EAA-353B-4E19-B9E7-CB5674CDAF36}" labelid="{7570764F-829F-47FA-B174-57C13D3AE388}">
+                        <labels>
+                          <label description="Quantity" languagecode="1033" />
+                        </labels>
+                        <control id="udpp_quantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="udpp_quantity" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{B31E5427-9D48-4502-87CD-06A08C6A785C}" labelid="{84D20347-6572-4392-A3C9-C79E91C2113F}">
+                        <labels>
+                          <label description="Item" languagecode="1033" />
+                        </labels>
+                        <control id="udpp_itemid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="udpp_itemid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{CAE23748-F78E-47D5-A1F1-264F06C8ED09}" labelid="{C66876B4-4D2E-4EE6-9C69-E7970316F9C0}">
+                        <labels>
+                          <label description="Payment Method" languagecode="1033" />
+                        </labels>
+                        <control id="udpp_paymentmethod" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="udpp_paymentmethod" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{ccf55f0a-644e-421c-afeb-3bc6aa96bdce}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{4d9621e8-c2b4-4893-9655-153a5721aaa1}" showlabel="false" labelid="{9707a537-f5e4-49dc-8d6d-15310d03d1fb}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{11e682b1-710f-40f9-8d50-fe861a163a90}" showlabel="false" labelid="{ea211fea-cc9b-4bf2-8945-c0bc89d33bc8}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{23efb0a9-978a-490f-a17d-1023c280f81b}" showlabel="false" labelid="{e45589f4-f2de-4751-8fc0-835208967a6d}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{6c82094b-f7da-4b03-94f2-17aebdc8c240}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{c16a4fa7-b4b0-4460-930f-8711728f9e3d}" showlabel="false" labelid="{94679085-a797-438f-a789-266a37cb7562}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0e2a531b-df6b-49c0-a524-0c3fe919bd70}" showlabel="false" labelid="{d4a0cd49-9646-431c-a692-e647d2d941e6}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{355aefd7-5aff-4f5f-a816-423daee0a75d}" showlabel="false" labelid="{1d66ed6f-9272-4305-abe9-c0e7397f8815}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Generated Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Main form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

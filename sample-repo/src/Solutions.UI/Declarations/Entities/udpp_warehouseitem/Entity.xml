@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name LocalizedName="Warehouse Item" OriginalName="Warehouse Item">udpp_warehouseitem</Name>
+  <EntityInfo>
+    <entity Name="udpp_warehouseitem">
+      <attributes />
+    </entity>
+  </EntityInfo>
+  <FormXml />
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

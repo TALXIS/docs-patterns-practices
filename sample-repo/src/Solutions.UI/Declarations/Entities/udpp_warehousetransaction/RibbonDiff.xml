@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="tom.udpp.udpp_warehousetransaction.Button.createwarehousetransaction.CustomAction" Location="Mscrm.HomepageGrid.udpp_warehousetransaction.MainTab.Management.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.Alt" Command="udpp.udpp_warehousetransaction.Command.MyRibbon.Dialogs.OpenDialogudpp_udpp_main.js" Id="udpp.udpp_warehousetransaction.Button.createwarehousetransaction" LabelText="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.ToolTipTitle" ToolTipDescription="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="udpp.Mscrm.HomepageGrid.udpp_warehousetransaction.NewRecord.Hide" Location="Mscrm.HomepageGrid.udpp_warehousetransaction.NewRecord" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates">
+    </RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="udpp.udpp_warehousetransaction.Command.MyRibbon.Dialogs.OpenDialogudpp_udpp_main.js">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="MyRibbon.Dialogs.OpenDialog" Library="$webresource:udpp_udpp_main.js">
+          <StringParameter Value="udpp_generatedformdialog" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="udpp.udpp_warehousetransaction.Button.createwarehousetransaction.Alt">
+      <Titles>
+        <Title description="Create Warehouse Transaction" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udpp.udpp_warehousetransaction.Button.createwarehousetransaction.LabelText">
+      <Titles>
+        <Title description="Create Warehouse Transaction" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udpp.udpp_warehousetransaction.Button.createwarehousetransaction.ToolTipDescription">
+      <Titles>
+        <Title description="Create Warehouse Transaction" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udpp.udpp_warehousetransaction.Button.createwarehousetransaction.ToolTipTitle">
+      <Titles>
+        <Title description="Create Warehouse Transaction" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

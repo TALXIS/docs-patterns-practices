@@ -1,0 +1,6 @@
+{
+  "udpp_name": "Printer",
+  "udpp_availablequantity": 5,
+  "@logicalName": "udpp_warehouseitem",
+  "@alias": "the printer warehouse item of quantity 5"
+}
