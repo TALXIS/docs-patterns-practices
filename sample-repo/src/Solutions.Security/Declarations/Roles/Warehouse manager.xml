@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{b4288090-c017-4888-80fd-1e3acca10b52}" name="Warehouse manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsCustomizable>1</IsCustomizable>
+  <IsAutoAssigned>0</IsAutoAssigned>
+  <RolePrivileges>
+    <RolePrivilege name="prvReadudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvWriteudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvCreateudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvAppendudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvAppendToudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvReadudpp_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvWriteudpp_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvCreateudpp_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvAppendudpp_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvAppendToudpp_warehousetransaction" level="Global" />
+  </RolePrivileges>
+</Role>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PowerAppsTargetsPath>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\PowerApps</PowerAppsTargetsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props')" />
+  <PropertyGroup>
+    <ProjectGuid>5e8b2811-02ba-4df2-b2db-d2b779200dc3</ProjectGuid>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <!--Remove TargetFramework when this is available in 16.1-->
+    <TargetFramework>net462</TargetFramework>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <SolutionRootPath>Declarations</SolutionRootPath>
+    <DefaultProjectTypeGuid>FAE04EC0-301F-11D3-BF4B-00C04F79EFBC</DefaultProjectTypeGuid>
+  </PropertyGroup>
+  <!-- 
+    Solution Packager overrides, un-comment to use: SolutionPackagerType (Managed, Unmanaged, Both)
+    Solution Localization Control, if you want to enabled localization of your solution, un-comment SolutionPackageEnableLocalization and set the value to true. - Requires use of -loc flag on Solution Clone or Sync
+  -->
+  <!--
+  <PropertyGroup>
+    <SolutionPackageType>Managed</SolutionPackageType>
+    <SolutionPackageEnableLocalization>false</SolutionPackageEnableLocalization>
+  </PropertyGroup>
+  -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.Solution" Version="1.*" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <ExcludeDirectories Include="$(MSBuildThisFileDirectory)\.gitignore" />
+    <ExcludeDirectories Include="$(MSBuildThisFileDirectory)\bin\**" />
+    <ExcludeDirectories Include="$(MSBuildThisFileDirectory)\obj\**" />
+    <ExcludeDirectories Include="$(MSBuildThisFileDirectory)\*.cdsproj" />
+    <ExcludeDirectories Include="$(MSBuildThisFileDirectory)\*.cdsproj.user" />
+    <ExcludeDirectories Include="$(MSBuildThisFileDirectory)\*.sln" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\**" Exclude="@(ExcludeDirectories)" />
+    <Content Include="$(SolutionPackageZipFilePath)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets')" />
+  <!-- Override the default Publish target to prevent errors when running publish on .sln file -->
+  <Target Name="Publish" />
+  <ItemGroup>
+    <PackageReference Include="TALXIS.SDK.BuildTargets.CDS.Solution" Version="2.0.*" />
+    <PackageReference Include="TALXIS.SDK.BuildTargets.CDS.TypeScriptCommon" Version="2.1.*" />
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.*" />
+    <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="9.0.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.*" />
+  </ItemGroup>
+  <PropertyGroup>
+    <SolutionDir>$(MSBuildThisFileDirectory)..\..\</SolutionDir>
+  </PropertyGroup>
+  <Target Name="CopyReferencedAssemblies" AfterTargets="Rebuild;Build" >
+    <PropertyGroup>
+      <ReferencedAssembliesFolder>$(SolutionDir)build\.referencedAssemblies</ReferencedAssembliesFolder>
+    </PropertyGroup>
+    <!-- Get the paths to the DLL files from NuGet packages -->
+    <ItemGroup>
+      <CrmSdkProxy Include="$(NuGetPackageRoot)microsoft.crmsdk.coreassemblies\9.0.*\lib\net462\Microsoft.Crm.Sdk.Proxy.dll" />
+      <CrmSdk Include="$(NuGetPackageRoot)microsoft.crmsdk.coreassemblies\9.0.*\lib\net462\Microsoft.Xrm.Sdk.dll" />
+      <CrmSdkWorkflow Include="$(NuGetPackageRoot)microsoft.crmsdk.workflow\9.0.*\lib\net462\Microsoft.Xrm.Sdk.Workflow.dll" />
+      <NewtonsoftJson Include="$(NuGetPackageRoot)newtonsoft.json\13.0.*\lib\net45\Newtonsoft.Json.dll" />
+    </ItemGroup>
+    <!-- Create the destination directory -->
+    <MakeDir Directories="$(ReferencedAssembliesFolder)" />
+    <!-- Copy the DLL files -->
+    <Copy SourceFiles="@(CrmSdkProxy)" DestinationFolder="$(ReferencedAssembliesFolder)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(CrmSdk)" DestinationFolder="$(ReferencedAssembliesFolder)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(CrmSdkWorkflow)" DestinationFolder="$(ReferencedAssembliesFolder)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(NewtonsoftJson)" DestinationFolder="$(ReferencedAssembliesFolder)" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="ApplyVersioningForSolution" AfterTargets="SolutionBuildTargetIntro" Condition="Exists('$(ProjectDir)Declarations\Other\Solution.xml')" >
+    <!-- Skip versioning for CDS projects as they don't generate DLL files -->
+    <Message Text="Skipping versioning for CDS project - no DLL file to read version from" Importance="Normal" />
+  </Target>
+</Project>

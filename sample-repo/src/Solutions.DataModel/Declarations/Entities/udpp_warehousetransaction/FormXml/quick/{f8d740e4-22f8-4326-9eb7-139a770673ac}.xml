@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{f8d740e4-22f8-4326-9eb7-139a770673ac}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{9c1bf976-fa33-40dc-b91e-65fb3c56cfe4}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{5200519e-4297-42be-8ddb-d28d016d8ff0}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{434acfea-f108-4b26-a840-3cee9afb5db3}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="udpp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udpp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{84d58fd7-d15e-46d4-aa9c-5f4d4b621596}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>0</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Default Warehouse Transaction Quick View Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A default quick view form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

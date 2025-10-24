@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="Plugins.Warehouse.ValidateWarehouseTransactionPlugin: Create of udpp_warehousetransaction" SdkMessageProcessingStepId="{8abe670a-f74b-4145-88c8-9b50a8b6eac1}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>9ebdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>Plugins.Warehouse.ValidateWarehouseTransactionPlugin, PluginsWarehouse, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c09369fd9e52e14d</PluginTypeName>
+  <PrimaryEntity>udpp_warehousetransaction</PrimaryEntity>
+  <PluginTypeId>d18f4a7e-ceaf-4e23-bb3c-b1519d61b2cc</PluginTypeId>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>udpp_itemid,udpp_quantity</FilteringAttributes>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>10</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{0f47272c-ce18-4ee5-a9c6-ff9a74c90085}</savedqueryid>
+    <layoutxml>
+      <grid name="udpp_warehouseitems" jump="udpp_name" select="1" icon="1" preview="1">
+        <row name="udpp_warehouseitem" id="udpp_warehouseitemid">
+          <cell name="udpp_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="udpp_warehouseitem">
+          <attribute name="udpp_warehouseitemid" />
+          <attribute name="udpp_name" />
+          <attribute name="createdon" />
+          <order attribute="udpp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Warehouse Item Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
