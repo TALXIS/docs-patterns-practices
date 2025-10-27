@@ -627,7 +627,7 @@
 		"prefix": "CFI12-create-read-only-form-for-warehouse-transaction",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║              CFI11: Create Read Only Form for Warehouse Transaction                   ║",
+			"# ║              CFI12: Create Read Only Form for Warehouse Transaction                   ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Creates a read only form for the warehouse transaction entity.",
@@ -780,7 +780,7 @@
 		"prefix": "CFI13-add-ribbon-button",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║              CFI10: Add Ribbon Button to Warehouse Transaction Dialog                  ║",
+			"# ║              CFI13: Add Ribbon Button to Warehouse Transaction Dialog                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds a ribbon button to the warehouse transaction dialog form.",
@@ -839,7 +839,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                    CFG08: Create Script Library in UI Solution                         ║",
+			"# ║                    CFI14: Create Script Library in UI Solution                         ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script creates a Power Platform Script Library within the existing UI solution.",
@@ -880,7 +880,7 @@
 		"prefix": "CFI15-open-dialog-script",
 		"body": [
 			"// ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"// ║              CFG09: Open Warehouse Transaction Dialog from Ribbon Button              ║",
+			"// ║              CFI15: Open Warehouse Transaction Dialog from Ribbon Button               ║",
 			"// ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"//",
 			"// This TypeScript function opens the warehouse transaction dialog form when called",
@@ -921,7 +921,7 @@
 		"prefix": "CFI16-save-data-script",
 		"body": [
 			"// ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"// ║                CFG10: Save Warehouse Transaction Data from Form Button                ║",
+			"// ║                CFI16: Save Warehouse Transaction Data from Form Button                 ║",
 			"// ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"//",
 			"// This TypeScript function saves the warehouse transaction data when called from a form button.",
@@ -1006,7 +1006,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║            CFI12: Build and Create Web Resource for Compiled Script                    ║",
+			"# ║            CFI17: Build and Create Web Resource for Compiled Script                    ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Builds the solution to produce compiled JavaScript and then creates a web resource.",
