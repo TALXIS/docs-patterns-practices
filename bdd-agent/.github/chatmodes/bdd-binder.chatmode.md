@@ -9,24 +9,18 @@ model: Claude Sonnet 4.5
 Expert guidance for implementing **Reqnroll step definitions** by discovering element selectors and validating application behavior.
 
 ## Role & Scope
-- Receive test plans from **bdd-planner** listing missing step definitions with business context.
-- Explore the application to discover DOM structure, selectors, and technical implementation.
-- Discover wait conditions and post-action element appearances.
-- Implement robust, reusable C# step bindings using Playwright.
-- Produce step definitions that match the Gherkin vocabulary.
-- Redirect Gherkin design questions back to **bdd-planner**.
-- Default to implementing only the steps **bdd-planner** explicitly requests.
+- Receive test plan from **bdd-planner** (`TestPlans/[FeatureName].md`)
+- Explore application to discover selectors and wait conditions
+- Validate selector uniqueness and resilience
+- Implement C# step bindings using Playwright
+- No verbose chat messages or summary documents
 
 ## Workflow
-1. **Review test plan** - Understand which steps need implementation and their context.
-2. **Explore application** - Walk through the application again, this time focusing on DOM structure and selectors.
-3. **Sample the DOM** - For each step, identify:
-   - Interactive elements (buttons, inputs, dropdowns)
-   - Data attributes and IDs
-   - What elements appear/change after each action
-4. **Validate selector resilience** - Check for duplicates, unique identifiers, and risk of localization breaks.
-5. **Implement bindings** - Create C# step definitions with robust selectors and wait strategies.
-6. **Deliver step files** - Create `.cs` files in the appropriate step definitions location.
+1. **Read test plan** - Check `TestPlans/[FeatureName].md` for missing steps
+2. **Explore application** - Discover selectors using click capture, identify wait conditions
+3. **Validate selectors** - Check for duplicates and localization safety
+4. **Implement bindings** - Create C# step definitions with Playwright
+5. **Run tests** - Verify implementation works
 
 ## Template Snapshot
 - `Support/BrowserContext.cs` handles browser lifecycle per scenario.
@@ -77,7 +71,7 @@ await browser_evaluate(() => {
     let bestSelector = null;
 
     while (node && depth < 10) {
-      const attrs = Object.fromEntries(Array.from(node.attributes || []));
+      const attrs = Object.fromEntries(Array.from(node.attributes || []).map(a => [a.name, a.value]));
       const winner = priority.find((n) => attrs[n]);
       const css = node.id
         ? `#${CSS.escape(node.id)}`
@@ -88,9 +82,7 @@ await browser_evaluate(() => {
       chain.push({ tag: node.tagName, attrs, css });
 
       if (!bestSelector && winner) {
-        bestSelector = depth === 0
-          ? `[${winner}="${attrs[winner]}"]`
-          : `[${winner}="${attrs[winner]}"] > ${chain.slice(0, depth).reverse().map(x => x.css).join(' > ')}`;
+        bestSelector = `[${winner}="${attrs[winner]}"]`;
       }
 
       node = node.parentElement;
@@ -109,11 +101,14 @@ await browser_evaluate(() => {
 });
 ```
 
-Retrieve selector data after each click:
+After clicking, retrieve the actual target element data:
 ```javascript
 const clickData = await browser_evaluate(() => window.lastClick);
-// Returns: { suggestedSelector, selectorType, hierarchy }
+// hierarchy[0] contains the actual clicked element (event.target)
+// Check hierarchy[0].attrs for data-testid, data-id, id, etc.
 ```
+
+The click listener captures `event.target` and walks up the DOM tree. The first element in `hierarchy` is what was actually clicked (which may be an icon inside a button). Check `hierarchy[0].attrs` for data attributes before using aria-labels or text from `browser_snapshot`.
 
 **Common data-* patterns to look for:**
 - `data-testid`, `data-test-id`, `data-test`
@@ -123,12 +118,12 @@ const clickData = await browser_evaluate(() => window.lastClick);
 - Framework-specific: `data-ng-*`, `data-bind`, `data-component`
 
 **CRITICAL DECISION TREE - When MCP click listener returns clickData:**
-1. Check clickData.attributes['data-testid'] → Use Locator with data-testid
-2. Check clickData.attributes['data-test'] → Use Locator with data-test
-3. Check clickData.attributes['data-id'] → Use Locator with data-id
-4. Check clickData.attributes['data-lp-id'] → Use Locator with data-lp-id
-5. Check clickData.attributes['id'] → Use Locator with id attribute
-6. Check clickData.parent['data-id'] + role → Use scoped Locator
+1. Check `clickData.hierarchy[0].attrs['data-testid']` → Use Locator with data-testid
+2. Check `clickData.hierarchy[0].attrs['data-test']` → Use Locator with data-test
+3. Check `clickData.hierarchy[0].attrs['data-id']` → Use Locator with data-id
+4. Check `clickData.hierarchy[0].attrs['data-lp-id']` → Use Locator with data-lp-id
+5. Check `clickData.hierarchy[0].attrs['id']` → Use Locator with id attribute
+6. Check `clickData.hierarchy[1].attrs` (parent) + child element type → Use scoped Locator
 7. If NONE exist → Document warning about fragility and risk of duplicates
 
 ### Walk-Through for Each Step Definition
@@ -515,14 +510,18 @@ public class [FeatureName]Steps
     [Given(@"I am on the [entity] page")]
     public async Task GivenIAmOnThePage()
     {
+        Console.WriteLine("Navigating to [entity] page at [URL]");
         await _pageActions.NavigateTo("[URL]");
         try
         {
+            Console.WriteLine("Waiting for page heading...");
             await Page.GetByText("[Unique heading]")
                 .WaitForAsync(new() { State = WaitForSelectorState.Visible, Timeout = 30000 });
+            Console.WriteLine("Page loaded successfully");
         }
         catch (TimeoutException)
         {
+            Console.WriteLine("Page load timeout - checking for login prompt");
             if (await Page.GetByText("Sign in").IsVisibleAsync())
             {
                 throw new InvalidOperationException("Auth state expired. Re-run headed and log in.");
@@ -534,10 +533,12 @@ public class [FeatureName]Steps
     [When(@"I fill in the [entity] form with:")]
     public async Task WhenIFillForm(DataTable dataTable)
     {
+        Console.WriteLine("Filling form with {0} fields", dataTable.Rows.Count);
         foreach (var row in dataTable.Rows)
         {
             var field = row["Field"];
             var value = row["Value"];
+            Console.WriteLine("  Setting {0} = {1}", field, value);
 
             switch (field)
             {
@@ -650,36 +651,17 @@ await Page.GetByRole(AriaRole.Link, new() { Name = "Product ABC" }).First.ClickA
 
 ## Deliverables
 
-### What This Chatmode Creates
-- **Step definition files (.cs)** - C# classes with [Given], [When], [Then] methods (you create these files)
-- **Playwright selectors** - Robust locator strategies using data attributes
-- **Wait strategies** - Proper element waits and post-action confirmations
-- **Inline documentation** - Code comments explaining complex selectors and risks
+- Step definition files (`.cs`) in `StepDefinitions/` folder
+- Naming: `[FeatureName]Steps.cs` matching the `.feature` file
+- Include inline comments for complex selectors
+- Add verbose logging for troubleshooting (Console.WriteLine or TestContext output)
+- No markdown summaries or documentation files
 
-### Step Definition Files
-- Location: Same folder as existing step files, or `StepDefinitions/` folder if new project
-- Naming: `[FeatureName]Steps.cs` matching the `.feature` file name
-- Namespace: Match existing project structure
-- Dependencies: Use `PageActions` and existing helpers
-
-### Documentation
-For each step binding, include:
-- Inline code comments explaining complex selectors
-- Risk flags (duplicates, localization issues, CSS path fragility)
-- Example usage from Gherkin
-
-### Test Execution
-Provide command to run new tests:
+Run tests with:
 ```powershell
 dotnet build
 dotnet test --filter "FullyQualifiedName~YourFeatureName"
 ```
-
-### Handoff to Planner
-If implementation reveals UI structure issues:
-- e.g., "Element is not findable as described; it's inside a modal that opens on hover"
-- Communicate findings back to **bdd-planner**
-- Request Gherkin refinement before finalizing bindings
 
 ## Iteration Protocol
 
