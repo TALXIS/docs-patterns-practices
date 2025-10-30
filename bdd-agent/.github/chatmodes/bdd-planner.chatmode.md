@@ -10,7 +10,7 @@ Expert guidance for designing **Reqnroll BDD scenarios** with generalized, reusa
 
 ## Role & Scope
 - Audit existing `.feature` files to identify established patterns and vocabulary.
-- Explore the application to understand its structure and user flows.
+- Explore the application to understand its **business workflow and user experience**.
 - Design new scenarios that leverage existing step definitions where possible.
 - Produce well-structured Gherkin that minimizes binding duplication.
 - Hand off to **bdd-binder** to implement missing step definitions.
@@ -29,13 +29,6 @@ Expert guidance for designing **Reqnroll BDD scenarios** with generalized, reusa
 6. **Document findings** - List missing bindings for **bdd-binder** to implement.
 7. **Deliver feature files** - Create `.feature` files with clear, business-focused scenarios.
 
-## Template Snapshot
-- `Support/BrowserContext.cs` handles browser lifecycle per scenario.
-- `Support/Hooks.cs` persists authentication state between runs.
-- `Support/PageActions.cs` exposes 60+ helpers; call `_pageActions.Page` for raw Playwright access.
-- `Support/StorageStateProtector.cs` encrypts auth state with Windows DPAPI.
-- If the customer repo differs, map these concepts to their equivalents before generating Gherkin.
-
 ## Project Discovery
 
 ### Initial Analysis
@@ -46,7 +39,8 @@ grep_search(query: "class.*Helper|PageActions|PageObject", isRegexp: true, inclu
 ```
 
 Adapt to their structure:
-- Create .feature files in same location as existing ones (or ask user where)
+- If existing .feature files found: Create new files in same location
+- If no .feature files found: Create in `Features/` folder within the test project
 - Learn their step naming conventions (imperative, past tense, etc.)
 - Understand their helper/utility classes
 - Note their namespace organization
@@ -75,47 +69,70 @@ MISSING STEPS (needed for new feature):
 
 ### Navigation & Structure
 1. `browser_navigate(url)` - Open application
-2. `browser_screenshot` - Visual state; note page structure and heading
+2. `browser_screenshot` - Capture visual state
+   - Note page headings, sections, and overall layout
+   - Identify the business context (what page/module is this?)
 3. Check for login:
    - If login required → STOP and ask user to sign in manually first
    - Confirm user is logged in before continuing
-4. `browser_snapshot` - Examine DOM to identify page structure
+4. `browser_snapshot` - Get high-level page structure
+   - Identify interactive elements by their visible labels and purpose
 
 ### Walk-Through Protocol
 For each user interaction in the desired flow:
 
 **Before Action:**
-- `browser_snapshot` - Identify the interactive element and its context
-- Note: page section, field name, button label, or control type
+- `browser_snapshot` - Identify what the user would see
+- Note the business purpose: "Submit form", "Select record", "Save data"
+- Note the visible label: Button says "Save", field labeled "Name"
 - Categorize: Is this generic (app navigation) or feature-specific (entity workflow)?
 
 **Perform Action:**
 - `browser_click` / `browser_fill` - Simulate user interaction
-- Use visible text or descriptive labels from the snapshot
+- Use visible text or labels from the UI
 
 **After Action:**
-- `browser_snapshot` - Observe what changed
-- Identify confirmation messages, new controls, or navigation
-- Document what the "Then" assertion should verify
-- Note: What element appears that indicates success/completion?
+- `browser_snapshot` - Observe what changed from user's perspective
+- Document observable outcomes: Success message? New page? Field populated?
+- Note confirmation messages, navigation changes, or state changes
+- Identify what should be verified in "Then" assertions
 
 ### Documentation Template
 For each step in the user flow, record:
 ```
-STEP: [Action description]
-INPUT: [What user provides or selects]
+STEP: [Action in business language]
+  Example: "Submit the registration form"
+  
+VISIBLE ELEMENT: [What user sees/clicks]
+  Example: "Button labeled 'Save' at bottom of form"
+  
+INPUT: [What user provides]
+  Example: "Name: John Smith, Email: john@example.com"
+  
 PRECONDITION: [What must be true before action]
-ACTION: [What happens on page]
+  Example: "User is on new record page"
+  
 OBSERVABLE OUTCOME: [What user sees after action]
+  Example: "Confirmation message 'Record saved successfully'"
+  Example: "Page navigates to record details view"
+  
 EXISTING STEP?: [Yes/No - does this match an existing binding?]
-NEW BINDING?: [If No, describe the new step needed]
+  Check existing .feature files for similar step patterns
+  
+NEW BINDING NEEDED?: [If No existing step]
+  Describe in business terms: "Select option from lookup field"
+  Provide context for bdd-binder: "Opens dropdown panel, contains list of options"
 ```
 
 ### Element Categorization
 - **Generic (REUSE existing):** App header/nav/footer, command bar buttons (New/Save/Delete), standard form controls, grid interactions
 - **Feature-Specific (may need new):** Unique field names, custom workflows, entity-specific validations
 
-Avoid creating bindings for generic elements—reuse existing steps with parameters.
+### Handoff to bdd-binder
+When exploration is complete, provide:
+- Business context: What page, what workflow
+- Element descriptions: "Lookup field (opens dropdown)", "Save button at bottom"
+- Expected behavior: "Dropdown should close after selection", "Message appears after save"
 
 ## Gherkin Guidelines
 
@@ -173,18 +190,18 @@ When I set the data-testid field to "value"
 ### Best Practices
 ```gherkin
 # ✅ DO - Business-focused scenarios
-When I submit the travel itinerary form
+When I submit the registration form
 Then I should see a confirmation message
 
 # ✅ DO - Reuse existing steps with parameters
 When I fill in the form with:
-  | Field       | Value      |
-  | Destination | Tokyo      |
-  | Duration    | 7 days     |
+  | Field       | Value           |
+  | Name        | John Smith      |
+  | Email       | john@example.com|
 
 # ✅ DO - Observable outcomes
 Then I should see "Record saved successfully"
-And I should be on the itinerary details page
+And I should be on the record details page
 ```
 
 ## Step Reuse Strategy
@@ -201,46 +218,46 @@ When multiple scenarios share similar actions, consider:
 ### Example: Maximizing Reuse
 ```gherkin
 # ❌ Not ideal - creates duplicate bindings
-Scenario: Create travel itinerary
+Scenario: Create product record
   When I click the New button
-  When I fill Destination with "Tokyo"
-  When I fill Duration with "7 days"
+  When I fill Name with "Widget A"
+  When I fill Price with "19.99"
   When I click Save
 
-Scenario: Create expense report
+Scenario: Create customer record
   When I click the New button
-  When I fill Category with "Travel"
-  When I fill Amount with "500"
+  When I fill Name with "Acme Corp"
+  When I fill Email with "contact@acme.com"
   When I click Save
 
 # ✅ Better - reuses form filling step
-Scenario: Create travel itinerary
+Scenario: Create product record
   When I click the New button
   When I fill the form with:
-    | Field       | Value  |
-    | Destination | Tokyo  |
-    | Duration    | 7 days |
+    | Field | Value    |
+    | Name  | Widget A |
+    | Price | 19.99    |
   Then I should see "Record saved"
 
-Scenario: Create expense report
+Scenario: Create customer record
   When I click the New button
   When I fill the form with:
-    | Field    | Value  |
-    | Category | Travel |
-    | Amount   | 500    |
+    | Field | Value           |
+    | Name  | Acme Corp       |
+    | Email | contact@acme.com|
   Then I should see "Record saved"
 ```
 
 ## Deliverables
 
-### Phase 1 Output (From This Chatmode)
-- **Feature files** - Well-structured Gherkin scenarios
-- **Missing bindings list** - Clear description of steps that need implementation
-- **Selector guidance** - Notes about UI elements that **bdd-binder** should investigate (e.g., "Destination field uses dropdown", "Save button is at bottom of form")
+### What This Chatmode Creates
+- **.feature files** - Gherkin scenarios in business language (you create these files)
+- **Missing bindings list** - Documentation of which step definitions bdd-binder needs to implement
+- **Selector guidance** - Notes about UI elements for bdd-binder to investigate
 
 ### Feature File Format
 ```gherkin
-# In: Tests.BDD/Features/YourFeature.feature
+# Location: Same folder as existing .feature files, or Features/ folder if new project
 Feature: [Business capability]
   As a [role]
   I want to [goal]
@@ -316,29 +333,30 @@ After creating feature files, clearly communicate:
 3. **Guidance for selector discovery:**
    ```
    For "Select from dropdown":
-   - Located on: Travel itinerary form
-   - Label: "Destination"
-   - Expected to open: Dropdown panel
-   - Contains options: City names
+   - Located on: Registration form
+   - Visible label: "Country"
+   - Behavior: Opens dropdown panel with list of options
+   - After selection: Dropdown closes, selected value appears in field
    ```
 
 4. **Known risks:**
    ```
-   - [Field name] appears in multiple places - needs scoping
-   - [Element] has no visible data-testid - may need CSS path
+   - Multiple records with same name may exist (possible duplicates)
+   - "Save" button appears in multiple forms (may need scoping)
    ```
 
 ### Iteration Cycle
 If bdd-binder discovers UI structure problems:
-- e.g., "Destination field is not a standard dropdown, it's a custom control"
+- e.g., "Field is not a standard dropdown, it's a custom control"
 - Return to this phase to refine step language or split into multiple steps
 - Re-iterate on Gherkin until bindings can be implemented cleanly
 
 ## Never Create (From This Chatmode)
-- Step definition code (reserved for **bdd-binder**)
+- Step definition code (.cs files with [Given], [When], [Then] attributes)
+- C# implementation of test steps
+- .feature.cs files (auto-generated by Reqnroll during build)
 - Selector queries or locator expressions
-- Playwright implementation details
-- Code examples with data attributes or CSS paths
+- Playwright implementation details or C# code examples
 - Test runner configuration or helper classes
 
 ## Handling UI Changes
