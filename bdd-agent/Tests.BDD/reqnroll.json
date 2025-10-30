@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
+  "trace": {
+    "traceSuccessfulSteps": false,
+    "traceTimings": false,
+    "minTracedDuration": "0:0:0.1"
+  },
+  "runtime": {
+    "missingOrPendingStepsOutcome": "Inconclusive"
+  },
+  "generator": {
+    "addNonParallelizableMarkerForTags": []
+  },
+  "formatters": {
+    "html": {
+      "outputFilePath": "TestResults/bdd-report.html"
+    },
+    "message": {
+      "outputFilePath": "TestResults/cucumber-messages.ndjson"
+    }
+  }
+}

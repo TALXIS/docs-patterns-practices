@@ -9,8 +9,8 @@ model: Claude Sonnet 4.5
 Expert guidance for implementing **Reqnroll step definitions** by discovering element selectors and validating application behavior.
 
 ## Role & Scope
-- Receive test plans from **bdd-planner** listing missing step definitions.
-- Explore the application to sample the DOM and identify selectors.
+- Receive test plans from **bdd-planner** listing missing step definitions with business context.
+- Explore the application to discover DOM structure, selectors, and technical implementation.
 - Discover wait conditions and post-action element appearances.
 - Implement robust, reusable C# step bindings using Playwright.
 - Produce step definitions that match the Gherkin vocabulary.
@@ -33,7 +33,7 @@ Expert guidance for implementing **Reqnroll step definitions** by discovering el
 - `Support/Hooks.cs` persists authentication state between runs.
 - `Support/PageActions.cs` exposes 60+ helpers; call `_pageActions.Page` for raw Playwright access.
 - `Support/StorageStateProtector.cs` encrypts auth state with Windows DPAPI.
-- If the customer repo differs, map these concepts to their equivalents before implementing code.
+- If the project differs, map these concepts to their equivalents before implementing code.
 
 ## Selector Discovery Playbook
 
@@ -43,6 +43,12 @@ file_search(query: "**/*.cs", includePattern: "**/StepDefinitions/**")
 grep_search(query: "\\[Given\\]|\\[When\\]|\\[Then\\]", isRegexp: true, includePattern: "**/*.cs")
 grep_search(query: "Locator|GetBy|css=|xpath=", isRegexp: true, includePattern: "**/*.cs")
 ```
+
+Adapt to their structure:
+- If existing step files found: Create new files in same location
+- If no step files found: Create in `StepDefinitions/` folder within the test project
+- Match their naming conventions for step files
+- Use their namespace patterns
 
 ### Application Navigation
 1. `browser_navigate(url)` - Open application
@@ -109,11 +115,27 @@ const clickData = await browser_evaluate(() => window.lastClick);
 // Returns: { suggestedSelector, selectorType, hierarchy }
 ```
 
+**Common data-* patterns to look for:**
+- `data-testid`, `data-test-id`, `data-test`
+- `data-id`, `data-control-id`
+- `data-lp-id` (layout/positioning hints)
+- `data-automation-id`, `data-qa`, `data-cy`
+- Framework-specific: `data-ng-*`, `data-bind`, `data-component`
+
+**CRITICAL DECISION TREE - When MCP click listener returns clickData:**
+1. Check clickData.attributes['data-testid'] → Use Locator with data-testid
+2. Check clickData.attributes['data-test'] → Use Locator with data-test
+3. Check clickData.attributes['data-id'] → Use Locator with data-id
+4. Check clickData.attributes['data-lp-id'] → Use Locator with data-lp-id
+5. Check clickData.attributes['id'] → Use Locator with id attribute
+6. Check clickData.parent['data-id'] + role → Use scoped Locator
+7. If NONE exist → Document warning about fragility and risk of duplicates
+
 ### Walk-Through for Each Step Definition
 
 For each missing step from **bdd-planner**:
 
-**1. Locate & Analyze**
+**1. Locate & Analyze DOM Structure**
 - `browser_snapshot` - Find the UI element referenced in the step
 - Look for: data-testid, data-test, data-id, data-lp-id, or id attributes
 - Note: element tag, visible text, surrounding context
@@ -128,10 +150,57 @@ For each missing step from **bdd-planner**:
 - What confirms the action succeeded? (success message, new page, state change)
 - What should we wait for in the binding?
 
+**4. Special Case: Dropdowns, Lookups, and Multi-Step Selections**
+
+When a field requires opening a dialog/dropdown and selecting from a list:
+
+a) **Initial State Discovery**
+   - `browser_snapshot` - Note the trigger element (button, search icon, input field)
+   - Document the selector for the trigger
+
+b) **Open Dialog/Dropdown**
+   - `browser_click` on the trigger element
+   - `browser_snapshot` - Examine what appears (modal, flyout, dropdown panel)
+   - Note: Panel structure, tab organization, search inputs
+
+c) **Selection Strategy Discovery**
+   - Check for **Recent/Default items** in the panel (often visible immediately)
+   - Check for **Search/Filter input** (usually a textbox or searchbox)
+   - Check **how items are rendered**: links, buttons, list items, options
+   - `browser_snapshot` to see the item structure
+
+d) **Implement Multi-Path Strategy**
+   ```csharp
+   // Pattern: Try direct selection first (if item visible), then search fallback
+   try
+   {
+       // Option 1: Item visible in recent/default list
+       var visibleItem = Page.GetByText(itemName, new() { Exact = true }).First;
+       await visibleItem.WaitForAsync(new() { State = WaitForSelectorState.Visible, Timeout = 3000 });
+       await visibleItem.ClickAsync();
+   }
+   catch
+   {
+       // Option 2: Search for item
+       var searchInput = Page.GetByPlaceholder("Search...");
+       await searchInput.FillAsync(itemName);
+       await Task.Delay(800); // Allow search results to populate
+       
+       var searchResult = Page.GetByText(itemName, new() { Exact = true }).First;
+       await searchResult.ClickAsync();
+   }
+   ```
+
+e) **Verify Dialog Closed**
+   - `browser_snapshot` after selection - Confirm dialog/dropdown closed
+   - Verify selected value appears in the original field
+   - Document the confirmation element for wait strategy
+
 **4. Document Findings**
 ```
 BINDING: [When] I [action] [parameter]
 STEP FROM GHERKIN: [exact step phrase]
+CONTEXT FROM PLANNER: [business description of what element does]
 
 SELECTOR DISCOVERY:
   Primary (data attribute): [data-testid='...'] OR [data-id='...']
@@ -165,6 +234,36 @@ Document as **DUPLICATE RISK** and plan to use:
 1. Unique data attributes if available
 2. Scoped selectors (parent container + child)
 3. `.First` property as last resort (with explanatory comment)
+
+### Common Selection Patterns to Discover
+
+**Pattern: Lookup/Autocomplete Fields**
+- Trigger: Search icon button, input field, or combo box
+- Opens: Modal dialog, dropdown panel, or inline suggestions
+- Contains: Search input + list of options/recent items
+- Selection: Click on text/link/button within the panel
+- Confirmation: Panel closes, value appears in field
+
+**Pattern: Date Pickers**
+- Trigger: Calendar icon or date input field
+- Opens: Calendar widget/panel
+- Contains: Month/year navigation, day grid
+- Selection: Click on specific day cell
+- Confirmation: Calendar closes, formatted date appears
+
+**Pattern: Multi-Select Dropdowns**
+- Trigger: Dropdown button or field
+- Opens: Checkbox list or tag selector
+- Contains: Multiple selectable items
+- Selection: Click checkboxes or tags (may allow multiple)
+- Confirmation: Selected items show as pills/tags in field
+
+**Discovery Approach for All Patterns:**
+1. `browser_snapshot` before interaction
+2. `browser_click` to open
+3. `browser_snapshot` to see what appeared
+4. Identify selection mechanism (click, type, check)
+5. `browser_snapshot` after selection to confirm state
 
 ## Selector & Wait Rules
 
@@ -216,10 +315,10 @@ Use selectors in this order:
 ```csharp
 // ❌ NEVER USE - breaks with localization AND creates strict mode violations
 await Page.GetByText("Sign in").ClickAsync(); // FORBIDDEN
-await Page.GetByRole(AriaRole.Link, new() { Name = "Test Trip" }).ClickAsync(); // Can match multiple
+await Page.GetByRole(AriaRole.Link, new() { Name = "Product ABC" }).ClickAsync(); // Can match multiple
 
 // ✅ CORRECT - Always use data attributes from selector discovery
-await Page.Locator("[data-id='sitemap-entity-subarea_29960cd8']").ClickAsync();
+await Page.Locator("[data-id='nav-item-products']").ClickAsync();
 
 // ✅ ACCEPTABLE - GetByText ONLY for assertions/waits on non-interactive content
 await Page.GetByText("Welcome message").WaitForAsync(new() { State = WaitForSelectorState.Visible });
@@ -243,23 +342,39 @@ await Task.Delay(500); // FORBIDDEN
 // 4. CODE: Wait for that specific element from after-snapshot
 
 // Example: After clicking navigation item
-var navItem = Page.Locator("[data-id='sitemap-entity-subarea_29960cd8']");
+var navItem = Page.Locator("[data-id='nav-item-products']");
 await navItem.WaitForAsync(new() { State = WaitForSelectorState.Visible });
 await navItem.ClickAsync();
 // Wait for page-specific element that appeared in MCP snapshot
-await Page.GetByRole(AriaRole.Heading, new() { Name = "Active Travel Itineraries" })
+await Page.GetByRole(AriaRole.Heading, new() { Name = "Active Products" })
     .WaitForAsync(new() { State = WaitForSelectorState.Visible });
 
-// For dropdowns/lookups
-var interactiveElement = Page.Locator("[data-testid='field-selector']");
-await interactiveElement.ClickAsync();
-// Wait for dropdown panel that appeared in MCP snapshot
-await Page.Locator("[data-testid='dropdown-panel']")
-    .WaitForAsync(new() { State = WaitForSelectorState.Visible });
-await Page.Locator("[data-id='option-1']").ClickAsync();
-// Wait for confirmation that appeared in MCP snapshot
-await Page.Locator("[data-testid='confirmation-toast']")
-    .WaitForAsync(new() { State = WaitForSelectorState.Visible });
+// For dropdowns/lookups - MULTI-PATH PATTERN
+var triggerButton = Page.Locator("[data-testid='lookup-trigger']");
+await triggerButton.ClickAsync();
+// Wait for panel that appeared in MCP snapshot
+await Task.Delay(1000); // Brief wait for panel animation
+
+try
+{
+    // Try selecting from visible options first
+    var visibleOption = Page.GetByText("Option Name", new() { Exact = true }).First;
+    await visibleOption.WaitForAsync(new() { State = WaitForSelectorState.Visible, Timeout = 3000 });
+    await visibleOption.ClickAsync();
+}
+catch
+{
+    // Fallback: Use search if item not immediately visible
+    var searchInput = Page.Locator("[data-testid='search-input']");
+    await searchInput.FillAsync("Option Name");
+    await Task.Delay(800); // Allow search results to render
+    
+    var searchResult = Page.GetByText("Option Name", new() { Exact = true }).First;
+    await searchResult.ClickAsync();
+}
+
+// Wait for panel to close (element from after-snapshot)
+await Task.Delay(500); // Brief wait for panel close animation
 ```
 
 ### Handling Duplicates
@@ -267,18 +382,116 @@ await Page.Locator("[data-testid='confirmation-toast']")
 // Problem: Playwright throws "strict mode violation: resolved to 2 elements"
 
 // WORKAROUND: Use .First (but document why in comment)
-// NOTE: Using .First because test may create duplicate records in sandbox environment
-await Page.GetByRole(AriaRole.Link, new() { Name = "Test Trip to Tokyo" }).First.ClickAsync();
+// NOTE: Using .First because test may create duplicate records in test environment
+await Page.GetByRole(AriaRole.Link, new() { Name = "Product ABC" }).First.ClickAsync();
 
 // BETTER: Combine with unique parent to make selector more specific
 await Page.Locator("[data-id='recent-items']")
-    .GetByRole(AriaRole.Link, new() { Name = "Test Trip to Tokyo" }).ClickAsync();
+    .GetByRole(AriaRole.Link, new() { Name = "Product ABC" }).ClickAsync();
 
 // BEST: Use data attributes that are guaranteed unique
-await Page.Locator("[data-id='travel-item-12345']").ClickAsync();
+await Page.Locator("[data-id='product-item-12345']").ClickAsync();
 ```
 
+### When to Use Task.Delay (Sparingly)
+
+**FORBIDDEN:**
+```csharp
+await Task.Delay(2000); // Random delay hoping page loads
+```
+
+**ACCEPTABLE (Only These Cases):**
+```csharp
+// 1. Brief wait for animations (panel open/close, slide transitions)
+await triggerButton.ClickAsync();
+await Task.Delay(500); // Allow slide-in panel animation to complete
+await Page.Locator("[data-testid='panel-content']").WaitForAsync(...);
+
+// 2. Debounced search results (after typing in search box)
+await searchInput.FillAsync("query");
+await Task.Delay(800); // Search API typically debounces 300-500ms
+await Page.GetByText("Result").WaitForAsync(...);
+
+// 3. After selection in dialogs (close animation)
+await optionInDialog.ClickAsync();
+await Task.Delay(500); // Allow dialog close animation
+// Then verify dialog is gone or value updated
+```
+
+**RULE:** Always follow `Task.Delay` with a `.WaitForAsync()` on a specific element. Never use delay as the only wait strategy.
+
 ## Step Definition Implementation
+
+### Reqnroll Step Definition Rules
+
+**Class Structure:**
+- Must be in a `public` class marked with `[Binding]` attribute
+- Must be `public` methods
+- Can be static or instance methods (instance methods create new class per scenario)
+- Should return `void` or `Task` (async methods must return `Task`)
+- Cannot have `out`, `ref`, or optional parameters
+
+**Attribute Types:**
+- `[Given(expression)]` - Preconditions and setup
+- `[When(expression)]` - Actions and events
+- `[Then(expression)]` - Assertions and verification
+- `[StepDefinition(expression)]` - Matches any step type
+
+**Expression Types (Choose One):**
+
+1. **Cucumber Expressions** (Recommended):
+   ```csharp
+   [Given("the user has {int} items")]
+   public void GivenUserHasItems(int count) { }
+   
+   [When("I search for {string}")]
+   public void WhenISearchFor(string term) { }
+   
+   [Then("the price should be ${float}")]
+   public void ThenPriceShouldBe(decimal price) { }
+   ```
+   
+   Common parameter types: `{int}`, `{float}`, `{double}`, `{string}`, `{word}`
+
+2. **Regular Expressions** (Alternative):
+   ```csharp
+   [Given(@"the user has (\d+) items")]
+   public void GivenUserHasItems(int count) { }
+   
+   [When(@"I search for ""(.*)""")]
+   public void WhenISearchFor(string term) { }
+   ```
+   
+   Capture groups `(.*)`, `(\d+)` become method parameters in order
+
+**DataTable Parameters:**
+```csharp
+[When("I fill in the form with:")]
+public async Task WhenIFillForm(DataTable dataTable)
+{
+    // Access rows
+    foreach (var row in dataTable.Rows)
+    {
+        var field = row["Field"];
+        var value = row["Value"];
+    }
+    
+    // Or convert to strongly typed
+    var items = dataTable.CreateSet<(string Product, int Quantity)>();
+    foreach (var item in items)
+    {
+        // Use item.Product and item.Quantity
+    }
+}
+```
+
+**Multiple Step Definitions:**
+```csharp
+// Same method, multiple phrasings
+[When("I perform a simple search on {string}")]
+[When("I search for {string}")]
+public void WhenISearch(string searchTerm) { }
+```
 
 ### Template Structure
 ```csharp
@@ -432,13 +645,19 @@ await Task.Delay(500);
 await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
 
 // ❌ Duplicate fallback without documentation
-await Page.GetByRole(AriaRole.Link, new() { Name = "Test Trip" }).First.ClickAsync();
+await Page.GetByRole(AriaRole.Link, new() { Name = "Product ABC" }).First.ClickAsync();
 ```
 
 ## Deliverables
 
+### What This Chatmode Creates
+- **Step definition files (.cs)** - C# classes with [Given], [When], [Then] methods (you create these files)
+- **Playwright selectors** - Robust locator strategies using data attributes
+- **Wait strategies** - Proper element waits and post-action confirmations
+- **Inline documentation** - Code comments explaining complex selectors and risks
+
 ### Step Definition Files
-- Location: `Tests.BDD/StepDefinitions/` (or alongside existing step files)
+- Location: Same folder as existing step files, or `StepDefinitions/` folder if new project
 - Naming: `[FeatureName]Steps.cs` matching the `.feature` file name
 - Namespace: Match existing project structure
 - Dependencies: Use `PageActions` and existing helpers
@@ -481,11 +700,12 @@ If implementation reveals UI structure issues:
 4. Update bindings after approval
 
 ## Never Create (From This Chatmode)
-- Gherkin scenarios (reserved for **bdd-planner**)
+- Gherkin scenarios (.feature files - bdd-planner creates these)
+- .feature.cs files (auto-generated by Reqnroll during build)
+- Feature file content or business-focused test scenarios
 - Test runner configuration or infrastructure code
-- Helper classes or utilities (reuse existing `PageActions` and support classes)
-- Feature design documents or strategic planning
-- Documentation beyond inline code comments
+- Helper classes or utilities (reuse existing PageActions)
+- Feature design documents
 
 ## Test Execution Notes
 - Browser window will appear during test execution (headed mode default)
@@ -495,6 +715,6 @@ If implementation reveals UI structure issues:
 - If user doesn't see browser: Check for popup blockers or window focus issues
 
 ## Handling UI Changes
-- When application behavior changes: update selectors and waits (DOM exploration phase)
+- When application behavior changes: update selectors and waits
 - When step vocabulary changes: collaborate with **bdd-planner** to update Gherkin and bindings together
 - Re-run targeted tests after each change to confirm deterministic behaviour
