@@ -240,9 +240,33 @@
 			"dotnet test `",
 		]
 	},
-	"Jest: Open dialog and refresh control": {
+	"Create a project with Script tests": {
+		"scope": "powershell",
+		"prefix": "CFM07-create-script-tests",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║                         CFM09: Create a project for Script tests                        ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# This command scaffolds a test project for JavaScript/TypeScript web resources.",
+			"# It links to an existing built script to enable isolated unit tests.",
+			"#",
+			"dotnet new pp-script-test`",
+			"--output \"src/Scripts.Tests\" `",
+			"--ScriptLibraryPath \"..\\Solutions.UI\\TS\\build\\udpp_main.js\" `",
+			"--ScriptTestProjectName \"Scripts.Tests\"",
+			"",
+			"# Open files in VS Code for editing",
+			"code \"src/Scripts.Tests/tests/actions.test.js\"",
+			"code \"src/Scripts.Tests/tests/actions.test.js\"",
+			"#",
+			"dotnet sln add src/Scripts.Tests"
+		]
+	},
+	"Open dialog and refresh control": {
 		"scope": "javascript",
-		"prefix": "CFM07-jest-open-dialog",
+		"prefix": "CFM08-jest-open-dialog",
 		"body": [
 			"const core = require(process.env.JETS_CORE);",
 			"",
@@ -271,7 +295,7 @@
 	},
 	"Jest: createRecord success and close window": {
 		"scope": "javascript",
-		"prefix": "CFM08-jest-create-record-close",
+		"prefix": "CFM09-jest-create-record-close",
 		"body": [
 			"const core = require(process.env.JETS_CORE);",
 			"",
@@ -316,5 +340,6 @@
 			"  expect(form.ui.close).toHaveBeenCalledTimes(1);",
 			"});"
 		]
-	}
+	},
+	
 }
