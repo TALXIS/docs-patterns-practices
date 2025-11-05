@@ -1,0 +1,78 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+  testProject: 'Tests.BDD/Tests.BDD.csproj'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET 9.0'
+  inputs:
+    version: '9.0.x'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore NuGet packages'
+  inputs:
+    command: 'restore'
+    projects: '$(testProject)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build test project'
+  inputs:
+    command: 'build'
+    projects: '$(testProject)'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run BDD tests'
+  inputs:
+    command: 'test'
+    projects: '$(testProject)'
+    arguments: '--configuration $(buildConfiguration) --no-build --logger "trx;LogFileName=bdd-tests.trx" --results-directory $(Build.SourcesDirectory)/TestResults'
+  continueOnError: true
+
+- task: PublishTestResults@2
+  displayName: 'Publish test results to Azure DevOps'
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '**/bdd-tests.trx'
+    searchFolder: '$(Build.SourcesDirectory)/TestResults'
+    mergeTestResults: true
+    failTaskOnFailedTests: true
+    testRunTitle: 'BDD Test Results'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish HTML report'
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/Tests.BDD/bin/$(buildConfiguration)/net9.0/TestResults/bdd-report.html'
+    ArtifactName: 'BDD-HTML-Report'
+    publishLocation: 'Container'
+  condition: always()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Cucumber Messages'
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/Tests.BDD/bin/$(buildConfiguration)/net9.0/TestResults/cucumber-messages.ndjson'
+    ArtifactName: 'BDD-Cucumber-Messages'
+    publishLocation: 'Container'
+  condition: always()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish TRX files'
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/TestResults'
+    ArtifactName: 'BDD-TRX-Results'
+    publishLocation: 'Container'
+  condition: always()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish failure screenshots'
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/Tests.BDD/bin/$(buildConfiguration)/net9.0/TestResults/Screenshots'
+    ArtifactName: 'BDD-Screenshots'
+    publishLocation: 'Container'
+  condition: always()
