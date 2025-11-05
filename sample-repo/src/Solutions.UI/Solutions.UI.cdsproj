@@ -47,8 +47,6 @@
   <!-- Override the default Publish target to prevent errors when running publish on .sln file -->
   <Target Name="Publish" />
   <ItemGroup>
-    <PackageReference Include="TALXIS.SDK.BuildTargets.CDS.Solution" Version="2.0.*" />
-    <PackageReference Include="TALXIS.SDK.BuildTargets.CDS.TypeScriptCommon" Version="2.1.*" />
     <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.*" />
     <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="9.0.*" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.*" />
@@ -79,4 +77,17 @@
     <!-- Skip versioning for CDS projects as they don't generate DLL files -->
     <Message Text="Skipping versioning for CDS project - no DLL file to read version from" Importance="Normal" />
   </Target>
+
+  <PropertyGroup>
+    <TsProjectDir>$(MSBuildThisFileDirectory)TS</TsProjectDir>
+    <TsOutFile>$(TsProjectDir)\build\udpp_main.js</TsOutFile>
+    <WebResourceOutFile>$(MSBuildThisFileDirectory)Declarations\WebResources\udpp_udpp_main.js</WebResourceOutFile>
+  </PropertyGroup>
+  <Target Name="BuildTypeScript" BeforeTargets="Build">
+    <Message Text="Building TypeScript project in $(TsProjectDir)" Importance="High" />
+    <Exec Command="npm ci" WorkingDirectory="$(TsProjectDir)" Condition="!Exists('$(TsProjectDir)\node_modules')" />
+    <Exec Command="npm run build" WorkingDirectory="$(TsProjectDir)" />
+    <Copy SourceFiles="$(TsOutFile)" DestinationFiles="$(WebResourceOutFile)" SkipUnchangedFiles="true" />
+  </Target>
+
 </Project>
