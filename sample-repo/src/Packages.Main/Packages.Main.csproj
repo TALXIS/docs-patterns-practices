@@ -6,7 +6,7 @@
     <Copyright>Copyright © 2025</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.PowerApps.MSBuild.PDPackage" Version="1.*">
+    <PackageReference Include="TALXIS.PowerApps.MSBuild.PDPackage" Version="0.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

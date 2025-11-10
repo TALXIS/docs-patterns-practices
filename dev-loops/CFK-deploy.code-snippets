@@ -55,7 +55,7 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Build the whole repository (as unmanaged solutions).",
-			"dotnet publish \"src/Packages.Main/Packages.Main.csproj\" -c Release",
+			"dotnet publish -c Release",
 			"",
 			"# Step 2: Import the locally built solutions into Dataverse for modification in Power Apps Maker.",
 			"pac package deploy --package \"./src/Packages.Main/bin/Debug/Packages.Main.1.0.0.pdpkg.zip\"",
