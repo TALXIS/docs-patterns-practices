@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packages.Main", "src\Packag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.UI", "src\Tests.UI\Tests.UI.csproj", "{5986A2F6-D065-4BF1-A402-E851E31659CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.Tests", "src\Plugins.Tests\Plugins.Tests.csproj", "{F62C9B33-E2D8-4ED0-9CB6-36C659984FDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.Warehouse", "src\Plugins.Warehouse\Plugins.Warehouse.csproj", "{868AD532-4569-7623-989D-0B896A0E0EC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
