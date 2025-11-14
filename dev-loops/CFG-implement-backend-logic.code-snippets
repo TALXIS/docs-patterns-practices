@@ -73,6 +73,8 @@
 			"--Company \"NETWORG\" `",
 			"--allow-scripts yes",
 			"",
+			"dotnet sln add src/Plugins.Warehouse",
+			"",
 			"# Step 4: Add custom plugin class files",
 			"cd src/Plugins.Warehouse",
 			"",
