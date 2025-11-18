@@ -2,7 +2,7 @@
     "compileOnSave": true,
     "compilerOptions": {
         "outDir": "build",
-        "outFile": "build/udpp_main.js",
+        "outFile": "build/main.js",
         "target": "es6",
         "sourceMap": true,
         "moduleResolution": "Node",

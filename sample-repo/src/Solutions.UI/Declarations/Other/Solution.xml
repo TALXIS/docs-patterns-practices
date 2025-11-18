@@ -144,7 +144,7 @@
       <RootComponent type="60" id="{93bf03d3-ff13-419a-9221-e6a12ada11e3}" behavior="0" />
       <RootComponent type="60" id="{2fffb9d1-3f10-455c-bc66-539089a26878}" />
       <RootComponent type="60" id="{ea500a4b-6512-4dfd-9bce-f7a649d1e012}" behavior="0" />
-      <RootComponent type="61" schemaName="udpp_udpp_main.js" behavior="0" />
+      <RootComponent type="61" schemaName="udpp_main.js" behavior="0" />
     </RootComponents>
     <MissingDependencies />
   </SolutionManifest>

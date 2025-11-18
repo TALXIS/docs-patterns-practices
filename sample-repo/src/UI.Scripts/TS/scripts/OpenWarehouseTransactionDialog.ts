@@ -1,6 +1,6 @@
 // type CFI15 and then press control+space to trigger suggestions of snippets
 // ╔════════════════════════════════════════════════════════════════════════════════════════╗
-// ║              CFG09: Open Warehouse Transaction Dialog from Ribbon Button              ║
+// ║              CFI15: Open Warehouse Transaction Dialog from Ribbon Button               ║
 // ╚════════════════════════════════════════════════════════════════════════════════════════╝
 //
 // This TypeScript function opens the warehouse transaction dialog form when called

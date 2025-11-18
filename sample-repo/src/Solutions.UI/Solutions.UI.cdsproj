@@ -6,7 +6,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
   <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props')" />
   <PropertyGroup>
-    <ProjectGuid>5e8b2811-02ba-4df2-b2db-d2b779200dc3</ProjectGuid>
+    <ProjectGuid>c3638d01-a0db-4d3c-8489-b647b868f4db</ProjectGuid>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <!--Remove TargetFramework when this is available in 16.1-->
     <TargetFramework>net462</TargetFramework>
@@ -46,48 +46,17 @@
   <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets')" />
   <!-- Override the default Publish target to prevent errors when running publish on .sln file -->
   <Target Name="Publish" />
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.*" />
-    <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="9.0.*" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.*" />
-  </ItemGroup>
-  <PropertyGroup>
-    <SolutionDir>$(MSBuildThisFileDirectory)..\..\</SolutionDir>
+  <PropertyGroup >
+    <UiScriptsProject>..\UI.Scripts\UI.Scripts.csproj</UiScriptsProject>
+    <UiScriptsDir>$([System.IO.Path]::GetDirectoryName('$(UiScriptsProject)'))\</UiScriptsDir>
+    <UiScriptBuiltFile>$(UiScriptsDir)TS\build\main.js</UiScriptBuiltFile>
+    <WebResourcesDir>$(SolutionRootPath)\WebResources\</WebResourcesDir>
+    <RenamedUiScript>$(WebResourcesDir)udpp_main.js</RenamedUiScript>
   </PropertyGroup>
-  <Target Name="CopyReferencedAssemblies" AfterTargets="Rebuild;Build" >
-    <PropertyGroup>
-      <ReferencedAssembliesFolder>$(SolutionDir)build\.referencedAssemblies</ReferencedAssembliesFolder>
-    </PropertyGroup>
-    <!-- Get the paths to the DLL files from NuGet packages -->
-    <ItemGroup>
-      <CrmSdkProxy Include="$(NuGetPackageRoot)microsoft.crmsdk.coreassemblies\9.0.*\lib\net462\Microsoft.Crm.Sdk.Proxy.dll" />
-      <CrmSdk Include="$(NuGetPackageRoot)microsoft.crmsdk.coreassemblies\9.0.*\lib\net462\Microsoft.Xrm.Sdk.dll" />
-      <CrmSdkWorkflow Include="$(NuGetPackageRoot)microsoft.crmsdk.workflow\9.0.*\lib\net462\Microsoft.Xrm.Sdk.Workflow.dll" />
-      <NewtonsoftJson Include="$(NuGetPackageRoot)newtonsoft.json\13.0.*\lib\net45\Newtonsoft.Json.dll" />
-    </ItemGroup>
-    <!-- Create the destination directory -->
-    <MakeDir Directories="$(ReferencedAssembliesFolder)" />
-    <!-- Copy the DLL files -->
-    <Copy SourceFiles="@(CrmSdkProxy)" DestinationFolder="$(ReferencedAssembliesFolder)" SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(CrmSdk)" DestinationFolder="$(ReferencedAssembliesFolder)" SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(CrmSdkWorkflow)" DestinationFolder="$(ReferencedAssembliesFolder)" SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(NewtonsoftJson)" DestinationFolder="$(ReferencedAssembliesFolder)" SkipUnchangedFiles="true" />
+  <Target Name="BuildUiScriptsAndCopyUdppMain" BeforeTargets="CoreCompile" >
+    <MSBuild Projects="$(UiScriptsProject)" Targets="Build" Properties="Configuration=$(Configuration)" />
+    <Error Text="main.js not found at $(UiScriptBuiltFile) after building UI.Scripts" Condition="!Exists('$(UiScriptBuiltFile)')" />
+    <MakeDir Directories="$(WebResourcesDir)" />
+    <Copy SourceFiles="$(UiScriptBuiltFile)" DestinationFiles="$(RenamedUiScript)" SkipUnchangedFiles="true" />
   </Target>
-  <Target Name="ApplyVersioningForSolution" AfterTargets="SolutionBuildTargetIntro" Condition="Exists('$(ProjectDir)Declarations\Other\Solution.xml')" >
-    <!-- Skip versioning for CDS projects as they don't generate DLL files -->
-    <Message Text="Skipping versioning for CDS project - no DLL file to read version from" Importance="Normal" />
-  </Target>
-
-  <PropertyGroup>
-    <TsProjectDir>$(MSBuildThisFileDirectory)TS</TsProjectDir>
-    <TsOutFile>$(TsProjectDir)\build\udpp_main.js</TsOutFile>
-    <WebResourceOutFile>$(MSBuildThisFileDirectory)Declarations\WebResources\udpp_udpp_main.js</WebResourceOutFile>
-  </PropertyGroup>
-  <Target Name="BuildTypeScript" BeforeTargets="Build">
-    <Message Text="Building TypeScript project in $(TsProjectDir)" Importance="High" />
-    <Exec Command="npm ci" WorkingDirectory="$(TsProjectDir)" Condition="!Exists('$(TsProjectDir)\node_modules')" />
-    <Exec Command="npm run build" WorkingDirectory="$(TsProjectDir)" />
-    <Copy SourceFiles="$(TsOutFile)" DestinationFiles="$(WebResourceOutFile)" SkipUnchangedFiles="true" />
-  </Target>
-
 </Project>
