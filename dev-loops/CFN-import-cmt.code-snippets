@@ -1,0 +1,31 @@
+{
+	"Import CMT data package into current environment": {
+		"scope": "powershell",
+		"prefix": "CFN01-import-cmt-data",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║              CFN01: Import the CMT data package into current environment               ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# This snippet guides you to locate the built package and import it into the currently",
+			"# authenticated Dataverse environment.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Build Packages.Main so the CMT output is produced (optional if already built).",
+			"dotnet publish \"src/Packages.Main/Packages.Main.csproj\" -c ${1:Debug}",
+			"",
+			"# Step 2: Go to the build output and confirm the CMT package exists.",
+			"cd \"src/Packages.Main/bin/${1:Debug}/net472/CmtPackages\"",
+			"",
+			"# Step 3: Import the CMT data package into the currently connected environment.",
+			"pac data import --data \"Data.zip\"",
+			"",
+			"# Step 4: Return to the repo root.",
+			"cd ../../../.."
+		]
+	}
+}
+
