@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Role id="{b4288090-c017-4888-80fd-1e3acca10b52}" name="Warehouse manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Role id="{ee71afdb-bae0-47e1-97bd-8becb9541d2f}" name="Warehouse manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <IsAutoAssigned>0</IsAutoAssigned>
   <RolePrivileges>

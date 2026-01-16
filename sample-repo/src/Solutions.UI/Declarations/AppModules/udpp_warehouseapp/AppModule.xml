@@ -14,8 +14,8 @@
     <AppModuleComponent type="62" schemaName="udpp_warehouseapp" />
     <AppModuleComponent type="1" schemaName="udpp_warehouseitem" />
     <AppModuleComponent type="1" schemaName="udpp_warehousetransaction" />
-    <AppModuleComponent type="60" id="{93bf03d3-ff13-419a-9221-e6a12ada11e3}" />
-    <AppModuleComponent type="26" id="{40c506c0-eff0-4b82-a798-49a5d8e1fab9}" />
+    <AppModuleComponent type="60" id="{d8f7acf9-2377-4a15-8e4b-92876175c039}" />
+    <AppModuleComponent type="26" id="{3b5cee02-8f23-4e11-893a-531b94158a13}" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
     <Role id="{979144c2-989b-41a5-a146-6b3ea4130e8c}" />

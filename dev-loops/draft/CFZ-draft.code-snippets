@@ -179,14 +179,14 @@
 			"${3:CFA08-switch-type-sanitize-solution-name}",
 			"",
 			"# Add the project to the previously created Visual Studio solution",
-			"dotnet sln ../../ add Solutions.Controls.cdsproj",
+			"dotnet sln ../../ add Solutions.Controls.csproj",
 			"",
 			"# Add the control to the solution",
 			"pac solution add-reference --path ../Controls.Calendar",
 			"# Add the new Controls solution to the package",
 			"cd ..",
 			"cd Packages.Main",
-			"pac package add-reference --path \"../Solutions.Controls/\"",
+			"dotnet add \"./Packages.Main.csproj\" reference \"../Solutions.Controls/Solutions.Controls.csproj\"",
 			"",
 			"cd ../.."
 		]

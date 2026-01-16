@@ -63,14 +63,14 @@
 			"",
 			"cd \"src/Solutions.Controls\"",
 			"# Add the solution project to your .sln so it participates in builds",
-			"dotnet sln add \"src/Solutions.Controls/Solutions.Controls.cdsproj\"",
+			"dotnet sln add \"src/Solutions.Controls/Solutions.Controls.csproj\"",
 			"",
 			"# Link the PCF control project into the solution",
 			"pac solution add-reference --path ../Controls.${3:Calendar}",
 			"",
 			"cd ../Packages.Main",
 			"# Add the Controls solution into the package deployer project",
-			"pac package add-reference --path \"../Solutions.Controls\"",
+			"dotnet add \"./Packages.Main.csproj\" reference \"../Solutions.Controls/Solutions.Controls.csproj\"",
 			"cd ../.."
 		]
 	},

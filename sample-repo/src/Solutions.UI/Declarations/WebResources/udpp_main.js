@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 // type CFI15 and then press control+space to trigger suggestions of snippets
 // ╔════════════════════════════════════════════════════════════════════════════════════════╗
-// ║              CFG09: Open Warehouse Transaction Dialog from Ribbon Button              ║
+// ║              CFI15: Open Warehouse Transaction Dialog from Ribbon Button               ║
 // ╚════════════════════════════════════════════════════════════════════════════════════════╝
 //
 // This TypeScript function opens the warehouse transaction dialog form when called
@@ -43,7 +43,7 @@ var MyRibbon;
 })(MyRibbon || (MyRibbon = {}));
 // type CFI16 and then press control+space to trigger suggestions of snippets
 // ╔════════════════════════════════════════════════════════════════════════════════════════╗
-// ║                CFG10: Save Warehouse Transaction Data from Form Button                ║
+// ║                CFI16: Save Warehouse Transaction Data from Form Button                 ║
 // ╚════════════════════════════════════════════════════════════════════════════════════════╝
 //
 // This TypeScript function saves the warehouse transaction data when called from a form button.
@@ -120,4 +120,4 @@ var UdppDialog;
     // Backward compatibility: keep old exported function symbol
     UdppDialog.saveAndClose = Actions.saveAndClose;
 })(UdppDialog || (UdppDialog = {}));
-//# sourceMappingURL=udpp_main.js.map
+//# sourceMappingURL=main.js.map

@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Mapping>
-  <FileToFile map="WebResources\udpp_main.js"
-             to="..\TS\build\udpp_main.js" />
-</Mapping>

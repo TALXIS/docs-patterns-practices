@@ -8,7 +8,7 @@
       <LocalizedName description="Solutions.UI" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0</Version>
+    <Version>1.0.0</Version>
     <!-- Solution Package Type: Unmanaged(0)/Managed(1)/Both(2)-->
     <Managed>2</Managed>
     <Publisher>
@@ -141,9 +141,9 @@
       <RootComponent type="1" schemaName="udpp_warehousetransaction" behavior="2" />
       <RootComponent type="80" schemaName="udpp_warehouseapp" behavior="0" />
       <RootComponent type="62" schemaName="udpp_warehouseapp" behavior="0" />
-      <RootComponent type="60" id="{93bf03d3-ff13-419a-9221-e6a12ada11e3}" behavior="0" />
-      <RootComponent type="60" id="{2fffb9d1-3f10-455c-bc66-539089a26878}" />
-      <RootComponent type="60" id="{ea500a4b-6512-4dfd-9bce-f7a649d1e012}" behavior="0" />
+      <RootComponent type="60" id="{d8f7acf9-2377-4a15-8e4b-92876175c039}" behavior="0" />
+      <RootComponent type="60" id="{39fdaa78-80ee-4289-9df8-3ed1f42dd362}" />
+      <RootComponent type="60" id="{3d524414-aff1-4b0a-bd1f-acdbfb4fb0ab}" behavior="0" />
       <RootComponent type="61" schemaName="udpp_main.js" behavior="0" />
     </RootComponents>
     <MissingDependencies />

@@ -3,7 +3,7 @@
   <CustomActions>
     <CustomAction Id="tom.udpp.udpp_warehousetransaction.Button.createwarehousetransaction.CustomAction" Location="Mscrm.HomepageGrid.udpp_warehousetransaction.MainTab.Management.Controls._children" Sequence="10">
       <CommandUIDefinition>
-        <Button Alt="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.Alt" Command="udpp.udpp_warehousetransaction.Command.MyRibbon.Dialogs.OpenDialogudpp_udpp_main.js" Id="udpp.udpp_warehousetransaction.Button.createwarehousetransaction" LabelText="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.ToolTipTitle" ToolTipDescription="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.ToolTipDescription" />
+        <Button Alt="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.Alt" Command="udpp.udpp_warehousetransaction.Command.MyRibbon.Dialogs.OpenDialogudpp_main.js" Id="udpp.udpp_warehousetransaction.Button.createwarehousetransaction" LabelText="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.ToolTipTitle" ToolTipDescription="$LocLabels:udpp.udpp_warehousetransaction.Button.createwarehousetransaction.ToolTipDescription" />
       </CommandUIDefinition>
     </CustomAction>
     <HideCustomAction HideActionId="udpp.Mscrm.HomepageGrid.udpp_warehousetransaction.NewRecord.Hide" Location="Mscrm.HomepageGrid.udpp_warehousetransaction.NewRecord" />
@@ -13,11 +13,11 @@
     </RibbonTemplates>
   </Templates>
   <CommandDefinitions>
-    <CommandDefinition Id="udpp.udpp_warehousetransaction.Command.MyRibbon.Dialogs.OpenDialogudpp_udpp_main.js">
+    <CommandDefinition Id="udpp.udpp_warehousetransaction.Command.MyRibbon.Dialogs.OpenDialogudpp_main.js">
       <EnableRules />
       <DisplayRules />
       <Actions>
-        <JavaScriptFunction FunctionName="MyRibbon.Dialogs.OpenDialog" Library="$webresource:udpp_udpp_main.js">
+        <JavaScriptFunction FunctionName="MyRibbon.Dialogs.OpenDialog" Library="$webresource:udpp_main.js">
           <StringParameter Value="udpp_generatedformdialog" />
           <CrmParameter Value="SelectedControl" />
         </JavaScriptFunction>

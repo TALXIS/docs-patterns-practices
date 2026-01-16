@@ -125,7 +125,7 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Create the Dataverse package for deployment.",
-			"dotnet new pp-talxis-pdpackage `",
+			"dotnet new pp-package `",
 			"--output \"src/${1:Packages.Main}\" `",
 			"--allow-scripts yes",
 			"",

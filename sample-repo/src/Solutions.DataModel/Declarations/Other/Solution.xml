@@ -8,7 +8,7 @@
       <LocalizedName description="Solutions.DataModel" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0</Version>
+    <Version>1.0.0</Version>
     <!-- Solution Package Type: Unmanaged(0)/Managed(1)/Both(2)-->
     <Managed>2</Managed>
     <Publisher>
@@ -138,13 +138,13 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="udpp_warehouseitem" behavior="0" />
-      <RootComponent type="60" id="{c1587d31-e5fb-428d-a952-508d18aa1699}" behavior="0" />
-      <RootComponent type="60" id="{88061d47-aa10-413d-b014-7bce72a26048}" behavior="0" />
-      <RootComponent type="60" id="{969564be-1ce5-4fed-a075-b8a28373134f}" behavior="0" />
+      <RootComponent type="60" id="{dd7d3944-ebe9-49f8-ba97-1bc4c80e324b}" behavior="0" />
+      <RootComponent type="60" id="{beeac099-c4fa-4f08-96f9-bb12a788318d}" behavior="0" />
+      <RootComponent type="60" id="{39ed50c5-294d-462d-bd98-219ea4573f76}" behavior="0" />
       <RootComponent type="1" schemaName="udpp_warehousetransaction" behavior="0" />
-      <RootComponent type="60" id="{57edfc48-c1ae-4372-b600-879bfc929a93}" behavior="0" />
-      <RootComponent type="60" id="{42e47359-f46c-4fa3-a768-30c2e99eb227}" behavior="0" />
-      <RootComponent type="60" id="{f8d740e4-22f8-4326-9eb7-139a770673ac}" behavior="0" />
+      <RootComponent type="60" id="{135bb203-cb8f-41b1-a8f9-8109e393aaaa}" behavior="0" />
+      <RootComponent type="60" id="{ed2bce7c-ef57-4085-bf70-2c8eeeeccf14}" behavior="0" />
+      <RootComponent type="60" id="{42aa3542-193f-4d7f-97d2-7ddd51ccbc8b}" behavior="0" />
       <RootComponent type="9" schemaName="udpp_paymentmethod" behavior="0" />
     </RootComponents>
     <MissingDependencies />
