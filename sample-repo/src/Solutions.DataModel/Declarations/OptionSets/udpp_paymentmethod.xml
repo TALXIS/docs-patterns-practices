@@ -12,7 +12,7 @@
     <Description description="" languagecode="1033" />
   </Descriptions>
   <options>
-    <option value="320290000" ExternalValue="" IsHidden="0">
+    <option value="784270000" ExternalValue="" IsHidden="0">
       <labels>
         <label description="Visa" languagecode="1033" />
       </labels>
@@ -20,7 +20,7 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
-    <option value="320290001" ExternalValue="" IsHidden="0">
+    <option value="784270001" ExternalValue="" IsHidden="0">
       <labels>
         <label description="Mastercard" languagecode="1033" />
       </labels>
@@ -28,7 +28,7 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
     </option>
-    <option value="320290002" ExternalValue="" IsHidden="0">
+    <option value="784270002" ExternalValue="" IsHidden="0">
       <labels>
         <label description="Cash" languagecode="1033" />
       </labels>

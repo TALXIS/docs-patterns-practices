@@ -6,13 +6,13 @@
   <ShowPinned>True</ShowPinned>
   <ShowRecents>True</ShowRecents>
   <SiteMap IntroducedVersion="7.0.0.0">
-    <Area Id="area_8db8ff89" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" ShowGroups="true" IntroducedVersion="7.0.0.0">
-      <Group Id="group_f313022f" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
+    <Area Id="area_af8ad446" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" ShowGroups="true" IntroducedVersion="7.0.0.0">
+      <Group Id="group_86a5fb33" ResourceId="SitemapDesigner.NewTitle" DescriptionResourceId="SitemapDesigner.NewTitle" IntroducedVersion="7.0.0.0" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
         <Titles>
           <Title LCID="1033" Title="New Group" />
         </Titles>
-        <SubArea Id="subarea_a2a72d20" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="udpp_warehouseitem" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
-        <SubArea Id="subarea_0b02ef6f" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="udpp_warehousetransaction" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_3fea51f3" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="udpp_warehouseitem" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
+        <SubArea Id="subarea_c7c6d6dc" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="udpp_warehousetransaction" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" />
       </Group>
     </Area>
   </SiteMap>

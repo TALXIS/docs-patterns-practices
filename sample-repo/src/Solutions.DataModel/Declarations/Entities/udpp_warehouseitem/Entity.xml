@@ -846,7 +846,7 @@
               <Description description="" languagecode="1033" />
             </Descriptions>
             <options>
-              <option value="675430000" ExternalValue="" IsHidden="0">
+              <option value="240490000" ExternalValue="" IsHidden="0">
                 <labels>
                   <label description="Box" languagecode="1033" />
                 </labels>
@@ -854,7 +854,7 @@
                   <Description description="" languagecode="1033" />
                 </Descriptions>
               </option>
-              <option value="675430001" ExternalValue="" IsHidden="0">
+              <option value="240490001" ExternalValue="" IsHidden="0">
                 <labels>
                   <label description="Bag" languagecode="1033" />
                 </labels>
@@ -862,7 +862,7 @@
                   <Description description="" languagecode="1033" />
                 </Descriptions>
               </option>
-              <option value="675430002" ExternalValue="" IsHidden="0">
+              <option value="240490002" ExternalValue="" IsHidden="0">
                 <labels>
                   <label description="Envelope" languagecode="1033" />
                 </labels>

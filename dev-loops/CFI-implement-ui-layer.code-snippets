@@ -24,7 +24,7 @@
 			"",
 			"# Step 2: Add the solution project to the Package Deployer project as a .NET ProjectReference item.",
 			"cd src/Packages.Main",
-			"pac package add-reference --path ../Solutions.UI/",
+			"dotnet add \"./Packages.Main.csproj\" reference \"../Solutions.UI/Solutions.UI.csproj\"",
 			"cd ../..",
 			"",
 			"# Step 3: Link existing entities from the data model.",
@@ -851,8 +851,7 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Create the Script Library in the existing UI solution",
 			"dotnet new pp-script-library `",
-			"--output \"src/UI.Scripts\" `",
-			"--LibraryName \"main\" `",
+			"--output \"src/UI.Scripts\" ",
 			"",
 			"# Step 2: Create TypeScript files for warehouse transaction functionality",
 			"mkdir src/UI.Scripts/TS/scripts",
@@ -869,7 +868,12 @@
 			"",
 			"# Open files in VS Code for editing",
 			"code \"src/UI.Scripts/TS/scripts/OpenWarehouseTransactionDialog.ts\"",
-			"code \"src/UI.Scripts/TS/scripts/SaveWarehouseTransactionData.ts\""
+			"code \"src/UI.Scripts/TS/scripts/SaveWarehouseTransactionData.ts\"",
+			"",
+			"# Add references to the script libraries",
+			"cd src/Solutions.UI",
+			"dotnet add reference ../UI.Scripts/UI.Scripts.csproj",
+			"cd ../..",
 		]
 	},
 	"Open Warehouse Transaction Dialog Script": {

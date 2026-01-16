@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="Generated Form" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Generated Form" languagecode="1033" />
+  </Descriptions>
+  <FormId>{39fdaa78-80ee-4289-9df8-3ed1f42dd362}</FormId>
+  <UniqueName>udpp_generatedformdialog</UniqueName>
+  <IsCustomizable>1</IsCustomizable>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsTabletEnabled>1</IsTabletEnabled>
+  <CanBeDeleted>1</CanBeDeleted>
+  <FormXml>
+    <forms type="dialog">
+      <form>
+        <formparameters />
+        <header id="{8a254197-5cf9-4a68-8064-6cdf98a581b0}">
+          <rows>
+            <row>
+              <cell id="{800307cb-09cc-4bf9-a899-f675a6728d93}">
+                <labels>
+                  <label description="Generated Form" languagecode="1033" />
+                </labels>
+                <control id="FormHeader" classid="{39354E4A-5015-4D74-8031-EA9EB73A1322}" isunbound="true">
+                  <parameters>
+                    <IsTitle>true</IsTitle>
+                  </parameters>
+                </control>
+              </cell>
+            </row>
+          </rows>
+        </header>
+        <tabs>
+          <tab verticallayout="true" id="{23462284-b3fb-4e69-9f9e-c6d9ae7d89ed}" IsUserDefined="1" name="general" labelid="{321d6d01-5e74-4f22-a5ed-01ca908474e2}">
+            <labels>
+              <label description="General" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="true" showbar="false" IsUserDefined="0" id="{227e0eb0-c8be-489b-a05f-fa3fbc772f4f}" labelid="{8e6bff5d-23e4-433f-b365-07eb790adb2a}" name="general">
+                    <labels>
+                      <label description="GENERAL" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell id="{ED5C163E-D263-48BE-96E8-ABE55D38A903}" showlabel="true">
+                          <labels>
+                            <label description="Name" languagecode="1033" />
+                          </labels>
+                          <control id="udpp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" isunbound="true" isrequired="false" uniqueid="{3b913c0b-cdc4-4a2b-8cd3-ffafe4c967d4}" />
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{1258833C-DBE5-4556-BBBF-45FCF7103239}" showlabel="true">
+                          <labels>
+                            <label description="Quantity" languagecode="1033" />
+                          </labels>
+                          <control id="udpp_quantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" isunbound="true" isrequired="false" uniqueid="{ca5fe9b7-a440-4f32-a75f-58b2fde6d55e}" />
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{C45E46EF-B2CF-4C0B-955A-3AA4CE1834FA}" showlabel="true">
+                          <labels>
+                            <label description="Item" languagecode="1033" />
+                          </labels>
+                          <control id="udpp_itemid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" isunbound="true" isrequired="false" uniqueid="{58e33035-1f80-47b9-934c-f61d5caecccf}">
+                            <parameters>
+                              <DisableMru>true</DisableMru>
+                              <TargetEntities>
+                                <TargetEntity>
+                                  <DefaultViewId>{3b5cee02-8f23-4e11-893a-531b94158a13}</DefaultViewId>
+                                  <EntityLogicalName>udpp_warehouseitem</EntityLogicalName>
+                                </TargetEntity>
+                              </TargetEntities>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{0E6C20D7-C865-4E3A-A240-7B6E92052024}" showlabel="true">
+                          <labels>
+                            <label description="Payment Method" languagecode="1033" />
+                          </labels>
+                          <control id="udpp_paymentmethod" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" isunbound="true" isrequired="false" uniqueid="{a48cec57-7cdd-4399-84fd-6807e17f6fd5}">
+                            <parameters>
+                              <OptionSetName>udpp_paymentmethod</OptionSetName>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+            <tabfooter id="{41e7301e-d47e-478b-9cdd-b2542bfa4c1a}">
+              <rows>
+                <row>
+                  <cell id="{CA8CE2AA-2BAD-457D-BBC2-02C641ABC383}" showlabel="true">
+                    <labels>
+                      <label description="Save" languagecode="1033" />
+                    </labels>
+                    <control id="udpp_savebutton" classid="{00ad73da-bd4d-49c6-88a8-2f4f4cad4a20}" isunbound="true" isrequired="false" uniqueid="{b9557002-8b4b-4e7d-83f2-319233ce3bb1}" />
+                  </cell>
+                </row>
+              </rows>
+            </tabfooter>
+          </tab>
+        </tabs>
+        <controlDescriptions />
+        <events></events>
+      </form>
+    </forms>
+  </FormXml>
+</Dialog>

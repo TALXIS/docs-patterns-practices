@@ -43,7 +43,7 @@
 			"",
 			"# Step 3: Add the solution project to the Package Deployer project as a .NET ProjectReference item.",
 			"cd src/Packages.Main",
-			"pac package add-reference --path ../${2:Solutions.DataModel}/",
+			"dotnet add \"./Packages.Main.csproj\" reference \"../${2:Solutions.DataModel}/${2:Solutions.DataModel}.csproj\"",
 			"cd ../..",
 			"",
 		]
