@@ -9,14 +9,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.1.0.79" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.PackageDeployment" Version="9.1.0.74" PrivateAssets="all" />
+    <PackageReference Include="Solutions.Security" Version="1.0.0"  />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solutions.DataModel\Solutions.DataModel.csproj" />
-    <ProjectReference Include="..\Solutions.Logic\Solutions.Logic.csproj" />
-    <ProjectReference Include="..\Solutions.UI\Solutions.UI.csproj" />
-    <ProjectReference Include="..\Solutions.Security\Solutions.Security.csproj" />
+    <ProjectReference Include="..\Solutions.DataModel\Solutions.DataModel.csproj" ReferenceOutputAssembly="false"/>
+    <ProjectReference Include="..\Solutions.Logic\Solutions.Logic.csproj" ReferenceOutputAssembly="false"/>
+    <ProjectReference Include="..\Solutions.UI\Solutions.UI.csproj" ReferenceOutputAssembly="false"/>
   </ItemGroup>
 </Project>

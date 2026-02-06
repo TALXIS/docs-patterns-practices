@@ -1,5 +1,7 @@
 <Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.1">
-
+  <ItemGroup>
+    <ProjectReference Include="..\Plugins.Warehouse\Plugins.Warehouse.csproj" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <SolutionRootPath>Declarations</SolutionRootPath>
