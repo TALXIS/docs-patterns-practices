@@ -147,6 +147,7 @@
 			"}"
 		]
 	},
+	
 	"QuantityIndicator PCF TS": {
 		"prefix": "GFZ04-quantity-indicator-ts",
 		"scope": "typescript",
@@ -257,5 +258,38 @@
 			"    }",
 			"}"
 		]
-	}
+	},
+	"Attach PCF Control to Form (Generic)": {
+		"scope": "powershell",
+		"prefix": "GFZ05-attach-pcf-to-form",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║        GFZ05: Attach a PCF Custom Control to an Entity Form (Generic Template)          ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
+			"# This snippet uses the universal pp-customcontrol-generic template to attach any PCF",
+			"# control to a Dataverse form. It adds the controlDescriptions block with a default",
+			"# fallback and a formFactor-specific customControl entry. Run once per formFactor",
+			"# (0 = Web, 1 = Tablet, 2 = Phone) to cover all form factors.",
+			"#",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"#                                        Commands",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Attach PCF control for Web (formFactor 0)",
+			"dotnet new pp-customcontrol-generic `",
+			"--output \"src/Solutions.UI\" `",
+			"--CustomControlName \"${1:UdppControls.QuantityIndicator}\" `",
+			"--CustomControlParameters '${2:[{\"name\":\"quantity\",\"type\":\"Whole.None\",\"value\":\"${3:udpp_availablequantity}\"}]}' `",
+			"--PublisherPrefix \"$${publisherPrefix}\" `",
+			"--CustomControlFormFactor \"0\" `",
+			"--FieldLogicalName \"${3:udpp_availablequantity}\" `",
+			"--SolutionRootPath \"Declarations\" `",
+			"--EntitySchemaName \"${4:udpp_warehouseitem}\" `",
+			"--FormType \"${5:main}\" `",
+			"--FormId $$warehouseitemFormGuid  `",
+			"--allow-scripts yes",
+			"",
+		]
+	},
 }
