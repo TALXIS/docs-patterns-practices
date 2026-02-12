@@ -1,11 +1,11 @@
 {
 	"Scaffold QuantityIndicator PCF": {
 		"scope": "powershell",
-		"prefix": "GFZ01-scaffold-quantity-indicator-pcf",
+		"prefix": "GFJ01-scaffold-quantity-indicator-pcf",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                  GFZ01: Scaffold QuantityIndicator PCF control (field)                  ║",
+			"# ║                  GFJ01: Scaffold QuantityIndicator PCF control (field)                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"# This snippet scaffolds a Dataverse field PCF control named QuantityIndicator.",
 			"# It runs `pac pcf init` under namespace UdppControls, seeds placeholders so",
@@ -24,13 +24,13 @@
 			"# Step 2: Install npm dependencies",
 			"npm install",
 			"",
-			"# Step 3: Create css folder + placeholder files (for CFZ02–CFZ04 snippets)",
+			"# Step 3: Create css folder + placeholder files (for GFJ02–GFJ04 snippets)",
 			"mkdir QuantityIndicator/css",
 			"New-Item -Path . -Name \"QuantityIndicator/css/QuantityIndicator.css\" -ItemType \"File\" | Out-Null",
 			"",
-			"\"<!-- type CFZ02 and then press control+space to trigger suggestions of snippets -->\" | Out-File -FilePath \"QuantityIndicator/ControlManifest.Input.xml\"",
-			"\"/* type CFZ03 and then press control+space to trigger suggestions of snippets */\" | Out-File -FilePath \"QuantityIndicator/css/QuantityIndicator.css\"",
-			"\"// type CFZ04 and then press control+space to trigger suggestions of snippets \" | Out-File -FilePath \"QuantityIndicator/index.ts\"",
+			"\"<!-- type GFJ02 and then press control+space to trigger suggestions of snippets -->\" | Out-File -FilePath \"QuantityIndicator/ControlManifest.Input.xml\"",
+			"\"/* type GFJ03 and then press control+space to trigger suggestions of snippets */\" | Out-File -FilePath \"QuantityIndicator/css/QuantityIndicator.css\"",
+			"\"// type GFJ04 and then press control+space to trigger suggestions of snippets \" | Out-File -FilePath \"QuantityIndicator/index.ts\"",
 			"",
 			"# Step 4: Open key files in VS Code",
 			"code QuantityIndicator/ControlManifest.Input.xml",
@@ -44,7 +44,7 @@
 		]
 	},
 	"QuantityIndicator manifest.xml": {
-		"prefix": "GFZ02-quantity-indicator-manifest-xml",
+		"prefix": "GFJ02-quantity-indicator-manifest-xml",
 		"scope": "xml",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\" ?>",
@@ -75,7 +75,7 @@
 		]
 	},
 	"Quantity badge CSS": {
-		"prefix": "GFZ03-quantity-badge-css",
+		"prefix": "GFJ03-quantity-badge-css",
 		"scope": "css",
 		"body": [
 			".quantity-badge-wrapper {",
@@ -149,7 +149,7 @@
 	},
 	
 	"QuantityIndicator PCF TS": {
-		"prefix": "GFZ04-quantity-indicator-ts",
+		"prefix": "GFJ04-quantity-indicator-ts",
 		"scope": "typescript",
 		"body": [
 			"import { IInputs, IOutputs } from \"./generated/ManifestTypes\";",
@@ -261,11 +261,11 @@
 	},
 	"Attach PCF Control to Form (Generic)": {
 		"scope": "powershell",
-		"prefix": "GFZ05-attach-pcf-to-form",
+		"prefix": "GFJ05-attach-pcf-to-form",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║        GFZ05: Attach a PCF Custom Control to an Entity Form (Generic Template)          ║",
+			"# ║        GFJ05: Attach a PCF Custom Control to an Entity Form (Generic Template)          ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This snippet uses the universal pp-customcontrol-generic template to attach any PCF",

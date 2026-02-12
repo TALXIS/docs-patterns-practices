@@ -1,11 +1,11 @@
 {
 	"Import CMT data package into current environment": {
 		"scope": "powershell",
-		"prefix": "CFN01-import-cmt-data",
+		"prefix": "CFO01-import-cmt-data",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║              CFN01: Import the CMT data package into current environment               ║",
+			"# ║              CFO01: Import the CMT data package into current environment               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This snippet guides you to locate the built package and import it into the currently",

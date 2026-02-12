@@ -1,9 +1,9 @@
 {
     "Export data and add them to the package": {
 		"scope": "powershell",
-		"prefix": "CFK01-export-data-and-add-to-package",
+		"prefix": "CFL01-export-data-and-add-to-package",
 		"body": [
-			"# CFK01",
+			"# CFL01",
 			"# Export data from the live environment and add them to the package",
 			"mkdir \"src/Packages.Main/Data\"",
 			"cd \"src/Packages.Main\"",
@@ -39,11 +39,11 @@
 	},
     "Import the package to your Dataverse environment": {
 		"scope": "powershell",
-		"prefix": "CFK02-import-package-to-dev-env",
+		"prefix": "CFL02-import-package-to-dev-env",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                 CFK02: Import the package to your Dataverse environment                ║",
+			"# ║                 CFL02: Import the package to your Dataverse environment                ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# We are now ready to deploy the solutions to the Dataverse environment we created earlier.",
@@ -66,11 +66,11 @@
 	},
 	"Run build pipeline": {
 		"scope": "powershell",
-		"prefix": "CFK03-run-build-pipeline",
+		"prefix": "CFL03-run-build-pipeline",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                              CFK03: Run build pipeline                                 ║",
+			"# ║                              CFL03: Run build pipeline                                 ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After creating your pipelines in Azure DevOps, you can run them using the Azure CLI",
@@ -93,11 +93,11 @@
 	},
 	"Run deployment pipeline": {
 		"scope": "powershell",
-		"prefix": "CFK04-run-deploy-pipeline",
+		"prefix": "CFL04-run-deploy-pipeline",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                            CFK04: Run deployment pipeline                              ║",
+			"# ║                            CFL04: Run deployment pipeline                              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# After creating your pipelines in Azure DevOps, you can run them using the Azure CLI",
