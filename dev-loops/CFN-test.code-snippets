@@ -1,11 +1,11 @@
 {
 	"Create a project with UI tests": {
 		"scope": "powershell",
-		"prefix": "CFM01-create-ui-tests",
+		"prefix": "CFN01-create-ui-tests",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                          CFM01: Create a project for UI tests                          ║",
+			"# ║                          CFN01: Create a project for UI tests                          ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script creates an application in which you can write tests in the Gherkin language. ",
@@ -38,8 +38,8 @@
 			"New-Item -Path \"src/Tests.UI/Features\" -Name \"ErrorNotEnoughStock.feature\" -ItemType \"File\" | Out-Null",
 			"",
 			"# Add placeholder comments to trigger snippet suggestions",
-			"\"// type CFM02 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Tests.UI/Features/SubtractStockToAvailableQuantity.feature\"",
-			"\"// type CFM03 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Tests.UI/Features/ErrorNotEnoughStock.feature\"",
+			"\"// type CFN02 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Tests.UI/Features/SubtractStockToAvailableQuantity.feature\"",
+			"\"// type CFN03 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Tests.UI/Features/ErrorNotEnoughStock.feature\"",
 			"",
 			"# Open files in VS Code for editing",
 			"code \"src/Tests.UI/Features/SubtractStockToAvailableQuantity.feature\"",
@@ -50,7 +50,7 @@
 	},
 	"Background: Login to app": {
 		"scope": "cucumber",
-		"prefix": "CFM02-subtract-stock-to-available-quantity  ",
+		"prefix": "CFN02-subtract-stock-to-available-quantity  ",
 		"body": [
 			"# ╔══════════════════════════════════════════════════════════════════════════════════════╗",
 			"# ║                      Feature: Subtract Stock from Available Quantity                 ║",
@@ -92,7 +92,7 @@
 	},
 	"Scenario: Not Enough Product In Stock": {
 		"scope": "cucumber",
-		"prefix": "CFM03-error-not-enough-stock",
+		"prefix": "CFN03-error-not-enough-stock",
 		"body": [
 			"# ╔══════════════════════════════════════════════════════════════════════════════════════╗",
 			"# ║                  Feature: Error Handling for Warehouse Transactions                  ║",
@@ -128,11 +128,11 @@
 	},
 	"Setup ui test": {
 		"scope": "powershell",
-		"prefix": "CFM04-Setup-UI-tests",
+		"prefix": "CFN04-Setup-UI-tests",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                                   CFM03: Setup UI Test                                   ║",
+			"# ║                                   CFN03: Setup UI Test                                   ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Once we have uploaded the solution and published our application, we are ready to run tests.",
@@ -179,11 +179,11 @@
 	},
 	"CreateWarehouseItemData": {
 		"scope": "powershell",
-		"prefix": "CFM05-create-warehouseitem-json",
+		"prefix": "CFN05-create-warehouseitem-json",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                CFM10: Create sample warehouse item JSON file for testing               ║",
+			"# ║                CFN10: Create sample warehouse item JSON file for testing               ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script generates a sample JSON file that represents a warehouse item record in",
@@ -224,11 +224,11 @@
 	
 	"Create a project with Script tests": {
 		"scope": "powershell",
-		"prefix": "CFM07-create-script-tests",
+		"prefix": "CFN07-create-script-tests",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                         CFM09: Create a project for Script tests                        ║",
+			"# ║                         CFN09: Create a project for Script tests                        ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This command scaffolds a test project for JavaScript/TypeScript web resources.",
@@ -248,7 +248,7 @@
 	},
 	"Open dialog and refresh control": {
 		"scope": "javascript",
-		"prefix": "CFM08-jest-open-dialog",
+		"prefix": "CFN08-jest-open-dialog",
 		"body": [
 			"const core = require(process.env.JETS_CORE);",
 			"",
@@ -277,7 +277,7 @@
 	},
 	"Jest: createRecord success and close window": {
 		"scope": "javascript",
-		"prefix": "CFM09-jest-create-record-close",
+		"prefix": "CFN09-jest-create-record-close",
 		"body": [
 			"const core = require(process.env.JETS_CORE);",
 			"",
@@ -325,11 +325,11 @@
 	},
 	"Create a project with Plugin unit tests": {
 		"scope": "powershell",
-		"prefix": "CFM11-create-plugin-unit-tests-project",
+		"prefix": "CFN11-create-plugin-unit-tests-project",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFM01: Create a project for Plugin unit tests                      ║",
+			"# ║                     CFN01: Create a project for Plugin unit tests                      ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This script creates an application in which you can write tests for plugins. ",
@@ -352,8 +352,8 @@
 			"New-Item -Path \"src/Plugins.Tests\" -Name \"SubtractQuantityPluginTests.feature\" -ItemType \"File\" | Out-Null",
 			"",
 			"# Add placeholder comments to trigger snippet suggestions",
-			"\"// type CFT01 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Plugins.Tests/ValidateWarehouseTransactionPluginTests.cs\"",
-			"\"// type CFT02 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Plugins.Tests/SubtractQuantityPluginTests.cs\"",
+			"\"// type CFU01 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Plugins.Tests/ValidateWarehouseTransactionPluginTests.cs\"",
+			"\"// type CFU02 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Plugins.Tests/SubtractQuantityPluginTests.cs\"",
 			"",
 			"# Open files in VS Code for editing",
 			"code \"src/Plugins.Tests/ValidateWarehouseTransactionPluginTests.cs\"",
@@ -365,11 +365,11 @@
 	},
 	  "Validate Warehouse Transaction plugin tests": {
 		"scope": "csharp",
-		"prefix": "CFT01-validate-warehousetransaction-tests",
+		"prefix": "CFU01-validate-warehousetransaction-tests",
 		"body": [
 		  "//",
 		  "// ╔══════════════════════════════════════════════════════════════════════════════════════╗",
-		  "// ║ CFT01: ValidateWarehouseTransactionPlugin – quantity validation tests                ║",
+		  "// ║ CFU01: ValidateWarehouseTransactionPlugin – quantity validation tests                ║",
 		  "// ╚══════════════════════════════════════════════════════════════════════════════════════╝",
 		  "//",
 		  "// These tests cover the validation logic that runs on Create of udpp_warehousetransaction.",
@@ -475,11 +475,11 @@
 	  },
 	  "Subtract Quantity plugin tests": {
 		"scope": "csharp",
-		"prefix": "CFT02-subtract-quantity-plugin-tests",
+		"prefix": "CFU02-subtract-quantity-plugin-tests",
 		"body": [
 		  "//",
 		  "// ╔══════════════════════════════════════════════════════════════════════════════════════╗",
-		  "// ║ CFT02: SubtractQuantityPlugin – stock update tests                                  ║",
+		  "// ║ CFU02: SubtractQuantityPlugin – stock update tests                                  ║",
 		  "// ╚══════════════════════════════════════════════════════════════════════════════════════╝",
 		  "//",
 		  "// These tests cover the stock update logic that runs on Create of udpp_warehousetransaction.",
@@ -546,11 +546,11 @@
 	  },
 	  "Run dotnet test": {
 		"scope": "powershell",
-		"prefix": "CFM06-run-dotnet-test",
+		"prefix": "CFN06-run-dotnet-test",
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                                CFM04: Run dotnet test                                  ║",
+			"# ║                                CFN04: Run dotnet test                                  ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This command runs automated UI or integration tests in your .NET test project.",

@@ -1,9 +1,9 @@
 {
 	"Dataverse Security Role Setup": {
-		"prefix": "CFJ01-pp-security-role-full",
+		"prefix": "CFK01-pp-security-role-full",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                 CFJ01: Create full security role definition for Dataverse              ║",
+			"# ║                 CFK01: Create full security role definition for Dataverse              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This snippet creates a full structure for defining security roles in Dataverse.",
@@ -78,10 +78,10 @@
 	},
 	"Register nugget local packages source": {
 		"scope": "powershell",
-		"prefix": "CFJ02-register-nugget-local-packages",
+		"prefix": "CFK02-register-nugget-local-packages",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                 CFJ02: Register 'nugget local packages' source for caching              ║",
+			"# ║                 CFK02: Register 'nugget local packages' source for caching              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# This snippet creates a 'NugetLocalPackages' folder on C: and registers it as a new source.",
