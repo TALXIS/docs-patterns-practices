@@ -6,7 +6,7 @@
     <TargetFramework>net462</TargetFramework>
     <SolutionRootPath>Declarations</SolutionRootPath>
     <ProjectType>Solution</ProjectType>
-    <EnableDefaultItems>false</EnableDefaultItems>
+
   </PropertyGroup>
   <PropertyGroup Label="Dataverse solution metadata">
     <PublisherName>UDPP</PublisherName>
