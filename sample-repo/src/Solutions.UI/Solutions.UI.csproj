@@ -1,6 +1,7 @@
 <Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.10">
   <ItemGroup>
     <ProjectReference Include="..\UI.Scripts\UI.Scripts.csproj" />
+    <ProjectReference Include="..\Controls.QuantityIndicator\Controls.QuantityIndicator.pcfproj" ReferenceOutputAssembly="false"/>
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
@@ -11,7 +12,6 @@
   <PropertyGroup Label="Dataverse solution metadata">
     <PublisherName>udpp</PublisherName>
     <PublisherPrefix>udpp</PublisherPrefix>
-    <Version>1.0.0</Version>
   </PropertyGroup>
   <Target Name="Publish" />
 </Project>

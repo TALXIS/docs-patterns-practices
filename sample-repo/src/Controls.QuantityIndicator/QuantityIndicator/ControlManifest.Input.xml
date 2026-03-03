@@ -1,0 +1,26 @@
+<!-- type GFJ02 and then press control+space to trigger suggestions of snippets -->
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="UdppControls"
+           constructor="QuantityIndicator"
+           version="0.0.2"
+           display-name-key="Quantity Indicator"
+           description-key="A colorful badge indicator for quantity fields"
+           control-type="standard">
+
+    <external-service-usage enabled="false">
+    </external-service-usage>
+
+    <property name="quantity"
+              display-name-key="Quantity"
+              description-key="The quantity value to display"
+              of-type="Whole.None"
+              usage="bound"
+              required="true" />
+
+    <resources>
+      <code path="index.ts" order="1" />
+      <css path="css/QuantityIndicator.css" order="1" />
+    </resources>
+  </control>
+</manifest>
