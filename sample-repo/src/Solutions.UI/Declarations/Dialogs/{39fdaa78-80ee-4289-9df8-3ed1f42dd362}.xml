@@ -111,7 +111,7 @@
           </tab>
         </tabs>
         <controlDescriptions />
-        <events></events>
+
       </form>
     </forms>
   </FormXml>
