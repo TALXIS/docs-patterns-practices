@@ -17,6 +17,7 @@
   </Languages>
   <AppModuleSiteMaps />
   <AppModules />
-  <Dialogs />
   <WebResources />
+
+  <Dialogs />
 </ImportExportXml>

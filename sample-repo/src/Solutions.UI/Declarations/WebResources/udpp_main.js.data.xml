@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <WebResourceId>{a24c287b-3359-43dc-9d9b-063c0110166b}</WebResourceId>
+  <WebResourceId>{a8996c96-cd38-45c4-a624-946281e6441e}</WebResourceId>
   <Name>udpp_main.js</Name>
   <DisplayName>main.js</DisplayName>
   <WebResourceType>3</WebResourceType>
@@ -10,5 +10,5 @@
   <IsCustomizable>1</IsCustomizable>
   <CanBeDeleted>1</CanBeDeleted>
   <IsHidden>0</IsHidden>
-  <FileName>/WebResources/udpp_main.jsA24C287B-3359-43DC-9D9B-063C0110166B</FileName>
+  <FileName>/WebResources/udpp_main.jsA8996C96-CD38-45C4-A624-946281E6441E</FileName>
 </WebResource>

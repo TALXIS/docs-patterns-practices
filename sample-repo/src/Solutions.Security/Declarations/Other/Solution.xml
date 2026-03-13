@@ -8,7 +8,7 @@
       <LocalizedName description="Solutions.Security" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0</Version>
+    <Version>1.0.0</Version>
     <!-- Solution Package Type: Unmanaged(0)/Managed(1)/Both(2)-->
     <Managed>2</Managed>
     <Publisher>
@@ -137,8 +137,8 @@
       </Addresses>
     </Publisher>
     <RootComponents>
-      <RootComponent type="20" id="{559ff122-2272-4057-bfbf-4ff2bd5b735a}" behavior="0" />
-      <RootComponent type="20" id="{b4288090-c017-4888-80fd-1e3acca10b52}" behavior="0" />
+      <RootComponent type="20" id="{dad14337-0e54-404f-ad52-f186cf7c1935}" behavior="0" />
+      <RootComponent type="20" id="{ee71afdb-bae0-47e1-97bd-8becb9541d2f}" behavior="0" />
     </RootComponents>
     <MissingDependencies />
   </SolutionManifest>
