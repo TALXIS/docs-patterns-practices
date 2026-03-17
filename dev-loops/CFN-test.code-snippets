@@ -234,7 +234,7 @@
 			"# This command scaffolds a test project for JavaScript/TypeScript web resources.",
 			"# It links to an existing built script to enable isolated unit tests.",
 			"#",
-			"dotnet new pp-script-test`",
+			"dotnet new pp-test-script`",
 			"--output \"src/Scripts.Tests\" `",
 			"--ScriptLibraryPath \"..\\Solutions.UI\\TS\\build\\udpp_main.js\" `",
 			"--ScriptTestProjectName \"Scripts.Tests\"",
