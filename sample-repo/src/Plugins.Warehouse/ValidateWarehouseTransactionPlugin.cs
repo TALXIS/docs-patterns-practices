@@ -1,4 +1,3 @@
-// type CFG03 and then press control+space to trigger suggestions of snippets
 // ╔════════════════════════════════════════════════════════════════════════════════════════╗
 // ║            CFG03: Plugin - Validate Warehouse Transaction Quantity (PreValidation)     ║
 // ╚════════════════════════════════════════════════════════════════════════════════════════╝

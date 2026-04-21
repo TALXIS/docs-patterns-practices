@@ -1,4 +1,4 @@
-<Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.1">
+<Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.14">
   <ItemGroup>
     <ProjectReference Include="..\Plugins.Warehouse\Plugins.Warehouse.csproj" />
   </ItemGroup>
@@ -6,7 +6,7 @@
     <TargetFramework>net462</TargetFramework>
     <SolutionRootPath>Declarations</SolutionRootPath>
     <ProjectType>Solution</ProjectType>
-    <EnableDefaultItems>false</EnableDefaultItems>
+    <GeneratePluginAssembly>false</GeneratePluginAssembly>
   </PropertyGroup>
   <PropertyGroup Label="Dataverse solution metadata">
     <PublisherName>UDPP</PublisherName>

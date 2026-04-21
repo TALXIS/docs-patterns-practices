@@ -1,4 +1,4 @@
-<Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.1">
+<Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.14">
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <SignAssembly>true</SignAssembly>
@@ -6,6 +6,9 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <ProjectType>Plugin</ProjectType>
+    <AssemblyName>Plugins.Warehouse</AssemblyName>
+    <PackageId>Plugins.Warehouse</PackageId>
+    <Company>NETWORG</Company>
     <AssemblyName>PluginsWarehouse</AssemblyName>
     <PackageId>PluginsWarehouse</PackageId>
     <Company>NETWORG</Company>
@@ -18,7 +21,7 @@
     <PackageId>Plugins.Warehouse</PackageId>
     <Version>$(FileVersion)</Version>
     <Authors>UDPP</Authors>
-    <Company>MyCompany</Company>
+    <Company>NETWORG</Company>
     <Description>This is a sample nuget package which contains a Dataverse plugin and its runtime dependencies like Newtonsoft.Json</Description>
   </PropertyGroup>
   <ItemGroup>

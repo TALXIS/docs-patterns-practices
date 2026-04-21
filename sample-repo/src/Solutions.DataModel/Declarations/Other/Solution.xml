@@ -8,7 +8,7 @@
       <LocalizedName description="Solutions.DataModel" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0</Version>
+    <Version>1.0</Version>
     <!-- Solution Package Type: Unmanaged(0)/Managed(1)/Both(2)-->
     <Managed>2</Managed>
     <Publisher>
@@ -29,7 +29,7 @@
       <!-- Customization Prefix for the Cds Publisher-->
       <CustomizationPrefix>udpp</CustomizationPrefix>
       <!-- Derived Option Value Prefix for the Customization Prefix of Cds Publisher -->
-      <CustomizationOptionValuePrefix>16533</CustomizationOptionValuePrefix>
+      <CustomizationOptionValuePrefix>36171</CustomizationOptionValuePrefix>
       <Addresses>
         <!-- Address of the Publisher-->
         <Address>
@@ -138,13 +138,13 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="udpp_warehouseitem" behavior="0" />
-      <RootComponent type="60" id="{dd7d3944-ebe9-49f8-ba97-1bc4c80e324b}" behavior="0" />
-      <RootComponent type="60" id="{beeac099-c4fa-4f08-96f9-bb12a788318d}" behavior="0" />
-      <RootComponent type="60" id="{39ed50c5-294d-462d-bd98-219ea4573f76}" behavior="0" />
+      <RootComponent type="60" id="{e3086cef-a68e-49a0-9eb4-d331aafd4ffd}" behavior="0" />
+      <RootComponent type="60" id="{4b3a127c-e86d-41cc-b062-d070f1b3800b}" behavior="0" />
+      <RootComponent type="60" id="{6cdcc147-f992-4625-8e4c-cf39e7f566e7}" behavior="0" />
       <RootComponent type="1" schemaName="udpp_warehousetransaction" behavior="0" />
-      <RootComponent type="60" id="{135bb203-cb8f-41b1-a8f9-8109e393aaaa}" behavior="0" />
-      <RootComponent type="60" id="{ed2bce7c-ef57-4085-bf70-2c8eeeeccf14}" behavior="0" />
-      <RootComponent type="60" id="{42aa3542-193f-4d7f-97d2-7ddd51ccbc8b}" behavior="0" />
+      <RootComponent type="60" id="{b87b3373-2d16-4bd0-aa98-b67404ee942d}" behavior="0" />
+      <RootComponent type="60" id="{8cd40395-c85c-49e1-984f-6b4642515002}" behavior="0" />
+      <RootComponent type="60" id="{912ea980-da7c-4d0e-9c8d-67b1496b7469}" behavior="0" />
       <RootComponent type="9" schemaName="udpp_paymentmethod" behavior="0" />
     </RootComponents>
     <MissingDependencies />

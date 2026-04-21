@@ -1,9 +1,8 @@
-<Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.1">
+<Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.14">
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <SolutionRootPath>Declarations</SolutionRootPath>
     <ProjectType>Solution</ProjectType>
-    <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
   <PropertyGroup Label="Dataverse solution metadata">
     <PublisherName>udpp</PublisherName>

@@ -1,4 +1,3 @@
-// type CFI16 and then press control+space to trigger suggestions of snippets
 // ╔════════════════════════════════════════════════════════════════════════════════════════╗
 // ║                CFI16: Save Warehouse Transaction Data from Form Button                 ║
 // ╚════════════════════════════════════════════════════════════════════════════════════════╝

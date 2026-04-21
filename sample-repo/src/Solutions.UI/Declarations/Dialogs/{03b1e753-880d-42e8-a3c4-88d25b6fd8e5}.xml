@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dialog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="Generated Form" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Generated Form" languagecode="1033" />
+  </Descriptions>
+  <FormId>{03b1e753-880d-42e8-a3c4-88d25b6fd8e5}</FormId>
+  <UniqueName>udpp_generatedformdialog</UniqueName>
+  <IsCustomizable>1</IsCustomizable>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsTabletEnabled>1</IsTabletEnabled>
+  <CanBeDeleted>1</CanBeDeleted>
+  <FormXml>
+    <forms type="dialog">
+      <form>
+        <formparameters />
+        <header id="{696cc02d-82d6-4c04-bb3b-897faf75c2e4}">
+          <rows>
+            <row>
+              <cell id="{762d73ec-1ad1-410e-bed7-dcbe65c1908d}">
+                <labels>
+                  <label description="Generated Form" languagecode="1033" />
+                </labels>
+                <control id="FormHeader" classid="{39354E4A-5015-4D74-8031-EA9EB73A1322}" isunbound="true">
+                  <parameters>
+                    <IsTitle>true</IsTitle>
+                  </parameters>
+                </control>
+              </cell>
+            </row>
+          </rows>
+        </header>
+        <tabs>
+          <tab verticallayout="true" id="{5b697fa3-eba6-4918-b94e-4d3da39ab18e}" IsUserDefined="1" name="general" labelid="{99f6b4c7-c30c-4ab8-bb5a-981fba4de4f0}">
+            <labels>
+              <label description="General" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="true" showbar="false" IsUserDefined="0" id="{fe68833a-b601-4c20-afdd-40b55049a7f4}" labelid="{509f6596-e35b-4148-b1b1-025a04e1e078}" name="general">
+                    <labels>
+                      <label description="GENERAL" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell id="{2BA75349-5522-4BD6-9AC6-5FDDC4E40903}" showlabel="true">
+                          <labels>
+                            <label description="Name" languagecode="1033" />
+                          </labels>
+                          <control id="udpp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" isunbound="true" isrequired="false" uniqueid="{7c6514b1-a7f0-4fc4-9ec5-9c7cbd47f2eb}" />
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{23A8A8BB-A76D-43D7-87E4-1CEF0FA1E0D0}" showlabel="true">
+                          <labels>
+                            <label description="Quantity" languagecode="1033" />
+                          </labels>
+                          <control id="udpp_quantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" isunbound="true" isrequired="false" uniqueid="{93ae29c5-5723-4367-87e8-e490bc76fb96}" />
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{8382AA20-EE84-48C2-9915-61C165F3B708}" showlabel="true">
+                          <labels>
+                            <label description="Item" languagecode="1033" />
+                          </labels>
+                          <control id="udpp_itemid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" isunbound="true" isrequired="false" uniqueid="{ceadcef4-6bab-47a4-9edb-b47237f78831}">
+                            <parameters>
+                              <DisableMru>true</DisableMru>
+                              <TargetEntities>
+                                <TargetEntity>
+                                  <DefaultViewId>{fdf583cb-d616-446e-b9ce-d4c5c332343e}</DefaultViewId>
+                                  <EntityLogicalName>udpp_warehouseitem</EntityLogicalName>
+                                </TargetEntity>
+                              </TargetEntities>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row>
+                        <cell id="{1690DA96-FCE2-4394-8B3E-51BDA5DB205E}" showlabel="true">
+                          <labels>
+                            <label description="Payment Method" languagecode="1033" />
+                          </labels>
+                          <control id="udpp_paymentmethod" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" isunbound="true" isrequired="false" uniqueid="{d6054ec5-55f4-462c-83a5-cd26b41790a5}">
+                            <parameters>
+                              <OptionSetName>udpp_paymentmethod</OptionSetName>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+            <tabfooter id="{2b5f8f21-d9e0-44e0-9862-2e1be2507c7e}">
+              <rows>
+                <row>
+                  <cell id="{32C59DA0-CD82-48C1-8518-F09ED976F620}" showlabel="true">
+                    <labels>
+                      <label description="Save" languagecode="1033" />
+                    </labels>
+                    <control id="udpp_savebutton" classid="{00ad73da-bd4d-49c6-88a8-2f4f4cad4a20}" isunbound="true" isrequired="false" uniqueid="{0c71fbde-5e42-42fe-a5bf-72b11169b5a1}" />
+                  </cell>
+                </row>
+              </rows>
+            </tabfooter>
+          </tab>
+        </tabs>
+        <controlDescriptions />
+        <events>
+          <event name="onclick" application="false" active="true">
+            <Handlers>
+              <Handler libraryName="$webresource:udpp_main.js" functionName="UdppDialog.Actions.saveAndClose" passExecutionContext="true" enabled="true" handlerUniqueId="{07dc8e08-8a73-48b0-8343-30a3c4652a52}" parameters="" />
+            </Handlers>
+          </event>
+        </events>
+      </form>
+    </forms>
+  </FormXml>
+</Dialog>

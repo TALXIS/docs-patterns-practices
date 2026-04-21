@@ -3,6 +3,7 @@
     <Project Path="src/Packages.Main/Packages.Main.csproj" />
   </Folder>
   <Project Path="src/Plugins.Warehouse/Plugins.Warehouse.csproj" />
+  <Project Path="src/Solutions.CodeApp/Solutions.CodeApp.csproj" />
   <Project Path="src/Solutions.DataModel/Solutions.DataModel.csproj" />
   <Project Path="src/Solutions.Logic/Solutions.Logic.csproj" />
   <Project Path="src/Solutions.UI/Solutions.UI.csproj" />
