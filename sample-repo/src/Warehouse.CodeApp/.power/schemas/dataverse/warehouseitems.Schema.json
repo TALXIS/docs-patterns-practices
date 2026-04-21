@@ -237,7 +237,7 @@
             null,
             null
           ],
-          "x-ms-optionsetmetadataid": "86324a05-6173-4a92-98d7-2d010fc90eb8",
+          "x-ms-optionsetmetadataid": "08a73610-6ed0-41d3-8e8f-0b8f41154a2b",
           "x-ms-isGlobal": false,
           "x-ms-optionsetdisplayname": "Status",
           "x-ms-optionSetType": "State"
@@ -268,7 +268,7 @@
             null,
             null
           ],
-          "x-ms-optionsetmetadataid": "39da24eb-f845-4f2d-ba1e-ee74c6ef90b5",
+          "x-ms-optionsetmetadataid": "bb69a555-2010-489a-969d-4c1535e51b57",
           "x-ms-isGlobal": false,
           "x-ms-optionsetdisplayname": "Status Reason",
           "x-ms-optionSetType": "Status"
@@ -328,7 +328,7 @@
             null,
             null
           ],
-          "x-ms-optionsetmetadataid": "4ded200a-6052-4dc1-bbe9-33627c08699f",
+          "x-ms-optionsetmetadataid": "2ee6e0ed-f086-4c4a-806a-1a89e8492c15",
           "x-ms-isGlobal": false,
           "x-ms-optionsetdisplayname": "Package Type",
           "x-ms-optionSetType": "Picklist"

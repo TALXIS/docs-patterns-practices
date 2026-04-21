@@ -6,8 +6,6 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <ProjectType>Plugin</ProjectType>
-    <AssemblyName>Plugins.Warehouse</AssemblyName>
-    <PackageId>Plugins.Warehouse</PackageId>
     <Company>NETWORG</Company>
     <AssemblyName>PluginsWarehouse</AssemblyName>
     <PackageId>PluginsWarehouse</PackageId>
@@ -18,7 +16,6 @@
     https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets
   -->
   <PropertyGroup>
-    <PackageId>Plugins.Warehouse</PackageId>
     <Version>$(FileVersion)</Version>
     <Authors>UDPP</Authors>
     <Company>NETWORG</Company>

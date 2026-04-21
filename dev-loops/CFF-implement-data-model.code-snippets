@@ -77,7 +77,6 @@
 			"--LogicalNamePlural \"${6:warehouseitems}\" `",
 			"--DisplayName \"${7:Warehouse Item}\" `",
 			"--DisplayNamePlural \"${8:Warehouse Items}\" `",
-			"--SolutionRootPath \"${9:Declarations}\" `",
 			"--allow-scripts yes",
 			"",
 			"# Step 2: Add Warehouse Transaction table to the solution",
@@ -90,7 +89,6 @@
 			"--LogicalNamePlural \"warehousetransactions\" `",
 			"--DisplayName \"Warehouse Transaction\" `",
 			"--DisplayNamePlural \"Warehouse Transactions\" `",
-			"--SolutionRootPath \"${9:Declarations}\" `",
 			"--allow-scripts yes",
 		]
 	},
@@ -119,7 +117,6 @@
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
 			"--LogicalName \"paymentmethod\" `",
 			"--DisplayName \"${4:Payment Method}\" `",
-			"--SolutionRootPath \"${5:Declarations}\" `",
 			"--OptionSetOptions \"${6:Visa,Mastercard,Cash}\" `",
 			"--allow-scripts yes",
 			""
@@ -148,7 +145,7 @@
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
 			"--LogicalName \"availablequantity\" `",
 			"--DisplayName \"${7:Available Quantity}\" `",
-			"--SolutionRootPath \"${8:Declarations}\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Step 2: Add package type option set column to the Warehouse Item table",
@@ -161,7 +158,7 @@
 			"--LogicalName \"packagetype\" `",
 			"--DisplayName \"Package Type\" `",
 			"--OptionSetOptions \"Box,Bag,Envelope\" `",
-			"--SolutionRootPath \"${8:Declarations}\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Step 3: Add Item column to the Warehouse transaction table",
@@ -174,7 +171,7 @@
 			"--LogicalName \"itemid\" `",
 			"--DisplayName \"Item\" `",
 			"--ReferencedEntityName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Step 4: Add Quantity column to the Warehouse transaction table",
@@ -186,7 +183,7 @@
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
 			"--LogicalName \"quantity\" `",
 			"--DisplayName \"Quantity\" `",
-			"--SolutionRootPath \"${8:Declarations}\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Step 5: Add payment method option set column to the Warehouse transaction table",
@@ -199,7 +196,7 @@
 			"--LogicalName \"paymentmethod\" `",
 			"--DisplayName \"Payment Method\" `",
 			"--GlobalOptionSetType \"Existing\" `",
-			"--SolutionRootPath \"${8:Declarations}\" `",
+			
 			"--allow-scripts yes",
 			"",
 		]
@@ -284,7 +281,7 @@
 			"",
 			"# Step 5: Sync changes from the Data Model solution",
 			"cd \"./src/Solutions.DataModel/\"",
-			"pac solution sync --packagetype Both --solution-folder Declarations",
+			"pac solution sync --packagetype Both ",
 			"cd ../.."
 		]
 	},

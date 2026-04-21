@@ -4,13 +4,12 @@
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <SolutionRootPath>Declarations</SolutionRootPath>
     <ProjectType>Solution</ProjectType>
   </PropertyGroup>
   <PropertyGroup Label="Dataverse solution metadata">
     <PublisherName>udpp</PublisherName>
     <PublisherPrefix>udpp</PublisherPrefix>
-    <Version>2.0.0</Version>
+    <Version>1.0.0</Version>
   </PropertyGroup>
   <Target Name="Publish" />
 </Project>

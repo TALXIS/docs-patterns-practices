@@ -22,7 +22,6 @@
 			"dotnet new pp-app-code `",
 			"--output \"src/Warehouse.CodeApp\" `",
 			"--DisplayName \"Warehouse Code App\" `",
-			"--allow-scripts yes",
 			"",
 			"# Step 2: Create key files and placeholder files ",
 			"cd \"src/Warehouse.CodeApp\"",
