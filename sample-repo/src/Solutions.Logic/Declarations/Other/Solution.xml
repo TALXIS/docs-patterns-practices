@@ -1,28 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25114.188" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25114.188" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25122.00158">
+<ImportExportXml version="9.1.0.643" SolutionPackageVersion="9.1" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
+    <!-- Unique Name of Cds Solution-->
     <UniqueName>SolutionsLogic</UniqueName>
     <LocalizedNames>
+      <!-- Localized Solution Name in language code -->
       <LocalizedName description="Solutions.Logic" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0</Version>
+    <Version>1.0</Version>
+    <!-- Solution Package Type: Unmanaged(0)/Managed(1)/Both(2)-->
     <Managed>2</Managed>
     <Publisher>
+      <!-- Unique Publisher Name of Cds Solution -->
       <UniqueName>UDPP</UniqueName>
       <LocalizedNames>
+        <!-- Localized Cds Publisher Name in language code-->
         <LocalizedName description="UDPP" languagecode="1033" />
       </LocalizedNames>
       <Descriptions>
+        <!-- Description of Cds Publisher in language code -->
         <Description description="UDPP" languagecode="1033" />
       </Descriptions>
       <EMailAddress xsi:nil="true">
       </EMailAddress>
       <SupportingWebsiteUrl xsi:nil="true">
       </SupportingWebsiteUrl>
+      <!-- Customization Prefix for the Cds Publisher-->
       <CustomizationPrefix>udpp</CustomizationPrefix>
-      <CustomizationOptionValuePrefix>16533</CustomizationOptionValuePrefix>
+      <!-- Derived Option Value Prefix for the Customization Prefix of Cds Publisher -->
+      <CustomizationOptionValuePrefix>36171</CustomizationOptionValuePrefix>
       <Addresses>
+        <!-- Address of the Publisher-->
         <Address>
           <AddressNumber>1</AddressNumber>
           <AddressTypeCode>1</AddressTypeCode>
@@ -128,19 +137,11 @@
       </Addresses>
     </Publisher>
     <RootComponents>
-      <RootComponent type="91" id="{dd0e959e-3a89-4dd0-a8b1-3dfd30a46edc}" schemaName="PluginsWarehouse, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ee7303676e8de7a3" behavior="0" />
-      <RootComponent type="92" id="{201044a9-8f43-4170-8cae-aada430f8a86}" behavior="0" />
-      <RootComponent type="92" id="{2cc4eaf8-552f-41d2-8e47-e5bf5295c78e}" behavior="0" />
+      <RootComponent type="91" id="{a6dc0339-066c-4b54-a9d1-49da8fe7852c}" schemaName="PluginsWarehouse, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6ac9fc7acf20381d" behavior="0" />
+      <RootComponent type="92" id="{cba71ae3-4a46-4221-8e85-1b4d9317ed91}" behavior="0" />
+      <RootComponent type="92" id="{3547deb8-ce1f-4ed0-aefc-66007471265f}" behavior="0" />
+      <RootComponent type="91" id="{2816a92b-f958-44ba-aa1f-38471fd80933}" schemaName="Plugins.Warehouse, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6ac9fc7acf20381d" behavior="0" />
     </RootComponents>
-    <MissingDependencies>
-      <MissingDependency>
-        <Required type="1" schemaName="udpp_warehousetransaction" displayName="Warehouse Transaction" solution="Active" />
-        <Dependent type="92" id="{201044a9-8f43-4170-8cae-aada430f8a86}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="udpp_warehousetransaction" displayName="Warehouse Transaction" solution="Active" />
-        <Dependent type="92" id="{2cc4eaf8-552f-41d2-8e47-e5bf5295c78e}" />
-      </MissingDependency>
-    </MissingDependencies>
+    <MissingDependencies />
   </SolutionManifest>
 </ImportExportXml>

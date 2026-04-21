@@ -1,22 +1,23 @@
-<Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.1">
+<Project Sdk="TALXIS.DevKit.Build.Sdk/0.0.0.14">
   <PropertyGroup>
+    <ProjectType>PDPackage</ProjectType>
     <TargetFramework>net472</TargetFramework>
     <AssemblyTitle>Packages.Main</AssemblyTitle>
     <Product>Packages.Main</Product>
     <Copyright>Copyright © 2026</Copyright>
-    <ProjectType>PDPackage</ProjectType>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.1.0.79" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.PackageDeployment" Version="9.1.0.74" PrivateAssets="all" />
-    <PackageReference Include="Solutions.Security" Version="1.0.0"  />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solutions.DataModel\Solutions.DataModel.csproj" ReferenceOutputAssembly="false"/>
-    <ProjectReference Include="..\Solutions.Logic\Solutions.Logic.csproj" ReferenceOutputAssembly="false"/>
-    <ProjectReference Include="..\Solutions.UI\Solutions.UI.csproj" ReferenceOutputAssembly="false"/>
+    <ProjectReference Include="..\Solutions.DataModel\Solutions.DataModel.csproj" />
+    <ProjectReference Include="..\\Solutions.UI\Solutions.UI.csproj" />
+    <ProjectReference Include="..\Solutions.Security\Solutions.Security.csproj" />
+    <ProjectReference Include="..\Solutions.Logic\Solutions.Logic.csproj" />
+    <ProjectReference Include="..\Solutions.CodeApp\Solutions.CodeApp.csproj" />
   </ItemGroup>
 </Project>

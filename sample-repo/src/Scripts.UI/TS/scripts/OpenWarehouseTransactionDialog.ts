@@ -1,4 +1,3 @@
-// type CFI15 and then press control+space to trigger suggestions of snippets
 // ╔════════════════════════════════════════════════════════════════════════════════════════╗
 // ║              CFI15: Open Warehouse Transaction Dialog from Ribbon Button               ║
 // ╚════════════════════════════════════════════════════════════════════════════════════════╝
