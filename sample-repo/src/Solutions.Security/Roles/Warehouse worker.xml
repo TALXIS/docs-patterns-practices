@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{c17110c5-f226-4017-9c6c-f16562bf7011}" name="Warehouse worker" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsCustomizable>1</IsCustomizable>
+  <IsAutoAssigned>0</IsAutoAssigned>
+  <RolePrivileges>
+    <RolePrivilege name="prvRead_warehouseitem" level="Global" />
+    <RolePrivilege name="prvWrite_warehouseitem" level="Global" />
+    <RolePrivilege name="prvCreate_warehouseitem" level="Global" />
+    <RolePrivilege name="prvAppend_warehouseitem" level="Global" />
+    <RolePrivilege name="prvAppendTo_warehouseitem" level="Global" />
+    <RolePrivilege name="prvRead_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvWrite_warehousetransaction" level="Basic" />
+  </RolePrivileges>
+</Role>

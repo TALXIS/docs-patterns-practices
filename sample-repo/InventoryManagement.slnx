@@ -6,5 +6,6 @@
   <Project Path="src/Solutions.CodeApp/Solutions.CodeApp.csproj" />
   <Project Path="src/Solutions.DataModel/Solutions.DataModel.csproj" />
   <Project Path="src/Solutions.Logic/Solutions.Logic.csproj" />
+  <Project Path="src/Solutions.Security/Solutions.Security.csproj" />
   <Project Path="src/Solutions.UI/Solutions.UI.csproj" />
 </Solution>

@@ -4,7 +4,6 @@
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <SolutionRootPath>Declarations</SolutionRootPath>
     <ProjectType>Solution</ProjectType>
     <GeneratePluginAssembly>false</GeneratePluginAssembly>
   </PropertyGroup>

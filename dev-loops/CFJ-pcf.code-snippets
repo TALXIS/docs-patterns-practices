@@ -5,7 +5,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                  GFJ01: Scaffold QuantityIndicator PCF control (field)                  ║",
+			"# ║                  GFJ01: Scaffold QuantityIndicator PCF control (field)                 ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"# This snippet scaffolds a Dataverse field PCF control named QuantityIndicator.",
 			"# It runs `pac pcf init` under namespace UdppControls, seeds placeholders so",
@@ -32,6 +32,7 @@
 			"",
 			"# Step 3: Open key files in VS Code",
 			"code src/Controls.QuantityIndicator/QuantityIndicator/ControlManifest.Input.xml",
+			"code src/Controls.QuantityIndicator/QuantityIndicator/css/QuantityIndicator.css",
 			"code src/Controls.QuantityIndicator/QuantityIndicator/index.ts",
 			"",
 			"# Step 4: Link PCF project into Solutions.UI",
@@ -281,10 +282,9 @@
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
 			"--CustomControlFormFactor \"0\" `",
 			"--FieldLogicalName \"${3:udpp_availablequantity}\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--EntitySchemaName \"${4:udpp_warehouseitem}\" `",
 			"--FormType \"${5:main}\" `",
-			"--FormId $$warehouseitemFormGuid  `",
 			"--allow-scripts yes",
 			"",
 		]
