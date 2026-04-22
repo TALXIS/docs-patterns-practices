@@ -32,7 +32,7 @@
                         <labels>
                           <label description="Available Quantity" languagecode="1033" />
                         </labels>
-                        <control id="udpp_availablequantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="udpp_availablequantity" disabled="false" />
+                        <control id="udpp_availablequantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="udpp_availablequantity" disabled="false" uniqueid="{96c057f7-6a0e-4de0-99a6-cfcc043c814e}" />
                       </cell>
                     </row>
                     <row>
@@ -95,6 +95,20 @@
       <DisplayConditions Order="1" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{96c057f7-6a0e-4de0-99a6-cfcc043c814e}">
+          <customControl id="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}">
+            <parameters>
+              <datafieldname>udpp_availablequantity</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="udpp_UdppControls.QuantityIndicator">
+            <parameters>
+              <quantity type="Whole.None">udpp_availablequantity</quantity>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
