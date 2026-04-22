@@ -43,7 +43,7 @@ namespace UdppDialog {
                 const payload: any = {
                     udpp_name: name,
                     udpp_quantity: quantity,
-                    udpp_paymentmethod: paymentMethod // optionset (can be null if optional)
+                    udpp_paymentmethod: paymentMethod // OptionSet(can be null if optional)
                 };
 
                 // 3) Bind lookup udpp_itemid (generic, without hardcoding EntitySet)
