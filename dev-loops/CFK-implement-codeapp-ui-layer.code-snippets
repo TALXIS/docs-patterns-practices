@@ -1288,7 +1288,11 @@
 			"cd src/Packages.Main",
 			"dotnet add \"./Packages.Main.csproj\" reference \"../${2:Solutions.CodeApp}/${2:Solutions.CodeApp}.csproj\"",
 			"cd ../..",
-			""
+			"",
+			"# Step 3: build solution",
+			"cd src/Solutions.CodeApp",
+			"dotnet publish -c Release ",
+			"cd ../..",
 		],
 		"description": "Create a Dataverse solution project for a Code App and wire it to Package Deployer"
 	}
