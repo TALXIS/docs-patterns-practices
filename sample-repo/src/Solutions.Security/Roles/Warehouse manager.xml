@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Role id="{2c9819ff-8223-4f7a-a6d7-6ad88659caf8}" name="Warehouse manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Role id="{ba169f71-7dbe-4015-bcdb-c6c225b1abc5}" name="Warehouse manager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <IsCustomizable>1</IsCustomizable>
   <IsAutoAssigned>0</IsAutoAssigned>
   <RolePrivileges>
-    <RolePrivilege name="prvRead_warehouseitem" level="Global" />
-    <RolePrivilege name="prvWrite_warehouseitem" level="Global" />
-    <RolePrivilege name="prvCreate_warehouseitem" level="Global" />
-    <RolePrivilege name="prvAppend_warehouseitem" level="Global" />
-    <RolePrivilege name="prvAppendTo_warehouseitem" level="Global" />
-    <RolePrivilege name="prvRead_warehousetransaction" level="Global" />
-    <RolePrivilege name="prvWrite_warehousetransaction" level="Global" />
-    <RolePrivilege name="prvCreate_warehousetransaction" level="Global" />
-    <RolePrivilege name="prvAppend_warehousetransaction" level="Global" />
-    <RolePrivilege name="prvAppendTo_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvReadudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvWriteudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvCreateudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvAppendudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvAppendToudpp_warehouseitem" level="Global" />
+    <RolePrivilege name="prvReadudpp_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvWriteudpp_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvCreateudpp_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvAppendudpp_warehousetransaction" level="Global" />
+    <RolePrivilege name="prvAppendToudpp_warehousetransaction" level="Global" />
   </RolePrivileges>
 </Role>

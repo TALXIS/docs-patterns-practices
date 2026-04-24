@@ -13,23 +13,21 @@
     <Managed>2</Managed>
     <Publisher>
       <!-- Unique Publisher Name of Cds Solution -->
-      <UniqueName>
-      </UniqueName>
+      <UniqueName>udpp</UniqueName>
       <LocalizedNames>
         <!-- Localized Cds Publisher Name in language code-->
-        <LocalizedName description="" languagecode="1033" />
+        <LocalizedName description="udpp" languagecode="1033" />
       </LocalizedNames>
       <Descriptions>
         <!-- Description of Cds Publisher in language code -->
-        <Description description="" languagecode="1033" />
+        <Description description="udpp" languagecode="1033" />
       </Descriptions>
       <EMailAddress xsi:nil="true">
       </EMailAddress>
       <SupportingWebsiteUrl xsi:nil="true">
       </SupportingWebsiteUrl>
       <!-- Customization Prefix for the Cds Publisher-->
-      <CustomizationPrefix>
-      </CustomizationPrefix>
+      <CustomizationPrefix>udpp</CustomizationPrefix>
       <!-- Derived Option Value Prefix for the Customization Prefix of Cds Publisher -->
       <CustomizationOptionValuePrefix>36171</CustomizationOptionValuePrefix>
       <Addresses>
@@ -139,8 +137,8 @@
       </Addresses>
     </Publisher>
     <RootComponents>
-      <RootComponent type="20" id="{c17110c5-f226-4017-9c6c-f16562bf7011}" behavior="0" />
-      <RootComponent type="20" id="{2c9819ff-8223-4f7a-a6d7-6ad88659caf8}" behavior="0" />
+      <RootComponent type="20" id="{eb4dc656-7c1d-43ed-ad12-3df5b17dcc1f}" behavior="0" />
+      <RootComponent type="20" id="{ba169f71-7dbe-4015-bcdb-c6c225b1abc5}" behavior="0" />
     </RootComponents>
     <MissingDependencies />
   </SolutionManifest>
