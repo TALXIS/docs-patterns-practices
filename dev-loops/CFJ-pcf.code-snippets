@@ -8,7 +8,7 @@
 			"# ║                  GFJ01: Scaffold QuantityIndicator PCF control (field)                 ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"# This snippet scaffolds a Dataverse field PCF control named QuantityIndicator.",
-			"# It runs `pac pcf init` under namespace UdppControls, seeds placeholders so",
+			"# It runs `dotnet new pp-pcf` under namespace UdppControls, seeds placeholders so",
 			"# and opens key files for editing.",
 			"# Finally, it links the .csproj into Solutions.UI so the control",
 			"# is packaged with the UI solution.",

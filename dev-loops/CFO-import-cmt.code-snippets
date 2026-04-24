@@ -21,7 +21,7 @@
 			"cd \"src/Packages.Main/bin/${1:Debug}/net472/CmtPackages\"",
 			"",
 			"# Step 3: Import the CMT data package into the currently connected environment.",
-			"pac data import --data \"Data.zip\"",
+			"txc data pkg import \"Data.zip\"",
 			"",
 			"# Step 4: Return to the repo root.",
 			"cd ../../../.."

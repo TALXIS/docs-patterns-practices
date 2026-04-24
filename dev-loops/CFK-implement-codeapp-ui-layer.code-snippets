@@ -1248,7 +1248,7 @@
 			"--allow-scripts yes",
 			"",
 		],
-		"description": "Snippet for adding Dataverse table datasources via pac CLI"
+		"description": "Snippet for adding Dataverse table datasources via dotnet templates"
 	},
 	"Create a Dataverse solution project for a database schema": {
 		"scope": "powershell",
