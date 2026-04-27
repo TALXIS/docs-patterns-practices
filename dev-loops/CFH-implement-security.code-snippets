@@ -1,14 +1,15 @@
 {
-	"Dataverse Security Role Setup": {
+	"Dataverse Security Solution and Roles": {
 		"scope": "powershell",
-		"prefix": "CFK01-pp-security-role-full",
+		"prefix": "CFH01-pp-security-solution-and-roles",
 		"body": [
+			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                 CFK01: Create full security role definition for Dataverse              ║",
+			"# ║           CFH01: Create security solution and define security roles                    ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
-			"# This snippet creates a full structure for defining security roles in Dataverse.",
-			"# It includes project initialization, role creation, and privilege assignment.",
+			"# This snippet creates a solution project for security roles and scaffolds",
+			"# the individual role definitions inside it.",
 			"#",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Create a new solution project dedicated to security roles.",
@@ -40,18 +41,26 @@
 			"--output \"src/Solutions.Security\" `",
 			"--RoleName \"Warehouse manager\" `",
 			"--RoleId $$WarehouseManagerGuidId `",
-			"--allow-scripts yes",
-			"",
-			"# ──────────────────────────────────────────────────────────────────────────────────────────",
-			"# Step 3: Assign entity privileges to the roles.",
+			"--allow-scripts yes"
+		]
+	},
+	"Dataverse Security Role Privileges": {
+		"scope": "powershell",
+		"prefix": "CFH02-pp-security-role-privileges",
+		"body": [
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║              CFH02: Assign entity privileges to security roles                         ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
 			"# Supported PrivilegeTypes: Create, Read, Write, Delete, Append, AppendTo, Assign, Share",
 			"# Supported Levels: None, User, BusinessUnit, ParentChildBusinessUnit, Global",
 			"#",
-			"# Example below assigns Global Read and User Write to entityName:",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 1: Assign privileges for warehouseitem entity.",
 			"",
 			"dotnet new pp-security-role-privilege `",
 			"--output \"src/Solutions.Security\" `",
-			
 			"--RoleName \"Warehouse worker\" `",
 			"--PrivilegeTypeAndLevel \"[{ PrivilegeType: Read, Level: Global }, { PrivilegeType: Write, Level: Global }, { PrivilegeType: Create, Level: Global }, { PrivilegeType: Append, Level: Global }, { PrivilegeType: AppendTo, Level: Global }]\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehouseitem\" `",
@@ -59,15 +68,16 @@
 			"",
 			"dotnet new pp-security-role-privilege `",
 			"--output \"src/Solutions.Security\" `",
-			
 			"--RoleName \"Warehouse manager\" `",
 			"--PrivilegeTypeAndLevel \"[{ PrivilegeType: Read, Level: Global }, { PrivilegeType: Write, Level: Global }, { PrivilegeType: Create, Level: Global }, { PrivilegeType: Append, Level: Global }, { PrivilegeType: AppendTo, Level: Global }]\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehouseitem\" `",
 			"--allow-scripts yes",
 			"",
+			"# ──────────────────────────────────────────────────────────────────────────────────────────",
+			"# Step 2: Assign privileges for warehousetransaction entity.",
+			"",
 			"dotnet new pp-security-role-privilege `",
 			"--output \"src/Solutions.Security\" `",
-			
 			"--RoleName \"Warehouse worker\" `",
 			"--PrivilegeTypeAndLevel \"[{ PrivilegeType: Read, Level: Global }, { PrivilegeType: Write, Level: Basic }]\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehousetransaction\" `",
@@ -75,7 +85,6 @@
 			"",
 			"dotnet new pp-security-role-privilege `",
 			"--output \"src/Solutions.Security\" `",
-			
 			"--RoleName \"Warehouse manager\" `",
 			"--PrivilegeTypeAndLevel \"[{ PrivilegeType: Read, Level: Global }, { PrivilegeType: Write, Level: Global }, { PrivilegeType: Create, Level: Global }, { PrivilegeType: Append, Level: Global }, { PrivilegeType: AppendTo, Level: Global }]\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehousetransaction\" `",
