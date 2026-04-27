@@ -296,7 +296,7 @@
 			"dotnet add \"src/Packages.Main/Packages.Main.csproj\" package \"Solutions.DataModel\" --version \"1.0.0\" --source ./Packages"
 		]
 	},
-	"Create a pull request to integrate pipelines into the main branch": {
+	"Create a pull request to integrate data model into the main branch": {
 		"scope": "powershell",
 		"prefix": "CFF07-create-pipelines-pull-request",
 		"body": [
