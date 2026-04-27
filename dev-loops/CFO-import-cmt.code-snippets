@@ -24,7 +24,7 @@
 			"txc data pkg import \"Data.zip\"",
 			"",
 			"# Step 4: Return to the repo root.",
-			"cd ../../../.."
+			"cd ../../../../../.."
 		]
 	}
 }

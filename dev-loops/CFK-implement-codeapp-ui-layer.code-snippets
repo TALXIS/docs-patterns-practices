@@ -1252,11 +1252,11 @@
 	},
 	"Create a Dataverse solution project for a database schema": {
 		"scope": "powershell",
-		"prefix": "CFF09-create-solution-codeapp",
+		"prefix": "CFK09-create-solution-codeapp",
 		"body": [
 			"#",
 			"# ╔══════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                CFF09: Create a Dataverse solution project for a Code App             ║",
+			"# ║                CFK09: Create a Dataverse solution project for a Code App             ║",
 			"# ╚══════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Creates a Dataverse solution project that packages the Code App for deployment.",

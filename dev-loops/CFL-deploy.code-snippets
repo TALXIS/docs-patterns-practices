@@ -3,7 +3,11 @@
 		"scope": "powershell",
 		"prefix": "CFL01-export-data-and-add-to-package",
 		"body": [
-			"# CFL01",
+			"#",
+			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
+			"# ║         CFL01: Export data from environment and add them to the package               ║",
+			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
+			"#",
 			"# Export data from the live environment and add them to the package",
 			"mkdir \"src/Packages.Main/Data\"",
 			"cd \"src/Packages.Main\"",

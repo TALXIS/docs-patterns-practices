@@ -171,7 +171,7 @@
 			"# Step 2: Add all changes to the staging area.",
 			"git add --all",
 			"",
-			"# Step 2: Commit the staged changes with a descriptive message.",
+			"# Step 3: Commit the staged changes with a descriptive message.",
 			"git commit -m \"${1:chore: Initialized repository and created a PD package}\"",
 			"",
 			"",
