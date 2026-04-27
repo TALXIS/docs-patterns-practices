@@ -29,7 +29,7 @@ You can watch the related walkthrough videos on our YouTube channel:
 > [!TIP]
 > macOS: you can start PowerShell from Terminal by running `pwsh`
 
-5. **Create a working directory and required folders**
+4. **Create a working directory and required folders**
 
    ```powershell
    mkdir dev-loop-demo; `
@@ -38,7 +38,7 @@ You can watch the related walkthrough videos on our YouTube channel:
    code -r dev-loop-demo
    ```
 
-6. **Open PowerShell in VS Code**
+5. **Open PowerShell in VS Code**
 
    - Press ``Ctrl + ` ``
    - Or use the menu: `Terminal → New Terminal`
@@ -46,7 +46,7 @@ You can watch the related walkthrough videos on our YouTube channel:
 > [!TIP]
 > macOS: `Cmd + J` shortcut + Run `pwsh` to enter PowerShell
 
-7. **Download the code snippet files by running the following command**
+6. **Download the code snippet files by running the following command**
 
    ```powershell
    (Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/dev-loops?ref=master') | Where-Object { $_.type -eq 'file' -and $_.name -like '*.code-snippets' -and $_.download_url } | ForEach-Object { Invoke-WebRequest $_.download_url -OutFile ".vscode\$($_.name)" }; (Invoke-RestMethod 'https://api.github.com/repos/TALXIS/docs-patterns-practices/contents/dev-loops/scripts?ref=master') | Where-Object { $_.type -eq 'file' -and $_.name -eq 'DemoVariables.ps1' -and $_.download_url } | ForEach-Object { Invoke-WebRequest $_.download_url -OutFile ".demo\DemoVariables.ps1" }
@@ -56,18 +56,18 @@ You can watch the related walkthrough videos on our YouTube channel:
 > GitHub API might return an error 'No server is currently available to service your request'
 > In such case, wait few moments and execute the command again.
 
-8. **Create a PowerShell script file to use during the demo and open it**
+7. **Create a PowerShell script file to use during the demo and open it**
 
    ```powershell
    New-Item -ItemType File -Name '.demo/DemoScriptPad.ps1'; `
    code .demo/DemoScriptPad.ps1
    ```
 
-9. **Start typing in the script file**
+8. **Start typing in the script file**
 
    Start typing `CFA` to insert the first snippet. Select the right snippet with arrows and confirm with the enter key.
 
-10. **Optional: Bind F5 to clear the terminal and run the whole script**
+9. **Optional: Bind F5 to clear the terminal and run the whole script**
 
    Paste the following into the terminal to create a custom keybinding:
 
@@ -93,7 +93,7 @@ You can watch the related walkthrough videos on our YouTube channel:
    Set-Content -Path $path -Value $keybinding
    ```
 
-11. **Running the script**
+10. **Running the script**
 
 - Press `F8` to run selected lines of code
 - Press `F5` to run the whole script (after setting up the keybinding in the previous step)

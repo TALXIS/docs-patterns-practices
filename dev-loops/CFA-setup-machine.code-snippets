@@ -30,7 +30,7 @@
 			"# 5. Install PowerShell VS Code extension:",
 			"# Open extension page from https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell",
 			"",
-			"# 6. Instal Cucumber VS Code extenstion for Gherkin test authoring:",
+			"# 6. Install Cucumber VS Code extension for Gherkin test authoring:",
 			"# Open extension page from https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official",
 			"",
 			"# 7. Install the TALXIS.DevKit.Templates.Dataverse NuGet package, which contains",
