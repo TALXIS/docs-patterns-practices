@@ -222,7 +222,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFI05: Add Tabs to Main Forms                                      ║",
+			"# ║                     CFI06: Add Tabs to Main Forms                                      ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds tabs to the forms created earlier using the pre-generated GUIDs.",
@@ -268,7 +268,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFI06: Add colummns, sections and rows to Main Forms              ║",
+			"# ║                     CFI07: Add colummns, sections and rows to Main Forms              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds columns, sections and rows to the forms created earlier using the pre-generated GUIDs.",
@@ -370,7 +370,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                        CFI07: Add Cells to Entity Forms                                 ║",
+			"# ║                        CFI08: Add Cells to Entity Forms                                 ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds cells to the forms created earlier using the pre-generated GUIDs.",
@@ -454,7 +454,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                    CFI08: Add Cell Controls to Entity Forms                           ║",
+			"# ║                    CFI09: Add Cell Controls to Entity Forms                           ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds cell controls to the forms created earlier using the pre-generated GUIDs.",

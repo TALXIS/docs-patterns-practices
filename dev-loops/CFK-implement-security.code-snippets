@@ -1,5 +1,6 @@
 {
 	"Dataverse Security Role Setup": {
+		"scope": "powershell",
 		"prefix": "CFK01-pp-security-role-full",
 		"body": [
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",

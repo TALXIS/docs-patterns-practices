@@ -8,7 +8,7 @@
 			"# ║            CFC01: Create an Azure DevOps remote repository and push changes            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
-			"# A remote repository is can be hosted on a platform like Azure DevOps or GitHub.",
+			"# A remote repository can be hosted on a platform like Azure DevOps or GitHub.",
 			"# It allows multiple developers to collaborate on the same project by pushing and pulling",
 			"# changes. When a developer pushes changes to the remote, others can pull those changes into ",
 			"# their local repositories, ensuring everyone is working with the latest code.",
