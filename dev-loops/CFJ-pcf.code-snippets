@@ -285,7 +285,6 @@
 			"--EntitySchemaName \"${4:udpp_warehouseitem}\" `",
 			"--FormType \"${5:main}\" `",
 			"--allow-scripts yes",
-			"",
 		]
 	},
 }

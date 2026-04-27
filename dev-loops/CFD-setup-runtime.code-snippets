@@ -46,7 +46,7 @@
 			"# ║              CFD02: Authenticate and connect to the development environment            ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
-			"# We authenticated to the PAC CLI previously, but we need to create a new authentication profile",
+			"# We authenticated to the TALXIS CLI previously, but we need to create a new authentication profile",
 			"# for the development environment. This allows us to switch between different environments",
 			"#",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
