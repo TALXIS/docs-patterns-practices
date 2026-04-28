@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "appId": "0f63c7a3-47ee-4187-a572-4668dbbd842c",
+  "appDisplayName": "Warehouse Code App",
+  "region": "prod",
+  "environmentId": null,
+  "description": "",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "localAppUrl": "http://localhost:3000",
+  "logoPath": "Default",
+  "connectionReferences": {},
+  "databaseReferences": {
+    "default.cds": {
+      "dataSources": {
+        "warehouseitems": {
+          "entitySetName": "udpp_warehouseitems",
+          "logicalName": "udpp_warehouseitem"
+        },
+        "warehousetransactions": {
+          "entitySetName": "udpp_warehousetransactions",
+          "logicalName": "udpp_warehousetransaction"
+        }
+      },
+      "environmentVariableName": ""
+    }
+  }
+}

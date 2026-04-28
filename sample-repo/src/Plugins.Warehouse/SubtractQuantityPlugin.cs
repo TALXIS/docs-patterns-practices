@@ -1,4 +1,3 @@
-// type CFG04 and then press control+space to trigger suggestions of snippets
 // ╔════════════════════════════════════════════════════════════════════════════════════════╗
 // ║         CFG04: Plugin - Subtract Quantity From Available (PostOperation)               ║
 // ╚════════════════════════════════════════════════════════════════════════════════════════╝
