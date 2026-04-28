@@ -24,7 +24,7 @@
 			"",
 			"# Step 2: Add the solution project to the Package Deployer project as a .NET ProjectReference item.",
 			"cd src/Packages.Main",
-			"pac package add-reference --path ../Solutions.UI/",
+			"dotnet add \"./Packages.Main.csproj\" reference \"../Solutions.UI/Solutions.UI.csproj\"",
 			"cd ../..",
 			"",
 			"# Step 3: Link existing entities from the data model.",
@@ -34,7 +34,7 @@
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
 			"--LogicalName \"warehouseitem\" `",
 			"--DisplayName \"Warehouse Item\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-entity `",
@@ -43,7 +43,7 @@
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
 			"--LogicalName \"warehousetransaction\" `",
 			"--DisplayName \"Warehouse Transaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes"
 		]
 	},
@@ -67,7 +67,7 @@
 			"--output \"src/Solutions.UI\" `",
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
 			"--LogicalName \"warehouseapp\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"dotnet sln add src/Solutions.UI",
 			"",
@@ -75,14 +75,14 @@
 			"dotnet new pp-app-model-component `",
 			"--output \"src/Solutions.UI\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--AppName \"${${publisherPrefix}}_warehouseapp\" `",
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-app-model-component `",
 			"--output \"src/Solutions.UI\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--AppName \"${${publisherPrefix}}_warehouseapp\" `",
 			"--allow-scripts yes"
 		]
@@ -105,28 +105,28 @@
 			"# Step 1: Add sitemap area.",
 			"dotnet new pp-sitemap-area `",
 			"--output \"src/Solutions.UI\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--AppName \"${${publisherPrefix}}_warehouseapp\" `",
 			"--allow-scripts yes",
 			"",
 			"# Step 2: Add group inside the area.",
 			"dotnet new pp-sitemap-group `",
 			"--output \"src/Solutions.UI\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--AppName \"${${publisherPrefix}}_warehouseapp\" `",
 			"--allow-scripts yes",
 			"",
 			"# Step 3: Add subareas for both entities.",
 			"dotnet new pp-sitemap-subarea `",
 			"--output \"src/Solutions.UI\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--EntityLogicalName \"${${publisherPrefix}}_warehouseitem\" `",
 			"--AppName \"${${publisherPrefix}}_warehouseapp\" `",
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-sitemap-subarea `",
 			"--output \"src/Solutions.UI\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--EntityLogicalName \"${${publisherPrefix}}_warehousetransaction\" `",
 			"--AppName \"${${publisherPrefix}}_warehouseapp\" `",
 			"--allow-scripts yes"
@@ -155,7 +155,7 @@
 			"dotnet new pp-entity-form  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\" `",
-			"--SolutionRootPath \"Declarations\"  `",
+			
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\"  `",
 			"--FormId $$warehouseitemFormGuid  `",
 			"--allow-scripts yes",
@@ -163,7 +163,7 @@
 			"dotnet new pp-entity-form  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"dialog\" `",
-			"--SolutionRootPath \"Declarations\"  `",
+			
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\"  `",
 			"--FormId $$warehousetransactionFormGuid  `",
 			"--allow-scripts yes",
@@ -174,7 +174,7 @@
 			"--output \"src/Solutions.UI\" `",
 			"--EntityType \"Form\" `",
 			"--ComponentId \"$$warehouseitemFormGuid\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--AppName \"${${publisherPrefix}}_warehouseapp\" `",
 			"--allow-scripts yes",
 			"",
@@ -202,7 +202,7 @@
 			"--output \"src/Solutions.UI\" `",
 			"--ViewId $$warehouseitemLookupViewGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
 			"--allow-scripts yes",
 			"",
@@ -211,7 +211,7 @@
 			"--output \"src/Solutions.UI\" `",
 			"--EntityType \"View\" `",
 			"--ComponentId $$warehouseitemLookupViewGuid `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--AppName \"${${publisherPrefix}}_warehouseapp\" `",
 			"--allow-scripts yes",
 		]
@@ -222,7 +222,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFI05: Add Tabs to Main Forms                                      ║",
+			"# ║                     CFI06: Add Tabs to Main Forms                                      ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds tabs to the forms created earlier using the pre-generated GUIDs.",
@@ -247,7 +247,7 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--RemoveDefaultTab \"True\" `",
 			"--allow-scripts yes",
 			"",
@@ -256,7 +256,7 @@
 			"--FormType \"dialog\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--RemoveDefaultTab \"True\" `",
 			"--allow-scripts yes",
 			"",
@@ -268,7 +268,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                     CFI06: Add colummns, sections and rows to Main Forms              ║",
+			"# ║                     CFI07: Add colummns, sections and rows to Main Forms              ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds columns, sections and rows to the forms created earlier using the pre-generated GUIDs.",
@@ -283,14 +283,14 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-column  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Step 2: Add section to the form.",
@@ -299,14 +299,14 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-section  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Step 3: Add rows to the form.",
@@ -315,7 +315,7 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
@@ -323,7 +323,7 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
@@ -331,35 +331,35 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 		]
@@ -370,7 +370,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                        CFI07: Add Cells to Entity Forms                                 ║",
+			"# ║                        CFI08: Add Cells to Entity Forms                                 ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds cells to the forms created earlier using the pre-generated GUIDs.",
@@ -387,7 +387,7 @@
 			"--DisplayName \"Name\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -397,7 +397,7 @@
 			"--DisplayName \"Available Quantity\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -407,7 +407,7 @@
 			"--DisplayName \"Package Type\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Add cells for Warehouse Transaction entity form",
@@ -417,7 +417,7 @@
 			"--DisplayName \"Name\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -426,7 +426,7 @@
 			"--DisplayName \"Quantity\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -435,7 +435,7 @@
 			"--DisplayName \"Item\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -444,7 +444,7 @@
 			"--DisplayName \"Payment Method\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes"
 		]
 	},
@@ -454,7 +454,7 @@
 		"body": [
 			"#",
 			"# ╔════════════════════════════════════════════════════════════════════════════════════════╗",
-			"# ║                    CFI08: Add Cell Controls to Entity Forms                           ║",
+			"# ║                    CFI09: Add Cell Controls to Entity Forms                           ║",
 			"# ╚════════════════════════════════════════════════════════════════════════════════════════╝",
 			"#",
 			"# Adds cell controls to the forms created earlier using the pre-generated GUIDs.",
@@ -472,7 +472,7 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-control  `",
@@ -483,7 +483,7 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-control  `",
@@ -494,7 +494,7 @@
 			"--FormType \"main\"  `",
 			"--FormId $$warehouseitemFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehouseitem\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Add cell controls for Warehouse Transaction entity form",
@@ -505,7 +505,7 @@
 			"--AttributeLogicalName \"${${publisherPrefix}}_name\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-control  `",
@@ -515,7 +515,7 @@
 			"--AttributeLogicalName \"${${publisherPrefix}}_quantity\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-control  `",
@@ -525,7 +525,7 @@
 			"--AttributeLogicalName \"${${publisherPrefix}}_itemid\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-control  `",
@@ -535,7 +535,7 @@
 			"--AttributeLogicalName \"${${publisherPrefix}}_paymentmethod\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes"
 		]
 	},
@@ -553,7 +553,7 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Add lookup parameter for Item reference",
-			"dotnet new pp-control-parameters  `",
+			"dotnet new pp-control-parameter  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--ParameterType \"Lookup\"  `",
 			"--RowIndex \"3\"  `",
@@ -561,18 +561,18 @@
 			"--DefaultViewId $$warehouseitemLookupViewGuid  `",
 			"--DisableMru \"true\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--FormType \"dialog\"  `",
 			"--allow-scripts yes",
 			"",
 			"# Add optionset parameter for Payment Method",
-			"dotnet new pp-control-parameters  `",
+			"dotnet new pp-control-parameter  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--ParameterType \"OptionSet\"  `",
 			"--RowIndex \"4\"  `",
 			"--OptionSetName \"${${publisherPrefix}}_paymentmethod\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--FormType \"dialog\"  `",
 			"--allow-scripts yes"
 		]
@@ -591,24 +591,24 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Add save button to warehouse transaction dialog form",
-			"dotnet new PP-form-dialog-tabfooter `",
+			"dotnet new pp-form-dialog-tabfooter `",
 			"--output \"src/Solutions.UI\" `",
 			"--FormId $$warehousetransactionFormGuid `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
 			"--SetToTabFooter \"True\"  `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--DisplayName \"Save\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--SetToTabFooter \"True\"  `",
 			"--allow-scripts yes",
 			"",
@@ -616,7 +616,7 @@
 			"--output \"src/Solutions.UI\"  `",
 			"--AttributeLogicalName \"${${publisherPrefix}}_savebutton\"  `",
 			"--FormId $$warehousetransactionFormGuid `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--SetToTabFooter \"True\"  `",
 			"--ControlType \"Button\"  `",
 			"--allow-scripts yes"
@@ -639,7 +639,7 @@
 			"dotnet new pp-entity-form  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
 			"--allow-scripts yes",
 			"",
@@ -647,7 +647,7 @@
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--RemoveDefaultTab \"True\" `",
 			"--allow-scripts yes",
 			"",
@@ -655,42 +655,42 @@
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-section  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-row  `",
 			"--output \"src/Solutions.UI\"  `",
 			"--FormType \"main\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -699,7 +699,7 @@
 			"--RowIndex \"1\"  `",
 			"--DisplayName \"Name\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -708,7 +708,7 @@
 			"--RowIndex \"2\"  `",
 			"--DisplayName \"Quantity\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -717,7 +717,7 @@
 			"--RowIndex \"3\"  `",
 			"--DisplayName \"Item\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-cell  `",
@@ -726,7 +726,7 @@
 			"--RowIndex \"4\"  `",
 			"--DisplayName \"Payment Method\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"dotnet new pp-form-control  `",
@@ -736,7 +736,7 @@
 			"--RowIndex \"1\"  `",
 			"--AttributeLogicalName \"${${publisherPrefix}}_name\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--isReadOnly \"true\"  `",
 			"--allow-scripts yes",
 			"",
@@ -747,7 +747,7 @@
 			"--RowIndex \"2\"  `",
 			"--AttributeLogicalName \"${${publisherPrefix}}_quantity\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--isReadOnly \"true\"  `",
 			"--allow-scripts yes",
 			"",
@@ -758,7 +758,7 @@
 			"--RowIndex \"3\"  `",
 			"--AttributeLogicalName \"${${publisherPrefix}}_itemid\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--isReadOnly \"true\"  `",
 			"--allow-scripts yes",
 			"",
@@ -769,7 +769,7 @@
 			"--RowIndex \"4\"  `",
 			"--AttributeLogicalName \"${${publisherPrefix}}_paymentmethod\"  `",
 			"--EntitySchemaName \"${${publisherPrefix}}_warehousetransaction\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--isReadOnly \"true\"  `",
 			"--allow-scripts yes",
 			"",
@@ -795,7 +795,7 @@
 			"--EntityLogicalName \"${${publisherPrefix}}_warehousetransaction\" `",
 			"--ButtonLable \"Create Warehouse Transaction\" `",
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--LibraryLogicalName \"${${publisherPrefix}}_main.js\" `",
 			"--FunctionName \"MyRibbon.Dialogs.OpenDialog\" `",
 			"--allow-scripts yes",
@@ -805,7 +805,7 @@
 			"--output \"src/Solutions.UI\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehousetransaction\" `",
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--LibraryLogicalName \"${${publisherPrefix}}_main.js\" `",
 			"--FunctionName \"MyRibbon.Dialogs.OpenDialog\" `",
 			"--ParameterInput \"${${publisherPrefix}}_generatedformdialog\" `",
@@ -816,7 +816,7 @@
 			"--output \"src/Solutions.UI\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehousetransaction\" `",
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--LibraryLogicalName \"${${publisherPrefix}}_main.js\" `",
 			"--FunctionName \"MyRibbon.Dialogs.OpenDialog\" `",
 			"--ParameterType \"CrmSelectedControl\" `",
@@ -828,7 +828,7 @@
 			"--ButtonToHide \"New Record\" `",
 			"--EntityLogicalName \"${${publisherPrefix}}_warehousetransaction\" `",
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 		]
@@ -851,25 +851,30 @@
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Create the Script Library in the existing UI solution",
 			"dotnet new pp-script-library `",
-			"--output \"src/UI.Scripts\" `",
 			"--LibraryName \"main\" `",
+			"--output \"src/Scripts.UI\" ",
 			"",
 			"# Step 2: Create TypeScript files for warehouse transaction functionality",
-			"mkdir src/UI.Scripts/TS/scripts",
+			"mkdir src/Scripts.UI/TS/scripts",
 			"",
 			"# Create file for opening warehouse transaction dialog",
-			"New-Item -Path \"src/UI.Scripts/TS/scripts\" -Name \"OpenWarehouseTransactionDialog.ts\" -ItemType \"File\" | Out-Null",
+			"New-Item -Path \"src/Scripts.UI/TS/scripts\" -Name \"OpenWarehouseTransactionDialog.ts\" -ItemType \"File\" | Out-Null",
 			"",
 			"# Create file for saving warehouse transaction data",
-			"New-Item -Path \"src/UI.Scripts/TS/scripts\" -Name \"SaveWarehouseTransactionData.ts\" -ItemType \"File\" | Out-Null",
+			"New-Item -Path \"src/Scripts.UI/TS/scripts\" -Name \"SaveWarehouseTransactionData.ts\" -ItemType \"File\" | Out-Null",
 			"",
 			"# Add placeholder comments to trigger snippet suggestions",
-			"\"// type CFI15 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/UI.Scripts/TS/scripts/OpenWarehouseTransactionDialog.ts\"",
-			"\"// type CFI16 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/UI.Scripts/TS/scripts/SaveWarehouseTransactionData.ts\"",
+			"\"// type CFI15 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Scripts.UI/TS/scripts/OpenWarehouseTransactionDialog.ts\"",
+			"\"// type CFI16 and then press control+space to trigger suggestions of snippets\" | Out-File -FilePath \"src/Scripts.UI/TS/scripts/SaveWarehouseTransactionData.ts\"",
 			"",
 			"# Open files in VS Code for editing",
-			"code \"src/UI.Scripts/TS/scripts/OpenWarehouseTransactionDialog.ts\"",
-			"code \"src/UI.Scripts/TS/scripts/SaveWarehouseTransactionData.ts\""
+			"code \"src/Scripts.UI/TS/scripts/OpenWarehouseTransactionDialog.ts\"",
+			"code \"src/Scripts.UI/TS/scripts/SaveWarehouseTransactionData.ts\"",
+			"",
+			"# Add references to the script libraries",
+			"cd src/Solutions.UI",
+			"dotnet add reference ../Scripts.UI/Scripts.UI.csproj",
+			"cd ../..",
 		]
 	},
 	"Open Warehouse Transaction Dialog Script": {
@@ -962,7 +967,7 @@
 			"                const payload: any = {",
 			"                    udpp_name: name,",
 			"                    udpp_quantity: quantity,",
-			"                    udpp_paymentmethod: paymentMethod // optionset (can be null if optional)",
+			"                    udpp_paymentmethod: paymentMethod // OptionSet(can be null if optional)",
 			"                };",
 			"",
 			"                // 3) Bind lookup udpp_itemid (generic, without hardcoding EntitySet)",
@@ -1013,14 +1018,16 @@
 			"#                                        Commands",
 			"# ──────────────────────────────────────────────────────────────────────────────────────────",
 			"# Step 1: Build the solution so the compiled JS is available",
+			"cd \"src/Scripts.UI\"",
 			"dotnet build",
+			"cd \"../..\"",
 			"",
 			"# Step 2: Create the web resource from compiled JS",
 			"dotnet new pp-webresource `",
 			"--output \"src/Solutions.UI\" `",
-			"--WebResourceItemPath \"../UI.Scripts/TS/build/main.js\" `",
+			"--WebResourceItemPath \"../Scripts.UI/TS/build/main.js\" `",
 			"--PublisherPrefix \"$${publisherPrefix}\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--allow-scripts yes",
 			"",
 			"# Step 3: Register dialog button event handler (onclick) to save the record",
@@ -1030,7 +1037,7 @@
 			"--FormId $$warehousetransactionFormGuid `",
 			"--FunctionName \"UdppDialog.Actions.saveAndClose\" `",
 			"--LibraryName \"${${publisherPrefix}}_main\" `",
-			"--SolutionRootPath \"Declarations\" `",
+			
 			"--EventType \"onclick\" `",
 			"--allow-scripts yes"
 		]

@@ -12,7 +12,7 @@
 Feature: Error Validation - Not Enough Stock
 
   Background:
-    Given I am logged in to the 'Inventory Management' app as 'a Warehouse Manager'
+    Given I have logged in to the 'Inventory Management' app as 'a Warehouse Worker'
     And I have created 'a pen warehouse item of quantity 5'
 
   Scenario: Error Message for Insufficient Stock
