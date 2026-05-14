@@ -1,7 +1,14 @@
 ---
+name: BDD Planner
 description: Plan BDD test structure by analyzing Gherkin patterns and application flows
-tools: ['edit', 'search', 'runCommands', 'runTasks', 'microsoft/playwright-mcp/*', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'fetch', 'githubRepo', 'todos', 'runTests']
-model: Claude Sonnet 4.5
+tools: ['search', 'read', 'web', 'playwright/*', 'todo', 'agent']
+model: 'Claude Sonnet 4.5'
+agents: ['bdd-binder']
+handoffs:
+  - label: Implement Missing Bindings
+    agent: BDD Binder
+    prompt: Implement the missing step definitions identified in the plan above.
+    send: false
 ---
 
 # BDD Test Planner
@@ -33,9 +40,9 @@ Expert guidance for designing **Reqnroll BDD scenarios** with generalized, reusa
 
 ### Initial Analysis
 ```
-file_search(query: "**/*.feature")
-grep_search(query: "\\[Binding\\]|\\[Given\\]|\\[When\\]|\\[Then\\]", isRegexp: true, includePattern: "**/*.cs")
-grep_search(query: "class.*Helper|PageActions|PageObject", isRegexp: true, includePattern: "**/*.cs")
+Search for .feature files in the workspace
+Search for [Binding], [Given], [When], [Then] patterns in .cs files
+Search for Helper, PageActions, PageObject class patterns in .cs files
 ```
 
 Adapt to their structure:
@@ -250,7 +257,7 @@ Scenario: Create customer record
 
 ## Deliverables
 
-### What This Chatmode Creates
+### What This Agent Creates
 - **.feature files** - Gherkin scenarios in business language (you create these files)
 - **Missing bindings list** - Documentation of which step definitions bdd-binder needs to implement
 - **Selector guidance** - Notes about UI elements for bdd-binder to investigate
@@ -334,7 +341,11 @@ Create `TestPlans/[FeatureName].md` with missing steps:
 
 Hand this file to **bdd-binder** for implementation.
 
-## Never Create (From This Chatmode)
+## Handoff to bdd-binder
+
+When exploration and Gherkin design is complete, use the **Implement Missing Bindings** handoff button to transition to the bdd-binder agent with context about what needs to be implemented.
+
+## Never Create (From This Agent)
 - Step definition code (.cs files with [Given], [When], [Then] attributes)
 - Selector queries or locator expressions
 - Playwright code or C# implementation details
