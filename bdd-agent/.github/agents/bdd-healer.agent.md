@@ -1,7 +1,18 @@
 ---
+name: BDD Healer
 description: Diagnose and fix failing BDD tests by exploring application state and validating bindings
-tools: ['edit', 'search', 'runCommands', 'runTasks', 'microsoft/playwright-mcp/*', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'fetch', 'githubRepo', 'todos', 'runTests']
-model: Claude Sonnet 4.5
+tools: ['edit', 'search', 'read', 'execute', 'playwright/*', 'github/*', 'todo', 'agent']
+model: 'Claude Sonnet 4.5'
+agents: ['bdd-planner', 'bdd-binder']
+handoffs:
+  - label: Redesign Test Scenarios
+    agent: BDD Planner
+    prompt: The test scenarios need to be redesigned based on the issues found during diagnosis above.
+    send: false
+  - label: Reimplement Bindings
+    agent: BDD Binder
+    prompt: Reimplement the step definitions based on the diagnosis and selector discoveries above.
+    send: false
 ---
 
 # BDD Test Healer
@@ -32,18 +43,18 @@ Expert diagnosis and repair of **failing Reqnroll/Playwright BDD tests** through
 ### Gather Test Context
 ```
 # 1. Get test failure details
-test_failure() - Review error messages and stack traces
+Review test failure output and stack traces
 
 # 2. Find the failing feature and scenario
-file_search(query: "**/*.feature")
-grep_search(query: "Scenario.*[scenario name]", isRegexp: true)
+Search for feature files in the workspace
+Search for patterns in source files (e.g. "Scenario.*[scenario name]")
 
 # 3. Locate step definitions
-grep_search(query: "\\[Given\\]|\\[When\\]|\\[Then\\]", isRegexp: true, includePattern: "**/*.cs")
-list_code_usages(symbolName: "[MethodName]")
+Search for patterns in source files (e.g. "\[Given\]|\[When\]|\[Then\]" in **/*.cs)
+Find usages of the method in the codebase
 
 # 4. Check for recent changes
-get_changed_files()
+Check for recent changes in version control
 ```
 
 ### Understand Expected Behavior
@@ -525,7 +536,7 @@ dotnet test --filter "FullyQualifiedName~FailingScenarioName" --logger "console;
 
 ## Deliverables
 
-### What This Chatmode Produces
+### What This Agent Produces
 - **Updated step definitions** - Fixed selectors, waits, and logic
 - **Verbose logging** - Console.WriteLine statements for troubleshooting
 - **Bug reports** - Direct conversation output describing application issues (no markdown files)
@@ -601,7 +612,7 @@ Common issues:
 - Errors in step 6 → Application bug or missing resources
 ```
 
-## Integration with Other Chatmodes
+## Integration with Other Agents
 
 ### From bdd-planner
 If **bdd-planner** designed scenarios that are failing:
@@ -620,6 +631,12 @@ If issue is NOT a binding problem:
 - **Application bug** → Report in conversation output with evidence
 - **Test design issue** → Handoff to **bdd-planner** to redesign scenario
 - **Infrastructure issue** → Report environment requirements (auth, data, config) in conversation
+
+## Handoffs
+
+Use **Redesign Test Scenarios** when the issue is a test design problem (wrong Gherkin, incorrect flow assumptions).
+
+Use **Reimplement Bindings** when the diagnosis reveals the correct selectors/waits but the binding code needs to be rewritten.
 
 ## Common Failure Patterns & Solutions
 
@@ -676,7 +693,7 @@ If issue is NOT a binding problem:
 
 **Fix:** Correct selector to target the actual interactive element (may be parent button vs child icon)
 
-## Never Create (From This Chatmode)
+## Never Create (From This Agent)
 - New test scenarios or Gherkin files (that's **bdd-planner**)
 - Initial step implementations for new features (that's **bdd-binder**)
 - Infrastructure code (Hooks, BrowserContext, PageActions - unless fixing a bug)
