@@ -27,6 +27,12 @@ public sealed class NavigationSteps
         await OpenAppAsync(appName);
     }
 
+    [When("I click on {string} in the sitemap")]
+    public async Task WhenIClickOnInTheSitemap(string name)
+    {
+        await ClickSitemapItemAsync(name);
+    }
+
     [When("I navigate to {string} > {string}")]
     public async Task WhenINavigateTo(string area, string subarea)
     {
@@ -78,15 +84,31 @@ public sealed class NavigationSteps
         var baseUrl = TestConfiguration.EnvironmentUrl.TrimEnd('/');
         var url = $"{baseUrl}/main.aspx?appname={Uri.EscapeDataString(appName)}";
 
-        await Page.GotoAsync(url);
-        await Page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
+        await Page.GotoAsync(url, new PageGotoOptions { WaitUntil = WaitUntilState.DOMContentLoaded });
+
+        // Wait for the MDA app shell to fully render.
+        // The sitemap tree or command bar indicates readiness — [data-id='sitemap-entity'] does
+        // not exist in modern MDA; instead we look for treeitem nodes or the command bar.
+        await Page.Locator(
+            "[role='treeitem'], [data-lp-id*='sitemap-entity'], [role='menuitem']"
+        ).First.WaitForAsync(new LocatorWaitForOptions
+        {
+            State = WaitForSelectorState.Visible,
+            Timeout = TestConfiguration.Timeout
+        });
     }
 
     private async Task ClickSitemapItemAsync(string name)
     {
-        var locator = Page.Locator(
-            $"[role=\"presentation\"][title=\"{name}\"], a[title=\"{name}\"], a[aria-label=\"{name}\"]")
-            .First;
+        // Modern MDA renders sitemap subareas as treeitem elements inside a navigation tree.
+        // We try several robust selectors in priority order.
+        var locator = Page.Locator(string.Join(", ",
+            $"li[role='treeitem'][title='{name}']",
+            $"[role='treeitem'][title='{name}']",
+            $"[data-lp-id*='sitemap'] [title='{name}']",
+            $"nav[aria-label*='itemap'] [title='{name}']",
+            $"button[title='{name}']"
+        )).First;
 
         await locator.WaitForAsync(new LocatorWaitForOptions
         {
@@ -95,5 +117,8 @@ public sealed class NavigationSteps
         });
 
         await locator.ClickAsync();
+
+        // After clicking a sitemap item, wait for navigation to settle.
+        await Page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
     }
 }

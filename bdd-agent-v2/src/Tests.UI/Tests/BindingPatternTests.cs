@@ -14,10 +14,12 @@ public sealed class BindingPatternTests
             [
                 "Given:I am logged in as {string}",
                 "Given:I open the {string} app",
+                "When:I click on {string} in the sitemap",
                 "When:I navigate to {string} > {string}",
                 "When:I navigate to {string} > {string} > {string}",
                 "When:I switch to the {string} app",
-                "When:I search for {string} in global search"
+                "When:I search for {string} in global search",
+                "Then:I should see the {string} view"
             ]);
 
     [TestMethod]

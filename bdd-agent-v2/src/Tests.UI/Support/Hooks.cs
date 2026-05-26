@@ -30,7 +30,7 @@ public sealed class Hooks
         {
             Headless = TestConfiguration.Headless,
             SlowMo = TestConfiguration.SlowMo,
-            Args = new[] { "--start-maximized" }
+            Args = new[] { "--start-maximized", "--window-size=1920,1080" }
         });
     }
 
@@ -44,13 +44,15 @@ public sealed class Hooks
 
         var contextOptions = new BrowserNewContextOptions
         {
-            ViewportSize = null
+            // NoViewport allows --start-maximized to fill the screen in headed mode.
+            // In headless mode, --window-size=1920,1080 provides the fallback dimensions.
+            ViewportSize = ViewportSize.NoViewport
         };
 
-        if (!string.IsNullOrWhiteSpace(TestConfiguration.StorageStatePath) &&
-            File.Exists(TestConfiguration.StorageStatePath))
+        var storagePath = TestConfiguration.ResolvedStorageStatePath;
+        if (!string.IsNullOrWhiteSpace(storagePath) && File.Exists(storagePath))
         {
-            contextOptions.StorageStatePath = TestConfiguration.StorageStatePath;
+            contextOptions.StorageStatePath = storagePath;
         }
 
         var browserContext = await _browser.NewContextAsync(contextOptions);
@@ -83,13 +85,14 @@ public sealed class Hooks
         }
 
         // Persist auth state so subsequent runs skip manual login
-        if (!string.IsNullOrWhiteSpace(TestConfiguration.StorageStatePath) &&
+        var savePath = TestConfiguration.ResolvedStorageStatePath;
+        if (!string.IsNullOrWhiteSpace(savePath) &&
             _scenarioContext.ContainsKey(BrowserContextKey))
         {
             var context = (IBrowserContext)_scenarioContext[BrowserContextKey];
             await context.StorageStateAsync(new BrowserContextStorageStateOptions
             {
-                Path = TestConfiguration.StorageStatePath
+                Path = savePath
             });
         }
 

@@ -1,2 +1,6 @@
 {
+  "dotnet-test-explorer.testProjectPath": "src/Tests.UI/Tests.UI.csproj",
+  "terminal.integrated.env.osx": {
+    "PATH": "/Library/Frameworks/Mono.framework/Versions/Current/Commands:${env:PATH}"
+  }
 }

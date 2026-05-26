@@ -24,6 +24,23 @@ public static class TestConfiguration
 
     public static string StorageStatePath => GetString("StorageStatePath", "TXC_STORAGE_STATE_PATH") ?? string.Empty;
 
+    /// <summary>
+    /// Resolves <see cref="StorageStatePath"/> relative to the test output directory so that
+    /// <c>auth-state.json</c> is found regardless of the working directory <c>dotnet test</c> uses.
+    /// </summary>
+    public static string ResolvedStorageStatePath
+    {
+        get
+        {
+            var raw = StorageStatePath;
+            if (string.IsNullOrWhiteSpace(raw))
+                return string.Empty;
+            if (Path.IsPathRooted(raw))
+                return raw;
+            return Path.Combine(AppContext.BaseDirectory, raw);
+        }
+    }
+
     public static bool ScreenshotOnFailure => GetBool("ScreenshotOnFailure", "TXC_SCREENSHOT_ON_FAILURE", defaultValue: true);
 
     public static bool TracingEnabled => GetBool("TracingEnabled", "TXC_TRACING_ENABLED", defaultValue: false);
