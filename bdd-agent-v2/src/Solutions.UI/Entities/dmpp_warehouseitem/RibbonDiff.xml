@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="dmpp.dmpp_warehouseitem.Button.checkstocklevels.CustomAction" Location="Mscrm.Form.dmpp_warehouseitem.MainTab.Save.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:dmpp.dmpp_warehouseitem.Button.checkstocklevels.Alt" Command="dmpp.dmpp_warehouseitem.Command.checkstocklevels" Id="dmpp.dmpp_warehouseitem.Button.checkstocklevels" LabelText="$LocLabels:dmpp.dmpp_warehouseitem.Button.checkstocklevels.LabelText" Sequence="10" TemplateAlias="o1" ToolTipTitle="$LocLabels:dmpp.dmpp_warehouseitem.Button.checkstocklevels.ToolTipTitle" ToolTipDescription="$LocLabels:dmpp.dmpp_warehouseitem.Button.checkstocklevels.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates">
+    </RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="dmpp.dmpp_warehouseitem.Command.checkstocklevels">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="WarehouseScripts.RibbonActions.checkStockLevels" Library="$webresource:dmpp_main.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="dmpp.dmpp_warehouseitem.Button.checkstocklevels.Alt">
+      <Titles>
+        <Title description="Check Stock Levels" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="dmpp.dmpp_warehouseitem.Button.checkstocklevels.LabelText">
+      <Titles>
+        <Title description="Check Stock Levels" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="dmpp.dmpp_warehouseitem.Button.checkstocklevels.ToolTipDescription">
+      <Titles>
+        <Title description="Check Stock Levels" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="dmpp.dmpp_warehouseitem.Button.checkstocklevels.ToolTipTitle">
+      <Titles>
+        <Title description="Check Stock Levels" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

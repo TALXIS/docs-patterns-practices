@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries>
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{33344a1c-9012-4286-8a79-4ebf38deca10}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="dmpp_name" select="1" preview="0" icon="1">
+        <row name="result" id="dmpp_warehouselocationid">
+          <cell name="dmpp_name" width="200" />
+          <cell name="dmpp_address" width="200" />
+          <cell name="dmpp_capacity" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="dmpp_warehouselocation">
+          <attribute name="dmpp_warehouselocationid" />
+          <attribute name="dmpp_name" />
+          <attribute name="dmpp_address" />
+          <attribute name="dmpp_capacity" />
+          <order attribute="dmpp_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Warehouse Locations Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

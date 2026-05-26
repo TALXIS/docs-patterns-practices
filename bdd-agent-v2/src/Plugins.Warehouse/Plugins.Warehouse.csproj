@@ -1,0 +1,28 @@
+<Project Sdk="TALXIS.DevKit.Build.Sdk/1.5.0">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>PluginKey.snk</AssemblyOriginatorKeyFile>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <ProjectType>Plugin</ProjectType>
+    <Company>DMPP</Company>
+    <AssemblyName>PluginsWarehouse</AssemblyName>
+    <PackageId>PluginsWarehouse</PackageId>
+    <Company>DMPP</Company>
+  </PropertyGroup>
+  <!--
+    NuGet pack and restore as MSBuild targets reference:
+    https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets
+  -->
+  <PropertyGroup>
+    <Version>$(FileVersion)</Version>
+    <Authors>DMPP</Authors>
+    <Company>DMPP</Company>
+    <Description>This is a sample nuget package which contains a Dataverse plugin and its runtime dependencies like Newtonsoft.Json</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.*" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.*" PrivateAssets="All" />
+  </ItemGroup>
+</Project>

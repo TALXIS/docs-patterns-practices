@@ -1,0 +1,8 @@
+<Project Sdk="TALXIS.DevKit.Build.Sdk/1.5.0">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <ProjectType>ScriptLibrary</ProjectType>
+    <ScriptLibraryName>dmpp_main</ScriptLibraryName>
+    <TypeScriptDir>$(MSBuildProjectDirectory)</TypeScriptDir>
+  </PropertyGroup>
+</Project>
