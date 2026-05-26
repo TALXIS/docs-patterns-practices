@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries>
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{52db06c7-0e6b-4e2a-9bd0-9b820e67d33d}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="dmpp_name" select="1" preview="0" icon="1">
+        <row name="result" id="dmpp_warehousetransactionid">
+          <cell name="dmpp_name" width="150" />
+          <cell name="dmpp_transactiontype" width="125" />
+          <cell name="dmpp_itemid" width="150" />
+          <cell name="dmpp_quantity" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="dmpp_warehousetransaction">
+          <attribute name="dmpp_warehousetransactionid" />
+          <attribute name="dmpp_name" />
+          <attribute name="dmpp_transactiontype" />
+          <attribute name="dmpp_itemid" />
+          <attribute name="dmpp_quantity" />
+          <order attribute="dmpp_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Warehouse Transactions Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

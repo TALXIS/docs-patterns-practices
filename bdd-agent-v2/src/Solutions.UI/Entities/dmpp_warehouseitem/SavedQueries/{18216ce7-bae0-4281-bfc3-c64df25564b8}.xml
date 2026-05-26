@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries>
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{18216ce7-bae0-4281-bfc3-c64df25564b8}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="dmpp_name" select="1" preview="0" icon="1">
+        <row name="result" id="dmpp_warehouseitemid">
+          <cell name="dmpp_name" width="200" />
+          <cell name="dmpp_sku" width="100" />
+          <cell name="dmpp_category" width="125" />
+          <cell name="dmpp_availablequantity" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="dmpp_warehouseitem">
+          <attribute name="dmpp_warehouseitemid" />
+          <attribute name="dmpp_name" />
+          <attribute name="dmpp_sku" />
+          <attribute name="dmpp_category" />
+          <attribute name="dmpp_availablequantity" />
+          <order attribute="dmpp_name" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Warehouse Items Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

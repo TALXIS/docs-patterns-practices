@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{34f6d4d3-0ce1-4984-9af8-5cc384fb2307}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form shownavigationbar="false" headerdensity="HighWithControls" showImage="false">
+      <tabs>
+        <tab verticallayout="true" id="{5a38adbd-892c-404f-8211-4466ca4040d4}" IsUserDefined="1" name="general" labelid="{f2c87eef-67e3-413b-bd82-bf51de82bd75}">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{2527de53-8024-4058-ac70-19d1283b5c16}" labelid="{0fcff122-c5b1-4868-be1a-975fe6c340e4}" name="general">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6AF2F1FC-21CC-4CDB-A8E0-ACF4E9B1D4FF}" labelid="{228A1120-4F34-41FE-92E9-91BF1AABE130}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="dmpp_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{A1C2FD94-A0FB-49E3-B67E-C35CAE6A7748}" labelid="{53C985E7-B02F-4955-9572-682F4BB9323F}">
+                        <labels>
+                          <label description="Item" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_itemid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="dmpp_itemid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{554AF79A-786A-45FC-8D04-00FB68A4AA16}" labelid="{0A7B14B5-E764-44C4-B847-49F12AEBB042}">
+                        <labels>
+                          <label description="Quantity" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_quantity" classid="{C3EFE0C3-0EC6-42be-8349-CBD9079DFD8E}" datafieldname="dmpp_quantity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3B322B04-9D1D-452A-A8B7-492CAD84D266}" labelid="{3985E810-0D22-48FF-94D7-E95F9C05844D}">
+                        <labels>
+                          <label description="Transaction Type" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_transactiontype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="dmpp_transactiontype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7938ED74-58F0-48D1-8332-570B9434D251}" labelid="{3BDB862D-A434-417D-8EF3-CBD6E6178B76}">
+                        <labels>
+                          <label description="Transaction Date" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_transactiondate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="dmpp_transactiondate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{A3400779-DE99-4D35-A011-EE3050B72A0E}" labelid="{D9BA07F4-6EBA-4C95-9683-CE081F083EB4}">
+                        <labels>
+                          <label description="Notes" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_notes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="dmpp_notes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{A2BC3BF2-05E4-41AF-A4B0-DEF21BB04BD1}" labelid="{908326AC-D16C-45EA-89AB-8276BA17F3D6}">
+                        <labels>
+                          <label description="Total Value" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_totalvalue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="dmpp_totalvalue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{E3147B7B-E56F-48CF-94AA-A99964439173}" labelid="{C3D48A5C-EC01-496F-A5DB-F8B68CB9EEBD}">
+                        <labels>
+                          <label description="Is Processed" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_isprocessed" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="dmpp_isprocessed" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4E69AB33-9CD1-41E4-B936-CD6857D9E87E}" labelid="{884BBF42-197B-4AFA-B359-F067D3768AB2}">
+                        <labels>
+                          <label description="Processed By" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_processedby" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="dmpp_processedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{937D7BCC-9B39-4D4E-AD39-3EB6F28CC6D0}" labelid="{C2B50A2D-63E9-401E-9B9B-D276197FA100}">
+                        <labels>
+                          <label description="Reference Number" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_referencenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="dmpp_referencenumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{ebcf3fdb-d08a-41aa-a725-36f4fbe632fc}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{1b37183a-4d5e-4ba5-8a57-98433afe172b}" showlabel="false" labelid="{82936432-6123-4625-adb5-480ff9b19a29}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{afdba277-68ec-45f4-853d-c1fccebe86c3}" showlabel="false" labelid="{9b18afd0-da11-45ee-b299-b6186ac70e15}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{bf1b1e74-3db5-40d3-8fe1-709dabb611e5}" showlabel="false" labelid="{a7a14b0d-2861-4e0a-9dae-0482e28d7fb3}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{c8e40b38-f39f-44e3-8ec8-5fc791128aac}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{56d5439d-1644-4fb1-ad2a-bc839b42357a}" showlabel="false" labelid="{a90fa847-e095-46e8-8081-56079e822f1f}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8fe7350a-154d-42d7-86f0-273e4a57e088}" showlabel="false" labelid="{abd0e94a-4bfb-410c-a0b1-782b1b78208b}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2122bf85-a04c-4a9a-8c90-e67f1092231a}" showlabel="false" labelid="{9d966187-e9a3-41ac-a884-a900a720d0da}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="dmpp_main.js" libraryUniqueId="{ab6cf327-51e5-498e-bcef-8ecda7ad94b0}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="true">
+          <Handlers>
+            <Handler libraryName="$webresource:dmpp_main.js" functionName="WarehouseScripts.TransactionForm.onLoad" passExecutionContext="true" enabled="true" handlerUniqueId="{416768c3-3dc8-40d0-af6a-31fb65ba638e}" parameters="" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="true" attribute="dmpp_quantity">
+          <Handlers>
+            <Handler libraryName="$webresource:dmpp_main.js" functionName="WarehouseScripts.TransactionForm.onQuantityChange" passExecutionContext="true" enabled="true" handlerUniqueId="{0b1a6462-f083-45df-966f-36fe364ac170}" parameters="" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Generated Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Main form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

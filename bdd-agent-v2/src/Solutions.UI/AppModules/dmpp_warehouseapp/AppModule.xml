@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>dmpp_warehouseapp</UniqueName>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor>
+  </OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="62" schemaName="dmpp_warehouseapp" />
+    <AppModuleComponent type="1" schemaName="dmpp_warehouselocation" />
+    <AppModuleComponent type="1" schemaName="dmpp_warehouseitem" />
+    <AppModuleComponent type="1" schemaName="dmpp_warehousetransaction" />
+    <AppModuleComponent type="60" id="{46731653-dc2d-4112-9f43-21efd48eca1f}" />
+    <AppModuleComponent type="60" id="{73d55d55-a095-4ec5-9a6b-908e543beb34}" />
+    <AppModuleComponent type="60" id="{34f6d4d3-0ce1-4984-9af8-5cc384fb2307}" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{979144c2-989b-41a5-a146-6b3ea4130e8c}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="warehouseapp" languagecode="1033" />
+  </LocalizedNames>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AppChannel">
+      <iscustomizable>1</iscustomizable>
+      <value>1</value>
+    </appsetting>
+  </appsettings>
+</AppModule>
