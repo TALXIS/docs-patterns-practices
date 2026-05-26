@@ -48,6 +48,22 @@ public sealed class NavigationSteps
         await OpenAppAsync(appName);
     }
 
+    [Then("I should see the {string} view")]
+    public async Task ThenIShouldSeeTheView(string viewName)
+    {
+        var viewSelector = Page.Locator("[data-id*='ViewSelector'], button[data-id*='ViewSelector']").First;
+        await viewSelector.WaitForAsync(new LocatorWaitForOptions
+        {
+            State = WaitForSelectorState.Visible,
+            Timeout = TestConfiguration.Timeout
+        });
+
+        var viewText = await viewSelector.InnerTextAsync();
+        Assert.IsTrue(
+            viewText.Contains(viewName, StringComparison.OrdinalIgnoreCase),
+            $"Expected view '{viewName}' but found '{viewText}'.");
+    }
+
     [When("I search for {string} in global search")]
     public async Task WhenISearchForInGlobalSearch(string text)
     {
