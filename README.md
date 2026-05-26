@@ -6,9 +6,17 @@ Each folder in this repository represents a separate topic or scenario that demo
 
 ## Demos
 
+### [bdd-agent-v2](./bdd-agent-v2/README.md)
+AI-assisted BDD testing of Power Apps model-driven apps using Copilot agents, Reqnroll, and Playwright. Full monorepo with a sample Warehouse Management app and three agents (planner, binder, healer) that write, implement, and fix UI tests. Presented at DynamicsMinds 2026.
+
+### [bdd-agent](./bdd-agent/README.md)
+First-generation BDD test automation template using Reqnroll, Playwright, and .NET. Contains agent definitions for VS Code that automate test planning, step binding, and test healing.
+
 ### [dev-loops](./dev-loops/README.md)
 Scripted setup of a Power Platform project repository using Visual Studio Code and PowerShell, focusing on the inner and outer development loop.
 
+### [sample-repo](./sample-repo/)
+Sample Power Platform project repository (Inventory Management) scaffolded with TALXIS DevKit Templates. Reference structure for code-first Dataverse development.
 
 ## Related Projects
 
@@ -20,6 +28,8 @@ This repository leverages the following tools developed and maintained by the TA
 - [tools-devkit-templates](https://github.com/TALXIS/tools-devkit-templates)  
   Supports scaffolding of Power Platform components using a code-first approach. This NuGet package enables consistent and structured project setup for developers.
 
+- [tools-cli](https://github.com/TALXIS/tools-cli)  
+  CLI tool for Power Platform developers. Provides commands for environment management, solution operations, and development workflow automation.
 
 ## Contribution
 
