@@ -83,7 +83,12 @@ namespace Plugins.Warehouse
             if (!(context.InputParameters.Contains("Target") && context.InputParameters["Target"] is Entity target) || target.LogicalName != "${prefix}_warehousetransaction")
                 return;
 
-            if (!target.Contains("${prefix}_quantity") || !target.Contains("${prefix}_itemid"))
+            if (!target.Contains("${prefix}_quantity") || !target.Contains("${prefix}_itemid") || !target.Contains("${prefix}_transactiontype"))
+                return;
+
+            // Only validate outbound transactions (option value 2 = Outbound)
+            var transactionType = (OptionSetValue)target["${prefix}_transactiontype"];
+            if (transactionType.Value != 2)
                 return;
 
             try
@@ -154,16 +159,24 @@ namespace Plugins.Warehouse
             if (!(context.InputParameters["Target"] is Entity target) || target.LogicalName != "${prefix}_warehousetransaction")
                 return;
 
-            if (!target.Contains("${prefix}_quantity") || !target.Contains("${prefix}_itemid"))
+            if (!target.Contains("${prefix}_quantity") || !target.Contains("${prefix}_itemid") || !target.Contains("${prefix}_transactiontype"))
                 return;
 
             var quantity = (int)target["${prefix}_quantity"];
             var itemRef = (EntityReference)target["${prefix}_itemid"];
+            var transactionType = (OptionSetValue)target["${prefix}_transactiontype"];
 
             var item = service.Retrieve("${prefix}_warehouseitem", itemRef.Id, new ColumnSet("${prefix}_availablequantity"));
-            var available = (int)item["${prefix}_availablequantity"];
+            var available = item.Contains("${prefix}_availablequantity") ? (int)item["${prefix}_availablequantity"] : 0;
 
-            item["${prefix}_availablequantity"] = available - quantity;
+            // Inbound (1) = add stock, Outbound (2) = subtract stock
+            if (transactionType.Value == 1)
+                item["${prefix}_availablequantity"] = available + quantity;
+            else if (transactionType.Value == 2)
+                item["${prefix}_availablequantity"] = available - quantity;
+            else
+                return;
+
             service.Update(item);
         }
     }

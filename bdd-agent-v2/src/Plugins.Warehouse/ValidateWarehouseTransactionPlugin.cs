@@ -26,7 +26,12 @@ namespace Plugins.Warehouse
             if (!(context.InputParameters.Contains("Target") && context.InputParameters["Target"] is Entity target) || target.LogicalName != "dmpp_warehousetransaction")
                 return;
 
-            if (!target.Contains("dmpp_quantity") || !target.Contains("dmpp_itemid"))
+            if (!target.Contains("dmpp_quantity") || !target.Contains("dmpp_itemid") || !target.Contains("dmpp_transactiontype"))
+                return;
+
+            // Only validate outbound transactions (option value 2 = Outbound)
+            var transactionType = (OptionSetValue)target["dmpp_transactiontype"];
+            if (transactionType.Value != 2)
                 return;
 
             try

@@ -1,0 +1,50 @@
+<entities>
+  <entity name="dmpp_warehouselocation" displayname="Warehouse Location" etc="10582" primaryidfield="dmpp_warehouselocationid" primarynamefield="dmpp_name" disableplugins="true">
+    <fields>
+      <field displayname="Warehouse Location" name="dmpp_warehouselocationid" type="guid" primaryKey="true" />
+      <field displayname="Name" name="dmpp_name" type="string" customfield="true" />
+      <field displayname="Address" name="dmpp_address" type="string" customfield="true" />
+      <field displayname="Capacity" name="dmpp_capacity" type="number" customfield="true" />
+      <field displayname="Is Active" name="dmpp_isactive" type="bool" customfield="true" />
+      <field displayname="Notes" name="dmpp_notes" type="string" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+  </entity>
+  <entity name="dmpp_warehouseitem" displayname="Warehouse Item" etc="10579" primaryidfield="dmpp_warehouseitemid" primarynamefield="dmpp_name" disableplugins="true">
+    <fields>
+      <field displayname="Warehouse Item" name="dmpp_warehouseitemid" type="guid" primaryKey="true" />
+      <field displayname="Name" name="dmpp_name" type="string" customfield="true" />
+      <field displayname="SKU" name="dmpp_sku" type="string" customfield="true" />
+      <field displayname="Available Quantity" name="dmpp_availablequantity" type="number" customfield="true" />
+      <field displayname="Category" name="dmpp_category" type="optionsetvalue" customfield="true" />
+      <field displayname="Is Perishable" name="dmpp_isperishable" type="bool" customfield="true" />
+      <field displayname="Unit Price" name="dmpp_unitprice" type="money" customfield="true" />
+      <field displayname="Weight (kg)" name="dmpp_weight" type="decimal" customfield="true" />
+      <field displayname="Barcode" name="dmpp_barcode" type="string" customfield="true" />
+      <field displayname="Reorder Point" name="dmpp_reorderpoint" type="number" customfield="true" />
+      <field displayname="Location" name="dmpp_locationid" type="entityreference" lookupType="dmpp_warehouselocation" customfield="true" />
+      <field displayname="Description" name="dmpp_description" type="string" customfield="true" />
+      <field displayname="Expiration Date" name="dmpp_expirationdate" type="datetime" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+  </entity>
+  <entity name="dmpp_warehousetransaction" displayname="Warehouse Transaction" etc="10581" primaryidfield="dmpp_warehousetransactionid" primarynamefield="dmpp_name" disableplugins="true">
+    <fields>
+      <field displayname="Warehouse Transaction" name="dmpp_warehousetransactionid" type="guid" primaryKey="true" />
+      <field displayname="Name" name="dmpp_name" type="string" customfield="true" />
+      <field displayname="Item" name="dmpp_itemid" type="entityreference" lookupType="dmpp_warehouseitem" customfield="true" />
+      <field displayname="Quantity" name="dmpp_quantity" type="number" customfield="true" />
+      <field displayname="Transaction Type" name="dmpp_transactiontype" type="optionsetvalue" customfield="true" />
+      <field displayname="Transaction Date" name="dmpp_transactiondate" type="datetime" customfield="true" />
+      <field displayname="Notes" name="dmpp_notes" type="string" customfield="true" />
+      <field displayname="Reference Number" name="dmpp_referencenumber" type="string" customfield="true" />
+      <field displayname="Is Processed" name="dmpp_isprocessed" type="bool" customfield="true" />
+      <field displayname="Processed By" name="dmpp_processedby" type="string" customfield="true" />
+      <field displayname="Total Value" name="dmpp_totalvalue" type="money" customfield="true" />
+      <field displayname="Status" name="statecode" type="state" />
+      <field displayname="Status Reason" name="statuscode" type="status" />
+    </fields>
+  </entity>
+</entities>

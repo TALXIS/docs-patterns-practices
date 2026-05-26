@@ -1,6 +1,7 @@
 <Project Sdk="TALXIS.DevKit.Build.Sdk/1.5.0">
   <ItemGroup>
     <ProjectReference Include="..\Scripts.UI\Scripts.UI.csproj" />
+    <ProjectReference Include="..\GenPages.Dashboard\GenPages.Dashboard.csproj" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>

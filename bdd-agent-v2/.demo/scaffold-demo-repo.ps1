@@ -81,6 +81,9 @@ try {
     # Step 12: Generative page — Warehouse Dashboard (React 17 + Fluent UI V9)
     . "$ScriptDir/12-genpage-dashboard.ps1"
 
+    # Step 13: Import sample data via CMT data package
+    . "$ScriptDir/13-sample-data.ps1"
+
     # Step 6: Final commit, optional build, deployment instructions (always last)
     . "$ScriptDir/06-finalize.ps1"
 }
