@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f4e3ba02-5cf3-4733-9e81-582eb2d6e028}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="dmpp_name" select="1" icon="1" preview="1">
+        <row name="result" id="dmpp_warehouseitemid">
+          <cell name="dmpp_name" width="200" />
+          <cell name="dmpp_sku" width="100" />
+          <cell name="dmpp_category" width="125" />
+          <cell name="dmpp_availablequantity" width="100" />
+          <cell name="dmpp_unitprice" width="100" />
+          <cell name="dmpp_locationid" width="150" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="dmpp_warehouseitem">
+          <attribute name="dmpp_warehouseitemid" />
+          <attribute name="dmpp_name" />
+          <attribute name="dmpp_sku" />
+          <attribute name="dmpp_category" />
+          <attribute name="dmpp_availablequantity" />
+          <attribute name="dmpp_unitprice" />
+          <attribute name="dmpp_locationid" />
+          <attribute name="createdon" />
+          <order attribute="dmpp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Warehouse Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

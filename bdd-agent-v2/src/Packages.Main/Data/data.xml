@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" timestamp="2026-05-26T05:54:41.5611770Z">
+  <entity name="dmpp_warehouselocation" displayname="Warehouse Location">
+    <records>
+      <record id="10000001-0001-0001-0001-000000000001">
+        <field name="dmpp_warehouselocationid" value="10000001-0001-0001-0001-000000000001" />
+        <field name="dmpp_name" value="Main Warehouse" />
+        <field name="dmpp_address" value="123 Industrial Blvd" />
+        <field name="dmpp_capacity" value="1000" />
+        <field name="dmpp_isactive" value="True" />
+        <field name="dmpp_notes" value="Primary storage facility" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="10000001-0001-0001-0001-000000000002">
+        <field name="dmpp_warehouselocationid" value="10000001-0001-0001-0001-000000000002" />
+        <field name="dmpp_name" value="Overflow Storage" />
+        <field name="dmpp_address" value="456 Backup Lane" />
+        <field name="dmpp_capacity" value="500" />
+        <field name="dmpp_isactive" value="True" />
+        <field name="dmpp_notes" value="Secondary overflow facility" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="10000001-0001-0001-0001-000000000003">
+        <field name="dmpp_warehouselocationid" value="10000001-0001-0001-0001-000000000003" />
+        <field name="dmpp_name" value="Returns Bay" />
+        <field name="dmpp_address" value="789 Return St" />
+        <field name="dmpp_capacity" value="200" />
+        <field name="dmpp_isactive" value="False" />
+        <field name="dmpp_notes" value="Inactive returns processing area" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="dmpp_warehouseitem" displayname="Warehouse Item">
+    <records>
+      <record id="20000001-0001-0001-0001-000000000001">
+        <field name="dmpp_warehouseitemid" value="20000001-0001-0001-0001-000000000001" />
+        <field name="dmpp_name" value="Widget A" />
+        <field name="dmpp_sku" value="WDG-001" />
+        <field name="dmpp_availablequantity" value="100" />
+        <field name="dmpp_category" value="100000000" />
+        <field name="dmpp_isperishable" value="False" />
+        <field name="dmpp_unitprice" value="29.9900000000" />
+        <field name="dmpp_weight" value="0.5000000000" />
+        <field name="dmpp_barcode" value="4901234567890" />
+        <field name="dmpp_reorderpoint" value="20" />
+        <field name="dmpp_locationid" value="10000001-0001-0001-0001-000000000001" lookupentity="dmpp_warehouselocation" lookupentityname="Main Warehouse" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="20000001-0001-0001-0001-000000000002">
+        <field name="dmpp_warehouseitemid" value="20000001-0001-0001-0001-000000000002" />
+        <field name="dmpp_name" value="Gadget B" />
+        <field name="dmpp_sku" value="GDG-002" />
+        <field name="dmpp_availablequantity" value="5" />
+        <field name="dmpp_category" value="100000003" />
+        <field name="dmpp_isperishable" value="False" />
+        <field name="dmpp_unitprice" value="149.5000000000" />
+        <field name="dmpp_weight" value="2.3000000000" />
+        <field name="dmpp_barcode" value="4901234567891" />
+        <field name="dmpp_reorderpoint" value="10" />
+        <field name="dmpp_locationid" value="10000001-0001-0001-0001-000000000001" lookupentity="dmpp_warehouselocation" lookupentityname="Main Warehouse" />
+        <field name="dmpp_description" value="Heavy-duty industrial gadget" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="20000001-0001-0001-0001-000000000003">
+        <field name="dmpp_warehouseitemid" value="20000001-0001-0001-0001-000000000003" />
+        <field name="dmpp_name" value="Gizmo C" />
+        <field name="dmpp_sku" value="GIZ-003" />
+        <field name="dmpp_availablequantity" value="0" />
+        <field name="dmpp_category" value="100000000" />
+        <field name="dmpp_isperishable" value="False" />
+        <field name="dmpp_unitprice" value="9.9900000000" />
+        <field name="dmpp_weight" value="0.1000000000" />
+        <field name="dmpp_barcode" value="4901234567892" />
+        <field name="dmpp_reorderpoint" value="50" />
+        <field name="dmpp_locationid" value="10000001-0001-0001-0001-000000000002" lookupentity="dmpp_warehouselocation" lookupentityname="Overflow Storage" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="20000001-0001-0001-0001-000000000004">
+        <field name="dmpp_warehouseitemid" value="20000001-0001-0001-0001-000000000004" />
+        <field name="dmpp_name" value="Bolt Pack" />
+        <field name="dmpp_sku" value="BLT-004" />
+        <field name="dmpp_availablequantity" value="500" />
+        <field name="dmpp_category" value="100000003" />
+        <field name="dmpp_isperishable" value="False" />
+        <field name="dmpp_unitprice" value="4.5000000000" />
+        <field name="dmpp_weight" value="5.0000000000" />
+        <field name="dmpp_barcode" value="4901234567893" />
+        <field name="dmpp_reorderpoint" value="100" />
+        <field name="dmpp_locationid" value="10000001-0001-0001-0001-000000000001" lookupentity="dmpp_warehouselocation" lookupentityname="Main Warehouse" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="20000001-0001-0001-0001-000000000005">
+        <field name="dmpp_warehouseitemid" value="20000001-0001-0001-0001-000000000005" />
+        <field name="dmpp_name" value="Fresh Produce Box" />
+        <field name="dmpp_sku" value="FPB-005" />
+        <field name="dmpp_availablequantity" value="30" />
+        <field name="dmpp_category" value="100000002" />
+        <field name="dmpp_isperishable" value="True" />
+        <field name="dmpp_unitprice" value="24.0000000000" />
+        <field name="dmpp_weight" value="3.5000000000" />
+        <field name="dmpp_barcode" value="4901234567894" />
+        <field name="dmpp_reorderpoint" value="15" />
+        <field name="dmpp_locationid" value="10000001-0001-0001-0001-000000000001" lookupentity="dmpp_warehouselocation" lookupentityname="Main Warehouse" />
+        <field name="dmpp_description" value="Refrigerated items - handle with care" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+  <entity name="dmpp_warehousetransaction" displayname="Warehouse Transaction">
+    <records>
+      <record id="30000001-0001-0001-0001-000000000001">
+        <field name="dmpp_warehousetransactionid" value="30000001-0001-0001-0001-000000000001" />
+        <field name="dmpp_name" value="WDG-001 Inbound 2026-05-20" />
+        <field name="dmpp_itemid" value="20000001-0001-0001-0001-000000000001" lookupentity="dmpp_warehouseitem" lookupentityname="Widget A" />
+        <field name="dmpp_quantity" value="50" />
+        <field name="dmpp_transactiontype" value="100000000" />
+        <field name="dmpp_transactiondate" value="2026-05-20T00:00:00.0000000Z" />
+        <field name="dmpp_notes" value="Restocking order #1001" />
+        <field name="dmpp_referencenumber" value="PO-1001" />
+        <field name="dmpp_documentnumber" value="DOC-2026-0001" />
+        <field name="dmpp_isprocessed" value="True" />
+        <field name="dmpp_processedby" value="John Smith" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="30000001-0001-0001-0001-000000000002">
+        <field name="dmpp_warehousetransactionid" value="30000001-0001-0001-0001-000000000002" />
+        <field name="dmpp_name" value="GDG-002 Outbound 2026-05-22" />
+        <field name="dmpp_itemid" value="20000001-0001-0001-0001-000000000002" lookupentity="dmpp_warehouseitem" lookupentityname="Gadget B" />
+        <field name="dmpp_quantity" value="2" />
+        <field name="dmpp_transactiontype" value="100000001" />
+        <field name="dmpp_transactiondate" value="2026-05-22T00:00:00.0000000Z" />
+        <field name="dmpp_notes" value="Customer order #2001" />
+        <field name="dmpp_referencenumber" value="SO-2001" />
+        <field name="dmpp_documentnumber" value="DOC-2026-0002" />
+        <field name="dmpp_isprocessed" value="True" />
+        <field name="dmpp_processedby" value="Jane Doe" />
+        <field name="dmpp_totalvalue" value="299.0000000000" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="30000001-0001-0001-0001-000000000003">
+        <field name="dmpp_warehousetransactionid" value="30000001-0001-0001-0001-000000000003" />
+        <field name="dmpp_name" value="BLT-004 Inbound 2026-05-24" />
+        <field name="dmpp_itemid" value="20000001-0001-0001-0001-000000000004" lookupentity="dmpp_warehouseitem" lookupentityname="Bolt Pack" />
+        <field name="dmpp_quantity" value="200" />
+        <field name="dmpp_transactiontype" value="100000000" />
+        <field name="dmpp_transactiondate" value="2026-05-24T00:00:00.0000000Z" />
+        <field name="dmpp_notes" value="Bulk restock" />
+        <field name="dmpp_referencenumber" value="PO-1002" />
+        <field name="dmpp_documentnumber" value="DOC-2026-0003" />
+        <field name="dmpp_isprocessed" value="True" />
+        <field name="dmpp_processedby" value="John Smith" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+      <record id="30000001-0001-0001-0001-000000000004">
+        <field name="dmpp_warehousetransactionid" value="30000001-0001-0001-0001-000000000004" />
+        <field name="dmpp_name" value="FPB-005 Inbound 2026-05-25" />
+        <field name="dmpp_itemid" value="20000001-0001-0001-0001-000000000005" lookupentity="dmpp_warehouseitem" lookupentityname="Fresh Produce Box" />
+        <field name="dmpp_quantity" value="5" />
+        <field name="dmpp_transactiontype" value="100000000" />
+        <field name="dmpp_transactiondate" value="2026-05-25T00:00:00.0000000Z" />
+        <field name="dmpp_notes" value="Weekly delivery" />
+        <field name="dmpp_referencenumber" value="PO-1003" />
+        <field name="dmpp_isprocessed" value="False" />
+        <field name="statecode" value="0" />
+        <field name="statuscode" value="1" />
+      </record>
+    </records>
+    <m2mrelationships />
+  </entity>
+</entities>

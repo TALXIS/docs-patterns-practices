@@ -1,0 +1,17 @@
+<Project Sdk="TALXIS.DevKit.Build.Sdk/1.5.0">
+  <ItemGroup>
+    <ProjectReference Include="..\Scripts.UI\Scripts.UI.csproj" />
+    <!-- TODO: Re-enable once GenPage SDK is fixed (P12) -->
+    <!-- <ProjectReference Include="..\GenPages.Dashboard\GenPages.Dashboard.csproj" /> -->
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <ProjectType>Solution</ProjectType>
+  </PropertyGroup>
+  <PropertyGroup Label="Dataverse solution metadata">
+    <PublisherName>DMPP</PublisherName>
+    <PublisherPrefix>dmpp</PublisherPrefix>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <Target Name="Publish" />
+</Project>

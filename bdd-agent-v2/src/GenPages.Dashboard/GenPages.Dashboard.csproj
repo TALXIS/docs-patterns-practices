@@ -1,0 +1,8 @@
+<Project Sdk="TALXIS.DevKit.Build.Sdk/1.5.0">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <ProjectType>GenPage</ProjectType>
+    <GenPageName>warehousedashboard</GenPageName>
+    <GenPageId>08f74997-4a82-4a67-af39-ce614b003a5b</GenPageId>
+  </PropertyGroup>
+</Project>

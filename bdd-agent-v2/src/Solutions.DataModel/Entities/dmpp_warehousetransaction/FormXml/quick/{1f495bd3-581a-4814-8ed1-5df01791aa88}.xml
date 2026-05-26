@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{1f495bd3-581a-4814-8ed1-5df01791aa88}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{6acc793a-4a91-4862-b274-16621d0783a4}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{3bb6f501-0292-49c1-b787-397b8d3a80d9}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{851536d4-3f8e-487e-8063-b029db2d10bf}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="dmpp_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{df41d064-09e1-4ecd-b350-feab435d2f92}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{E18AD4E0-C221-485D-BC7B-E5665A05A196}" labelid="{1E2FFFB7-6AD5-4BAE-8F51-8B633D9277C4}">
+                        <labels>
+                          <label description="Document Number" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_documentnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="dmpp_documentnumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>0</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Default Warehouse Transaction Quick View Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A default quick view form" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
