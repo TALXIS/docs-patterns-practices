@@ -40,6 +40,7 @@
       <field displayname="Transaction Date" name="dmpp_transactiondate" type="datetime" customfield="true" />
       <field displayname="Notes" name="dmpp_notes" type="string" customfield="true" />
       <field displayname="Reference Number" name="dmpp_referencenumber" type="string" customfield="true" />
+      <field displayname="Document Number" name="dmpp_documentnumber" type="string" customfield="true" />
       <field displayname="Is Processed" name="dmpp_isprocessed" type="bool" customfield="true" />
       <field displayname="Processed By" name="dmpp_processedby" type="string" customfield="true" />
       <field displayname="Total Value" name="dmpp_totalvalue" type="money" customfield="true" />
