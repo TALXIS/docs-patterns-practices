@@ -82,6 +82,17 @@ public sealed class Hooks
             await context.Tracing.StopAsync();
         }
 
+        // Persist auth state so subsequent runs skip manual login
+        if (!string.IsNullOrWhiteSpace(TestConfiguration.StorageStatePath) &&
+            _scenarioContext.ContainsKey(BrowserContextKey))
+        {
+            var context = (IBrowserContext)_scenarioContext[BrowserContextKey];
+            await context.StorageStateAsync(new BrowserContextStorageStateOptions
+            {
+                Path = TestConfiguration.StorageStatePath
+            });
+        }
+
         if (_scenarioContext.ContainsKey(BrowserContextKey))
         {
             var context = (IBrowserContext)_scenarioContext[BrowserContextKey];
