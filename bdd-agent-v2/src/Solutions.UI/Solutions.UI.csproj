@@ -1,7 +1,8 @@
 <Project Sdk="TALXIS.DevKit.Build.Sdk/1.5.0">
   <ItemGroup>
     <ProjectReference Include="..\Scripts.UI\Scripts.UI.csproj" />
-    <ProjectReference Include="..\GenPages.Dashboard\GenPages.Dashboard.csproj" />
+    <!-- TODO: Re-enable once GenPage SDK is fixed (P12) -->
+    <!-- <ProjectReference Include="..\GenPages.Dashboard\GenPages.Dashboard.csproj" /> -->
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
