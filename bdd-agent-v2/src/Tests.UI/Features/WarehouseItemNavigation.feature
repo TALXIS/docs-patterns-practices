@@ -13,8 +13,8 @@ Feature: Warehouse Item Navigation
 
     Scenario: Search for a specific item in the grid
         When I click on 'Warehouse Items' in the sitemap
-        And I search for 'Pen' in the grid
-        Then the grid should contain a record with 'Name' equal to 'Pen'
+        And I search for 'Widget A' in the grid
+        Then the grid should contain a record with 'Name' equal to 'Widget A'
 
     Scenario: Sort warehouse items by name
         When I click on 'Warehouse Items' in the sitemap

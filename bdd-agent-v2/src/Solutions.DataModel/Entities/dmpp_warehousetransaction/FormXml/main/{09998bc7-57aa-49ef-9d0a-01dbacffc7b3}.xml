@@ -27,6 +27,14 @@
                         <control id="dmpp_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="dmpp_name" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{A83FB847-28BD-4517-8982-2C2138F5C89A}" labelid="{6FBEF8C0-5658-46F4-8DE2-5A5C03837624}">
+                        <labels>
+                          <label description="Document Number" languagecode="1033" />
+                        </labels>
+                        <control id="dmpp_documentnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="dmpp_documentnumber" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>

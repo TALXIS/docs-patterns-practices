@@ -483,3 +483,4 @@ $RECYCLE.BIN/
 
 # Playwright auth state (contains session cookies — never commit)
 auth-state.json
+.playwright-cli/

@@ -128,6 +128,7 @@
         <field name="dmpp_transactiondate" value="2026-05-20T00:00:00.0000000Z" />
         <field name="dmpp_notes" value="Restocking order #1001" />
         <field name="dmpp_referencenumber" value="PO-1001" />
+        <field name="dmpp_documentnumber" value="DOC-2026-0001" />
         <field name="dmpp_isprocessed" value="True" />
         <field name="dmpp_processedby" value="John Smith" />
         <field name="statecode" value="0" />
@@ -142,6 +143,7 @@
         <field name="dmpp_transactiondate" value="2026-05-22T00:00:00.0000000Z" />
         <field name="dmpp_notes" value="Customer order #2001" />
         <field name="dmpp_referencenumber" value="SO-2001" />
+        <field name="dmpp_documentnumber" value="DOC-2026-0002" />
         <field name="dmpp_isprocessed" value="True" />
         <field name="dmpp_processedby" value="Jane Doe" />
         <field name="dmpp_totalvalue" value="299.0000000000" />
@@ -157,6 +159,7 @@
         <field name="dmpp_transactiondate" value="2026-05-24T00:00:00.0000000Z" />
         <field name="dmpp_notes" value="Bulk restock" />
         <field name="dmpp_referencenumber" value="PO-1002" />
+        <field name="dmpp_documentnumber" value="DOC-2026-0003" />
         <field name="dmpp_isprocessed" value="True" />
         <field name="dmpp_processedby" value="John Smith" />
         <field name="statecode" value="0" />

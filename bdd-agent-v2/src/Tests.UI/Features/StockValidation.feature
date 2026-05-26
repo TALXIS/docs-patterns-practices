@@ -22,3 +22,4 @@ Feature: Stock Validation
         # Attempt to save — the server-side plugin should reject this
         And I save the record
         Then the form should not be dirty
+

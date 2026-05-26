@@ -17,10 +17,29 @@ public sealed class ViewSteps
     [When("I switch to the {string} view")]
     public async Task WhenISwitchToTheView(string viewName)
     {
+        // Click the view selector dropdown — use contains selector (*=) because the
+        // actual data-id varies across MDA versions (e.g. "ViewSelector", "viewSelectorContainer").
         var viewSelector = Page.Locator("[data-id*='ViewSelector'], button[data-id*='ViewSelector']").First;
+        await viewSelector.WaitForAsync(new LocatorWaitForOptions
+        {
+            State = WaitForSelectorState.Visible,
+            Timeout = TestConfiguration.Timeout
+        });
         await viewSelector.ClickAsync();
 
-        await Page.GetByRole(AriaRole.Option, new PageGetByRoleOptions { Name = viewName }).ClickAsync();
+        // MDA renders view options as menuitemradio or menuitem depending on version.
+        var viewOption = Page.GetByRole(AriaRole.Menuitemradio, new PageGetByRoleOptions { Name = viewName })
+            .Or(Page.GetByRole(AriaRole.Menuitem, new PageGetByRoleOptions { Name = viewName }))
+            .Or(Page.GetByRole(AriaRole.Option, new PageGetByRoleOptions { Name = viewName }));
+        await viewOption.WaitForAsync(new LocatorWaitForOptions
+        {
+            State = WaitForSelectorState.Visible,
+            Timeout = TestConfiguration.Timeout
+        });
+        await viewOption.ClickAsync();
+
+        // Wait for the grid to reload with the new view
+        await Page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
     }
 
     [When("I open the record at row {int}")]
@@ -51,9 +70,23 @@ public sealed class ViewSteps
     [When("I search for {string} in the grid")]
     public async Task WhenISearchForInTheGrid(string text)
     {
-        var quickFind = Page.Locator("input[data-id='quickFind-text-editor'], input[aria-label*='Filter by keyword']").First;
+        // data-id="quickFind-text-editor" is the stable UCI identifier per MS Playwright samples;
+        // aria-label and placeholder variants cover older versions.
+        var quickFind = Page.Locator(
+            "input[data-id='quickFind-text-editor'], input[aria-label*='Filter by keyword'], input[placeholder*='Filter by keyword']"
+        ).First;
+        await quickFind.WaitForAsync(new LocatorWaitForOptions
+        {
+            State = WaitForSelectorState.Visible,
+            Timeout = TestConfiguration.Timeout
+        });
+        await quickFind.ClearAsync();
         await quickFind.FillAsync(text);
         await quickFind.PressAsync("Enter");
+
+        // Wait for grid to refresh after search
+        await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+        await Task.Delay(1000);
     }
 
     [When("I sort the grid by {string}")]
