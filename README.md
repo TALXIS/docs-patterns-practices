@@ -4,6 +4,23 @@ This repository contains examples, patterns, and demo scripts related to Power P
 
 Each folder in this repository represents a separate topic or scenario that demonstrates a specific area of Power Platform development using a code-first approach.
 
+## Getting started
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/TALXIS/docs-patterns-practices?quickstart=1)
+
+This repository is pre-configured for GitHub Codespaces with all Power Platform tools ready to go — no local installation needed.
+
+**Included tools:** .NET 10 SDK · Node.js 22 · Azure CLI · PowerShell · Terraform · GitHub CLI · GitHub Copilot CLI · Power Platform CLI (`pac`) · TALXIS DevKit CLI (`txc`) · Azure Functions Core Tools
+
+### Workshop participants: start here
+
+1. **Fork this repository** — click **Fork** in the top-right corner of this page to create your own copy
+2. **Open your fork in Codespaces** — on your fork, click the green **Code** button → **Codespaces** tab → **Create codespace on master**
+3. When prompted, provide your `DATAVERSE_ENV_URL` secret (e.g. `https://contoso.crm4.dynamics.com`)
+4. Once the environment is ready, run `pac auth create` in the terminal to connect to your environment
+
+> 💡 The badge above opens a Codespace from the upstream reference repo. For your own fork, always use the **Code → Codespaces** button on your fork's GitHub page.
+
 ## Demos
 
 ### [bdd-agent-v2](./bdd-agent-v2/README.md)
