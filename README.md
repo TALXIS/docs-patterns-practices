@@ -14,12 +14,13 @@ This repository is pre-configured for GitHub Codespaces with all Power Platform 
 
 ### Workshop participants: start here
 
-1. **Fork this repository** — click **Fork** in the top-right corner of this page to create your own copy
-2. **Open your fork in Codespaces** — on your fork, click the green **Code** button → **Codespaces** tab → **Create codespace on master**
-3. When prompted, provide your `DATAVERSE_ENV_URL` secret (e.g. `https://contoso.crm4.dynamics.com`)
-4. Once the environment is ready, run `pac auth create` in the terminal to connect to your environment
+> ⚠️ **You must fork this repository before starting.** Parts of this lab involve creating and running GitHub Actions workflows, which require write access to a repository. You cannot push workflows to the upstream repo — your fork is your workspace.
 
-> 💡 The badge above opens a Codespace from the upstream reference repo. For your own fork, always use the **Code → Codespaces** button on your fork's GitHub page.
+1. **Fork this repository** — click **Fork** in the top-right corner of this page
+2. **Open your fork in Codespaces** — on your fork, click the green **Code** button → **Codespaces** tab → **Create codespace on master**
+3. Once the environment is ready, run `pac auth create` in the terminal to connect to your Power Platform environment
+
+> 💡 The badge above is a quick reference link for maintainers. Always start from **your fork**.
 
 ## Demos
 
