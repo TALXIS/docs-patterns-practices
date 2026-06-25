@@ -4,6 +4,14 @@ This repository contains examples, patterns, and demo scripts related to Power P
 
 Each folder in this repository represents a separate topic or scenario that demonstrates a specific area of Power Platform development using a code-first approach.
 
+## Getting started
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/TALXIS/docs-patterns-practices?quickstart=1)
+
+Click the badge to open a pre-configured development environment with all Power Platform tools ready to go — no local installation needed.
+
+> ⚠️ **If you plan to commit changes or run GitHub Actions pipelines** (required for most labs), you need your own fork. GitHub will create one automatically the first time you push — just follow the prompt in the Codespaces terminal. Alternatively, fork this repository before you start and open the Codespace from your fork.
+
 ## Demos
 
 ### [bdd-agent-v2](./bdd-agent-v2/README.md)

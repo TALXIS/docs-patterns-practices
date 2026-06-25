@@ -1,0 +1,13 @@
+{
+  "name": "Power Platform",
+  "image": "ghcr.io/talxis/tools-agentbox/image:latest",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  },
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb"
+  }
+}
