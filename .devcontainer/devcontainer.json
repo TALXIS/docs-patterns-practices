@@ -4,28 +4,10 @@
   "customizations": {
     "codespaces": {
       "openFiles": ["README.md"]
-    },
-    "vscode": {
-      "extensions": [
-        "ms-dotnettools.csdevkit",
-        "microsoft-IsvExpTools.powerplatform-vscode",
-        "GitHub.copilot",
-        "GitHub.copilot-chat",
-        "ms-vscode.powershell",
-        "hashicorp.terraform",
-        "redhat.vscode-yaml"
-      ]
-    }
-  },
-  "secrets": {
-    "DATAVERSE_ENV_URL": {
-      "description": "Your Dataverse / Power Platform environment URL (e.g. https://contoso.crm4.dynamics.com). Used by pac and txc CLI to connect to your environment.",
-      "documentationUrl": "https://learn.microsoft.com/power-platform/developer/cli/reference/auth#pac-auth-create"
     }
   },
   "hostRequirements": {
     "cpus": 2,
     "memory": "8gb"
-  },
-  "postCreateCommand": "echo '✅ Power Platform dev environment ready. Run `pac auth create` to connect to your environment.'"
+  }
 }
