@@ -8,19 +8,9 @@ Each folder in this repository represents a separate topic or scenario that demo
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/TALXIS/docs-patterns-practices?quickstart=1)
 
-This repository is pre-configured for GitHub Codespaces with all Power Platform tools ready to go — no local installation needed.
+Click the badge to open a pre-configured development environment with all Power Platform tools ready to go — no local installation needed.
 
-**Included tools:** .NET 10 SDK · Node.js 22 · Azure CLI · PowerShell · Terraform · GitHub CLI · GitHub Copilot CLI · Power Platform CLI (`pac`) · TALXIS DevKit CLI (`txc`) · Azure Functions Core Tools
-
-### Workshop participants: start here
-
-> ⚠️ **You must fork this repository before starting.** Parts of this lab involve creating and running GitHub Actions workflows, which require write access to a repository. You cannot push workflows to the upstream repo — your fork is your workspace.
-
-1. **Fork this repository** — click **Fork** in the top-right corner of this page
-2. **Open your fork in Codespaces** — on your fork, click the green **Code** button → **Codespaces** tab → **Create codespace on master**
-3. Once the environment is ready, run `pac auth create` in the terminal to connect to your Power Platform environment
-
-> 💡 The badge above is a quick reference link for maintainers. Always start from **your fork**.
+> ⚠️ **If you plan to commit changes or run GitHub Actions pipelines** (required for most labs), you need your own fork. GitHub will create one automatically the first time you push — just follow the prompt in the Codespaces terminal. Alternatively, fork this repository before you start and open the Codespace from your fork.
 
 ## Demos
 
