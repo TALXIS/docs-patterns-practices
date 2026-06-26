@@ -10,40 +10,13 @@
 # Expects: $PublisherName, $PublisherPrefix, $SolutionName from parent scope.
 #
 # ──────────────────────────────────────────────────────────────────────────────────────────
-#                              Signing Key Generation
-# ──────────────────────────────────────────────────────────────────────────────────────────
-
-Write-Host "`n── Plugins.Warehouse ──" -ForegroundColor Cyan
-
-if (-not (Test-Path "src/Plugins.Warehouse")) {
-    New-Item -ItemType Directory -Path "src/Plugins.Warehouse" -Force | Out-Null
-}
-
-# Generate signing key using RSACryptoServiceProvider (cross-platform)
-$keyFile = "src/Plugins.Warehouse/PluginKey.snk"
-if (-not (Test-Path $keyFile)) {
-    $rsa = New-Object System.Security.Cryptography.RSACryptoServiceProvider 2048
-    try {
-        $rsa.PersistKeyInCsp = $false
-        $blob = $rsa.ExportCspBlob($true)
-        [System.IO.File]::WriteAllBytes((Join-Path (Get-Location).Path $keyFile), $blob)
-        Write-Host "  ✓ PluginKey.snk generated" -ForegroundColor Green
-    }
-    finally {
-        $rsa.Dispose()
-    }
-}
-
-# ──────────────────────────────────────────────────────────────────────────────────────────
 #                              Plugin Project
 # ──────────────────────────────────────────────────────────────────────────────────────────
 
-dotnet new pp-plugin `
+txc workspace component create pp-plugin `
     --output "src/Plugins.Warehouse" `
-    --PublisherName $PublisherName `
-    --SigningKeyFilePath "PluginKey.snk" `
-    --Company $PublisherName `
-    --allow-scripts yes
+    --param "PublisherName=$PublisherName" `
+    --param "Company=$PublisherName"
 
 dotnet sln add src/Plugins.Warehouse
 

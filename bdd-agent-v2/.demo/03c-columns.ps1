@@ -13,308 +13,284 @@ Write-Host "`n── Columns ──" -ForegroundColor Cyan
 
 # --- warehouseitem columns ---
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "WholeNumber" `
-    --RequiredLevel "required" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "availablequantity" `
-    --DisplayName "Available Quantity" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=WholeNumber" `
+    --param "RequiredLevel=required" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=availablequantity" `
+    --param "DisplayName=Available Quantity"
 
 Write-Host "  ✓ warehouseitem.availablequantity (WholeNumber)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "Text" `
-    --RequiredLevel "required" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "sku" `
-    --DisplayName "SKU" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=Text" `
+    --param "RequiredLevel=required" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=sku" `
+    --param "DisplayName=SKU"
 
 Write-Host "  ✓ warehouseitem.sku (Text)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "Lookup" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "locationid" `
-    --DisplayName "Location" `
-    --LookupTarget "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=Lookup" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=locationid" `
+    --param "DisplayName=Location" `
+    --param "LookupTarget=${PublisherPrefix}_warehouselocation"
 
 Write-Host "  ✓ warehouseitem.locationid (Lookup → warehouselocation)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "MultilineText" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "description" `
-    --DisplayName "Description" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=MultilineText" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=description" `
+    --param "DisplayName=Description"
 
 Write-Host "  ✓ warehouseitem.description (MultilineText)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "Money" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "unitprice" `
-    --DisplayName "Unit Price" `
-    --DecimalPrecision "2" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=Money" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=unitprice" `
+    --param "DisplayName=Unit Price" `
+    --param "DecimalPrecision=2"
 
 Write-Host "  ✓ warehouseitem.unitprice (Money)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "Decimal" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "weight" `
-    --DisplayName "Weight (kg)" `
-    --DecimalPrecision "3" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=Decimal" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=weight" `
+    --param "DisplayName=Weight (kg)" `
+    --param "DecimalPrecision=3"
 
 Write-Host "  ✓ warehouseitem.weight (Decimal)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "OptionSet(Local)" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "category" `
-    --DisplayName "Category" `
-    --OptionSetOptions "Electronics,Clothing,Food,Hardware,Other" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=OptionSet(Local)" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=category" `
+    --param "DisplayName=Category" `
+    --param "OptionSetOptions=Electronics,Clothing,Food,Hardware,Other"
 
 Write-Host "  ✓ warehouseitem.category (OptionSet Local)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "Boolean" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "isperishable" `
-    --DisplayName "Is Perishable" `
-    --BooleanTrueLabel "Yes" `
-    --BooleanFalseLabel "No" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=Boolean" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=isperishable" `
+    --param "DisplayName=Is Perishable" `
+    --param "BooleanTrueLabel=Yes" `
+    --param "BooleanFalseLabel=No"
 
 Write-Host "  ✓ warehouseitem.isperishable (Boolean)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "DateTime" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "expirationdate" `
-    --DisplayName "Expiration Date" `
-    --DateTimeFormat "date" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=DateTime" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=expirationdate" `
+    --param "DisplayName=Expiration Date" `
+    --param "DateTimeFormat=date"
 
 Write-Host "  ✓ warehouseitem.expirationdate (DateTime, date only)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "Text" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "barcode" `
-    --DisplayName "Barcode" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=Text" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=barcode" `
+    --param "DisplayName=Barcode"
 
 Write-Host "  ✓ warehouseitem.barcode (Text)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --AttributeType "WholeNumber" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "reorderpoint" `
-    --DisplayName "Reorder Point" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "AttributeType=WholeNumber" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=reorderpoint" `
+    --param "DisplayName=Reorder Point"
 
 Write-Host "  ✓ warehouseitem.reorderpoint (WholeNumber)" -ForegroundColor Green
 
 # --- warehouselocation columns ---
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --AttributeType "WholeNumber" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "capacity" `
-    --DisplayName "Capacity" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation" `
+    --param "AttributeType=WholeNumber" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=capacity" `
+    --param "DisplayName=Capacity"
 
 Write-Host "  ✓ warehouselocation.capacity (WholeNumber)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --AttributeType "Text" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "address" `
-    --DisplayName "Address" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation" `
+    --param "AttributeType=Text" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=address" `
+    --param "DisplayName=Address"
 
 Write-Host "  ✓ warehouselocation.address (Text)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --AttributeType "Boolean" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "isactive" `
-    --DisplayName "Is Active" `
-    --BooleanTrueLabel "Active" `
-    --BooleanFalseLabel "Inactive" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation" `
+    --param "AttributeType=Boolean" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=isactive" `
+    --param "DisplayName=Is Active" `
+    --param "BooleanTrueLabel=Active" `
+    --param "BooleanFalseLabel=Inactive"
 
 Write-Host "  ✓ warehouselocation.isactive (Boolean)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --AttributeType "MultilineText" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "notes" `
-    --DisplayName "Notes" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation" `
+    --param "AttributeType=MultilineText" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=notes" `
+    --param "DisplayName=Notes"
 
 Write-Host "  ✓ warehouselocation.notes (MultilineText)" -ForegroundColor Green
 
 # --- warehousetransaction columns ---
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "Lookup" `
-    --RequiredLevel "required" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "itemid" `
-    --DisplayName "Item" `
-    --LookupTarget "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=Lookup" `
+    --param "RequiredLevel=required" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=itemid" `
+    --param "DisplayName=Item" `
+    --param "LookupTarget=${PublisherPrefix}_warehouseitem"
 
 Write-Host "  ✓ warehousetransaction.itemid (Lookup → warehouseitem)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "WholeNumber" `
-    --RequiredLevel "required" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "quantity" `
-    --DisplayName "Quantity" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=WholeNumber" `
+    --param "RequiredLevel=required" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=quantity" `
+    --param "DisplayName=Quantity"
 
 Write-Host "  ✓ warehousetransaction.quantity (WholeNumber)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "OptionSet(Local)" `
-    --RequiredLevel "required" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "transactiontype" `
-    --DisplayName "Transaction Type" `
-    --OptionSetOptions "Inbound,Outbound" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=OptionSet(Local)" `
+    --param "RequiredLevel=required" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=transactiontype" `
+    --param "DisplayName=Transaction Type" `
+    --param "OptionSetOptions=Inbound,Outbound"
 
 Write-Host "  ✓ warehousetransaction.transactiontype (OptionSet Local)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "DateTime" `
-    --RequiredLevel "required" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "transactiondate" `
-    --DisplayName "Transaction Date" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=DateTime" `
+    --param "RequiredLevel=required" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=transactiondate" `
+    --param "DisplayName=Transaction Date"
 
 Write-Host "  ✓ warehousetransaction.transactiondate (DateTime)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "MultilineText" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "notes" `
-    --DisplayName "Notes" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=MultilineText" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=notes" `
+    --param "DisplayName=Notes"
 
 Write-Host "  ✓ warehousetransaction.notes (MultilineText)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "Money" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "totalvalue" `
-    --DisplayName "Total Value" `
-    --DecimalPrecision "2" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=Money" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=totalvalue" `
+    --param "DisplayName=Total Value" `
+    --param "DecimalPrecision=2"
 
 Write-Host "  ✓ warehousetransaction.totalvalue (Money)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "Boolean" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "isprocessed" `
-    --DisplayName "Is Processed" `
-    --BooleanTrueLabel "Yes" `
-    --BooleanFalseLabel "No" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=Boolean" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=isprocessed" `
+    --param "DisplayName=Is Processed" `
+    --param "BooleanTrueLabel=Yes" `
+    --param "BooleanFalseLabel=No"
 
 Write-Host "  ✓ warehousetransaction.isprocessed (Boolean)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "Text" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "processedby" `
-    --DisplayName "Processed By" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=Text" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=processedby" `
+    --param "DisplayName=Processed By"
 
 Write-Host "  ✓ warehousetransaction.processedby (Text)" -ForegroundColor Green
 
-dotnet new pp-entity-attribute `
+txc workspace component create pp-entity-attribute `
     --output "src/Solutions.DataModel" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --AttributeType "Text" `
-    --RequiredLevel "none" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "referencenumber" `
-    --DisplayName "Reference Number" `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "AttributeType=Text" `
+    --param "RequiredLevel=none" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=referencenumber" `
+    --param "DisplayName=Reference Number"
 
 Write-Host "  ✓ warehousetransaction.referencenumber (Text)" -ForegroundColor Green

@@ -3,7 +3,7 @@
 # ║                        01: Prerequisites Check                                        ║
 # ╚════════════════════════════════════════════════════════════════════════════════════════╝
 #
-# Checks: dotnet CLI, TALXIS Dataverse templates, git availability.
+# Checks: dotnet CLI, TALXIS DevKit CLI (txc), git availability.
 # Expects: $SkipGitInit from parent scope.
 #
 # ──────────────────────────────────────────────────────────────────────────────────────────
@@ -18,14 +18,15 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host "  ✓ dotnet CLI: $dotnetVersion" -ForegroundColor Green
 
-# Check TALXIS templates
-$templateList = & dotnet new list pp-solution 2>&1 | Out-String
-if ($templateList -notmatch "pp-solution") {
-    Write-Host "  ✗ TALXIS Dataverse templates not found." -ForegroundColor Red
-    Write-Host "    Install with: dotnet new install TALXIS.DevKit.Templates.Dataverse" -ForegroundColor Yellow
+# Check TALXIS DevKit CLI (txc). It scaffolds the components and fetches the
+# templates itself, so no separate template install is needed.
+$txcTypes = & txc workspace component type list 2>&1 | Out-String
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "  ✗ TALXIS DevKit CLI (txc) not found." -ForegroundColor Red
+    Write-Host "    Install with: dotnet tool install --global TALXIS.CLI" -ForegroundColor Yellow
     exit 1
 }
-Write-Host "  ✓ TALXIS Dataverse templates installed" -ForegroundColor Green
+Write-Host "  ✓ TALXIS DevKit CLI (txc) available" -ForegroundColor Green
 
 # Check git
 if (-not $SkipGitInit) {

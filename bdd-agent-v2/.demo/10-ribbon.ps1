@@ -41,7 +41,7 @@ namespace WarehouseScripts {
 }
 "@
 
-Set-Content -Path "src/Scripts.UI/TS/scripts/RibbonActions.ts" -Value $ribbonScript -Encoding UTF8
+Set-Content -Path "src/Scripts.UI/src/RibbonActions.ts" -Value $ribbonScript -Encoding UTF8
 Write-Host "  ✓ RibbonActions.ts" -ForegroundColor Green
 
 # Rebuild Scripts.UI with the new file
@@ -59,26 +59,24 @@ cd ../..
 #                      Ribbon Button: Check Stock Levels (warehouseitem form)
 # ──────────────────────────────────────────────────────────────────────────────────────────
 
-dotnet new pp-ribbon-button `
+txc workspace component create pp-ribbon-button `
     --output "src/Solutions.UI" `
-    --Location "Form" `
-    --EntityLogicalName "${PublisherPrefix}_warehouseitem" `
-    --ButtonLabel "Check Stock Levels" `
-    --PublisherPrefix $PublisherPrefix `
-    --LibraryLogicalName "${PublisherPrefix}_main.js" `
-    --FunctionName "WarehouseScripts.RibbonActions.checkStockLevels" `
-    --allow-scripts yes
+    --param "Location=Form" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehouseitem" `
+    --param "ButtonLabel=Check Stock Levels" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LibraryLogicalName=${PublisherPrefix}_main.js" `
+    --param "FunctionName=WarehouseScripts.RibbonActions.checkStockLevels"
 
 Write-Host "  ✓ Ribbon button: Check Stock Levels (warehouseitem form)" -ForegroundColor Green
 
 # Add PrimaryControl parameter so the function receives the form context
-dotnet new pp-ribbon-command-parameter `
+txc workspace component create pp-ribbon-command-parameter `
     --output "src/Solutions.UI" `
-    --EntityLogicalName "${PublisherPrefix}_warehouseitem" `
-    --PublisherPrefix $PublisherPrefix `
-    --ParameterType "CrmPrimaryControl" `
-    --FunctionName "WarehouseScripts.RibbonActions.checkStockLevels" `
-    --ButtonLogicalName "checkstocklevels" `
-    --allow-scripts yes
+    --param "EntityLogicalName=${PublisherPrefix}_warehouseitem" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "ParameterType=CrmPrimaryControl" `
+    --param "FunctionName=WarehouseScripts.RibbonActions.checkStockLevels" `
+    --param "ButtonLogicalName=checkstocklevels"
 
 Write-Host "  ✓ Ribbon command parameter: PrimaryControl" -ForegroundColor Green

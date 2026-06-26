@@ -10,9 +10,8 @@
 
 Write-Host "`n── Package Deployer ──" -ForegroundColor Cyan
 
-dotnet new pp-package `
-    --output "src/Packages.Main" `
-    --allow-scripts yes
+txc workspace component create pp-package `
+    --output "src/Packages.Main"
 
 # Add the package project to the Visual Studio solution file
 cd "src/Packages.Main"

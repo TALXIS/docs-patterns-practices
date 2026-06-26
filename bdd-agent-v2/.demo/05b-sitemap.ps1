@@ -10,53 +10,48 @@
 
 Write-Host "`n── Sitemap Navigation ──" -ForegroundColor Cyan
 
-dotnet new pp-sitemap-area `
+txc workspace component create pp-sitemap-area `
     --output "src/Solutions.UI" `
-    --AreaTitle "Warehouse" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "AreaTitle=Warehouse" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ Sitemap area: Warehouse" -ForegroundColor Green
 
-dotnet new pp-sitemap-group `
+txc workspace component create pp-sitemap-group `
     --output "src/Solutions.UI" `
-    --GroupTitle "Management" `
-    --GroupDisplayName "Management" `
-    --AreaTitle "Warehouse" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "GroupTitle=Management" `
+    --param "GroupDisplayName=Management" `
+    --param "AreaTitle=Warehouse" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ Sitemap group: Management" -ForegroundColor Green
 
-dotnet new pp-sitemap-subarea `
+txc workspace component create pp-sitemap-subarea `
     --output "src/Solutions.UI" `
-    --Title "Warehouse Locations" `
-    --EntityLogicalName "${PublisherPrefix}_warehouselocation" `
-    --GroupTitle "Management" `
-    --AreaTitle "Warehouse" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "Title=Warehouse Locations" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehouselocation" `
+    --param "GroupTitle=Management" `
+    --param "AreaTitle=Warehouse" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ Sitemap subarea: Warehouse Locations" -ForegroundColor Green
 
-dotnet new pp-sitemap-subarea `
+txc workspace component create pp-sitemap-subarea `
     --output "src/Solutions.UI" `
-    --Title "Warehouse Items" `
-    --EntityLogicalName "${PublisherPrefix}_warehouseitem" `
-    --GroupTitle "Management" `
-    --AreaTitle "Warehouse" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "Title=Warehouse Items" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehouseitem" `
+    --param "GroupTitle=Management" `
+    --param "AreaTitle=Warehouse" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ Sitemap subarea: Warehouse Items" -ForegroundColor Green
 
-dotnet new pp-sitemap-subarea `
+txc workspace component create pp-sitemap-subarea `
     --output "src/Solutions.UI" `
-    --Title "Warehouse Transactions" `
-    --EntityLogicalName "${PublisherPrefix}_warehousetransaction" `
-    --GroupTitle "Management" `
-    --AreaTitle "Warehouse" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "Title=Warehouse Transactions" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehousetransaction" `
+    --param "GroupTitle=Management" `
+    --param "AreaTitle=Warehouse" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ Sitemap subarea: Warehouse Transactions" -ForegroundColor Green
