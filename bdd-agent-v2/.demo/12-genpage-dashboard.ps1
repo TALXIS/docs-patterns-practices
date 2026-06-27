@@ -17,10 +17,10 @@ Write-Host "`n── Generative Page: Warehouse Dashboard ──" -ForegroundCol
 #                            Scaffold GenPage Project
 # ──────────────────────────────────────────────────────────────────────────────────────────
 
-dotnet new pp-page-generative `
+txc workspace component create pp-page-generative `
     --output "src/GenPages.Dashboard" `
-    --Name "warehousedashboard" `
-    --DisplayName "Warehouse Dashboard"
+    --param "Name=warehousedashboard" `
+    --param "DisplayName=Warehouse Dashboard"
 
 Write-Host "  ✓ GenPages.Dashboard project created" -ForegroundColor Green
 
@@ -265,15 +265,14 @@ Write-Host "  ✓ ProjectReference: GenPages.Dashboard → Solutions.UI" -Foregr
 #                       Sitemap Subarea (PageType=genpage)
 # ──────────────────────────────────────────────────────────────────────────────────────────
 
-dotnet new pp-sitemap-subarea `
+txc workspace component create pp-sitemap-subarea `
     --output "src/Solutions.UI" `
-    --PageType "genpage" `
-    --Title "Dashboard" `
-    --EntityLogicalName "${PublisherPrefix}_warehouseitem" `
-    --GenPageId $genPageId `
-    --GroupTitle "Management" `
-    --AreaTitle "Warehouse" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "PageType=genpage" `
+    --param "Title=Dashboard" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehouseitem" `
+    --param "GenPageId=$genPageId" `
+    --param "GroupTitle=Management" `
+    --param "AreaTitle=Warehouse" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ Sitemap subarea: Dashboard (genpage)" -ForegroundColor Green

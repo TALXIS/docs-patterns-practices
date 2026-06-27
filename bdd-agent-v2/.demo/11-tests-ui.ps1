@@ -17,7 +17,7 @@ Write-Host "`n── Tests.UI ──" -ForegroundColor Cyan
 #                              Scaffold Test Project
 # ──────────────────────────────────────────────────────────────────────────────────────────
 
-dotnet new pp-test-ui `
+txc workspace component create pp-test-ui `
     --output "src/Tests.UI"
 
 # Add to solution
@@ -31,8 +31,8 @@ Write-Host "  ✓ Tests.UI project created" -ForegroundColor Green
 #                              Sample Feature File
 # ──────────────────────────────────────────────────────────────────────────────────────────
 
-dotnet new pp-test-ui-feature `
-    --name "WarehouseItemNavigation" `
+txc workspace component create pp-test-ui-feature `
+    --param "name=WarehouseItemNavigation" `
     --output "src/Tests.UI"
 
 # Remove Calculator sample that ships with both templates

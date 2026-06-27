@@ -13,9 +13,9 @@
 
 Write-Host "`n── Scripts.UI ──" -ForegroundColor Cyan
 
-dotnet new pp-script-library `
-    --LibraryName "main" `
-    --PublisherPrefix $PublisherPrefix `
+txc workspace component create pp-script-library `
+    --param "LibraryName=main" `
+    --param "PublisherPrefix=$PublisherPrefix" `
     --output "src/Scripts.UI"
 
 dotnet sln add src/Scripts.UI
@@ -138,28 +138,26 @@ cd ../..
 Write-Host "`n── Form Event Handlers ──" -ForegroundColor Cyan
 
 # OnLoad handler on warehouse transaction form
-dotnet new pp-form-event-handler `
+txc workspace component create pp-form-event-handler `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntityLogicalName "${PublisherPrefix}_warehousetransaction" `
-    --LibraryName "${PublisherPrefix}_main" `
-    --FunctionName "WarehouseScripts.TransactionForm.onLoad" `
-    --EventType "onload" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehousetransaction" `
+    --param "LibraryName=${PublisherPrefix}_main" `
+    --param "FunctionName=WarehouseScripts.TransactionForm.onLoad" `
+    --param "EventType=onload"
 
 Write-Host "  ✓ Event handler: warehousetransaction form → onLoad" -ForegroundColor Green
 
 # OnChange handler on quantity field
-dotnet new pp-form-event-handler `
+txc workspace component create pp-form-event-handler `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntityLogicalName "${PublisherPrefix}_warehousetransaction" `
-    --LibraryName "${PublisherPrefix}_main" `
-    --FunctionName "WarehouseScripts.TransactionForm.onQuantityChange" `
-    --EventType "onchange" `
-    --AttributeName "${PublisherPrefix}_quantity" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehousetransaction" `
+    --param "LibraryName=${PublisherPrefix}_main" `
+    --param "FunctionName=WarehouseScripts.TransactionForm.onQuantityChange" `
+    --param "EventType=onchange" `
+    --param "AttributeName=${PublisherPrefix}_quantity"
 
 Write-Host "  ✓ Event handler: warehousetransaction quantity → onChange" -ForegroundColor Green

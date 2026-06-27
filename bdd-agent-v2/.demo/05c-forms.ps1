@@ -20,60 +20,54 @@ $warehouseitemFormGuid = [guid]::NewGuid()
 $warehousetransactionFormGuid = [guid]::NewGuid()
 
 # Warehouse Location — main form
-dotnet new pp-entity-form `
+txc workspace component create pp-entity-form `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --FormId $warehouselocationFormGuid `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation" `
+    --param "FormId=$warehouselocationFormGuid"
 
 Write-Host "  ✓ Form: warehouselocation (main)" -ForegroundColor Green
 
 # Warehouse Item — main form
-dotnet new pp-entity-form `
+txc workspace component create pp-entity-form `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --FormId $warehouseitemFormGuid `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "FormId=$warehouseitemFormGuid"
 
 Write-Host "  ✓ Form: warehouseitem (main)" -ForegroundColor Green
 
 # Warehouse Transaction — main form
-dotnet new pp-entity-form `
+txc workspace component create pp-entity-form `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --FormId $warehousetransactionFormGuid `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "FormId=$warehousetransactionFormGuid"
 
 Write-Host "  ✓ Form: warehousetransaction (main)" -ForegroundColor Green
 
 # Register forms as app components
-dotnet new pp-app-model-component `
+txc workspace component create pp-app-model-component `
     --output "src/Solutions.UI" `
-    --EntityType "Form" `
-    --ComponentId "$warehouselocationFormGuid" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "EntityType=Form" `
+    --param "ComponentId=$warehouselocationFormGuid" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ App component: warehouselocation form" -ForegroundColor Green
 
-dotnet new pp-app-model-component `
+txc workspace component create pp-app-model-component `
     --output "src/Solutions.UI" `
-    --EntityType "Form" `
-    --ComponentId "$warehouseitemFormGuid" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "EntityType=Form" `
+    --param "ComponentId=$warehouseitemFormGuid" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ App component: warehouseitem form" -ForegroundColor Green
 
-dotnet new pp-app-model-component `
+txc workspace component create pp-app-model-component `
     --output "src/Solutions.UI" `
-    --EntityType "Form" `
-    --ComponentId "$warehousetransactionFormGuid" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "EntityType=Form" `
+    --param "ComponentId=$warehousetransactionFormGuid" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ App component: warehousetransaction form" -ForegroundColor Green
 
@@ -83,36 +77,33 @@ Write-Host "  ✓ App component: warehousetransaction form" -ForegroundColor Gre
 
 Write-Host "`n── Form Tabs ──" -ForegroundColor Cyan
 
-dotnet new pp-form-tab `
+txc workspace component create pp-form-tab `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --DisplayName "General" `
-    --RemoveDefaultTab "True" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation" `
+    --param "DisplayName=General" `
+    --param "RemoveDefaultTab=True"
 
 Write-Host "  ✓ Tab: warehouselocation → General" -ForegroundColor Green
 
-dotnet new pp-form-tab `
+txc workspace component create pp-form-tab `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --DisplayName "General" `
-    --RemoveDefaultTab "True" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "DisplayName=General" `
+    --param "RemoveDefaultTab=True"
 
 Write-Host "  ✓ Tab: warehouseitem → General" -ForegroundColor Green
 
-dotnet new pp-form-tab `
+txc workspace component create pp-form-tab `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --DisplayName "General" `
-    --RemoveDefaultTab "True" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "DisplayName=General" `
+    --param "RemoveDefaultTab=True"
 
 Write-Host "  ✓ Tab: warehousetransaction → General" -ForegroundColor Green
 
@@ -124,244 +115,211 @@ Write-Host "`n── Form Columns, Sections, Rows ──" -ForegroundColor Cyan
 
 # --- Warehouse Location: 1 column, 1 section, 5 rows (name, capacity, address, isactive, notes) ---
 
-dotnet new pp-form-column `
+txc workspace component create pp-form-column `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-section `
+txc workspace component create pp-form-section `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
 Write-Host "  ✓ warehouselocation: column, section, 5 rows" -ForegroundColor Green
 
 # --- Warehouse Item: 1 column, 1 section, 12 rows ---
 
-dotnet new pp-form-column `
+txc workspace component create pp-form-column `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-section `
+txc workspace component create pp-form-section `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
 Write-Host "  ✓ warehouseitem: column, section, 12 rows" -ForegroundColor Green
 
 # --- Warehouse Transaction: 1 column, 1 section, 10 rows ---
 
-dotnet new pp-form-column `
+txc workspace component create pp-form-column `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-section `
+txc workspace component create pp-form-section `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-row `
+txc workspace component create pp-form-row `
     --output "src/Solutions.UI" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
 Write-Host "  ✓ warehousetransaction: column, section, 10 rows" -ForegroundColor Green
 
@@ -373,256 +331,229 @@ Write-Host "`n── Form Cells ──" -ForegroundColor Cyan
 
 # --- Warehouse Location cells ---
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "1" `
-    --FormType "main" `
-    --DisplayName "Name" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "RowIndex=1" `
+    --param "FormType=main" `
+    --param "DisplayName=Name" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "2" `
-    --FormType "main" `
-    --DisplayName "Capacity" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "RowIndex=2" `
+    --param "FormType=main" `
+    --param "DisplayName=Capacity" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "3" `
-    --FormType "main" `
-    --DisplayName "Address" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "RowIndex=3" `
+    --param "FormType=main" `
+    --param "DisplayName=Address" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "4" `
-    --FormType "main" `
-    --DisplayName "Is Active" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "RowIndex=4" `
+    --param "FormType=main" `
+    --param "DisplayName=Is Active" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "5" `
-    --FormType "main" `
-    --DisplayName "Notes" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "RowIndex=5" `
+    --param "FormType=main" `
+    --param "DisplayName=Notes" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
 Write-Host "  ✓ warehouselocation cells: Name, Capacity, Address, Is Active, Notes" -ForegroundColor Green
 
 # --- Warehouse Item cells ---
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "1" `
-    --FormType "main" `
-    --DisplayName "Name" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=1" `
+    --param "FormType=main" `
+    --param "DisplayName=Name" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "2" `
-    --FormType "main" `
-    --DisplayName "SKU" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=2" `
+    --param "FormType=main" `
+    --param "DisplayName=SKU" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "3" `
-    --FormType "main" `
-    --DisplayName "Available Quantity" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=3" `
+    --param "FormType=main" `
+    --param "DisplayName=Available Quantity" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "4" `
-    --FormType "main" `
-    --DisplayName "Location" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=4" `
+    --param "FormType=main" `
+    --param "DisplayName=Location" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "5" `
-    --FormType "main" `
-    --DisplayName "Description" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=5" `
+    --param "FormType=main" `
+    --param "DisplayName=Description" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "6" `
-    --FormType "main" `
-    --DisplayName "Unit Price" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=6" `
+    --param "FormType=main" `
+    --param "DisplayName=Unit Price" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "7" `
-    --FormType "main" `
-    --DisplayName "Weight (kg)" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=7" `
+    --param "FormType=main" `
+    --param "DisplayName=Weight (kg)" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "8" `
-    --FormType "main" `
-    --DisplayName "Category" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=8" `
+    --param "FormType=main" `
+    --param "DisplayName=Category" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "9" `
-    --FormType "main" `
-    --DisplayName "Is Perishable" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=9" `
+    --param "FormType=main" `
+    --param "DisplayName=Is Perishable" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "10" `
-    --FormType "main" `
-    --DisplayName "Expiration Date" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=10" `
+    --param "FormType=main" `
+    --param "DisplayName=Expiration Date" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "11" `
-    --FormType "main" `
-    --DisplayName "Barcode" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=11" `
+    --param "FormType=main" `
+    --param "DisplayName=Barcode" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "12" `
-    --FormType "main" `
-    --DisplayName "Reorder Point" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "RowIndex=12" `
+    --param "FormType=main" `
+    --param "DisplayName=Reorder Point" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
 Write-Host "  ✓ warehouseitem cells: Name, SKU, Available Quantity, Location, Description, Unit Price, Weight, Category, Is Perishable, Expiration Date, Barcode, Reorder Point" -ForegroundColor Green
 
 # --- Warehouse Transaction cells ---
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "1" `
-    --FormType "main" `
-    --DisplayName "Name" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=1" `
+    --param "FormType=main" `
+    --param "DisplayName=Name" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "2" `
-    --FormType "main" `
-    --DisplayName "Item" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=2" `
+    --param "FormType=main" `
+    --param "DisplayName=Item" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "3" `
-    --FormType "main" `
-    --DisplayName "Quantity" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=3" `
+    --param "FormType=main" `
+    --param "DisplayName=Quantity" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "4" `
-    --FormType "main" `
-    --DisplayName "Transaction Type" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=4" `
+    --param "FormType=main" `
+    --param "DisplayName=Transaction Type" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "5" `
-    --FormType "main" `
-    --DisplayName "Transaction Date" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=5" `
+    --param "FormType=main" `
+    --param "DisplayName=Transaction Date" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "6" `
-    --FormType "main" `
-    --DisplayName "Notes" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=6" `
+    --param "FormType=main" `
+    --param "DisplayName=Notes" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "7" `
-    --FormType "main" `
-    --DisplayName "Total Value" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=7" `
+    --param "FormType=main" `
+    --param "DisplayName=Total Value" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "8" `
-    --FormType "main" `
-    --DisplayName "Is Processed" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=8" `
+    --param "FormType=main" `
+    --param "DisplayName=Is Processed" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "9" `
-    --FormType "main" `
-    --DisplayName "Processed By" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=9" `
+    --param "FormType=main" `
+    --param "DisplayName=Processed By" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-cell `
+txc workspace component create pp-form-cell `
     --output "src/Solutions.UI" `
-    --RowIndex "10" `
-    --FormType "main" `
-    --DisplayName "Reference Number" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "RowIndex=10" `
+    --param "FormType=main" `
+    --param "DisplayName=Reference Number" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
 Write-Host "  ✓ warehousetransaction cells: Name, Item, Quantity, Transaction Type, Transaction Date, Notes, Total Value, Is Processed, Processed By, Reference Number" -ForegroundColor Green
 
@@ -634,282 +565,255 @@ Write-Host "`n── Form Controls ──" -ForegroundColor Cyan
 
 # --- Warehouse Location controls ---
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Text" `
-    --RowIndex "1" `
-    --AttributeLogicalName "${PublisherPrefix}_name" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "ControlType=Text" `
+    --param "RowIndex=1" `
+    --param "AttributeLogicalName=${PublisherPrefix}_name" `
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "WholeNumber" `
-    --RowIndex "2" `
-    --AttributeLogicalName "${PublisherPrefix}_capacity" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "ControlType=WholeNumber" `
+    --param "RowIndex=2" `
+    --param "AttributeLogicalName=${PublisherPrefix}_capacity" `
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Text" `
-    --RowIndex "3" `
-    --AttributeLogicalName "${PublisherPrefix}_address" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "ControlType=Text" `
+    --param "RowIndex=3" `
+    --param "AttributeLogicalName=${PublisherPrefix}_address" `
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "OptionSet" `
-    --RowIndex "4" `
-    --AttributeLogicalName "${PublisherPrefix}_isactive" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "ControlType=OptionSet" `
+    --param "RowIndex=4" `
+    --param "AttributeLogicalName=${PublisherPrefix}_isactive" `
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "MultilineText" `
-    --RowIndex "5" `
-    --AttributeLogicalName "${PublisherPrefix}_notes" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "ControlType=MultilineText" `
+    --param "RowIndex=5" `
+    --param "AttributeLogicalName=${PublisherPrefix}_notes" `
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation"
 
 Write-Host "  ✓ warehouselocation controls: name, capacity, address, isactive, notes" -ForegroundColor Green
 
 # --- Warehouse Item controls ---
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Text" `
-    --RowIndex "1" `
-    --AttributeLogicalName "${PublisherPrefix}_name" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=Text" `
+    --param "RowIndex=1" `
+    --param "AttributeLogicalName=${PublisherPrefix}_name" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Text" `
-    --RowIndex "2" `
-    --AttributeLogicalName "${PublisherPrefix}_sku" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=Text" `
+    --param "RowIndex=2" `
+    --param "AttributeLogicalName=${PublisherPrefix}_sku" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "WholeNumber" `
-    --RowIndex "3" `
-    --AttributeLogicalName "${PublisherPrefix}_availablequantity" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=WholeNumber" `
+    --param "RowIndex=3" `
+    --param "AttributeLogicalName=${PublisherPrefix}_availablequantity" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Lookup" `
-    --RowIndex "4" `
-    --AttributeLogicalName "${PublisherPrefix}_locationid" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=Lookup" `
+    --param "RowIndex=4" `
+    --param "AttributeLogicalName=${PublisherPrefix}_locationid" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "MultilineText" `
-    --RowIndex "5" `
-    --AttributeLogicalName "${PublisherPrefix}_description" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=MultilineText" `
+    --param "RowIndex=5" `
+    --param "AttributeLogicalName=${PublisherPrefix}_description" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Currency" `
-    --RowIndex "6" `
-    --AttributeLogicalName "${PublisherPrefix}_unitprice" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=Currency" `
+    --param "RowIndex=6" `
+    --param "AttributeLogicalName=${PublisherPrefix}_unitprice" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Decimal" `
-    --RowIndex "7" `
-    --AttributeLogicalName "${PublisherPrefix}_weight" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=Decimal" `
+    --param "RowIndex=7" `
+    --param "AttributeLogicalName=${PublisherPrefix}_weight" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "OptionSet" `
-    --RowIndex "8" `
-    --AttributeLogicalName "${PublisherPrefix}_category" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=OptionSet" `
+    --param "RowIndex=8" `
+    --param "AttributeLogicalName=${PublisherPrefix}_category" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "OptionSet" `
-    --RowIndex "9" `
-    --AttributeLogicalName "${PublisherPrefix}_isperishable" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=OptionSet" `
+    --param "RowIndex=9" `
+    --param "AttributeLogicalName=${PublisherPrefix}_isperishable" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "DateTime" `
-    --RowIndex "10" `
-    --AttributeLogicalName "${PublisherPrefix}_expirationdate" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=DateTime" `
+    --param "RowIndex=10" `
+    --param "AttributeLogicalName=${PublisherPrefix}_expirationdate" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Text" `
-    --RowIndex "11" `
-    --AttributeLogicalName "${PublisherPrefix}_barcode" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=Text" `
+    --param "RowIndex=11" `
+    --param "AttributeLogicalName=${PublisherPrefix}_barcode" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "WholeNumber" `
-    --RowIndex "12" `
-    --AttributeLogicalName "${PublisherPrefix}_reorderpoint" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "ControlType=WholeNumber" `
+    --param "RowIndex=12" `
+    --param "AttributeLogicalName=${PublisherPrefix}_reorderpoint" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem"
 
 Write-Host "  ✓ warehouseitem controls: name, sku, availablequantity, locationid, description, unitprice, weight, category, isperishable, expirationdate, barcode, reorderpoint" -ForegroundColor Green
 
 # --- Warehouse Transaction controls ---
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Text" `
-    --RowIndex "1" `
-    --AttributeLogicalName "${PublisherPrefix}_name" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=Text" `
+    --param "RowIndex=1" `
+    --param "AttributeLogicalName=${PublisherPrefix}_name" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Lookup" `
-    --RowIndex "2" `
-    --AttributeLogicalName "${PublisherPrefix}_itemid" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=Lookup" `
+    --param "RowIndex=2" `
+    --param "AttributeLogicalName=${PublisherPrefix}_itemid" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "WholeNumber" `
-    --RowIndex "3" `
-    --AttributeLogicalName "${PublisherPrefix}_quantity" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=WholeNumber" `
+    --param "RowIndex=3" `
+    --param "AttributeLogicalName=${PublisherPrefix}_quantity" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "OptionSet" `
-    --RowIndex "4" `
-    --AttributeLogicalName "${PublisherPrefix}_transactiontype" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=OptionSet" `
+    --param "RowIndex=4" `
+    --param "AttributeLogicalName=${PublisherPrefix}_transactiontype" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "DateTime" `
-    --RowIndex "5" `
-    --AttributeLogicalName "${PublisherPrefix}_transactiondate" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=DateTime" `
+    --param "RowIndex=5" `
+    --param "AttributeLogicalName=${PublisherPrefix}_transactiondate" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "MultilineText" `
-    --RowIndex "6" `
-    --AttributeLogicalName "${PublisherPrefix}_notes" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=MultilineText" `
+    --param "RowIndex=6" `
+    --param "AttributeLogicalName=${PublisherPrefix}_notes" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Currency" `
-    --RowIndex "7" `
-    --AttributeLogicalName "${PublisherPrefix}_totalvalue" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=Currency" `
+    --param "RowIndex=7" `
+    --param "AttributeLogicalName=${PublisherPrefix}_totalvalue" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "OptionSet" `
-    --RowIndex "8" `
-    --AttributeLogicalName "${PublisherPrefix}_isprocessed" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=OptionSet" `
+    --param "RowIndex=8" `
+    --param "AttributeLogicalName=${PublisherPrefix}_isprocessed" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Text" `
-    --RowIndex "9" `
-    --AttributeLogicalName "${PublisherPrefix}_processedby" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=Text" `
+    --param "RowIndex=9" `
+    --param "AttributeLogicalName=${PublisherPrefix}_processedby" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
-dotnet new pp-form-control `
+txc workspace component create pp-form-control `
     --output "src/Solutions.UI" `
-    --ControlType "Text" `
-    --RowIndex "10" `
-    --AttributeLogicalName "${PublisherPrefix}_referencenumber" `
-    --FormType "main" `
-    --FormId $warehousetransactionFormGuid `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --allow-scripts yes
+    --param "ControlType=Text" `
+    --param "RowIndex=10" `
+    --param "AttributeLogicalName=${PublisherPrefix}_referencenumber" `
+    --param "FormType=main" `
+    --param "FormId=$warehousetransactionFormGuid" `
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction"
 
 Write-Host "  ✓ warehousetransaction controls: name, itemid, quantity, transactiontype, transactiondate, notes, totalvalue, isprocessed, processedby, referencenumber" -ForegroundColor Green

@@ -52,12 +52,11 @@ function Add-ViewColumns {
     $xml.Save($viewFile.FullName)
 }
 
-dotnet new pp-entity-view `
+txc workspace component create pp-entity-view `
     --output "src/Solutions.UI" `
-    --EntitySchemaName "${PublisherPrefix}_warehouselocation" `
-    --DisplayName "Active Warehouse Locations" `
-    --PublisherPrefix $PublisherPrefix `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouselocation" `
+    --param "DisplayName=Active Warehouse Locations" `
+    --param "PublisherPrefix=$PublisherPrefix"
 
 Add-ViewColumns `
     -EntityLogicalName "${PublisherPrefix}_warehouselocation" `
@@ -66,12 +65,11 @@ Add-ViewColumns `
 
 Write-Host "  ✓ View: Active Warehouse Locations (with columns)" -ForegroundColor Green
 
-dotnet new pp-entity-view `
+txc workspace component create pp-entity-view `
     --output "src/Solutions.UI" `
-    --EntitySchemaName "${PublisherPrefix}_warehouseitem" `
-    --DisplayName "Active Warehouse Items" `
-    --PublisherPrefix $PublisherPrefix `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehouseitem" `
+    --param "DisplayName=Active Warehouse Items" `
+    --param "PublisherPrefix=$PublisherPrefix"
 
 Add-ViewColumns `
     -EntityLogicalName "${PublisherPrefix}_warehouseitem" `
@@ -80,12 +78,11 @@ Add-ViewColumns `
 
 Write-Host "  ✓ View: Active Warehouse Items (with columns)" -ForegroundColor Green
 
-dotnet new pp-entity-view `
+txc workspace component create pp-entity-view `
     --output "src/Solutions.UI" `
-    --EntitySchemaName "${PublisherPrefix}_warehousetransaction" `
-    --DisplayName "Active Warehouse Transactions" `
-    --PublisherPrefix $PublisherPrefix `
-    --allow-scripts yes
+    --param "EntitySchemaName=${PublisherPrefix}_warehousetransaction" `
+    --param "DisplayName=Active Warehouse Transactions" `
+    --param "PublisherPrefix=$PublisherPrefix"
 
 Add-ViewColumns `
     -EntityLogicalName "${PublisherPrefix}_warehousetransaction" `
@@ -101,25 +98,23 @@ Write-Host "  ✓ View: Active Warehouse Transactions (with columns)" -Foregroun
 Write-Host "`n── Subgrids ──" -ForegroundColor Cyan
 
 # Warehouse Location form: subgrid showing related Warehouse Items
-dotnet new pp-form-subgrid `
+txc workspace component create pp-form-subgrid `
     --output "src/Solutions.UI" `
-    --SubgridLabel "Warehouse Items" `
-    --FormType "main" `
-    --FormId $warehouselocationFormGuid `
-    --TargetEntityLogicalName "${PublisherPrefix}_warehouseitem" `
-    --EntityLogicalName "${PublisherPrefix}_warehouselocation" `
-    --allow-scripts yes
+    --param "SubgridLabel=Warehouse Items" `
+    --param "FormType=main" `
+    --param "FormId=$warehouselocationFormGuid" `
+    --param "TargetEntityLogicalName=${PublisherPrefix}_warehouseitem" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehouselocation"
 
 Write-Host "  ✓ Subgrid: warehouselocation → Warehouse Items" -ForegroundColor Green
 
 # Warehouse Item form: subgrid showing related Warehouse Transactions
-dotnet new pp-form-subgrid `
+txc workspace component create pp-form-subgrid `
     --output "src/Solutions.UI" `
-    --SubgridLabel "Warehouse Transactions" `
-    --FormType "main" `
-    --FormId $warehouseitemFormGuid `
-    --TargetEntityLogicalName "${PublisherPrefix}_warehousetransaction" `
-    --EntityLogicalName "${PublisherPrefix}_warehouseitem" `
-    --allow-scripts yes
+    --param "SubgridLabel=Warehouse Transactions" `
+    --param "FormType=main" `
+    --param "FormId=$warehouseitemFormGuid" `
+    --param "TargetEntityLogicalName=${PublisherPrefix}_warehousetransaction" `
+    --param "EntityLogicalName=${PublisherPrefix}_warehouseitem"
 
 Write-Host "  ✓ Subgrid: warehouseitem → Warehouse Transactions" -ForegroundColor Green

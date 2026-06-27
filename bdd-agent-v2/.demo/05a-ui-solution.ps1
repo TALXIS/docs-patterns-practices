@@ -13,11 +13,10 @@
 
 Write-Host "`n── Solutions.UI ──" -ForegroundColor Cyan
 
-dotnet new pp-solution `
+txc workspace component create pp-solution `
     --output "src/Solutions.UI" `
-    --PublisherName $PublisherName `
-    --PublisherPrefix $PublisherPrefix `
-    --allow-scripts yes
+    --param "PublisherName=$PublisherName" `
+    --param "PublisherPrefix=$PublisherPrefix"
 
 Write-Host "  ✓ Solutions.UI" -ForegroundColor Green
 
@@ -34,33 +33,30 @@ Write-Host "  ✓ ProjectReference: UI → Packages.Main" -ForegroundColor Green
 
 Write-Host "`n── Entity References (UI) ──" -ForegroundColor Cyan
 
-dotnet new pp-entity `
+txc workspace component create pp-entity `
     --output "src/Solutions.UI" `
-    --Behavior "Existing" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "warehouselocation" `
-    --DisplayName "Warehouse Location" `
-    --allow-scripts yes
+    --param "Behavior=Existing" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=warehouselocation" `
+    --param "DisplayName=Warehouse Location"
 
 Write-Host "  ✓ Entity ref: Warehouse Location" -ForegroundColor Green
 
-dotnet new pp-entity `
+txc workspace component create pp-entity `
     --output "src/Solutions.UI" `
-    --Behavior "Existing" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "warehouseitem" `
-    --DisplayName "Warehouse Item" `
-    --allow-scripts yes
+    --param "Behavior=Existing" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=warehouseitem" `
+    --param "DisplayName=Warehouse Item"
 
 Write-Host "  ✓ Entity ref: Warehouse Item" -ForegroundColor Green
 
-dotnet new pp-entity `
+txc workspace component create pp-entity `
     --output "src/Solutions.UI" `
-    --Behavior "Existing" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "warehousetransaction" `
-    --DisplayName "Warehouse Transaction" `
-    --allow-scripts yes
+    --param "Behavior=Existing" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=warehousetransaction" `
+    --param "DisplayName=Warehouse Transaction"
 
 Write-Host "  ✓ Entity ref: Warehouse Transaction" -ForegroundColor Green
 
@@ -70,11 +66,10 @@ Write-Host "  ✓ Entity ref: Warehouse Transaction" -ForegroundColor Green
 
 Write-Host "`n── Model-Driven App ──" -ForegroundColor Cyan
 
-dotnet new pp-app-model `
+txc workspace component create pp-app-model `
     --output "src/Solutions.UI" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "warehouseapp" `
-    --allow-scripts yes
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=warehouseapp"
 
 Write-Host "  ✓ App: warehouseapp" -ForegroundColor Green
 
@@ -84,26 +79,23 @@ Write-Host "  ✓ App: warehouseapp" -ForegroundColor Green
 
 Write-Host "`n── App Components ──" -ForegroundColor Cyan
 
-dotnet new pp-app-model-component `
+txc workspace component create pp-app-model-component `
     --output "src/Solutions.UI" `
-    --EntityLogicalName "${PublisherPrefix}_warehouselocation" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "EntityLogicalName=${PublisherPrefix}_warehouselocation" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ App component: warehouselocation" -ForegroundColor Green
 
-dotnet new pp-app-model-component `
+txc workspace component create pp-app-model-component `
     --output "src/Solutions.UI" `
-    --EntityLogicalName "${PublisherPrefix}_warehouseitem" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "EntityLogicalName=${PublisherPrefix}_warehouseitem" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ App component: warehouseitem" -ForegroundColor Green
 
-dotnet new pp-app-model-component `
+txc workspace component create pp-app-model-component `
     --output "src/Solutions.UI" `
-    --EntityLogicalName "${PublisherPrefix}_warehousetransaction" `
-    --AppName "${PublisherPrefix}_warehouseapp" `
-    --allow-scripts yes
+    --param "EntityLogicalName=${PublisherPrefix}_warehousetransaction" `
+    --param "AppName=${PublisherPrefix}_warehouseapp"
 
 Write-Host "  ✓ App component: warehousetransaction" -ForegroundColor Green

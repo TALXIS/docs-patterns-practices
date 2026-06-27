@@ -12,11 +12,10 @@
 
 Write-Host "`n── Solutions.DataModel ──" -ForegroundColor Cyan
 
-dotnet new pp-solution `
+txc workspace component create pp-solution `
     --output "src/Solutions.DataModel" `
-    --PublisherName $PublisherName `
-    --PublisherPrefix $PublisherPrefix `
-    --allow-scripts yes
+    --param "PublisherName=$PublisherName" `
+    --param "PublisherPrefix=$PublisherPrefix"
 
 Write-Host "  ✓ Solutions.DataModel" -ForegroundColor Green
 
@@ -34,43 +33,40 @@ Write-Host "  ✓ ProjectReference: DataModel → Packages.Main" -ForegroundColo
 Write-Host "`n── Entities (DataModel) ──" -ForegroundColor Cyan
 
 # Warehouse Location
-dotnet new pp-entity `
+txc workspace component create pp-entity `
     --output "src/Solutions.DataModel" `
-    --EntityType "Standard" `
-    --Behavior "New" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "warehouselocation" `
-    --LogicalNamePlural "warehouselocations" `
-    --DisplayName "Warehouse Location" `
-    --DisplayNamePlural "Warehouse Locations" `
-    --allow-scripts yes
+    --param "EntityType=Standard" `
+    --param "Behavior=New" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=warehouselocation" `
+    --param "LogicalNamePlural=warehouselocations" `
+    --param "DisplayName=Warehouse Location" `
+    --param "DisplayNamePlural=Warehouse Locations"
 
 Write-Host "  ✓ Entity: Warehouse Location" -ForegroundColor Green
 
 # Warehouse Item
-dotnet new pp-entity `
+txc workspace component create pp-entity `
     --output "src/Solutions.DataModel" `
-    --EntityType "Standard" `
-    --Behavior "New" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "warehouseitem" `
-    --LogicalNamePlural "warehouseitems" `
-    --DisplayName "Warehouse Item" `
-    --DisplayNamePlural "Warehouse Items" `
-    --allow-scripts yes
+    --param "EntityType=Standard" `
+    --param "Behavior=New" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=warehouseitem" `
+    --param "LogicalNamePlural=warehouseitems" `
+    --param "DisplayName=Warehouse Item" `
+    --param "DisplayNamePlural=Warehouse Items"
 
 Write-Host "  ✓ Entity: Warehouse Item" -ForegroundColor Green
 
 # Warehouse Transaction
-dotnet new pp-entity `
+txc workspace component create pp-entity `
     --output "src/Solutions.DataModel" `
-    --EntityType "Standard" `
-    --Behavior "New" `
-    --PublisherPrefix $PublisherPrefix `
-    --LogicalName "warehousetransaction" `
-    --LogicalNamePlural "warehousetransactions" `
-    --DisplayName "Warehouse Transaction" `
-    --DisplayNamePlural "Warehouse Transactions" `
-    --allow-scripts yes
+    --param "EntityType=Standard" `
+    --param "Behavior=New" `
+    --param "PublisherPrefix=$PublisherPrefix" `
+    --param "LogicalName=warehousetransaction" `
+    --param "LogicalNamePlural=warehousetransactions" `
+    --param "DisplayName=Warehouse Transaction" `
+    --param "DisplayNamePlural=Warehouse Transactions"
 
 Write-Host "  ✓ Entity: Warehouse Transaction" -ForegroundColor Green

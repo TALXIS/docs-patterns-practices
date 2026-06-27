@@ -4,13 +4,14 @@
     Scaffolds a warehouse management Dataverse demo repository for DynamicsMinds conference.
 
 .DESCRIPTION
-    Creates a complete Dataverse project using TALXIS.DevKit.Templates.Dataverse dotnet new templates.
+    Creates a complete Dataverse project using the TALXIS DevKit CLI (txc) to scaffold components.
     Produces: DataModel solution (3 tables), Security solution (2 roles), UI solution (model-driven app),
     Logic solution (2 plugins), Script Library (TypeScript web resources), ribbon buttons,
     a generative page dashboard (React 17 + Fluent UI V9),
     and a Package Deployer package that deploys them all.
 
-    Uses plain sequential dotnet new commands — same style as the dev-loops VS Code snippets.
+    Uses plain sequential txc workspace component create commands, same style as the dev-loops VS Code snippets.
+    Note: 08-logic-solution.ps1 still uses dotnet new (see the TODO in that file).
 
 .EXAMPLE
     ./scaffold-demo-repo.ps1
