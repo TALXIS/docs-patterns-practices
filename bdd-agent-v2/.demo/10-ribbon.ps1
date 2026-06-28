@@ -66,7 +66,9 @@ txc workspace component create pp-ribbon-button `
     --param "ButtonLabel=Check Stock Levels" `
     --param "PublisherPrefix=$PublisherPrefix" `
     --param "LibraryLogicalName=${PublisherPrefix}_main.js" `
-    --param "FunctionName=WarehouseScripts.RibbonActions.checkStockLevels"
+    --param "FunctionName=WarehouseScripts.RibbonActions.checkStockLevels" `
+    --param "Sequence=31" `
+    --param "TemplateAlias=o1"
 
 Write-Host "  ✓ Ribbon button: Check Stock Levels (warehouseitem form)" -ForegroundColor Green
 
