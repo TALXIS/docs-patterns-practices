@@ -24,8 +24,13 @@ txc workspace component create pp-page-generative `
 
 Write-Host "  ✓ GenPages.Dashboard project created" -ForegroundColor Green
 
-# Read the generated GenPageId from the .csproj
-$csprojPath = "src/GenPages.Dashboard/GenPages.Dashboard.csproj"
+# Find the generated csproj dynamically (template names it after the --param "Name" value)
+$csprojFile = Get-ChildItem "src/GenPages.Dashboard/*.csproj" | Select-Object -First 1
+if (-not $csprojFile) { throw "No .csproj found in src/GenPages.Dashboard — scaffold may have failed" }
+$csprojPath = $csprojFile.FullName
+$csprojRelPath = $csprojFile.Name
+Write-Host "  ℹ GenPages csproj: $csprojRelPath" -ForegroundColor DarkGray
+
 $csprojXml = [xml](Get-Content $csprojPath -Raw)
 $genPageId = $csprojXml.Project.PropertyGroup.GenPageId | Where-Object { $_ }
 Write-Host "  ℹ GenPageId: $genPageId" -ForegroundColor DarkGray
@@ -256,9 +261,8 @@ Write-Host "  ✓ page.tsx customized as warehouse dashboard" -ForegroundColor G
 # ──────────────────────────────────────────────────────────────────────────────────────────
 
 cd src/Solutions.UI
-dotnet add "./Solutions.UI.csproj" reference "../GenPages.Dashboard/GenPages.Dashboard.csproj"
+dotnet add "./Solutions.UI.csproj" reference "../GenPages.Dashboard/$csprojRelPath"
 cd ../..
-
 Write-Host "  ✓ ProjectReference: GenPages.Dashboard → Solutions.UI" -ForegroundColor Green
 
 # ──────────────────────────────────────────────────────────────────────────────────────────

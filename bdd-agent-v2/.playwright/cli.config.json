@@ -1,8 +1,5 @@
 {
   "browser": {
-    "browserName": "chromium",
-    "launchOptions": {
-      "channel": "msedge"
-    }
+    "browserName": "chromium"
   }
 }

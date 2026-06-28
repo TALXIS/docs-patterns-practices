@@ -42,13 +42,15 @@ Remove-Item "src/Tests.UI/Features/Calculator.feature.cs" -ErrorAction SilentlyC
 Write-Host "  ✓ Sample feature: WarehouseItemNavigation.feature" -ForegroundColor Green
 
 # Write a meaningful scenario into the feature file
+# Note: replace the login step value with your actual test user account
+$testUser = if ($env:TXC_TEST_USER) { $env:TXC_TEST_USER } else { "your-user@yourtenant.onmicrosoft.com" }
 $featureContent = @"
 Feature: WarehouseItemNavigation
 
 Scenario: User can open a warehouse item from the main view
-    Given I am logged in as 'admin@yourorg.onmicrosoft.com'
-    And I have opened the 'Warehouse Management' app
-    When I navigate to 'Warehouse Items' in the 'Warehouse' group
+    Given I am logged in as '$testUser'
+    And I open the '${PublisherPrefix}_warehouseapp' app
+    When I click on 'Warehouse Items' in the sitemap
     Then I should see the 'Active Warehouse Items' view
 "@
 
@@ -58,18 +60,31 @@ Write-Host "  ✓ Feature scenario written" -ForegroundColor Green
 # ──────────────────────────────────────────────────────────────────────────────────────────
 #                              Configure appsettings.json
 # ──────────────────────────────────────────────────────────────────────────────────────────
+#
+# All settings can be overridden via environment variables:
+#   TXC_ENVIRONMENT_URL, TXC_APP_NAME, TXC_HEADLESS, TXC_SLOWMO,
+#   TXC_TIMEOUT, TXC_STORAGE_STATE_PATH, TXC_SCREENSHOT_ON_FAILURE, TXC_TRACING_ENABLED
+#
+# To capture auth state for headless runs (Codespaces):
+#   playwright-cli open <env-url> --persistent
+#   playwright-cli state-save src/Tests.UI/auth-state.json
+#   playwright-cli close
+#
 
+$envUrl = if ($env:TXC_ENVIRONMENT_URL) { $env:TXC_ENVIRONMENT_URL } else { "https://yourenv.crm4.dynamics.com" }
 $appSettings = @"
 {
-  "EnvironmentUrl": "https://yourorg.crm4.dynamics.com",
-  "AppName": "Warehouse Management",
-  "Headless": false,
-  "SlowMo": 0,
-  "Timeout": 30000,
-  "StorageStatePath": "",
-  "ScreenshotOnFailure": true,
-  "TracingEnabled": false,
-  "OutputPath": "TestResults"
+  "TestSettings": {
+    "EnvironmentUrl": "$envUrl",
+    "AppName": "Warehouse Management",
+    "Headless": true,
+    "SlowMo": 0,
+    "Timeout": 60000,
+    "StorageStatePath": "auth-state.json",
+    "ScreenshotOnFailure": true,
+    "TracingEnabled": false,
+    "OutputPath": "TestResults"
+  }
 }
 "@
 
@@ -88,10 +103,22 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "  ⚠ Build had issues (exit code: $LASTEXITCODE)" -ForegroundColor Yellow
 }
 
-Write-Host "  → Installing Playwright browsers..." -ForegroundColor White
-pwsh src/Tests.UI/bin/Debug/net8.0/playwright.ps1 install
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "  ✓ Playwright browsers installed" -ForegroundColor Green
+# Detect actual output TFM from build output directory
+$debugDir = "src/Tests.UI/bin/Debug"
+$tfm = if (Test-Path $debugDir) {
+    Get-ChildItem -Path $debugDir -Directory | Select-Object -First 1 -ExpandProperty Name
+} else { "net8.0" }
+
+Write-Host "  → Installing Playwright browsers (TFM: $tfm)..." -ForegroundColor White
+$playwrightScript = "src/Tests.UI/bin/Debug/$tfm/playwright.ps1"
+if (Test-Path $playwrightScript) {
+    pwsh $playwrightScript install chromium
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "  ✓ Playwright browsers installed" -ForegroundColor Green
+    } else {
+        Write-Host "  ⚠ Playwright install had issues (exit code: $LASTEXITCODE)" -ForegroundColor Yellow
+    }
 } else {
-    Write-Host "  ⚠ Playwright install had issues (exit code: $LASTEXITCODE)" -ForegroundColor Yellow
+    Write-Host "  ⚠ playwright.ps1 not found at $playwrightScript — run dotnet build first" -ForegroundColor Yellow
 }
+

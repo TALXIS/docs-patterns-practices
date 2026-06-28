@@ -63,7 +63,11 @@ Add-ViewColumns `
     -PrimaryIdName "${PublisherPrefix}_warehouselocationid" `
     -Columns @("${PublisherPrefix}_address", "${PublisherPrefix}_capacity", "${PublisherPrefix}_isactive")
 
-Write-Host "  ✓ View: Active Warehouse Locations (with columns)" -ForegroundColor Green
+# Capture the generated view GUID (filename without extension, strip braces)
+$warehouselocationViewFile = Get-ChildItem "src/Solutions.UI/Entities/${PublisherPrefix}_warehouselocation/SavedQueries/*.xml" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$warehouselocationViewGuid = $warehouselocationViewFile.BaseName.Trim('{}')
+
+Write-Host "  ✓ View: Active Warehouse Locations (with columns) — GUID: $warehouselocationViewGuid" -ForegroundColor Green
 
 txc workspace component create pp-entity-view `
     --output "src/Solutions.UI" `
@@ -76,7 +80,11 @@ Add-ViewColumns `
     -PrimaryIdName "${PublisherPrefix}_warehouseitemid" `
     -Columns @("${PublisherPrefix}_sku", "${PublisherPrefix}_category", "${PublisherPrefix}_availablequantity", "${PublisherPrefix}_unitprice", "${PublisherPrefix}_locationid")
 
-Write-Host "  ✓ View: Active Warehouse Items (with columns)" -ForegroundColor Green
+# Capture the generated view GUID
+$warehouseitemViewFile = Get-ChildItem "src/Solutions.UI/Entities/${PublisherPrefix}_warehouseitem/SavedQueries/*.xml" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$warehouseitemViewGuid = $warehouseitemViewFile.BaseName.Trim('{}')
+
+Write-Host "  ✓ View: Active Warehouse Items (with columns) — GUID: $warehouseitemViewGuid" -ForegroundColor Green
 
 txc workspace component create pp-entity-view `
     --output "src/Solutions.UI" `
@@ -89,7 +97,11 @@ Add-ViewColumns `
     -PrimaryIdName "${PublisherPrefix}_warehousetransactionid" `
     -Columns @("${PublisherPrefix}_transactiontype", "${PublisherPrefix}_itemid", "${PublisherPrefix}_quantity", "${PublisherPrefix}_transactiondate", "${PublisherPrefix}_totalvalue")
 
-Write-Host "  ✓ View: Active Warehouse Transactions (with columns)" -ForegroundColor Green
+# Capture the generated view GUID
+$warehousetransactionViewFile = Get-ChildItem "src/Solutions.UI/Entities/${PublisherPrefix}_warehousetransaction/SavedQueries/*.xml" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$warehousetransactionViewGuid = $warehousetransactionViewFile.BaseName.Trim('{}')
+
+Write-Host "  ✓ View: Active Warehouse Transactions (with columns) — GUID: $warehousetransactionViewGuid" -ForegroundColor Green
 
 # ──────────────────────────────────────────────────────────────────────────────────────────
 #                                  Subgrids
@@ -104,7 +116,8 @@ txc workspace component create pp-form-subgrid `
     --param "FormType=main" `
     --param "FormId=$warehouselocationFormGuid" `
     --param "TargetEntityLogicalName=${PublisherPrefix}_warehouseitem" `
-    --param "EntityLogicalName=${PublisherPrefix}_warehouselocation"
+    --param "EntityLogicalName=${PublisherPrefix}_warehouselocation" `
+    --param "ViewId=$warehouseitemViewGuid"
 
 Write-Host "  ✓ Subgrid: warehouselocation → Warehouse Items" -ForegroundColor Green
 
@@ -115,6 +128,7 @@ txc workspace component create pp-form-subgrid `
     --param "FormType=main" `
     --param "FormId=$warehouseitemFormGuid" `
     --param "TargetEntityLogicalName=${PublisherPrefix}_warehousetransaction" `
-    --param "EntityLogicalName=${PublisherPrefix}_warehouseitem"
+    --param "EntityLogicalName=${PublisherPrefix}_warehouseitem" `
+    --param "ViewId=$warehousetransactionViewGuid"
 
 Write-Host "  ✓ Subgrid: warehouseitem → Warehouse Transactions" -ForegroundColor Green
