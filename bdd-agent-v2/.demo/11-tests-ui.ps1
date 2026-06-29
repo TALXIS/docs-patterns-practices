@@ -65,13 +65,19 @@ Write-Host "  ✓ Feature scenario written" -ForegroundColor Green
 #   TXC_ENVIRONMENT_URL, TXC_APP_NAME, TXC_HEADLESS, TXC_SLOWMO,
 #   TXC_TIMEOUT, TXC_STORAGE_STATE_PATH, TXC_SCREENSHOT_ON_FAILURE, TXC_TRACING_ENABLED
 #
-# To capture auth state for headless runs (Codespaces):
-#   playwright-cli open <env-url> --persistent
+# To capture auth state for headless runs (Codespaces / CI):
+#   playwright-cli open --browser=msedge --headed <env-url>    # local machine with display
 #   playwright-cli state-save src/Tests.UI/auth-state.json
 #   playwright-cli close
 #
+# NOTE: StorageStatePath must be an absolute path — relative paths resolve
+#       from the test binary output directory (bin/Debug/<tfm>/) and are silently ignored.
+#       Set TXC_STORAGE_STATE_PATH env var at test run time for a portable override.
 
 $envUrl = if ($env:TXC_ENVIRONMENT_URL) { $env:TXC_ENVIRONMENT_URL } else { "https://yourenv.crm4.dynamics.com" }
+# Resolve to absolute path cross-platform (works on Windows, Linux, macOS)
+$authStatePath = [System.IO.Path]::GetFullPath("src/Tests.UI/auth-state.json").Replace('\', '/')
+
 $appSettings = @"
 {
   "TestSettings": {
@@ -80,7 +86,7 @@ $appSettings = @"
     "Headless": true,
     "SlowMo": 0,
     "Timeout": 60000,
-    "StorageStatePath": "auth-state.json",
+    "StorageStatePath": "$authStatePath",
     "ScreenshotOnFailure": true,
     "TracingEnabled": false,
     "OutputPath": "TestResults"
